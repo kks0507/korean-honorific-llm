@@ -60,7 +60,7 @@
         },
         {
           "label": "실험 모델의 세대",
-          "text": "참고문헌 연도 기준으로 KoBERT 2020, KoELECTRA 2020, Ko-GPT-Trinity 2021, Polyglot-Ko 2023, SOLAR 2023, Llama 3 2024, Gemma 3 2025. 모두 로그확률을 직접 뽑을 수 있는 1B 안팎(최대 10.7B)의 공개 가중치 모델이다.",
+          "text": "참고문헌 연도 기준으로 KoBERT 2020, KoELECTRA 2020, Ko-GPT-Trinity 2021, Polyglot-Ko 2023, SOLAR 2023, Llama 3 2024, Gemma 3 2025. 모두 로그확률을 직접 뽑을 수 있는 약 110M~1.3B(SOLAR만 10.7B)의 공개 가중치 모델이다.",
           "src": "p.5 §3.3"
         },
         {
@@ -95,13 +95,13 @@
         },
         {
           "label": "공개 자료 위치",
-          "text": "각주 2: https://github.com/chloedkkwon/honorific-dependency (자극과 코드). 2026-09-19 확인 결과 스크립트 5개와 README만 있고 data/ 폴더·결과 CSV는 올라와 있지 않으며 라이선스 표기가 없다. 자극은 generate_sentences.py를 실행해 재생성한다.",
+          "text": "각주 2: https://github.com/chloedkkwon/honorific-dependency (자극과 코드). 2026-09-19 확인 결과 파이썬 스크립트 5개(generate_sentences, setup_model, process_text, calculate_proba, evaluate)와 requirements.txt, README만 있고 data/ 폴더·결과 CSV는 올라와 있지 않으며(자극 CSV sentences_allExp.csv는 2026-08-04 커밋 c7d0f9b에서 삭제됨) 라이선스 표기가 없다. 자극은 generate_sentences.py를 실행해 재생성한다.",
           "src": "p.3 fn.2"
         }
       ]
     },
     "what": {
-      "headline": "모델이 한국어 주체 높임을 인간처럼, 곧 표면 공기 패턴이 아니라 사회·화용 제약에 따라 처리하는지를 묻고, '불일치 탐지는 되지만 허가 조건은 못 배웠다'는 해리를 보고한다.",
+      "headline": "모델이 한국어 주체 높임을 인간처럼, 곧 표면 공기 패턴이 아니라 사회·화용 제약에 따라 처리하는지를 묻고, '불일치 탐지는 되지만 허가 조건은 온전히 배우지 못했다'는 해리를 보고한다.",
       "items": [
         {
           "label": "연구 질문",
@@ -135,7 +135,7 @@
         },
         {
           "label": "핵심 주장",
-          "text": "모델은 주어·동사 높임 표지 사이의 표면 공기 휴리스틱을 배웠을 뿐, 높임 표지가 지시체의 사회적 지위로 허가된다는 원리를 내면화하지 못했다. 한국어 중심 모델도 마찬가지다.",
+          "text": "모델이 높임 표지가 지시체의 사회적 지위로 허가된다는 원리를 내면화하기보다 주어·동사 높임 표지 사이의 표면 공기 휴리스틱을 배웠음을 결과가 시사한다(suggest)고 해석한다. 한국어 중심 모델도 이 사회·화용 차원을 온전히 습득하지는 못했다(have not fully acquired)고 본다.",
           "src": "p.8 §5.1"
         },
         {
@@ -420,7 +420,7 @@
       {
         "kind": "result",
         "quote": "Most models assigned the highest surprisal to the unacceptable PLAIN-HON condition",
-        "paraphrase_ko": "실험 1에서 Gemma 3을 뺀 대부분의 모델이 비높임 주어 + -si 조건에 가장 높은 surprisal을 주었다. 주어가 -i/ka일 때는 모델이 주어 명사의 지위에 따라 -si 기대를 달리한다는 뜻이기도 하다.",
+        "paraphrase_ko": "실험 1에서 Gemma 3을 뺀 대부분의 모델이 비높임 주어 + -si 조건에 가장 높은 surprisal을 주었다. (카드 해석: 주어가 -i/ka일 때 모델의 -si 기대가 주어 명사에 따라 달라진다는 뜻이지만, 각주 3이 밝히듯 이 비교는 주어 어휘 차이와 교란돼 지위 효과로만 읽을 수 없다.)",
         "numbers": [],
         "src": "p.5 §4.1"
       },
@@ -448,7 +448,7 @@
       {
         "kind": "result",
         "quote": "its incorrect predictions (2%) consistently assigned the highest surprisal to the ALL condition",
-        "paraphrase_ko": "실험 2에서 정확도가 가장 높은 Polyglot-Ko는 오답 2%에서 인간이 가장 선호하는 ALL에 최고 surprisal을 주었다. Gemma 3은 틀릴 때 NONE에, 나머지 모델은 VERB-ONLY에 최고 surprisal을 주었다.",
+        "paraphrase_ko": "실험 2에서 정확도가 가장 높은 Polyglot-Ko는 오답 2%에서 인간이 가장 선호하는 ALL에 최고 surprisal을 주었다. Gemma 3은 틀릴 때 주로(usually) NONE에, 나머지 모델은 VERB-ONLY에 최고 surprisal을 주었다.",
         "numbers": ["2%"],
         "src": "p.6 §4.2"
       },
@@ -476,7 +476,7 @@
       {
         "kind": "result",
         "quote": "all models preferentially predicted the ALL condition as having the lowest surprisal",
-        "paraphrase_ko": "실험 2와 달리 실험 3의 오답 양상은 일관됐다. 모든 모델이 틀릴 때 ALL 조건을 최저 surprisal로 골랐다. '지위와 무관하게 명시적 높임 표지를 선호한다'는 초록 문장의 직접 근거다.",
+        "paraphrase_ko": "실험 2와 달리 실험 3의 오답 양상은 일관됐다. 모든 모델이 틀릴 때 주로(preferentially) ALL 조건을 최저 surprisal로 골랐다. '지위와 무관하게 명시적 높임 표지를 선호한다'는 초록 문장의 직접 근거다.",
         "numbers": [],
         "src": "p.7 §4.3"
       },
@@ -546,7 +546,7 @@
       {
         "kind": "limitation",
         "quote": "the absence of human judgment data for Experiment 3",
-        "paraphrase_ko": "저자가 명시한 유일한 한계. 비높임 주어가 높임 표지를 유발하지 않는다는 것은 문헌상 정설이지만(Kim & Sells, 2007; Choi & Harley, 2019) 경험적 검증이 있으면 결론이 강해질 것이라고 적는다.",
+        "paraphrase_ko": "§5.4 한계 절에 적힌 유일한 항목(각주 3의 어휘 교란, §3.3의 규모 불균형도 저자가 다른 절에서 밝힌 제약이다). 비높임 주어가 높임 표지를 유발하지 않는다는 것은 문헌상 정설이지만(Kim & Sells, 2007; Choi & Harley, 2019) 경험적 검증이 있으면 결론이 강해질 것이라고 적는다.",
         "numbers": [],
         "src": "p.8 §5.4"
       }
@@ -1060,7 +1060,7 @@
       "src": "p.8 §5.4"
     },
     {
-      "text_ko": "실험 1은 조건 간에 주어 명사가 달라 어휘 차이가 교란하므로 정확도를 계산하지 못했다.",
+      "text_ko": "실험 1은 조건 간에 주어 명사가 달라 어휘 차이가 교란하므로 정확도를 계산하지 않았다.",
       "stated_by": "author",
       "src": "p.4 fn.3"
     },
@@ -1150,16 +1150,16 @@
     {
       "id": "P02-H4",
       "hook_ko": "비높임 주어 조건을 포함한 전 조건에 대해 인간 기준선을 같은 과제로 수집한다.",
-      "basis_ko": "저자가 명시한 유일한 한계가 실험 3의 인간 판단 자료 부재다. 실험 1·2의 인간 기준도 Song et al. (2019)의 경향을 수치 없이 빌린 것이어서, 모델-인간 비교는 순위의 방향 일치에 그친다. 인간과 모델에 같은 문장·같은 지시문으로 Likert 평정을 받으면 등급 차이의 크기까지 비교할 수 있다.",
-      "kind": "author_future_work",
+      "basis_ko": "§5.4 한계 절에 적힌 유일한 항목이 실험 3의 인간 판단 자료 부재다. 저자는 이를 후속 과제로 제안하지 않고 경험적 검증이 결론을 강화할 것이라고만 적는다. 실험 1·2의 인간 기준도 Song et al. (2019)의 경향을 수치 없이 빌린 것이어서, 모델-인간 비교는 순위의 방향 일치에 그친다. 인간과 모델에 같은 문장·같은 지시문으로 Likert 평정을 받으면 등급 차이의 크기까지 비교할 수 있다.",
+      "kind": "untested_condition",
       "src": "p.8 §5.4"
     },
     {
       "id": "P02-H5",
-      "hook_ko": "저자가 제안한 화용 요인을 직접 조작한다: (가) 친밀도·레지스터에 따른 높임 대상의 표지 생략, (나) 비높임 지시체에 대한 장난스러운 격상(우리 고양이께서 바쁘시다).",
+      "hook_ko": "저자가 제안한 화용 요인을 직접 조작한다: (가) 화자가 친밀하다고 느끼는 높임 대상에 대한 표지 생략(중립 서술 레지스터는 저자 후속 과제가 아니라 서론이 든 수의성 조건으로, 우리가 덧붙임), (나) 비높임 지시체에 대한 장난스러운 격상(우리 고양이께서 바쁘시다).",
       "basis_ko": "논의 절이 분포 패턴만으로 설명하기 어려운 두 사례로 제시하고 '이런 요인을 직접 조작하는 실험'을 후속 과제로 명시했다. 서론은 수의성이 친밀도와 뉴스 같은 중립 서술 레지스터에서 나타난다고 했지만 자극은 모두 해라체 과거 서술문 한 가지였다. 맥락[격식·거리 / 친밀·중립 서술] × -시-[유/무]의 2×2로 옮기기 쉽고, 이해 문항(화자가 높이는 대상은 누구인가)과도 잘 맞는다.",
       "kind": "author_future_work",
-      "src": "p.8 §5.1"
+      "src": "p.8 §5.1; p.1 §1"
     },
     {
       "id": "P02-H6",
@@ -1206,7 +1206,7 @@
   ],
   "open_materials": [
     {
-      "what": "저자 공개 저장소(각주 2): 자극 생성기 generate_sentences.py(주어·동사 목록과 조건 라벨 포함), 모델 로딩 setup_model.py(체크포인트 ID), surprisal 계산 calculate_proba.py, 평가 evaluate.py, README. 2026-09-19 확인 시 data/ 폴더와 결과 CSV는 없고 라이선스 표기도 없음",
+      "what": "저자 공개 저장소(각주 2): 자극 생성기 generate_sentences.py(주어·동사 목록과 조건 라벨 포함), 모델 로딩 setup_model.py(체크포인트 ID), 토큰화·표적 구간 탐지 process_text.py, surprisal 계산 calculate_proba.py, 평가 evaluate.py, requirements.txt, README. 2026-09-19 확인 시 data/ 폴더와 결과 CSV는 없고 라이선스 표기도 없음",
       "url": "https://github.com/chloedkkwon/honorific-dependency"
     },
     {
@@ -1269,8 +1269,29 @@
     ]
   },
   "verification": {
-    "status": "draft",
-    "by": null,
-    "notes": []
+    "status": "corrected",
+    "by": "P1-11 Opus 검증",
+    "notes": [
+      "w5h1.what.headline: '허가 조건은 못 배웠다' → '허가 조건은 온전히 배우지 못했다' — 원문은 'have not fully acquired'로 부분 부정 (근거 p.1 Abstract, p.8 §5.1)",
+      "w5h1.what.items[6](핵심 주장): 단정형 '휴리스틱을 배웠을 뿐 … 내면화하지 못했다. 한국어 중심 모델도 마찬가지다' → 'suggest'·'not fully' 헤지를 살린 서술 (근거 p.8 §5.1)",
+      "layers.sentence[14].paraphrase_ko: 'Gemma 3은 틀릴 때 NONE에' → '틀릴 때 주로(usually) NONE에' — 원문 'usually' 누락 (근거 p.6 §4.2)",
+      "layers.sentence[18].paraphrase_ko: '모든 모델이 틀릴 때 ALL 조건을 … 골랐다' → '주로(preferentially) ALL 조건을' — 원문 'preferentially' 누락 (근거 p.7 §4.3)",
+      "layers.sentence[28].paraphrase_ko: '저자가 명시한 유일한 한계' → '§5.4 한계 절에 적힌 유일한 항목' — 원문은 'One limitation'이고 저자는 각주 3·§3.3에서도 제약을 밝혀 카드 limitations의 author 항목 4건과 모순 (근거 p.8 §5.4; p.4 fn.3; p.5 §3.3)",
+      "layers.sentence[10].paraphrase_ko: 원문에 없는 추론 '주어 명사의 지위에 따라 -si 기대를 달리한다는 뜻' → '카드 해석'으로 표시하고 각주 3의 어휘 교란 단서 추가 (근거 p.4 fn.3)",
+      "successor_hooks[3](P02-H4).kind: author_future_work → untested_condition — §5.4는 한계로 적고 'empirical validation would strengthen the conclusions'라고만 할 뿐 후속 과제 문장이 없다 (근거 p.8 §5.4)",
+      "successor_hooks[3](P02-H4).basis_ko: '저자가 명시한 유일한 한계' → '§5.4 한계 절에 적힌 유일한 항목 … 후속 과제로 제안하지 않고 경험적 검증이 결론을 강화할 것이라고만 적는다' (근거 p.8 §5.4)",
+      "successor_hooks[4](P02-H5).hook_ko: '(가) 친밀도·레지스터에 따른 표지 생략'을 저자 제안으로 묶음 → 저자 후속 과제는 친밀도(closeness/familiarity)뿐이고 레지스터는 서론의 수의성 조건이라고 구분 (근거 p.8 §5.1; p.1 §1)",
+      "successor_hooks[4](P02-H5).src: 'p.8 §5.1' → 'p.8 §5.1; p.1 §1' — basis가 인용하는 서론의 레지스터 서술 위치 추가 (근거 p.1 §1)",
+      "limitations[1].text_ko: '정확도를 계산하지 못했다' → '계산하지 않았다' — 원문 'accuracy is not calculated'는 교란을 이유로 한 선택 (근거 p.4 fn.3)",
+      "w5h1.when.items[1].text: '1B 안팎(최대 10.7B)' → '약 110M~1.3B(SOLAR만 10.7B)' — 인코더 2종은 ~110M (근거 p.5 §3.3)",
+      "w5h1.where.items[3].text: '스크립트 5개와 README만' → 스크립트 5개 이름과 requirements.txt 추가, 자극 CSV 삭제 커밋(c7d0f9b) 명시 (근거 p.3 fn.2; GitHub API 2026-09-19 확인)",
+      "open_materials[0].what: 저장소 파일 목록에서 빠진 process_text.py·requirements.txt 추가 (근거 p.3 fn.2; GitHub API 2026-09-19 확인)",
+      "확인(정정 없음): 조건 표 Table 1–3의 라벨·순서·수용성 표시(*,?)와 design.conditions·stimulus_examples 20건 일치, 주어 10·동사 10쌍·거리 2·실험별 800문장(p.3-4), 각주 3(실험 1 정확도 미계산 사유)이 sentence[7]·how·paragraph[8]·limitations[1]·prior_analysis_check에 반영됨(p.4 fn.3)",
+      "확인(정정 없음): p.7 'KoELECTRA and decoder-based models, except for SOLAR' = SOLAR·KoBERT 제외 5개 모델 해석이 w5h1.what[5]·sentence[19]·paragraph[12]·H3·prior_analysis_check에서 일관되며 §5.1 'except SOLAR and KoBERT'(p.7)와 Figure 4 판독과도 맞음",
+      "확인(정정 없음): Figure 2b·3b 막대 라벨 28개를 PDF 6·7쪽 400dpi 렌더링으로 전수 재판독해 key_numbers와 모두 일치. Figure 1(HON-PLAIN>HON-HON: Gemma 3·KoELECTRA·Polyglot-Ko·KoGPT 3), Figure 3a·4(SOLAR 주어 영역 약 5.4로 평탄) 관련 us 한계 서술도 그림과 일치",
+      "확인(정정 없음): 주어 명사 20개·동사 10쌍 목록은 GitHub chloedkkwon/honorific-dependency의 generate_sentences.py와 글자 단위로 일치하며, 카드(design.stimuli, H2, H9, why④, limitations[8])에 출처가 논문 본문이 아닌 공개 저장소로 표시돼 있음. setup_model.py 체크포인트 7개, 저장소의 noun_only=grammatical False 표기, 라이선스 없음도 확인(2026-09-19)",
+      "확인(정정 없음): DOI 10.18653/v1/2026.scil-main.35 → aclanthology.org/2026.scil-main.35(제목·저자·pp.369–378 일치), BibTeX의 편집자·San Diego, CA·ISBN이 citation과 일치. 원문 (3b) 글로스의 NOM.HON 오기(p.2)와 둘째 저자 소속 오기(p.1)도 원문 그대로 확인",
+      "대조 범위: key_numbers 12건, sentence 18건(result·claim·hypothesis; method·limitation·future_work 11건도 인용 대조), design, hooks 11건, citation, w5h1 사실 항목"
+    ]
   }
 }

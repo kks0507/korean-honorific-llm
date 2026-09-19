@@ -317,7 +317,7 @@
       {
         "kind": "claim",
         "quote": "Korean honorific agreement is processed as syntactic information, akin to other agreement phenomena",
-        "paraphrase_ko": "높임 일치 위반이 영어의 수·인칭, 스페인어의 일치 위반과 마찬가지로 P600을 일으킨다(Kwon & Sturt 2024)는 것을 근거로, 높임 일치가 통사 정보로 처리된다고 본다. 논문 전체의 전제다.",
+        "paraphrase_ko": "높임 일치 위반이 영어의 수·인칭, 스페인어의 일치 위반과 마찬가지로 P600을 일으킨다(Kwon & Sturt 2024)는 것을 근거로, 높임 일치가 통사 정보로 처리된다고 시사한다(원문 'This suggests'). 논문 전체의 전제다.",
         "numbers": ["P600"],
         "src": "p.2 §2"
       },
@@ -464,7 +464,7 @@
       {
         "kind": "claim",
         "quote": "both models remain vulnerable to honorific feature interference",
-        "paraphrase_ko": "미세조정이 KoGPT-2의 전체 정확도와 구조 민감도를 크게 올렸어도 구조적으로 복잡한 NP1-control에서는 두 모델 모두 높임 자질 간섭에 취약하다.",
+        "paraphrase_ko": "미세조정이 KoGPT-2의 전체 정확도와 구조 민감도를 크게 올렸어도 구조적으로 복잡한 NP1-control에서는 두 모델 모두 높임 자질 간섭에 취약하다고 시사한다(원문 'These findings suggest').",
         "numbers": [],
         "src": "p.5 §3.5"
       },
@@ -492,7 +492,7 @@
       {
         "kind": "claim",
         "quote": "attention allocation patterns do not consistently reflect syntactic roles",
-        "paraphrase_ko": "사전학습 상태에서는 분류 정확도가 꽤 높은데도 주의 배분이 통사 역할을 일관되게 반영하지 않는다.",
+        "paraphrase_ko": "사전학습 상태에서는 분류 정확도가 꽤 높은데도 주의 배분이 통사 역할을 일관되게 반영하지 않는다고 시사한다(원문 'These findings suggest').",
         "numbers": [],
         "src": "p.6 §3.5"
       },
@@ -609,7 +609,7 @@
       {
         "section": "2 Subject–Verb Honorific Agreement in Korean ¶1 + 예문 (1)–(3)",
         "move": "background",
-        "summary_ko": "한국어는 교착적 SOV 언어이고 -si-는 주어에 대한 존경을 표시한다. 높일 수 있는 주어에는 -si-가 수의적이고 높일 수 없는 주어에는 비문이다. 이런 위반은 P600을 일으키므로 높임 일치는 다른 일치 현상처럼 통사 정보로 처리된다. 단문 예문 세 개로 예시한다.",
+        "summary_ko": "한국어는 교착적 SOV 언어이고 -si-는 주어에 대한 존경을 표시한다. 높일 수 있는 주어에는 -si-가 수의적이고 높일 수 없는 주어에는 비문이다. 이런 위반은 P600을 일으키므로 높임 일치는 다른 일치 현상처럼 통사 정보로 처리된다고 시사한다(suggests). 단문 예문 세 개로 예시한다.",
         "src": "p.2 §2"
       },
       {
@@ -809,7 +809,7 @@
     ]
   },
   "design": {
-    "phenomenon": "주어–동사 높임 일치(주체 높임 -시-)의 구조적 허가. 표면 어순이 같은 [NP1 NP2 VERB1 VERB2] 복문에서 -시-가 붙은 내포 동사 VERB1의 적법 주어가 NP1(주절 주어)인지 NP2(여격 목적어)인지에 따라 문법성이 갈린다.",
+    "phenomenon": "주어–동사 높임 일치(주체 높임 -시-)의 구조적 허가. 표면 어순이 같은 [NP1 NP2 VERB1 VERB2] 복문에서 -시-가 붙은 내포 동사 VERB1의 적법 주어가 NP1(주절 주어)인지 NP2(직접 또는 간접 목적어 — 원문 'a direct or indirect object'; 도식 (4)와 부록 A 예문은 여격 NP2-에게)인지에 따라 문법성이 갈린다.",
     "stimuli": "저자가 구성한 한국어 복문. 틀은 [NP1-이/가 NP2-에게 (목적어) VERB1(-시- 포함) VERB2]이고 VERB1에는 항상 -시-가 붙는다. 원문이 제시한 예는 영어 풀이 (5)(6)과 부록 A의 한국어 한 문장(꼬마가 선생님에게 문을 닫으시라고 말했다)뿐이다. 제작 절차(템플릿 수, 명사·동사 목록, 어휘 수, 자동 생성 여부)는 원문 미표기. 조건 간 어휘를 일치시켰다고 한다(lexically matched). 통제 유형 비율(약 1:4)은 한국어 자연 분포를 반영했다고 하나 근거 미표기. 단문 (1)–(3)은 설명용이고 자극이 아니다.",
     "conditions": [
       {
@@ -1040,7 +1040,7 @@
       "src": "p.3-4 §3.3; p.4-5 §3.5"
     },
     {
-      "text_ko": "훈련 자료가 NP2-control(적법 주어가 동사에 가까운 NP2) 약 80%로 불균형하다. NP1-control의 두 오류 셀은 방향이 다르지만(NH–H는 비문을 문법적으로, H–NH는 문법적 문장을 비문으로 오판) 둘 다 '동사에 가장 가까운 명사의 자질을 본다'는 휴리스틱 하나로 설명되고, 이 휴리스틱은 훈련 분포에서 80% 맞는다. 저자의 '유인자 간섭' 해석과 '다수 구문에서 배운 최근접 명사 휴리스틱' 해석이 분리되지 않았다.",
+      "text_ko": "훈련 자료가 NP2-control(적법 주어가 동사에 가까운 NP2) 약 80%로 불균형하다. NP1-control의 두 오류 셀은 방향이 다르지만(NH–H는 비문을 문법적으로, H–NH는 문법적 문장을 비문으로 오판) 둘 다 '동사에 가장 가까운 명사의 자질을 본다'는 휴리스틱 하나로 설명되고, 이 휴리스틱은 NP2-control 전부(약 80%)와 NP1-control의 자질 일치 셀(H–H, NH–NH)에서 맞으므로 훈련 분포에서 적어도 80%, NP1-control 셀이 균형이면 약 90%(재계산: (5,304 + 1,336 ÷ 2) ÷ 6,640 = 89.9%) 맞는다. 저자의 '유인자 간섭' 해석과 '다수 구문에서 배운 최근접 명사 휴리스틱' 해석이 분리되지 않았다.",
       "stated_by": "us",
       "src": "p.3 §3.1; p.5 §3.5; p.11 Appendix B"
     },
@@ -1060,7 +1060,7 @@
       "src": "p.3 §3.1; p.9 §4"
     },
     {
-      "text_ko": "정확도가 어떤 표본에서 계산됐는지 불분명하다. 시험 세트가 10%라면 NP1-control 시험 문장은 약 134개(재계산)인데, 후속 Welch t 검정의 자유도(635.37–1089.3)와 부록 B·D의 SE(0.01–0.02)는 그보다 훨씬 큰 표본을 시사한다. Welch t 검정이 어느 epoch 자료인지도 밝히지 않았다. NP1-control 셀이 균형이라면(셀당 334문장 = 1,336 ÷ 4, 재계산) 한 모델·한 epoch의 H–NH 대 H–H 비교는 자유도가 666을 넘을 수 없는데 KoBERT t(1089.3)과 KoGPT-2 t(679.16)이 모두 이를 넘는다. 검정 자료가 Epoch 1과 30을 합친 것이거나 셀이 불균형하다는 뜻이다(우리 추론).",
+      "text_ko": "정확도가 어떤 표본에서 계산됐는지 불분명하다. 시험 세트가 10%라면 NP1-control 시험 문장은 약 134개(재계산)인데, 후속 Welch t 검정의 자유도(635.37–1089.3)와 부록 B·D의 SE(0.01–0.02)는 그보다 훨씬 큰 표본을 시사한다. Welch t 검정이 어느 epoch 자료인지도 밝히지 않았다. NP1-control 셀이 균형이라면(셀당 334문장 = 1,336 ÷ 4, 재계산) 한 모델·한 epoch의 H–NH 대 H–H 비교는 자유도가 666을 넘을 수 없는데 KoBERT t(1089.3)과 KoGPT-2 t(679.16)이 모두 이를 넘는다. 셀 불균형만으로도 설명되지 않는다: Welch 자유도는 n1 + n2 − 2를 넘지 못하므로 KoBERT의 두 비교는 H–NH + H–H ≥ 1,092, NH–H + NH–NH ≥ 1,078문장을 요구하고(재계산) 그 합이 NP1-control 전체 1,336을 넘는다. 반대로 두 epoch를 합친 균형 셀(셀당 668)이라면 Welch 자유도의 하한이 min(n1, n2) − 1 = 667인데 KoGPT-2 NH–H 대 NH–NH의 t(635.37)이 그보다 작다. 네 값을 모두 맞추려면 검정 자료가 둘 이상의 epoch(아마 Epoch 1과 30)를 합친 것이고 셀도 불균형해야 한다(우리 추론, 원문 미표기).",
       "stated_by": "us",
       "src": "p.3 §3.1; p.5 §3.5; p.11-12 Appendix B, D"
     },
@@ -1229,8 +1229,18 @@
     ]
   },
   "verification": {
-    "status": "draft",
-    "by": null,
-    "notes": []
+    "status": "corrected",
+    "by": "P1-11 Opus 검증",
+    "notes": [
+      "design.phenomenon: 'NP2(여격 목적어)' → 'NP2(직접 또는 간접 목적어 — 원문 'a direct or indirect object'; 도식 (4)와 부록 A 예문은 여격 NP2-에게)' — 원문은 NP2 control의 내포 주어를 'a direct or indirect object, NP2'로 정의해 여격에 한정하지 않음. word[4] 정의와도 맞춤 (근거 p.2 §2)",
+      "limitations[7].text_ko: '이 휴리스틱은 훈련 분포에서 80% 맞는다' → '적어도 80%, NP1-control 셀이 균형이면 약 90%(재계산: (5,304 + 1,336 ÷ 2) ÷ 6,640 = 89.9%)' — 최근접 명사 휴리스틱은 NP2-control(5,304/6,640 = 79.9%)뿐 아니라 NP1-control의 H–H·NH–NH 셀(Table 1에서 NP2 자질 = 정답)에서도 맞으므로 80%는 하한임 (근거 p.3 §3.1, Table 1)",
+      "limitations[11].text_ko: '검정 자료가 Epoch 1과 30을 합친 것이거나 셀이 불균형하다는 뜻이다(우리 추론)' → '둘 이상의 epoch를 합친 것이고 셀도 불균형해야 한다(우리 추론, 원문 미표기)' — 재계산: 단일 epoch면 KoBERT t(1089.3)·t(1075.9)가 요구하는 표본 합(≥1,092, ≥1,078)이 NP1-control 1,336을 넘어 셀 불균형으로는 설명 불가, 두 epoch 균형 셀이면 Welch 자유도 하한 667보다 KoGPT-2 t(635.37)이 작음. stated_by 'us' 유지 (근거 p.3 §3.1, p.5 §3.5)",
+      "layers.sentence[3].paraphrase_ko: '통사 정보로 처리된다고 본다' → '통사 정보로 처리된다고 시사한다(원문 'This suggests')' — 결론 세기 정정 (근거 p.2 §2)",
+      "layers.sentence[24].paraphrase_ko: '두 모델 모두 높임 자질 간섭에 취약하다' → '… 취약하다고 시사한다(원문 'These findings suggest')' — 결론 세기 정정 (근거 p.5 §3.5)",
+      "layers.sentence[28].paraphrase_ko: '주의 배분이 통사 역할을 일관되게 반영하지 않는다' → '… 반영하지 않는다고 시사한다(원문 'These findings suggest')' — 결론 세기 정정 (근거 p.6 §3.5)",
+      "layers.paragraph[4].summary_ko: '통사 정보로 처리된다' → '통사 정보로 처리된다고 시사한다(suggests)' — 높임 = 통사적 일치 전제의 근거 문장(p.2 §2 'This suggests that Korean honorific agreement is processed as syntactic information')의 헤지 복원 (근거 p.2 §2)",
+      "확인만 하고 고치지 않은 사용자 지정 항목: ① 서지 — ACL Anthology 페이지(2026-09-19 WebFetch)의 저자 Nayoung Kwon·Seongmin Mun, 2025년 12월, Hanoi, ACL, pp. 26–37, DOI 없음, 편집자 10명이 citation과 일치. 공식 PDF의 HTTP Content-Length 921,399바이트가 보유 PDF와 같음(파일은 받지 않음). ② H/NH 라벨·8셀 문법성은 PDF Table 1 그림과 일치(p.3). ③ 부록 B·D 16셀 값, 부록 C·E 계수, 부록 E 'Epoch:Type' 중복 라벨을 PDF 그림으로 확인(p.11-12). ④ 52.3/52.4 불일치는 key_numbers[13]·[14], sentence[15], limitations[14], prior_analysis_check.discrepancies[1]에 본문 p.4만 52.3이고 부록 B·p.5·p.7은 52.4로 정확히 기록됨. 같은 쪽 92.4/92.5, 76.7/76.8, 89.7/89.8, 81.1/81.2도 맞음. ⑤ Welch 자유도 추론은 limitations[11]에 stated_by 'us'와 '(우리 추론)'으로 표시돼 있음. ⑥ 통사적 일치 전제의 근거 문장 sentence[3]·[4](p.2 §2: P600 = Kwon & Sturt 2024, 주어의 통사적 접근 가능성 = Yoon 2009)와 sentence[33](p.7 §4)의 쪽수가 맞음. ⑦ 부록 A 그림(한글 예문·Stanza 단위·주의 값 16.141/33.287/29.281)과 Figure 1–3 막대 방향이 카드 서술과 일치(p.5-6, p.11). ⑧ OSF API로 프로젝트명·생성일·수정일·최상위 폴더 2개 확인",
+      "대조 범위: key_numbers 51건, sentence 29건(claim 13·result 13·hypothesis 3; 나머지 12건은 인용 쪽만 대조), design, hooks 11건, citation, w5h1 사실 항목"
+    ]
   }
 }
