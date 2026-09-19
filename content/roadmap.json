@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "task": "P7-01 로드맵",
+    "unit": "착수 후 주차(W). 실제 날짜는 IRB 심의 기간에 따라 달라진다."
+  },
+  "phases": [
+    {
+      "id": "R1",
+      "weeks": "W1–W2",
+      "what_ko": "자극 인간 검수 — 국어학 전공자 3인·국어 교사 1인이 E1–E4 자극의 규범 판정과 자연스러움을 검토, `검토 필요` 세트 교체",
+      "who_ko": "연구자 + 검수자 4인",
+      "output": "content/stimuli 확정판",
+      "depends": [
+        "P4-03 규범 검수(LLM)"
+      ]
+    },
+    {
+      "id": "R2",
+      "weeks": "W1–W4",
+      "what_ko": "IRB 심의(최소 위험 설문)",
+      "who_ko": "연구자",
+      "output": "IRB 승인서",
+      "depends": []
+    },
+    {
+      "id": "R3",
+      "weeks": "W3",
+      "what_ko": "모델 파이프라인 구축·소규모 시험 호출(모델별 20회) — 토큰 수 실측, JSON 파싱률, 거부율 확인 후 비용 재계산",
+      "who_ko": "연구자(스크립트)",
+      "output": "실행 스크립트, 로그 스키마",
+      "depends": [
+        "content/models.json"
+      ]
+    },
+    {
+      "id": "R4",
+      "weeks": "W5",
+      "what_ko": "인간 예비 조사 12명 → 천장·바닥 문항 교체, 효과 크기 추정, 검정력 시뮬레이션",
+      "who_ko": "연구자",
+      "output": "예비 자료, 최종 인원",
+      "depends": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "R5",
+      "weeks": "W6",
+      "what_ko": "E4 인간(64명)·모델 실행 → 본실험 판정어 확정",
+      "who_ko": "연구자",
+      "output": "E4 결과, 판정어 결정",
+      "depends": [
+        "R3",
+        "R4"
+      ]
+    },
+    {
+      "id": "R6",
+      "weeks": "W6–W7",
+      "what_ko": "OSF 사전등록(가설·자극·분석 코드·제외 기준·SESOI)",
+      "who_ko": "연구자",
+      "output": "사전등록 링크",
+      "depends": [
+        "R5"
+      ]
+    },
+    {
+      "id": "R7",
+      "weeks": "W7–W9",
+      "what_ko": "E1–E3 인간 본조사와 모델 실행(모델은 같은 주 안에 몰아 실행해 버전 고정)",
+      "who_ko": "연구자",
+      "output": "원자료",
+      "depends": [
+        "R6"
+      ]
+    },
+    {
+      "id": "R8",
+      "weeks": "W10–W11",
+      "what_ko": "분석(사전등록 모형) + E1-X 모델 전용 확장 + 선택: Together 경로 surprisal",
+      "who_ko": "연구자",
+      "output": "분석 보고서",
+      "depends": [
+        "R7"
+      ]
+    },
+    {
+      "id": "R9",
+      "weeks": "W12–W16",
+      "what_ko": "논문 1(방법·핵심 결과) 투고 → 논문 2(국어학 함의) 원고",
+      "who_ko": "연구자·공저자",
+      "output": "원고 2편",
+      "depends": [
+        "R8"
+      ]
+    }
+  ],
+  "model_version_rule_ko": "R3의 시험 호출과 R7의 본실행 사이에 모델 폐기·가격 변경이 있었는지 models.json의 docs URL로 다시 확인한다. Claude Haiku 4.5처럼 폐기 약속일이 가까운 모델은 라인업에서 뺐다."
+}
