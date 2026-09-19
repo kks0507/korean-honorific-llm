@@ -1,0 +1,1276 @@
+{
+  "id": "P02",
+  "role": "core",
+  "short": "Cho & Kwon (2026)",
+  "title": "Can language models process linguistic deference?",
+  "title_ko": "언어 모델은 언어적 존대(deference)를 처리할 수 있는가?",
+  "citation": {
+    "apa": "Cho, Y., & Kwon, C. D. (2026). Can language models process linguistic deference? In R. Voigt, A. Warstadt, N. Feldman, & T. Linzen (Eds.), Proceedings of the Society for Computation in Linguistics 2026 (pp. 369–378). Association for Computational Linguistics. https://doi.org/10.18653/v1/2026.scil-main.35",
+    "year": 2026,
+    "venue": "Proceedings of the Society for Computation in Linguistics (SCiL) 2026",
+    "status": "proceedings",
+    "doi": "10.18653/v1/2026.scil-main.35",
+    "url": "https://aclanthology.org/2026.scil-main.35/",
+    "bib_notes": "PDF 1쪽 하단에는 'Proceedings of the Society for Computation in Linguistics (SCiL) 2026, pages 369–378, July 3-4, 2026 ©2026 Association for Computational Linguistics'만 있고 DOI·편집자·개최지는 없다. DOI·편집자(Voigt, Warstadt, Feldman, Linzen)·개최지(San Diego, CA)·ISBN 979-8-89176-412-5는 ACL Anthology BibTeX(https://aclanthology.org/2026.scil-main.35.bib, 2026-09-19 확인)에서 가져왔다. 둘째 저자 소속은 원문에 'Cornell Univeristy'로 오기돼 있다(p.1). 공개 저장소 README의 인용 예시는 연도 2024·옛 저장소명(politeness-agreement)으로 적혀 있어 서지 정보로 쓰지 않았다."
+  },
+  "one_line": "주어 지위와 높임 표지(-께서·-시-)를 교차한 세 실험에서, 7개 모델은 표지 간 불일치는 잡아내지만 비높임 주어에도 '께서+시' 완전 표지를 선호해 표면 공기 휴리스틱에 의존한다고 주장한다.",
+  "w5h1": {
+    "who": {
+      "headline": "코넬대 Youngdong Cho·Chloe Dokyung Kwon이 공개 가중치 언어모델 7종(인코더 2, 디코더 5; 약 110M~10.7B)을 시험했고, 인간 참여자는 직접 모집하지 않았다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "Youngdong Cho, Chloe Dokyung Kwon (둘 다 Cornell University; 둘째 저자 소속은 원문에 'Univeristy'로 오기).",
+          "src": "p.1"
+        },
+        {
+          "label": "실험 대상 — 인코더 2종",
+          "text": "KoBERT (Kim, 2020)와 KoELECTRA (Park, 2020). 둘 다 약 110M 매개변수. 1B급 한국어 인코더가 공개돼 있지 않아 규모 차이를 감수했다고 밝힌다. 한국어 학습량은 원문 미표기.",
+          "src": "p.5 §3.3"
+        },
+        {
+          "label": "실험 대상 — 한국어 중심 디코더 3종",
+          "text": "Polyglot-Ko (1.3B, 한국어 텍스트 863GB로만 학습), KoGPT 3 (1.2B, SK Telecom의 비공개 한국어 코퍼스; 참고문헌상 Ko-GPT-Trinity 1.2b), SOLAR (10.7B, 한국어·영어 중심 다국어 코퍼스; 더 작은 변형이 없어 혼자 큼). KoGPT 3·SOLAR의 한국어 학습량은 원문 미표기.",
+          "src": "p.5 §3.3"
+        },
+        {
+          "label": "실험 대상 — 다국어 디코더 2종",
+          "text": "Gemma 3 (1B)와 Llama 3 (1B). 한국어가 포함되지만 주 언어가 아닌 대규모 다국어 데이터로 학습. 한국어 비중은 원문 미표기.",
+          "src": "p.5 §3.3"
+        },
+        {
+          "label": "인간 자료",
+          "text": "자체 수집한 인간 판단 자료는 없다. 인간 기준은 Song et al. (2019)의 수용성 판단 경향(높임 주어는 표지가 없어도 수용, '께서만'이 가장 덜 선호)을 문헌에서 빌려 썼고 수치는 제시하지 않는다. 실험 3(비높임 주어)은 인간 판단 자료가 없음을 저자 스스로 한계로 적었다.",
+          "src": "p.2 §2.2; p.8 §5.4"
+        },
+        {
+          "label": "체크포인트(논문 밖 확인)",
+          "text": "본문은 체크포인트 이름을 적지 않는다. 각주 2의 공개 저장소 setup_model.py에는 kykim/bert-kor-base, monologg/koelectra-base-generator, google/gemma-3-1b-it, upstage/SOLAR-10.7B-v1.0, meta-llama/Llama-3.2-1B, EleutherAI/polyglot-ko-1.3b, skt/ko-gpt-trinity-1.2B-v0.5가 적혀 있다(2026-09-19 확인). 본문이 'KoBERT'라 부른 모델이 저장소에서는 bert-kor-base이고, Gemma 3만 지시 조정(-it) 판이라는 점은 본문과 대조가 필요하다.",
+          "src": "p.3 fn.2"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2026년 7월 SCiL 2026 발표 논문이며, 실험 모델은 2020~2025년에 공개된 소형 공개 가중치 모델이다.",
+      "items": [
+        {
+          "label": "발표 시점·게재 상태",
+          "text": "SCiL 2026 학술대회 발표논문집(2026년 7월 3–4일), 369–378쪽. ACL 저작권 표기.",
+          "src": "p.1"
+        },
+        {
+          "label": "실험 모델의 세대",
+          "text": "참고문헌 연도 기준으로 KoBERT 2020, KoELECTRA 2020, Ko-GPT-Trinity 2021, Polyglot-Ko 2023, SOLAR 2023, Llama 3 2024, Gemma 3 2025. 모두 로그확률을 직접 뽑을 수 있는 1B 안팎(최대 10.7B)의 공개 가중치 모델이다.",
+          "src": "p.5 §3.3"
+        },
+        {
+          "label": "결과의 유효 기간",
+          "text": "상용 API로 제공되는 대화형 프런티어 모델은 한 종도 없다. '한국어를 많이 학습해도 사회·화용 제약을 온전히 습득하지 못했다'는 결론은 이 규모·세대의 기반 모델에 한정된 증거다.",
+          "src": "p.8 §5.1"
+        },
+        {
+          "label": "선행 연구의 시간축",
+          "text": "Song et al. (2019, 인간 수용성) → Lee & Wang (2023, 상대 높임·LM) → Noh et al. (2024, -si·한국어 BERT 계열) → 본 논문(2026, -kkeyse 추가·디코더·다국어 확장).",
+          "src": "p.2-3 §2.3"
+        }
+      ]
+    },
+    "where": {
+      "headline": "전산언어학 학회 SCiL의 발표논문집에 실렸고, 자극은 코퍼스가 아니라 저자가 만든 템플릿 문장이며 코드·자극 생성기는 GitHub에 있다.",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "Proceedings of the Society for Computation in Linguistics (SCiL) 2026, pages 369–378. 표적 통사 평가(targeted evaluation)·계산심리언어학 독자층.",
+          "src": "p.1"
+        },
+        {
+          "label": "자극 출처",
+          "text": "코퍼스 추출이 아니라 주어 10 × 동사 10 × 조건 4 × 거리 2를 곱해 만든 템플릿 문장(실험당 800문장).",
+          "src": "p.3-4 §3.1.1"
+        },
+        {
+          "label": "인간 판단 기준의 출처",
+          "text": "Song, Choe & Oh (2019), Language Sciences 75의 높임 불일치 수용성 연구. 비높임 주어에 높임 표지가 붙지 않는다는 점은 Kim & Sells (2007), Choi & Harley (2019)를 근거로 든다.",
+          "src": "p.2 §2.2; p.8 §5.4"
+        },
+        {
+          "label": "공개 자료 위치",
+          "text": "각주 2: https://github.com/chloedkkwon/honorific-dependency (자극과 코드). 2026-09-19 확인 결과 스크립트 5개와 README만 있고 data/ 폴더·결과 CSV는 올라와 있지 않으며 라이선스 표기가 없다. 자극은 generate_sentences.py를 실행해 재생성한다.",
+          "src": "p.3 fn.2"
+        }
+      ]
+    },
+    "what": {
+      "headline": "모델이 한국어 주체 높임을 인간처럼, 곧 표면 공기 패턴이 아니라 사회·화용 제약에 따라 처리하는지를 묻고, '불일치 탐지는 되지만 허가 조건은 못 배웠다'는 해리를 보고한다.",
+      "items": [
+        {
+          "label": "연구 질문",
+          "text": "언어모델이 주체 높임의 사회·화용적 제약을 포착해 인간처럼 처리하는가, 아니면 표면 공기 패턴에만 기대는가.",
+          "src": "p.1 Abstract"
+        },
+        {
+          "label": "설계 논리",
+          "text": "실험 1은 Noh et al. (2024)의 재현(-si × 주어 지위). 실험 2(높임 주어)와 실험 3(비높임 주어)은 -kkeyse와 -si를 모두 넣은 완전 패러다임으로, 모델이 '-kkeyse와 -si의 공기'라는 표면 의존만 아는지, 지시체의 높임 자격까지 부호화하는지를 가르려는 것이다.",
+          "src": "p.3 §3"
+        },
+        {
+          "label": "결과 1 (실험 1)",
+          "text": "Gemma 3을 뺀 대부분의 모델이 비수용 조건 PLAIN-HON(비높임 주어 + -si)에 가장 높은 surprisal을 주었다. Noh et al.과 방향이 같지만 HON-HON과 HON-PLAIN의 상대 순서는 다르게 나왔다고 적는다. FAR가 CLOSE보다 평균 0.49 낮았다.",
+          "src": "p.5-6 §4.1"
+        },
+        {
+          "label": "결과 2 (실험 2, 높임 주어)",
+          "text": "SOLAR를 뺀 모든 모델이 SUBJECT-ONLY(께서 + 평동사)에 가장 높은 surprisal을 주었다. 정확도는 모든 모델이 우연 수준 0.25를 넘었고 Polyglot-Ko가 최고(그림 라벨 0.98), Gemma 3이 그다음이다.",
+          "src": "p.6 §4.2"
+        },
+        {
+          "label": "결과 3 (실험 3, 비높임 주어 — 동사 영역)",
+          "text": "VERB-ONLY·SUBJECT-ONLY는 대체로 높은 surprisal을 받았지만, 주어·동사 모두 높임 표지가 붙은 ALL이 유일한 수용 조건인 NONE과 비슷하거나 더 낮은 surprisal을 받았다. 정확도는 절반 넘는 모델이 0.25 안팎 또는 미만, 최고인 KoGPT 3도 55%였고, 오답은 모든 모델에서 ALL을 최저 surprisal로 고르는 쪽으로 일관됐다.",
+          "src": "p.6-7 §4.3"
+        },
+        {
+          "label": "결과 4 (실험 3 — 주어 영역)",
+          "text": "심사자 지적으로 추가한 분석. KoELECTRA, 그리고 SOLAR를 뺀 디코더 4종(Polyglot-Ko, KoGPT 3, Gemma 3, Llama 3)은 비높임 주어에 -kkeyse가 붙으면 주어 영역 surprisal이 높아져 인간 판단과 맞았다. KoBERT는 ALL과 VERB-ONLY 비교에서 반대 방향이었고, SOLAR는 네 조건이 거의 같았다(Figure 4). 논의 절은 이를 'SOLAR와 KoBERT를 뺀 대부분의 모델'로 요약한다.",
+          "src": "p.7 §4.3"
+        },
+        {
+          "label": "핵심 주장",
+          "text": "모델은 주어·동사 높임 표지 사이의 표면 공기 휴리스틱을 배웠을 뿐, 높임 표지가 지시체의 사회적 지위로 허가된다는 원리를 내면화하지 못했다. 한국어 중심 모델도 마찬가지다.",
+          "src": "p.8 §5.1"
+        },
+        {
+          "label": "부수 결과",
+          "text": "거리: 인코더는 CLOSE에서 더 잘했고 FAR에서는 surprisal이 전반적으로 낮아지면서 정확도도 낮았다. 한국어 중심 대 다국어: 가설과 달리 한국어 중심 학습의 뚜렷한 이점이 없었다(Llama 3이 실험 3 정확도 2위, SOLAR는 크기에도 불구하고 우위 없음).",
+          "src": "p.8 §5.2-5.3"
+        }
+      ]
+    },
+    "how": {
+      "headline": "주어 명사·조사·선어말어미만 바꾼 템플릿 문장에서 동사(및 주어) 영역의 평균 surprisal을 재고, item set 안 순위로 정확도를 매긴 뒤 선형 혼합효과모형으로 분석했다.",
+      "items": [
+        {
+          "label": "자극 설계 — 실험 1",
+          "text": "주어 지위[honorable/plain] × 동사 -si[유/무] = HON-HON, HON-PLAIN, PLAIN-PLAIN, PLAIN-HON(*). 높임 주어 10, 비높임 주어 10, 동사 쌍 10. -kkeyse는 쓰지 않고 주어는 모두 -i/ka.",
+          "src": "p.3 §3.1.1 Table 1"
+        },
+        {
+          "label": "자극 설계 — 실험 2·3",
+          "text": "주격 조사[-i/ka 대 -kkeyse] × 동사 -si[유/무] = NO HONORIFICS, VERB-ONLY, SUBJECT-ONLY, ALL HONORIFICS. 실험 2는 높임 주어 10개(실험 1과 동일), 실험 3은 비높임 주어 10개. 실험 2에서는 SUBJECT-ONLY만 '?'(가장 덜 선호), 실험 3에서는 NO HONORIFICS만 수용이고 나머지 셋은 '*'.",
+          "src": "p.4-5 §3.2.1 Table 2-3"
+        },
+        {
+          "label": "거리 조작",
+          "text": "3어절 부사구(예: 어제 저녁에 혼자서)를 주어와 동사 사이에 넣으면 FAR, 주어 앞에 두면 CLOSE. 실험마다 문장 수가 두 배가 돼 800문장.",
+          "src": "p.3-4 §3.1.1"
+        },
+        {
+          "label": "측정 지표 — surprisal",
+          "text": "Surprisal = −log2 P(token|context). 표적 동사를 이루는 하위 토큰의 음의 로그확률을 평균한 값. 마스크 모델은 표적 동사의 하위 토큰을 하나씩 가려 예측하고, 인과 모델은 선행 토큰 전체를 조건으로 한다. 수용성의 대리 지표로 쓴다.",
+          "src": "p.4 §3.1.2"
+        },
+        {
+          "label": "측정 지표 — 주어 영역",
+          "text": "실험 3에 한해 주어 영역(주어 명사 + -kkeyse) surprisal을 추가로 계산. 모델들이 주어 명사와 -kkeyse를 한 단위로 토큰화했다는 것이 근거.",
+          "src": "p.4 §3.2.2"
+        },
+        {
+          "label": "측정 지표 — 정확도",
+          "text": "실험 2·3만 계산. item set(높임 표지만 다른 네 문장)마다 1점: 실험 2는 SUBJECT-ONLY에 최고 surprisal을 주면, 실험 3은 NONE에 최저 surprisal을 주면 정답. 우연 수준 0.25. 실험 1은 주어 어휘가 달라 조건 비교가 교란되므로 계산하지 않았다.",
+          "src": "p.4-5 §3.2.2"
+        },
+        {
+          "label": "통계 분석",
+          "text": "실험별 선형 혼합효과모형(R, lme4): 종속변수는 표적 동사 surprisal, 무선절편은 item set 번호. AIC로 주 조건 × 거리 × 언어모델의 2·3원 상호작용을 모두 넣은 최대 고정효과 구조를 택했고 emmeans로 요인 내 차이를 봤다.",
+          "src": "p.5 §3.2.2"
+        },
+        {
+          "label": "보고 방식의 특징",
+          "text": "계수·표준오차·검정통계량·p값·효과크기를 담은 표가 본문과 부록 어디에도 없다. 결과는 추정 surprisal 그림(오차 막대 포함)과 정확도 막대 라벨, 그리고 'most models', 'similar or even lower' 같은 서술로만 제시된다.",
+          "src": "p.5-7 §4"
+        }
+      ]
+    },
+    "why": {
+      "headline": "통사 의존은 많이 검증됐지만 화용 제약을 담은 비통사적 의존은 거의 다뤄지지 않았다는 문제의식에서 출발했고, 우리에게는 '표면 공기 대 허가 조건' 가설의 직접적인 선행 증거이자 설계상 빈틈의 목록을 준다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "filler-gap, 주어-동사 일치, 조응사 결속, 통제 구문은 많이 연구됐지만 높임처럼 화용 제약을 부호화하는 비통사적 의존은 관심을 덜 받았다. 높임은 형태통사와 사회·화용 요인이 함께 조건 짓기 때문에 모델이 구조뿐 아니라 사회적 지식을 추적하는지 볼 수 있는 시험대다.",
+          "src": "p.1-2 §1"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "Noh et al. (2024)을 두 방향으로 확장: -kkeyse를 포함한 완전 패러다임, 다국어·디코더 모델 포함. 분포 패턴 학습과 사회적 지식에 근거한 맥락 의존 추론을 구분하는 시험 사례로 한국어 높임을 제시한다.",
+          "src": "p.3 §2.3; p.8 §5.1"
+        },
+        {
+          "label": "저자가 밝힌 한계·후속 과제",
+          "text": "실험 3의 인간 판단 자료가 없다. 후속 과제로는 애완동물을 장난스럽게 높이는 용법, 친밀한 높임 대상에 대한 표지 생략 같은 요인을 직접 조작하는 실험을 제안한다. FAR에서 surprisal과 정확도가 함께 낮아지는 이유는 결론 내리지 못했다.",
+          "src": "p.8 §5.1-5.4"
+        },
+        {
+          "label": "우리가 이어받을 것 ① 가설 틀",
+          "text": "'표면 공기 휴리스틱 대 지시체 지위에 의한 허가'라는 대립 구도가 우리 공통 가설과 그대로 겹친다. 다만 이 논문은 주어 지위를 실험 사이(실험 2 대 3)에 두어 지위 × 표지 상호작용을 한 모형에서 검정하지 않았으므로, 같은 대립을 2×2의 상호작용항으로 옮기는 것이 직접적인 계승이다.",
+          "src": "p.3 §3; p.4 fn.3"
+        },
+        {
+          "label": "우리가 이어받을 것 ② 측정 교체",
+          "text": "핵심 결론이 '동사 영역의 조건부 surprisal'에서 나왔는데, 께서가 이미 나온 뒤에 -si를 기대하는 것은 국소적으로 합리적인 예측이다. 문장 전체에 대한 7점 Likert 수용성 판단으로 바꾸면 '아이께서 편지를 쓰셨다'를 모델이 실제로 수용하는지 직접 물을 수 있다.",
+          "src": "p.6-8 §4.3-5.1"
+        },
+        {
+          "label": "우리가 이어받을 것 ③ 수의성 처리",
+          "text": "높임 주어에 -si가 없는 문장을 비문이 아니라 수용 가능한 문장으로 두고, '*'(비수용)·'?'(가장 덜 선호)·무표(수용)의 세 등급을 쓴 점은 계승한다. 그러나 등급을 인간 수치 없이 순위 정답으로만 채점했으므로, 인간과 모델에 같은 Likert 과제를 주어 등급 차이를 연속 척도로 재는 것이 빈자리다.",
+          "src": "p.2 §2.2; p.5 §3.2.2"
+        },
+        {
+          "label": "우리가 이어받을 것 ④ 주어 명사 통제",
+          "text": "본문은 주어 명사 20개를 나열하지 않고 교수님·아이만 예시한다. 공개 저장소 목록을 보면 '비높임' 범주에 아동(아이·꼬마·초등학생), 손아래 친족(딸·아들·막내·여동생), 또래(친구), 지위 미상 성인(남자·여자)이 섞여 있고, '높임' 범주는 10개 중 6개가 -님 파생어다. 지위 조작과 어휘·형태 단서가 분리되지 않았다.",
+          "src": "p.3 §3.1.1"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "honorable subject / plain subject (HON / PLAIN)",
+        "gloss_ko": "높임 주어 / 비높임(평) 주어",
+        "definition": "정의상으로는 '화자가 높일 만하다고 여기는 개체'가 주어인 경우가 honorable. 조작상으로는 맥락 없이 주어 명사의 어휘 선택만으로 나눈다(높임 10개·비높임 10개, 예시는 kyoswunim '교수님'과 ai '아이').",
+        "note": "정의는 화자 상대적인데 자극에는 화자·관계 정보가 없다. 실험 1 조건 라벨에서 HON/PLAIN은 앞자리가 주어 지위, 뒷자리가 동사의 -si 유무를 뜻해 같은 낱말이 두 층위에 쓰인다. 다른 논문의 '높임 대상/비대상', 'match/mismatch'와 대응시킬 때 주의.",
+        "src": "p.2-3 §2.1, §3.1.1"
+      },
+      {
+        "term": "subject honorifics",
+        "gloss_ko": "주체 높임",
+        "definition": "화자와 문장 주어의 관계를 반영하는 높임. 주어에 -kkeyse(께서), 동사에 -si(시)가 붙는 형태 굴절로 실현된다고 본다.",
+        "note": "상대 높임(addressee honorifics, -yo/-supnita)과 구분해 주체 높임만 다룬다. 자극의 종결형은 모두 평서 과거 -ess-ta(해라체)로 고정돼 상대 높임은 조작되지 않는다. 어휘적 높임(드시다 등)과 간접 높임은 논의하지 않는다.",
+        "src": "p.2 §2.1"
+      },
+      {
+        "term": "deference",
+        "gloss_ko": "존대·공경",
+        "definition": "사회적으로 존중받는 지시체, 전형적으로 사회적 지위가 높은 사람에 대해 표하는 공경. 제목과 서론 첫 문장에서 높임의 기능을 가리키는 말로 쓴다.",
+        "note": "본문에서 politeness는 참고문헌 제목에만 나온다. P01(Lee & Wang)의 'polite'가 상대 높임을 가리키는 것과 달리 여기서 deference는 지시체(주어)를 향한 높임이다. 용어 대조표에서 politeness와 같은 칸에 넣으면 안 된다.",
+        "src": "p.1 §1"
+      },
+      {
+        "term": "optional / optionality",
+        "gloss_ko": "수의성",
+        "definition": "주어가 높임 대상이어도 -si를 생략하거나 주격을 평조사 -i/ka로 실현할 수 있는 성질. 화자가 지시체와 친밀하다고 느끼거나 뉴스 기사 같은 중립적 서술 레지스터에서 나타난다고 설명한다.",
+        "note": "영어 주어-동사 일치의 의무성과 대비하는 핵심 개념. 수의성의 조건(친밀도·레지스터)은 서술만 되고 실험에서 조작되지는 않는다. 자극이 모두 해라체 과거 서술문이어서 생략이 가장 자연스러운 레지스터에 해당한다.",
+        "src": "p.1 §1"
+      },
+      {
+        "term": "acceptable / unacceptable (*) / least favorable (?)",
+        "gloss_ko": "수용 가능 / 비수용 / 가장 덜 선호",
+        "definition": "세 등급 판정. 높임 주어는 표지가 전혀 없어도(3a), -si만 있어도(3b) 수용. -kkeyse만 있는 (3c)는 '가장 덜 선호되지만 여전히 수용'이어서 '?'. 비높임 주어에 높임 표지가 하나라도 붙으면 '*'.",
+        "note": "grammatical/ungrammatical이라는 말은 쓰지 않는다(grammatical은 'grammatical roles'에서 한 번). 생략은 '덜 선호', 과잉 적용은 '비수용'으로 비대칭 처리한 셈이다. 공개 저장소의 코드와 README는 같은 SUBJECT-ONLY 조건을 'ungrammatical'로 표시해 본문과 어긋난다.",
+        "src": "p.2 §2.2"
+      },
+      {
+        "term": "surprisal (as a proxy for acceptability)",
+        "gloss_ko": "놀람도(수용성의 대리 지표)",
+        "definition": "−log2 P(token|context). 표적 영역(동사, 실험 3은 주어 영역도)을 이루는 하위 토큰 값의 평균. 인간 읽기의 처리 난도에 대응하는 계산적 지표라는 Hale (2001), Levy (2008)의 제안을 따른다.",
+        "note": "문장 전체가 아니라 영역 평균이다. 인과 모델에서 동사 surprisal은 앞에 나온 주어(께서 포함)를 조건으로 한 값이어서, 문장 전체의 수용성과 같은 것이 아니다. 단위(bits)는 식으로만 알 수 있고 수치 보고에는 단위가 붙지 않는다.",
+        "src": "p.4 §3.1.2"
+      },
+      {
+        "term": "accuracy",
+        "gloss_ko": "정확도(item set 내 순위 일치)",
+        "definition": "높임 표지만 다른 네 문장(item set) 안에서 모델의 surprisal 순위가 인간 판단과 맞는지를 0/1로 채점해 평균한 값. 실험 2는 SUBJECT-ONLY가 최고 surprisal이면, 실험 3은 NONE이 최저 surprisal이면 정답. 우연 수준 0.25.",
+        "note": "분류 정확도가 아니다. 실험 2에서는 나머지 세 조건의 상대 순서가 채점되지 않는다. 다른 논문의 accuracy(정답 선택률·오류 판단 정확도)와 뜻이 다르므로 그대로 비교할 수 없다.",
+        "src": "p.4-5 §3.2.2"
+      },
+      {
+        "term": "surface heuristics / surface co-occurrence heuristic",
+        "gloss_ko": "표면 휴리스틱 / 표면 공기 휴리스틱",
+        "definition": "주어의 -kkeyse와 동사의 -si가 함께 나타나는 분포 패턴을, 지시체가 높임 대상인지와 무관하게 일반화해 선호하는 것.",
+        "note": "우리 공통 가설의 '표면 공기'와 같은 개념이다. 증거는 실험 3 동사 영역에서 ALL이 NONE과 비슷하거나 낮은 surprisal을 받았다는 점 하나에 주로 기댄다.",
+        "src": "p.8 §5.1"
+      },
+      {
+        "term": "socio-pragmatic constraints / pragmatic appropriateness",
+        "gloss_ko": "사회·화용적 제약 / 화용적 적절성",
+        "definition": "높임 표지는 지시체의 사회적 지위로 허가(licensed)된다는 원리. 저자는 높임의 수용성이 형태통사적 적격성만이 아니라 표지가 허가되는 사회·화용 조건에 대한 일반화된 이해에 달려 있다고 본다.",
+        "note": "appropriateness는 논의에서 한 번만 나오고 측정 개념은 아니다. '허가(license)' 어휘를 쓴다는 점에서 높임을 통사적 일치가 아니라 화용적 허가로 보는 입장이다.",
+        "src": "p.8 §5.1"
+      },
+      {
+        "term": "human-like",
+        "gloss_ko": "인간다운(처리)",
+        "definition": "모델의 조건 간 surprisal 순위가 문헌에 보고된 인간 수용성 판단의 방향과 맞는 것.",
+        "note": "인간 수치와의 상관이나 적합도가 아니라 순위의 방향 일치만 본다. 인간 자료는 Song et al. (2019)에서 빌려 왔고 실험 3은 문헌상의 '정설'에 의존한다.",
+        "src": "p.1 Abstract; p.3 §2.3"
+      },
+      {
+        "term": "systematic dissociation",
+        "gloss_ko": "체계적 해리",
+        "definition": "표면 형태통사 불일치 탐지에는 대체로 성공하지만 높임 사용을 지배하는 화용 제약은 지키지 못한다는 두 능력의 분리.",
+        "note": "초록과 논의 첫 단락에 반복되는 결론 틀. 같은 절에서 surprisal과 정확도 사이의 어긋남에도 dissociation을 써서 두 용법이 있다.",
+        "src": "p.1 Abstract; p.7 §5"
+      },
+      {
+        "term": "NO HONORIFICS / VERB-ONLY / SUBJECT-ONLY / ALL HONORIFICS",
+        "gloss_ko": "무표지 / 동사만 / 주어만 / 전부 표지",
+        "definition": "실험 2·3의 네 조건. 순서대로 -i/ka + 평동사, -i/ka + -si 동사, -kkeyse + 평동사, -kkeyse + -si 동사.",
+        "note": "라벨 표기가 흔들린다: NO HONORIFICS가 측정 절에서는 NONE HONORIFICS, 결과 절에서는 NONE, SUBJECT-ONLY는 SUBJ-ONLY로도 나온다. 그림 축에는 All / Verb only / Subj only / None으로 적혀 있다. 공개 저장소의 라벨은 no_honorific / verb_only / noun_only / all_honorific이다.",
+        "src": "p.4-6 §3.2.1, §4.2"
+      },
+      {
+        "term": "CLOSE / FAR",
+        "gloss_ko": "근거리 / 원거리 조건",
+        "definition": "3어절 부사구가 주어 앞에 오면 CLOSE(주어와 동사구가 인접), 주어와 동사 사이에 오면 FAR.",
+        "note": "거리와 함께 주어의 문장 내 위치도 바뀐다(FAR에서는 주어가 문두). 인과 모델의 주어 영역 surprisal은 문두에서 선행 맥락이 없으므로 거리 효과와 위치 효과가 겹친다.",
+        "src": "p.3 §3.1.1"
+      },
+      {
+        "term": "Korean-focused vs. multilingual models",
+        "gloss_ko": "한국어 중심 모델 대 다국어 모델",
+        "definition": "학습 데이터에서 한국어가 주 언어인가로 나눈 모델 범주. Polyglot-Ko, KoGPT 3, SOLAR, KoBERT, KoELECTRA가 전자, Gemma 3, Llama 3이 후자.",
+        "note": "SOLAR는 '한국어·영어 중심 다국어 코퍼스'로 학습했다고 적으면서 한국어 중심으로 분류한다. 범주 경계가 학습량 수치로 뒷받침되지는 않는다(학습량 수치는 Polyglot-Ko의 863GB뿐).",
+        "src": "p.5 §3.3"
+      },
+      {
+        "term": "full paradigm",
+        "gloss_ko": "완전 패러다임",
+        "definition": "동사의 -si만 보던 선행 연구와 달리 주격 -kkeyse의 유무까지 교차한 네 칸 전체.",
+        "note": "완전하다는 것은 두 형태 표지의 교차에 한정된 말이다. 주어 지위까지 포함한 2×2×2는 실험 2와 3으로 쪼개져 한 분석에 들어가지 않는다.",
+        "src": "p.2 §1"
+      },
+      {
+        "term": "헤지 표현: generally, most models, not fully, suggest, appear to",
+        "gloss_ko": "결론의 세기를 낮추는 표현",
+        "definition": "결과 서술은 'most models', 'generally', 'similar or even lower'로, 해석은 'suggest', 'appear to', 'have not fully acquired'로 수위를 조절한다.",
+        "note": "추론 통계치를 보고하지 않아 모델별 예외(실험 1의 Gemma 3, 실험 2의 SOLAR, 실험 3의 Llama 3)가 서술로만 처리된다. 결론을 인용할 때 '모든 모델이 실패했다'로 강화하면 원문과 어긋난다.",
+        "src": "p.1 Abstract; p.8 §5.1"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "honorific markings in Korean remain optional, even though the subject is an honorable entity",
+        "paraphrase_ko": "영어의 일치가 의무적인 것과 달리 한국어의 높임 표지는 주어가 높임 대상이어도 수의적이다(Noh et al., 2024 인용). -si를 생략할 수 있고 주격도 평조사로 실현될 수 있다.",
+        "numbers": [],
+        "src": "p.1 §1"
+      },
+      {
+        "kind": "claim",
+        "quote": "the least favorable but still considered acceptable",
+        "paraphrase_ko": "높임 주어에 -kkeyse만 있고 -si가 없는 (3c)는 가장 덜 선호되지만 여전히 수용 가능하다. 저자는 이를 '?'로 표시하고 모어 화자가 높임 표지에 상당한 유연성을 보인다는 증거로 읽는다.",
+        "numbers": [],
+        "src": "p.2 §2.2"
+      },
+      {
+        "kind": "method",
+        "quote": "to distinguish whether models are sensitive to surface dependency alone",
+        "paraphrase_ko": "실험 2는 높임 주어, 실험 3은 비높임 주어로 같은 네 조건을 돌려, 모델이 -kkeyse와 -si의 공기라는 표면 의존에만 민감한지, 지시체의 높임 자격이라는 화용 제약까지 부호화하는지를 가르려 한다.",
+        "numbers": [],
+        "src": "p.3 §3"
+      },
+      {
+        "kind": "method",
+        "quote": "We used 10 honorable subjects, 10 plain subjects, and 10 verb pairs",
+        "paraphrase_ko": "높임 주어 10개, 비높임 주어 10개, -si 유무로 짝지은 동사 10쌍을 썼다. 명사와 동사 목록은 본문에 실려 있지 않다. 거리 조작까지 곱해 실험 1은 800문장이다.",
+        "numbers": ["10", "800"],
+        "src": "p.3 §3.1.1"
+      },
+      {
+        "kind": "method",
+        "quote": "surprisal values were calculated by averaging across all tokens comprising the verb",
+        "paraphrase_ko": "주어-동사 높임 의존의 결정적 영역이 동사라는 이유로 surprisal을 동사에서 재고, 동사를 이루는 모든 하위 토큰의 값을 평균했다.",
+        "numbers": [],
+        "src": "p.4 §3.1.2"
+      },
+      {
+        "kind": "method",
+        "quote": "In this case, NO HONORIFICS is the only acceptable condition",
+        "paraphrase_ko": "비높임 주어를 쓴 실험 3에서는 높임 표지가 전혀 없는 조건만 수용 가능하다고 전제한다. 이 전제가 실험 3 정확도의 정답 기준이 된다.",
+        "numbers": [],
+        "src": "p.4 §3.2.1"
+      },
+      {
+        "kind": "method",
+        "quote": "models consistently tokenized the subject noun and -kkeyse as a single unit",
+        "paraphrase_ko": "심사자의 지적을 받아 실험 3에 주어 영역(주어 명사 + -kkeyse) surprisal을 추가했다. 모델들이 명사와 -kkeyse를 한 단위로 토큰화했다는 점을 근거로 둘을 묶어 한 영역으로 잡았다.",
+        "numbers": [],
+        "src": "p.4 §3.2.2"
+      },
+      {
+        "kind": "limitation",
+        "quote": "the comparison between conditions is confounded by lexical differences between plain and honorable subjects",
+        "paraphrase_ko": "실험 1은 조건 간에 주어 명사 자체가 달라(아이 대 교수님) 어휘 차이가 교란하므로 정확도를 계산하지 않았다. 주어 지위 조작이 어휘 조작과 분리되지 않음을 저자도 인정한 대목이다.",
+        "numbers": [],
+        "src": "p.4 fn.3"
+      },
+      {
+        "kind": "method",
+        "quote": "item set number as a random intercept",
+        "paraphrase_ko": "실험마다 표적 동사 surprisal을 종속변수, item set 번호를 무선절편으로 둔 선형 혼합효과모형을 적합했다. AIC 기준으로 주 조건·거리·언어모델의 2·3원 상호작용을 모두 포함한 고정효과 구조를 골랐다.",
+        "numbers": [],
+        "src": "p.5 §3.2.2"
+      },
+      {
+        "kind": "method",
+        "quote": "We tested seven language models: two encoder-based and five decoder-based",
+        "paraphrase_ko": "인코더 2종(KoBERT, KoELECTRA; 약 110M)과 디코더 5종(Polyglot-Ko 1.3B, KoGPT 3 1.2B, SOLAR 10.7B, Gemma 3 1B, Llama 3 1B)을 시험했다. 한국어 학습량이 수치로 제시된 것은 Polyglot-Ko의 863GB뿐이다.",
+        "numbers": ["~110M", "1.3B", "863GB", "1.2B", "10.7B", "1B"],
+        "src": "p.5 §3.3"
+      },
+      {
+        "kind": "result",
+        "quote": "Most models assigned the highest surprisal to the unacceptable PLAIN-HON condition",
+        "paraphrase_ko": "실험 1에서 Gemma 3을 뺀 대부분의 모델이 비높임 주어 + -si 조건에 가장 높은 surprisal을 주었다. 주어가 -i/ka일 때는 모델이 주어 명사의 지위에 따라 -si 기대를 달리한다는 뜻이기도 하다.",
+        "numbers": [],
+        "src": "p.5 §4.1"
+      },
+      {
+        "kind": "result",
+        "quote": "the FAR condition showed slightly lower surprisal than the CLOSE condition for all models",
+        "paraphrase_ko": "실험 1에서 모든 모델이 FAR 조건에서 CLOSE보다 약간 낮은 surprisal을 보였다(평균 차이 0.49, 단위 미표기).",
+        "numbers": ["0.49"],
+        "src": "p.6 §4.1"
+      },
+      {
+        "kind": "result",
+        "quote": "exhibited the highest surprisal in the SUBJECT-ONLY condition",
+        "paraphrase_ko": "실험 2에서 SOLAR를 뺀 모든 모델이 높임 주어 + -kkeyse + 평동사 조건에 가장 높은 surprisal을 주어, 인간이 가장 덜 선호한다는 Song et al. (2019)의 판단과 방향이 맞았다.",
+        "numbers": [],
+        "src": "p.6 §4.2"
+      },
+      {
+        "kind": "result",
+        "quote": "all models achieve beyond chance level accuracy (0.25)",
+        "paraphrase_ko": "실험 2 정확도는 모든 모델이 우연 수준 0.25를 넘었다. 조건 평균 surprisal과 item set 단위 정확도는 계산 단위가 달라 서로 어긋날 수 있다고 덧붙인다(KoELECTRA 사례).",
+        "numbers": ["0.25"],
+        "src": "p.6 §4.2"
+      },
+      {
+        "kind": "result",
+        "quote": "its incorrect predictions (2%) consistently assigned the highest surprisal to the ALL condition",
+        "paraphrase_ko": "실험 2에서 정확도가 가장 높은 Polyglot-Ko는 오답 2%에서 인간이 가장 선호하는 ALL에 최고 surprisal을 주었다. Gemma 3은 틀릴 때 NONE에, 나머지 모델은 VERB-ONLY에 최고 surprisal을 주었다.",
+        "numbers": ["2%"],
+        "src": "p.6 §4.2"
+      },
+      {
+        "kind": "result",
+        "quote": "yielded similar or even lower surprisal than the NONE condition in all models",
+        "paraphrase_ko": "실험 3 동사 영역에서 주어·동사 모두에 높임 표지가 붙은 ALL 조건이, 모어 화자에게 유일한 수용 조건인 NONE과 비슷하거나 더 낮은 surprisal을 모든 모델에서 받았다. 수치는 그림으로만 제시되고 검정 통계치는 없다.",
+        "numbers": [],
+        "src": "p.6 §4.3"
+      },
+      {
+        "kind": "result",
+        "quote": "More than half of the models achieve around or below the chance level accuracy",
+        "paraphrase_ko": "실험 3 정확도는 실험 2보다 전반적으로 낮고, 절반 넘는 모델이 우연 수준 0.25 안팎 또는 그 아래였다.",
+        "numbers": ["0.25"],
+        "src": "p.7 §4.3"
+      },
+      {
+        "kind": "result",
+        "quote": "lowest surprisal for the NONE condition in 55% of items across distance conditions",
+        "paraphrase_ko": "실험 3에서 가장 잘한 KoGPT 3도 거리 조건을 합쳐 item의 55%에서만 NONE에 최저 surprisal을 주었다.",
+        "numbers": ["55%"],
+        "src": "p.7 §4.3"
+      },
+      {
+        "kind": "result",
+        "quote": "all models preferentially predicted the ALL condition as having the lowest surprisal",
+        "paraphrase_ko": "실험 2와 달리 실험 3의 오답 양상은 일관됐다. 모든 모델이 틀릴 때 ALL 조건을 최저 surprisal로 골랐다. '지위와 무관하게 명시적 높임 표지를 선호한다'는 초록 문장의 직접 근거다.",
+        "numbers": [],
+        "src": "p.7 §4.3"
+      },
+      {
+        "kind": "result",
+        "quote": "exhibited higher surprisals when plain subjects occurred with the honorific nominative marker",
+        "paraphrase_ko": "주어 영역에서는 KoELECTRA, 그리고 SOLAR를 뺀 디코더 모델이 비높임 주어 + -kkeyse에 더 높은 surprisal을 주어 인간 판단과 맞았다(ALL > VERB-ONLY, SUBJECT-ONLY > NONE). 원문 주어는 'KoELECTRA and decoder-based models, except for SOLAR'이며, 곧 SOLAR·KoBERT를 뺀 5개 모델이다(§5.1과 일치). KoBERT는 ALL 대 VERB-ONLY에서 반대였다.",
+        "numbers": [],
+        "src": "p.7 §4.3"
+      },
+      {
+        "kind": "result",
+        "quote": "models except Llama 3 incorrectly assigned the lowest surprisal to the verb",
+        "paraphrase_ko": "논의 절의 요약: Llama 3을 뺀 모델들이 비높임 주어에 -kkeyse와 -si가 모두 붙은 ALL 조건의 동사 영역에 가장 낮은 surprisal을 주었다. 결과 절의 'all models'와 범위가 조금 다르다.",
+        "numbers": [],
+        "src": "p.7 §5.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "models have learned a surface co-occurrence heuristic between subject and verb honorific markers",
+        "paraphrase_ko": "모델은 주어 표지와 동사 표지 사이의 표면 공기 휴리스틱을 배운 것이지, 높임 표지가 지시체의 사회적 지위로 허가된다는 사회·화용 원리를 내면화한 것이 아니라고 해석한다.",
+        "numbers": [],
+        "src": "p.8 §5.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "models appear to prioritize surface distributional patterns over pragmatic appropriateness",
+        "paraphrase_ko": "모델은 화용적 적절성보다 표면 분포 패턴을 우선하는 것으로 보이며, 한국어 높임 패턴에 많이 노출된 한국어 중심 모델도 이 사회·화용 차원을 온전히 습득하지 못했다고 결론짓는다.",
+        "numbers": [],
+        "src": "p.8 §5.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "honorific marking can occasionally be used with non-honorable referents such as pets",
+        "paraphrase_ko": "분포 패턴만으로 설명하기 어려운 두 사례를 든다. 첫째 화자가 애완동물을 장난스럽게 높이는 용법(우리 고양이께서 바쁘시다), 둘째 본래 높임 대상인데도 친밀하다고 느껴 표지를 아예 쓰지 않는 경우.",
+        "numbers": [],
+        "src": "p.8 §5.1"
+      },
+      {
+        "kind": "future_work",
+        "quote": "Future work should construct experiments that directly manipulate such factors",
+        "paraphrase_ko": "장난스러운 격상이나 친밀도에 따른 생략 같은 요인을 직접 조작하는 실험을 만들어야 모델이 더 깊은 화용 지식을 포착하는지 탐침할 수 있다고 제안한다.",
+        "numbers": [],
+        "src": "p.8 §5.1"
+      },
+      {
+        "kind": "result",
+        "quote": "models generally showed lower surprisal in the FAR condition despite lower accuracy",
+        "paraphrase_ko": "FAR 조건에서는 surprisal이 전반적으로 낮은데 정확도도 낮아 두 지표가 해리된다. 개입 요소가 국소 맥락을 희석해 조건 간 surprisal 차이가 덜 극단적이 됐을 가능성을 제시한다.",
+        "numbers": [],
+        "src": "p.8 §5.2"
+      },
+      {
+        "kind": "limitation",
+        "quote": "we could not conclude from the current data that the two patterns are directly related",
+        "paraphrase_ko": "FAR에서의 낮은 surprisal과 낮은 정확도가 서로 직접 관련되는지는 현재 자료로 결론 내릴 수 없다고 인정한다.",
+        "numbers": [],
+        "src": "p.8 §5.2"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "Contrary to our hypothesis that Korean-focused models would consistently outperform multilingual models",
+        "paraphrase_ko": "한국어 중심 모델이 다국어 모델을 일관되게 앞설 것이라는 가설을 세웠으나 결과는 뚜렷한 이점을 보여 주지 않았다. 이 가설은 방법 절이 아니라 논의 절에서 처음 명시된다.",
+        "numbers": [],
+        "src": "p.8 §5.3"
+      },
+      {
+        "kind": "limitation",
+        "quote": "the absence of human judgment data for Experiment 3",
+        "paraphrase_ko": "저자가 명시한 유일한 한계. 비높임 주어가 높임 표지를 유발하지 않는다는 것은 문헌상 정설이지만(Kim & Sells, 2007; Choi & Harley, 2019) 경험적 검증이 있으면 결론이 강해질 것이라고 적는다.",
+        "numbers": [],
+        "src": "p.8 §5.4"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "Abstract",
+        "move": "claim",
+        "summary_ko": "높임의 정의 → 한국어 주체 높임 대상 선정 → 모델이 사회·화용 제약을 포착하는지 표면 공기에 기대는지라는 질문 → '불일치 탐지는 성공, 지위와 무관한 명시적 표지 선호'라는 해리 → 한국어를 많이 학습해도 제약을 온전히 습득하지 못했다는 결론.",
+        "src": "p.1 Abstract"
+      },
+      {
+        "section": "1 Introduction (첫 세 단락)",
+        "move": "background",
+        "summary_ko": "높임은 사회적으로 존중받는 지시체에 대한 공경을 전하는 형식이다. 예문 (1)로 아이-가/교수님-께서 …-시- 대립을 보이고, 주체 높임이 영어 일치와 닮았지만 높임 대상 주어에서도 표지가 수의적이라는 점(친밀도, 뉴스 같은 중립 서술)에서 더 복잡하다고 설명한다.",
+        "src": "p.1 §1"
+      },
+      {
+        "section": "1 Introduction (마지막 단락)",
+        "move": "gap",
+        "summary_ko": "통사 의존(filler-gap, 일치, 결속, 통제)에 대한 LM 평가는 많지만 화용 제약을 부호화하는 비통사적 의존은 덜 다뤄졌다. 높임은 형태통사와 사회·화용이 함께 조건 짓는 시험대다. Noh et al. (2024)을 -kkeyse 포함 완전 패러다임과 다국어·디코더 모델로 확장한다.",
+        "src": "p.1-2 §1"
+      },
+      {
+        "section": "2.1 Korean honorific system",
+        "move": "background",
+        "summary_ko": "상대 높임(화자-청자 관계, -yo/-supnita)과 주체 높임(화자-주어 관계, -kkeyse와 -si)을 구분하고 후자에 집중한다.",
+        "src": "p.2 §2.1"
+      },
+      {
+        "section": "2.2 Subject honorifics: Human judgment",
+        "move": "background",
+        "summary_ko": "예문 (2)로 비높임 주어 '아이'는 어떤 높임 표지와도 양립하지 않음(*)을, 예문 (3)으로 높임 주어 '교수님'은 네 조합이 모두 수용되되 '-kkeyse만'이 가장 덜 선호됨(?)을 제시한다. 근거는 Song et al. (2019)이고 수치는 인용하지 않는다. 이 등급이 이후 정확도 채점의 정답 기준이 된다.",
+        "src": "p.2 §2.2"
+      },
+      {
+        "section": "2.3 Honorifics and language models",
+        "move": "gap",
+        "summary_ko": "기존 연구는 높임 포함 여부가 하위 과제 성능에 미치는 영향(텍스트 유사도, 요청 화행, 요청 표현)에 치우쳐 모델이 높임 체계 자체를 어떻게 처리하는지는 비어 있다. 언어학적 관점의 연구는 Lee & Wang (2023, 상대 높임 실패)과 Noh et al. (2024, 한국어 BERT 계열의 인간다운 민감성) 둘뿐이라고 본다. 확장점 두 가지를 다시 적는다.",
+        "src": "p.2-3 §2.3"
+      },
+      {
+        "section": "3 Methods (도입)",
+        "move": "method",
+        "summary_ko": "세 실험을 점진적으로 쌓는다. 실험 1은 Noh et al.의 설계 재현(-si × 주어 지위, -kkeyse 없음), 실험 2는 높임 주어의 완전 패러다임, 실험 3은 비높임 주어의 완전 패러다임. 이 구성이 표면 의존 민감성과 화용 제약 부호화를 구분하게 해 준다는 설계 논리를 밝힌다. 각주 2에 공개 저장소.",
+        "src": "p.3 §3"
+      },
+      {
+        "section": "3.1 Experiment 1 (Stimuli, Measurement)",
+        "move": "method",
+        "summary_ko": "주어 지위 × 동사 -si의 네 조건(Table 1), 높임·비높임 주어 각 10개와 동사 10쌍, 3어절 부사구 위치로 거리(CLOSE/FAR)를 조작해 800문장. surprisal은 표적 동사의 하위 토큰 평균이며 마스크 모델과 인과 모델의 산출 방식을 따로 설명한다.",
+        "src": "p.3-4 §3.1"
+      },
+      {
+        "section": "3.2 Experiments 2 and 3 (Stimuli, Measurement)",
+        "move": "method",
+        "summary_ko": "-kkeyse를 추가해 네 조건을 만들고 실험 2는 높임 주어, 실험 3은 비높임 주어에 적용(Table 2·3), 각 800문장. 심사자 지적으로 실험 3에 주어 영역 surprisal을 추가. 실험 2·3에만 item set 단위 정확도를 정의하고 실험 1은 어휘 교란 때문에 제외(각주 3). 통계는 실험별 LME(무선절편 item set, 조건 × 거리 × 모델의 전 상호작용)와 emmeans.",
+        "src": "p.4-5 §3.2"
+      },
+      {
+        "section": "3.3 Language models",
+        "move": "method",
+        "summary_ko": "인코더 2종(KoBERT, KoELECTRA; 약 110M)과 디코더 5종을 소개한다. 한국어 중심 3종(Polyglot-Ko 1.3B·863GB, KoGPT 3 1.2B, SOLAR 10.7B)과 다국어 2종(Gemma 3 1B, Llama 3 1B)을 대비하려는 구성이며, 인코더가 작고 SOLAR가 큰 규모 불균형은 공개 모델 부재 탓이라고 밝힌다.",
+        "src": "p.5 §3.3"
+      },
+      {
+        "section": "4.1 Experiment 1",
+        "move": "evidence",
+        "summary_ko": "Gemma 3을 빼면 대부분 PLAIN-HON에 최고 surprisal(Figure 1). Noh et al.과 일치하지만 HON-HON과 HON-PLAIN의 순서에서는 차이가 있다고 적는다. FAR가 CLOSE보다 평균 0.49 낮다.",
+        "src": "p.5-6 §4.1"
+      },
+      {
+        "section": "4.2 Experiment 2",
+        "move": "evidence",
+        "summary_ko": "SOLAR를 뺀 모든 모델이 SUBJECT-ONLY에 최고 surprisal(Figure 2a). 정확도는 모두 0.25 초과, Polyglot-Ko가 최고이고 Gemma 3이 다음(Figure 2b). 오답 양상은 모델마다 다르다(Polyglot-Ko는 ALL, Gemma 3은 NONE, 나머지는 VERB-ONLY). 대부분 CLOSE에서 더 정확하고, FAR에서는 전 실험에 걸쳐 surprisal이 낮다.",
+        "src": "p.6 §4.2"
+      },
+      {
+        "section": "4.3 Experiment 3",
+        "move": "evidence",
+        "summary_ko": "동사 영역에서 VERB-ONLY·SUBJECT-ONLY는 높지만 ALL이 NONE과 비슷하거나 낮다(Figure 3a). 정확도는 실험 2보다 낮고 절반 넘는 모델이 우연 수준 안팎, 최고는 KoGPT 3의 55%이며 오답은 모두 ALL 선호로 일관(Figure 3b). 거리 효과는 인코더(CLOSE 우세)와 디코더(FAR 우세)가 갈린다. 주어 영역에서는 SOLAR·KoBERT를 뺀 5개 모델(KoELECTRA와 디코더 4종)이 -kkeyse 부착에 높은 surprisal을 주었고, KoBERT는 ALL 대 VERB-ONLY에서 반대, SOLAR는 평탄했다(Figure 4).",
+        "src": "p.6-7 §4.3"
+      },
+      {
+        "section": "5 Discussion (도입)",
+        "move": "claim",
+        "summary_ko": "세 실험을 '표면 형태통사 불일치 탐지는 잘하지만 높임 사용을 지배하는 화용 제약은 지키지 못한다'는 체계적 해리로 요약한다.",
+        "src": "p.7 §5"
+      },
+      {
+        "section": "5.1 Surface heuristics vs. socio-pragmatic grounding (첫 단락)",
+        "move": "interpretation",
+        "summary_ko": "실험 1·2의 성공과 실험 3의 실패를 대비한다. 주어 영역에서는 SOLAR·KoBERT를 뺀 모델이 지위-표지 불일치에 어느 정도 민감했지만, 동사 영역에서는 Llama 3을 뺀 모델이 ALL에 최저 surprisal을 주었다. 이를 지시체가 높임 대상인지와 무관하게 -kkeyse와 -si의 공기를 선호하는 표면 휴리스틱으로 해석하고, 한국어 중심 모델도 예외가 아니라고 말한다.",
+        "src": "p.7-8 §5.1"
+      },
+      {
+        "section": "5.1 (둘째 단락)",
+        "move": "future_work",
+        "summary_ko": "LM이 분포 패턴에는 강하지만 사회적 지식에 근거한 맥락 의존 추론에는 약하다는 문헌(Sap et al., 2022)과 연결한다. 분포만으로 설명하기 어려운 두 사례(애완동물에 대한 장난스러운 높임, 친밀한 높임 대상에 대한 표지 생략)를 들고, 이런 요인을 직접 조작하는 후속 실험을 제안한다.",
+        "src": "p.8 §5.1"
+      },
+      {
+        "section": "5.2 Distance sensitivity",
+        "move": "interpretation",
+        "summary_ko": "인코더는 세 실험 모두에서 CLOSE에서 더 잘했고 디코더는 가변적이었다고 요약한다. FAR에서 surprisal이 낮으면서 정확도도 낮은 해리를 '개입 요소가 국소 맥락을 희석해 조건 간 값이 덜 극단적이 된다'는 가능성으로 설명하되 결론은 유보한다.",
+        "src": "p.8 §5.2"
+      },
+      {
+        "section": "5.3 Korean-focused vs. multilingual models",
+        "move": "interpretation",
+        "summary_ko": "한국어 중심 모델이 일관되게 앞설 것이라는 가설과 달리 뚜렷한 이점이 없었다. Llama 3이 실험 3 정확도 2위였고, 가장 큰 SOLAR도 일관된 우위가 없었다. 언어 특화 학습 데이터와 언어 수행의 관계가 선형적이지 않다는 다국어 NLP의 관찰(Conneau et al., 2020)과 연결한다.",
+        "src": "p.8 §5.3"
+      },
+      {
+        "section": "5.4 Limitations",
+        "move": "limitation",
+        "summary_ko": "한계는 한 가지만 적는다. 실험 3의 인간 판단 자료가 없다는 것. 비높임 주어가 높임 표지를 유발하지 않는다는 점은 문헌상 정설이지만 경험적 검증이 결론을 강화할 것이라고 한다. 모델 규모·세대, 자극 어휘, 통계 보고에 대한 한계는 언급되지 않는다.",
+        "src": "p.8 §5.4"
+      },
+      {
+        "section": "References / Appendix A Abbreviations",
+        "move": "background",
+        "summary_ko": "참고문헌 35건 안팎. 한국어 높임 이론은 Kim & Sells (2007, 표현적 의미)와 Choi & Harley (2019)가, 인간 자료는 Song et al. (2019)이, LM 선행은 Lee & Wang (2023)과 Noh et al. (2024)이 담당한다. 부록은 글로스 약어(ACC, DECL, HON, LOC, NOM, NOM.HON, PST)뿐이며 자극 목록이나 통계표는 없다.",
+        "src": "p.8-10"
+      }
+    ],
+    "context": [
+      {
+        "axis": "lineage",
+        "text_ko": "직계는 Song et al. (2019, 인간의 높임 불일치 수용성) → Noh et al. (2024, 한국어 BERT 계열의 -si 불일치 surprisal)이며 실험 1은 후자의 재현이다. 방법론은 Linzen et al. (2016) 이래의 표적 통사 평가와 Hale (2001)·Levy (2008)의 surprisal 이론을 잇는다. Lee & Wang (2023, 우리 P01)은 '상대 높임을 LM이 온전히 포착하지 못한다'는 선행으로, 거리 조작의 근거로도 인용된다.",
+        "related": ["P01", "Noh et al. (2024)", "Song et al. (2019)", "Linzen et al. (2016)"],
+        "src": "p.2-4 §2.3, §3.1"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "높임을 '화용 제약을 부호화하는 비통사적 의존'으로 규정하고, 표지는 지시체의 사회적 지위로 '허가'된다고 말한다. 영어식 agreement라는 말은 한국어 높임에 쓰지 않는다. 곧 통사적 일치가 아니라 화용적 허가 쪽 입장이며, Kim & Sells (2007)의 표현적 의미 분석을 인용한다. 그런데 공개 저장소 README는 같은 현상을 'honorific agreement', 'grammatical/ungrammatical'로 서술해 논문과 코드의 이론 어휘가 다르다.",
+        "related": ["P03", "Kim & Sells (2007)", "Choi & Harley (2019)"],
+        "src": "p.1 §1; p.8 §5.1"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "2020~2025년 공개된 110M~10.7B의 공개 가중치 모델 7종. 대부분 기반(base) 모델이고, 공개 저장소 기준으로 Gemma 3만 지시 조정 판(gemma-3-1b-it)이다. 상용 API 대화형 모델은 없으며 surprisal 측정 자체가 로그확률 접근을 전제한다. 최신 프런티어 모델에 같은 결론이 성립하는지는 열려 있고, 그 검증은 행동 과제(Likert·이해 문항)로만 가능하다.",
+        "related": ["P04", "P05"],
+        "src": "p.5 §3.3"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "P01(Lee & Wang, 2023)과 'LM이 한국어 높임을 온전히 포착하지 못한다'는 큰 결론에서 합의한다. Noh et al. (2024)과는 비높임 주어 + -si에 대한 높은 surprisal에서 합의한다. 또한 표지 간 공기(-kkeyse → -si)는 잘 학습된다는 점은 높임을 통사적 일치로 평가한 연구들의 긍정적 결과와 양립한다.",
+        "related": ["P01", "P03", "Noh et al. (2024)"],
+        "src": "p.3 §2.3; p.5-6 §4.1"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "첫째, Noh et al.과 HON-HON 대 HON-PLAIN의 순서가 다르다고 스스로 밝힌다. 둘째, 높임 주어에 -si가 없는 문장을 '수용 가능'으로 두므로, 같은 문장을 불일치·오류로 채점하는 연구(경어 오류 판단류)와 정답 기준이 충돌할 수 있다. 셋째, '모델은 지위를 무시한다'는 결론은 주어가 -i/ka일 때 모델이 지위에 민감했다는 실험 1·실험 3 VERB-ONLY 결과와 긴장 관계에 있어, 지위 민감성을 긍정적으로 보고하는 논문과 어긋나 보일 수 있다.",
+        "related": ["P03", "P07", "Noh et al. (2024)"],
+        "src": "p.6 §4.1; p.2 §2.2"
+      },
+      {
+        "axis": "field",
+        "text_ko": "SCiL은 계산언어학과 이론·심리언어학의 접점 학회로, 독자는 surprisal 기반 표적 평가에 익숙하다. 10쪽 분량의 발표논문이어서 자극 목록·통계표·모델 체크포인트가 본문에 없고 공개 저장소에 의존한다. 국어학의 경어법 논의(압존법, 간접 높임, 어휘적 높임)는 인용되지 않는다.",
+        "related": ["P01"],
+        "src": "p.1 하단 발표 정보; p.3 각주 2"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "수의성을 이론의 중심에 둔다. 높임 주어에서 표지 생략은 친밀도와 레지스터(뉴스 같은 중립 서술)로 설명되고, 비높임 주어에 대한 표지 부착은 원칙적으로 비수용이지만 장난스러운 격상에서는 가능하다고 본다. 곧 표지의 적절성은 명사의 고정 속성이 아니라 화자의 태도에 달려 있다는 입장인데, 정작 실험은 명사의 고정 속성으로만 지위를 조작했다. 이 간극이 후속 연구의 출발점이다.",
+        "related": ["P05"],
+        "src": "p.1 §1; p.8 §5.1"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "한국어 주체 높임: 주격 조사 -kkeyse(께서)와 선어말어미 -si(시)의 공기, 그리고 두 표지와 주어 지시체의 높임 자격(honorability) 사이의 합치. 상대 높임은 해라체 평서 과거(-었다)로 고정.",
+    "stimuli": "저자 제작 템플릿 문장. 틀은 [부사구 '어제 저녁에 혼자서'] + [주어 명사 + -이/가 또는 -께서] + [목적어] + [동사 ±-시- + -었다]이며, 부사구가 주어 앞이면 CLOSE, 주어와 목적어 사이면 FAR. 본문은 주어 예시로 교수님(kyoswunim)과 아이(ai)만 보이고 명사·동사 목록을 싣지 않는다. 부록 A(p.10)도 글로스 약어표뿐이어서 논문 안에서는 20개 주어 명사를 확인할 수 없다. 공개 저장소 generate_sentences.py(2026-09-19 확인, 논문 본문 아님)의 목록 — 높임 주어 10: 선생님, 교수님, 어머니, 아버지, 할머니, 할아버지, 사장님, 팀장님, 이모님, 손님. 비높임 주어 10: 아이, 꼬마, 남자, 여자, 딸, 아들, 친구, 막내, 초등학생, 여동생. 동사구 10쌍(평/높임): 책을 읽었다/읽으셨다, 파스타를 먹었다/드셨다, 호통을 쳤다/치셨다, 핸드폰을 샀다/사셨다, 편지를 썼다/쓰셨다, 노래를 불렀다/부르셨다, 티비를 봤다/보셨다, 산책을 했다/하셨다, 정원을 가꿨다/가꾸셨다, 빨래를 널었다/널으셨다. 고유명사·학생·엄마는 없다. 높임 주어 10개 중 6개가 -님 파생어이고, 동사 한 쌍(먹었다/드셨다)은 -시- 부착이 아니라 보충법 어휘 높임이며, '널으셨다'는 규범형(너셨다)과 다르다.",
+    "conditions": [
+      {
+        "experiment": "실험 1",
+        "label": "a. HON-HON",
+        "desc_ko": "높임 주어 + -이/가 + -시- 동사",
+        "acceptability": "수용(무표)"
+      },
+      {
+        "experiment": "실험 1",
+        "label": "b. HON-PLAIN",
+        "desc_ko": "높임 주어 + -이/가 + 평동사",
+        "acceptability": "수용(무표)"
+      },
+      {
+        "experiment": "실험 1",
+        "label": "c. PLAIN-PLAIN",
+        "desc_ko": "비높임 주어 + -이/가 + 평동사",
+        "acceptability": "수용(무표)"
+      },
+      {
+        "experiment": "실험 1",
+        "label": "d. PLAIN-HON",
+        "desc_ko": "비높임 주어 + -이/가 + -시- 동사",
+        "acceptability": "* 비수용"
+      },
+      {
+        "experiment": "실험 2 (높임 주어)",
+        "label": "a. NO HONORIFICS",
+        "desc_ko": "높임 주어 + -이/가 + 평동사",
+        "acceptability": "수용(무표)"
+      },
+      {
+        "experiment": "실험 2 (높임 주어)",
+        "label": "b. VERB-ONLY HONORIFICS",
+        "desc_ko": "높임 주어 + -이/가 + -시- 동사",
+        "acceptability": "수용(무표)"
+      },
+      {
+        "experiment": "실험 2 (높임 주어)",
+        "label": "c. SUBJECT-ONLY HONORIFICS",
+        "desc_ko": "높임 주어 + -께서 + 평동사",
+        "acceptability": "? 가장 덜 선호(여전히 수용) — 정확도의 정답 기준: 이 조건이 최고 surprisal"
+      },
+      {
+        "experiment": "실험 2 (높임 주어)",
+        "label": "d. ALL HONORIFICS",
+        "desc_ko": "높임 주어 + -께서 + -시- 동사",
+        "acceptability": "수용(무표), 가장 기대되는 전형 조합"
+      },
+      {
+        "experiment": "실험 3 (비높임 주어)",
+        "label": "a. ALL HONORIFICS",
+        "desc_ko": "비높임 주어 + -께서 + -시- 동사",
+        "acceptability": "* 비수용"
+      },
+      {
+        "experiment": "실험 3 (비높임 주어)",
+        "label": "b. VERB-ONLY",
+        "desc_ko": "비높임 주어 + -이/가 + -시- 동사",
+        "acceptability": "* 비수용"
+      },
+      {
+        "experiment": "실험 3 (비높임 주어)",
+        "label": "c. SUBJECT-ONLY",
+        "desc_ko": "비높임 주어 + -께서 + 평동사",
+        "acceptability": "* 비수용"
+      },
+      {
+        "experiment": "실험 3 (비높임 주어)",
+        "label": "d. NO HONORIFICS (본문에서 NONE으로도 표기)",
+        "desc_ko": "비높임 주어 + -이/가 + 평동사",
+        "acceptability": "수용(유일) — 정확도의 정답 기준: 이 조건이 최저 surprisal"
+      },
+      {
+        "experiment": "전 실험 공통",
+        "label": "CLOSE / FAR",
+        "desc_ko": "3어절 부사구가 주어 앞(CLOSE) 또는 주어와 동사 사이(FAR)",
+        "acceptability": "수용성과 무관한 거리 요인"
+      }
+    ],
+    "n_items": "실험당 800문장 = 4조건 × 주어 10 × 동사 10 × 거리 2. 세 실험 합계 2,400문장(재계산). 실험 2·3의 item set은 주어 × 동사 × 거리 조합으로 실험당 200세트, 거리별 100세트(재계산). 실험 1과 2, 실험 1과 3은 일부 문장이 겹친다(실험 1의 HON 두 조건 = 실험 2의 NONE·VERB-ONLY, 실험 1의 PLAIN 두 조건 = 실험 3의 NONE·VERB-ONLY).",
+    "measures": [
+      "표적 동사 영역 surprisal: −log2 P(token|context), 동사를 이루는 하위 토큰의 평균. 마스크 모델은 표적 하위 토큰을 하나씩 마스킹, 인과 모델은 선행 토큰 전체 조건",
+      "주어 영역 surprisal(실험 3만): 주어 명사 + -kkeyse를 한 단위로 본 영역의 값",
+      "정확도(실험 2·3만): item set 단위 0/1 채점의 평균. 실험 2는 SUBJECT-ONLY가 최고 surprisal이면 정답, 실험 3은 NONE이 최저 surprisal이면 정답. 우연 수준 0.25. 거리 조건별로 보고",
+      "문장 전체 확률·Likert·이해 문항 등 다른 지표는 보고하지 않음"
+    ],
+    "models": [
+      {
+        "name": "KoBERT (Kim, 2020)",
+        "type": "인코더(마스크 LM), 한국어 중심",
+        "params": "~110M",
+        "korean_training": "원문 미표기",
+        "note": "공개 저장소의 체크포인트는 kykim/bert-kor-base로 적혀 있어 본문 명칭과 대조 필요"
+      },
+      {
+        "name": "KoELECTRA (Park, 2020)",
+        "type": "인코더(마스크 LM), 한국어 중심",
+        "params": "~110M",
+        "korean_training": "원문 미표기",
+        "note": "저장소: monologg/koelectra-base-generator"
+      },
+      {
+        "name": "Polyglot-Ko (Ko et al., 2023)",
+        "type": "디코더(인과 LM), 한국어 중심",
+        "params": "1.3B",
+        "korean_training": "한국어 텍스트 863GB로만 학습",
+        "note": "저장소: EleutherAI/polyglot-ko-1.3b"
+      },
+      {
+        "name": "KoGPT 3 (SK Telecom, 2021)",
+        "type": "디코더(인과 LM), 한국어 중심",
+        "params": "1.2B",
+        "korean_training": "비공개 한국어 코퍼스(양 미표기)",
+        "note": "참고문헌 표기는 Ko-GPT-Trinity 1.2b. 저장소: skt/ko-gpt-trinity-1.2B-v0.5"
+      },
+      {
+        "name": "SOLAR (Kim et al., 2023)",
+        "type": "디코더(인과 LM), 저자 분류상 한국어 중심",
+        "params": "10.7B",
+        "korean_training": "한국어·영어 중심 다국어 코퍼스(양 미표기)",
+        "note": "더 작은 변형이 없어 혼자 큼. 저장소: upstage/SOLAR-10.7B-v1.0"
+      },
+      {
+        "name": "Gemma 3 (Gemma Team, 2025)",
+        "type": "디코더(인과 LM), 다국어",
+        "params": "1B",
+        "korean_training": "한국어 포함, 주 언어 아님(양 미표기)",
+        "note": "저장소: google/gemma-3-1b-it (지시 조정 판)"
+      },
+      {
+        "name": "Llama 3 (Grattafiori et al., 2024)",
+        "type": "디코더(인과 LM), 다국어",
+        "params": "1B",
+        "korean_training": "한국어 포함, 주 언어 아님(양 미표기)",
+        "note": "저장소: meta-llama/Llama-3.2-1B"
+      }
+    ],
+    "humans": "자체 인간 참여자 없음(N 해당 없음). 실험 1·2의 인간 기준은 Song et al. (2019)의 수용성 판단 경향을 문헌에서 차용했고 수치·척도는 인용하지 않는다. 실험 3은 인간 판단 자료가 없으며 'Kim & Sells (2007), Choi & Harley (2019)의 정설'에 의존한다(저자 명시 한계).",
+    "stats": "실험별 선형 혼합효과모형(lme4, Bates et al., 2015; R은 R Core Team (2023) 인용뿐이고 버전 원문 미표기). 종속변수 = 표적 동사 surprisal, 무선효과 = item set 번호 무선절편뿐(무선기울기 없음, 주어·동사 교차 무선효과 아님). AIC 모형 선택으로 주 조건(4수준) × 거리(2) × 언어모델(7)의 2·3원 상호작용을 모두 포함한 최대 고정효과 구조 채택. emmeans(Lenth, 2023; 참고문헌상 1.8.9판)로 요인 내 대비. 계수·SE·검정통계량·p값·효과크기는 보고되지 않았고, 그림의 추정값과 오차 막대, 정확도 막대 라벨만 제시된다. 정확도에 대한 추론 통계(우연 수준 대비 검정, 신뢰구간)도 없다. 주어 영역 surprisal에 대한 모형은 기술되지 않았다.",
+    "is_factorial": "부분적으로 요인설계. 실험 1은 2×2(주어 지위[honorable/plain] × 동사 -si[유/무]) × 거리 2. 실험 2·3은 각각 2×2(주격[-i/ka 대 -kkeyse] × 동사 -si[유/무]) × 거리 2의 구조지만, 저자는 이를 4수준 단일 요인 'main condition'으로 모형화했다. 주어 지위는 실험 2(honorable)와 실험 3(plain)으로 나뉘어 있어 지위 × 표지 상호작용은 어떤 모형에서도 검정되지 않는다. 모든 모형에 언어모델 7수준이 고정 요인으로 들어간다."
+  },
+  "stimulus_examples": [
+    {
+      "ko": "아이가 편지를 썼다.",
+      "gloss": "child-NOM letter-ACC write-PST-DECL 'The child wrote a letter.'",
+      "condition": "(1a)=(2a) 비높임 주어, 무표지 — 수용",
+      "src": "p.1 (1a)"
+    },
+    {
+      "ko": "교수님께서 편지를 쓰셨다.",
+      "gloss": "professor-NOM.HON letter-ACC write-HON-PST-DECL 'The professor wrote a letter.'",
+      "condition": "(1b)=(3d) 높임 주어, -kkeyse + -si — 수용, 가장 기대되는 전형 조합",
+      "src": "p.1 (1b)"
+    },
+    {
+      "ko": "아이가 편지를 쓰셨다.",
+      "gloss": "child-NOM letter-ACC write-HON-PST-DECL",
+      "condition": "(2b) 비높임 주어 + -si만 — * 비수용",
+      "src": "p.2 (2b)"
+    },
+    {
+      "ko": "아이께서 편지를 썼다.",
+      "gloss": "child-NOM.HON letter-ACC write-PST-DECL",
+      "condition": "(2c) 비높임 주어 + -kkeyse만 — * 비수용",
+      "src": "p.2 (2c)"
+    },
+    {
+      "ko": "아이께서 편지를 쓰셨다.",
+      "gloss": "child-NOM.HON letter-ACC write-HON-PST-DECL",
+      "condition": "(2d) 비높임 주어 + -kkeyse + -si — * 비수용",
+      "src": "p.2 (2d)"
+    },
+    {
+      "ko": "교수님이 편지를 썼다.",
+      "gloss": "professor-NOM letter-ACC write-PST-DECL",
+      "condition": "(3a) 높임 주어, 무표지 — 수용",
+      "src": "p.2 (3a)"
+    },
+    {
+      "ko": "교수님이 편지를 쓰셨다.",
+      "gloss": "professor-NOM letter-ACC write-HON-PST-DECL (원문 글로스는 Kyoswunim-i를 professor-NOM.HON으로 잘못 적음)",
+      "condition": "(3b) 높임 주어 + -si만 — 수용",
+      "src": "p.2 (3b)"
+    },
+    {
+      "ko": "교수님께서 편지를 썼다.",
+      "gloss": "professor-NOM.HON letter-ACC write-PST-DECL",
+      "condition": "(3c) 높임 주어 + -kkeyse만 — ? 가장 덜 선호되지만 수용",
+      "src": "p.2 (3c)"
+    },
+    {
+      "ko": "어제 저녁에 혼자서 교수님이 편지를 쓰셨다.",
+      "gloss": "yesterday evening-LOC alone professor-NOM letter-ACC write-HON-PST-DECL 'The professor wrote a letter alone yesterday evening.'",
+      "condition": "실험 1 · a. HON-HON · CLOSE — 수용",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "어제 저녁에 혼자서 교수님이 편지를 썼다.",
+      "gloss": "yesterday evening-LOC alone professor-NOM letter-ACC write-PST-DECL",
+      "condition": "실험 1 · b. HON-PLAIN · CLOSE — 수용",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "어제 저녁에 혼자서 아이가 편지를 썼다.",
+      "gloss": "yesterday evening-LOC alone child-NOM letter-ACC write-PST-DECL 'The child wrote a letter alone yesterday evening.'",
+      "condition": "실험 1 · c. PLAIN-PLAIN · CLOSE — 수용",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "어제 저녁에 혼자서 아이가 편지를 쓰셨다.",
+      "gloss": "yesterday evening-LOC alone child-NOM letter-ACC write-HON-PST-DECL",
+      "condition": "실험 1 · d. PLAIN-HON · CLOSE — * 비수용",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "교수님이 어제 저녁에 혼자서 편지를 썼다.",
+      "gloss": "professor-NOM yesterday evening-LOC alone letter-ACC write-PST-DECL",
+      "condition": "실험 2 · a. NO HONORIFICS · FAR — 수용",
+      "src": "p.4 Table 2"
+    },
+    {
+      "ko": "교수님이 어제 저녁에 혼자서 편지를 쓰셨다.",
+      "gloss": "professor-NOM yesterday evening-LOC alone letter-ACC write-HON-PST-DECL",
+      "condition": "실험 2 · b. VERB-ONLY · FAR — 수용",
+      "src": "p.4 Table 2"
+    },
+    {
+      "ko": "교수님께서 어제 저녁에 혼자서 편지를 썼다.",
+      "gloss": "professor-NOM.HON yesterday evening-LOC alone letter-ACC write-PST-DECL",
+      "condition": "실험 2 · c. SUBJECT-ONLY · FAR — ? 가장 덜 선호",
+      "src": "p.4 Table 2"
+    },
+    {
+      "ko": "교수님께서 어제 저녁에 혼자서 편지를 쓰셨다.",
+      "gloss": "professor-NOM.HON yesterday evening-LOC alone letter-ACC write-HON-PST-DECL",
+      "condition": "실험 2 · d. ALL HONORIFICS · FAR — 수용",
+      "src": "p.4 Table 2"
+    },
+    {
+      "ko": "아이께서 어제 저녁에 혼자서 편지를 쓰셨다.",
+      "gloss": "child-NOM.HON yesterday evening-LOC alone letter-ACC write-HON-PST-DECL",
+      "condition": "실험 3 · a. ALL HONORIFICS · FAR — * 비수용 (모델이 가장 선호한 조건)",
+      "src": "p.5 Table 3"
+    },
+    {
+      "ko": "아이가 어제 저녁에 혼자서 편지를 쓰셨다.",
+      "gloss": "child-NOM yesterday evening-LOC alone letter-ACC write-HON-PST-DECL",
+      "condition": "실험 3 · b. VERB-ONLY · FAR — * 비수용",
+      "src": "p.5 Table 3"
+    },
+    {
+      "ko": "아이께서 어제 저녁에 혼자서 편지를 썼다.",
+      "gloss": "child-NOM.HON yesterday evening-LOC alone letter-ACC write-PST-DECL",
+      "condition": "실험 3 · c. SUBJECT-ONLY · FAR — * 비수용",
+      "src": "p.5 Table 3"
+    },
+    {
+      "ko": "아이가 어제 저녁에 혼자서 편지를 썼다.",
+      "gloss": "child-NOM yesterday evening-LOC alone letter-ACC write-PST-DECL 'The child wrote a letter alone yesterday evening.'",
+      "condition": "실험 3 · d. NO HONORIFICS · FAR — 수용(유일)",
+      "src": "p.5 Table 3"
+    },
+    {
+      "ko": "우리 고양이께서 바쁘시다.",
+      "gloss": "Wuli koyangi-kkeyse pappu-si-ta. 원문은 행간 글로스 없이 'His majesty, my cat, is busy.'로 풀이",
+      "condition": "논의의 예 — 비높임 지시체(애완동물)에 대한 장난스러운 격상. 실험 자극 아님",
+      "src": "p.8 §5.1"
+    }
+  ],
+  "key_numbers": [
+    {
+      "what": "실험당 문장 수(4조건 × 주어 10 × 동사 10 × 거리 2)",
+      "value": "800",
+      "src": "p.4 §3.1.1"
+    },
+    {
+      "what": "주어·동사 표본: 높임 주어, 비높임 주어, 동사 쌍의 개수(각각)",
+      "value": "10",
+      "src": "p.3 §3.1.1"
+    },
+    {
+      "what": "정확도의 우연 수준(네 조건 중 하나)",
+      "value": "0.25",
+      "src": "p.6 §4.2"
+    },
+    {
+      "what": "실험 1: CLOSE 대비 FAR의 surprisal 평균 차이(전 모델, FAR가 낮음). 단위는 원문 미표기(식은 log2)",
+      "value": "0.49",
+      "src": "p.6 §4.1"
+    },
+    {
+      "what": "실험 2 정확도(SUBJECT-ONLY에 최고 surprisal), 모델별 CLOSE / FAR. Figure 2b 막대 라벨 판독(그림이 이미지여서 추출 텍스트에는 없음). 2026-09-19 PDF 6쪽을 400dpi로 렌더링해 14개 라벨을 다시 읽어 모두 일치 확인. 라벨은 소수 둘째 자리까지이며 0.6·0.8은 원문 표기 그대로",
+      "value": "SOLAR 0.34 / 0.35; KoBERT 0.64 / 0.41; KoELECTRA 0.6 / 0.51; KoGPT 3 0.65 / 0.52; Llama 3 0.61 / 0.59; Gemma 3 0.77 / 0.8; Polyglot-Ko 0.98 / 0.98 (그림 판독)",
+      "src": "p.6 Figure 2b"
+    },
+    {
+      "what": "실험 2: Polyglot-Ko의 오답 비율(오답은 모두 ALL에 최고 surprisal)",
+      "value": "2%",
+      "src": "p.6 §4.2"
+    },
+    {
+      "what": "실험 3 정확도(NONE에 최저 surprisal), 모델별 CLOSE / FAR. Figure 3b 막대 라벨 판독(그림이 이미지여서 추출 텍스트에는 없음). 2026-09-19 PDF 7쪽을 400dpi로 렌더링해 14개 라벨을 다시 읽어 모두 일치 확인. 본문의 KoGPT 3 '55%'는 0.54와 0.56의 평균과 맞고, Llama 3(평균 0.52)이 2위라는 §5.3 서술과도 맞는다. '우연 수준 안팎 또는 아래'인 4개 모델(SOLAR, Gemma 3, Polyglot-Ko, KoELECTRA)의 값은 0.15~0.33이다",
+      "value": "SOLAR 0.15 / 0.24; Gemma 3 0.24 / 0.27; Polyglot-Ko 0.23 / 0.29; KoELECTRA 0.33 / 0.27; KoBERT 0.52 / 0.49; Llama 3 0.49 / 0.55; KoGPT 3 0.54 / 0.56 (그림 판독)",
+      "src": "p.7 Figure 3b"
+    },
+    {
+      "what": "실험 3 최고 정확도: KoGPT 3가 거리 조건을 합쳐 NONE에 최저 surprisal을 준 item 비율",
+      "value": "55%",
+      "src": "p.7 §4.3"
+    },
+    {
+      "what": "인코더 모델(KoBERT, KoELECTRA) 매개변수 수",
+      "value": "~110M",
+      "src": "p.5 §3.3"
+    },
+    {
+      "what": "디코더 모델 매개변수 수: Polyglot-Ko / KoGPT 3 / SOLAR / Gemma 3·Llama 3",
+      "value": "1.3B / 1.2B / 10.7B / 1B",
+      "src": "p.5 §3.3"
+    },
+    {
+      "what": "Polyglot-Ko의 한국어 학습 텍스트 양(학습량이 수치로 제시된 유일한 모델)",
+      "value": "863GB",
+      "src": "p.5 §3.3"
+    },
+    {
+      "what": "'지위와 무관한 명시적 표지 선호'(실험 3 동사 영역 ALL 대 NONE)의 검정 통계치",
+      "value": "원문 미표기",
+      "src": "p.6-7 §4.3"
+    }
+  ],
+  "limitations": [
+    {
+      "text_ko": "실험 3(비높임 주어)의 인간 판단 자료가 없다. 비높임 주어가 높임 표지를 유발하지 않는다는 문헌상의 정설에 의존하며, 경험적 검증이 있으면 결론이 강해질 것이라고 저자가 적는다.",
+      "stated_by": "author",
+      "src": "p.8 §5.4"
+    },
+    {
+      "text_ko": "실험 1은 조건 간에 주어 명사가 달라 어휘 차이가 교란하므로 정확도를 계산하지 못했다.",
+      "stated_by": "author",
+      "src": "p.4 fn.3"
+    },
+    {
+      "text_ko": "인코더(약 110M)와 디코더(약 1B), SOLAR(10.7B)의 규모가 맞지 않는다. 공개된 대응 모델이 없었기 때문이라고 설명한다.",
+      "stated_by": "author",
+      "src": "p.5 §3.3"
+    },
+    {
+      "text_ko": "FAR 조건에서 surprisal과 정확도가 함께 낮아지는 이유를 현재 자료로는 결론 내릴 수 없다.",
+      "stated_by": "author",
+      "src": "p.8 §5.2"
+    },
+    {
+      "text_ko": "추론 통계가 보고되지 않았다. LME와 emmeans를 썼다고 하지만 계수·SE·p값·효과크기 표가 없고, '지위와 무관한 표지 선호'라는 핵심 결론도 그림과 'similar or even lower'라는 서술에만 기댄다. Figure 3a를 눈으로 읽으면 ALL 대 NONE의 차이는 KoELECTRA·Gemma 3에서 1비트 남짓, KoBERT·Polyglot-Ko에서 0.3~0.5비트쯤이고 KoGPT 3·SOLAR·Llama 3은 거의 같다(근사 판독, 원문 수치 아님).",
+      "stated_by": "us",
+      "src": "p.7 Figure 3a"
+    },
+    {
+      "text_ko": "핵심 증거가 동사 영역의 조건부 surprisal이다. 인과 모델에서 '아이께서 …' 뒤의 -시-는 이미 나온 -께서를 조건으로 한 예측이므로 낮은 surprisal은 국소적으로 합리적이고, 지위-표지 불일치의 비용은 주어 영역에서 이미 치러진다(Figure 4에서 대부분의 모델이 실제로 그렇다). 주어 영역과 동사 영역을 합친 문장 단위 지표는 보고되지 않았다.",
+      "stated_by": "us",
+      "src": "p.6-7 §4.3"
+    },
+    {
+      "text_ko": "네 조건의 표적 동사 어형이 같지 않다(썼다 대 쓰셨다). 같은 표적을 다른 맥락에서 비교하는 것은 ALL 대 VERB-ONLY, SUBJECT-ONLY 대 NONE뿐이고, 정확도는 어형이 다른 조건까지 한 순위로 묶는다. 하위 토큰 평균 surprisal에는 어형 자체의 빈도·토큰 수 차이가 섞인다.",
+      "stated_by": "us",
+      "src": "p.4 §3.1.2"
+    },
+    {
+      "text_ko": "'모델은 주어의 사회적 지위와 무관하게 표지를 선호한다'는 결론은 주어가 -이/가일 때의 결과와 긴장 관계다. 실험 1의 PLAIN-HON, 실험 3의 VERB-ONLY에서 대부분의 모델은 비높임 주어 뒤의 -시-에 높은 surprisal을 주었고, 이는 주어 명사의 지위에 따라 -시- 기대가 달라짐을 뜻한다. 지위 효과가 -께서가 있을 때만 사라진다는 상호작용 구조인데, 실험이 둘로 나뉘어 이 상호작용은 검정되지 않았다.",
+      "stated_by": "us",
+      "src": "p.5-7 §4.1, §4.3"
+    },
+    {
+      "text_ko": "주어 지위가 맥락 없이 명사 어휘만으로 조작됐다. 정의는 '화자가 높일 만하다고 여기는 개체'인데 화자·관계·상황 정보가 없다. 공개 저장소 목록상 비높임 범주에는 아동·손아래 친족·또래·지위 미상 성인(남자, 여자)이 섞여 있고, 높임 범주는 -님 파생어가 6/10이어서 '지위'와 '-님이라는 표면 형태 단서'가 분리되지 않는다.",
+      "stated_by": "us",
+      "src": "p.3 §3.1.1"
+    },
+    {
+      "text_ko": "본문 서술과 Figure 1이 어긋나 보인다. 본문은 'HON-HON이 HON-PLAIN보다 높은 Noh et al.의 패턴이 Gemma 3과 (약하게) KoELECTRA에서만 관찰됐다'고 적지만, Figure 1에서 이 두 모델(과 Polyglot-Ko, KoGPT 3)은 HON-PLAIN이 HON-HON보다 높다. 두 조건 라벨이 문장에서 뒤바뀌었을 가능성이 있어 Noh et al. 원문 대조가 필요하다.",
+      "stated_by": "us",
+      "src": "p.5-6 Figure 1, §4.1"
+    },
+    {
+      "text_ko": "SOLAR의 값이 거의 평탄하다. Figure 4에서 SOLAR의 주어 영역 surprisal은 네 조건 모두 5 남짓으로 같아 -께서 유무에 전혀 반응하지 않는 것처럼 보이고, 동사 영역도 조건 차가 작다. 저자는 예외로만 언급한다. 바이트 수준 토큰화에서 영역 정렬이 제대로 됐는지 확인되지 않았다.",
+      "stated_by": "us",
+      "src": "p.7 Figure 4"
+    },
+    {
+      "text_ko": "모델 식별 정보가 본문에 부족하다. 체크포인트 이름이 없고, 'KoBERT (Kim, 2020)'는 공개 저장소에서 kykim/bert-kor-base로, 'Gemma 3 (1B)'는 지시 조정 판(-it)으로 적혀 있어 기반 모델 간 비교라는 전제가 흔들린다. 'Llama 3 (1B)'는 저장소상 Llama-3.2-1B다.",
+      "stated_by": "us",
+      "src": "p.5 §3.3"
+    },
+    {
+      "text_ko": "자극이 모두 해라체 과거 평서문(-었다)이다. 저자가 서론에서 표지 생략이 자연스럽다고 한 '중립적 서술 레지스터'에 해당하므로 높임 주어 + 무표지가 수용되는 것은 당연하고, 레지스터·친밀도·화자 관계는 조작되지 않았다. 간접 높임, 어휘적 높임, 객체 높임, 압존법도 다루지 않는다.",
+      "stated_by": "us",
+      "src": "p.1 §1; p.3-5 Table 1-3"
+    },
+    {
+      "text_ko": "논의 절은 인코더가 '세 실험 모두에서' CLOSE에서 더 잘했다고 요약하지만 정확도는 실험 1에서 계산되지 않았다. 또 결과 절은 실험 3 ALL 선호를 'all models'로, 논의 절은 'models except Llama 3'로 적어 범위가 다르다.",
+      "stated_by": "us",
+      "src": "p.6-8 §4.3, §5.1-5.2"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P02-H1",
+      "hook_ko": "주어 지위 × 높임 표지의 상호작용을 한 실험 안의 2×2로 검정한다(지위는 같은 명사에 대한 화자-지시체 관계 맥락으로 조작).",
+      "basis_ko": "저자는 실험 2(높임 주어)와 실험 3(비높임 주어)의 대비로 '표면 의존 대 화용 제약'을 가른다고 했지만, 주어 지위가 실험 사이에 놓여 있고 실험별로 따로 LME를 적합해 지위 × 표지 상호작용은 검정되지 않았다. 각주 3에서 주어 어휘 차이가 조건 비교를 교란한다고 스스로 인정한다. 우리 공통 가설(표면 공기 대 허가 조건)은 주효과가 아니라 바로 이 상호작용항에서 갈린다.",
+      "kind": "untested_condition",
+      "src": "p.3 §3; p.4 fn.3"
+    },
+    {
+      "id": "P02-H2",
+      "hook_ko": "'비높임 주어' 범주를 하위 유형(아동 / 손아래 친족 / 또래 / 지위 미상 성인 / 고유명사)으로 나누거나 한 유형으로 통제하고, 높임 주어에서는 -님 유무를 분리한다.",
+      "basis_ko": "본문은 '10 honorable subjects, 10 plain subjects'라고만 하고 목록을 싣지 않는다(예시는 교수님·아이). 공개 저장소의 목록은 비높임 = 아이, 꼬마, 남자, 여자, 딸, 아들, 친구, 막내, 초등학생, 여동생으로 성격이 다른 명사가 섞여 있다. 남자·여자는 지위가 미정인 성인이어서 -시-가 맥락에 따라 가능하고, 아이·꼬마는 본래 손아래다. 높임 = 선생님, 교수님, 사장님, 팀장님, 이모님, 손님(-님 6개)과 어머니, 아버지, 할머니, 할아버지. 모델이 '지위'가 아니라 '-님'이라는 표면 형태에 반응했을 가능성이 배제되지 않는다. 무선효과도 item set 절편뿐이어서 명사별 변동이 추정되지 않았다.",
+      "kind": "unresolved_confound",
+      "src": "p.3 §3.1.1"
+    },
+    {
+      "id": "P02-H3",
+      "hook_ko": "동사 영역 조건부 surprisal 대신 문장 전체에 대한 7점 Likert 수용성 판단으로 '아이께서 … 쓰셨다'류를 모델이 실제로 수용하는지 직접 묻는다.",
+      "basis_ko": "'지위와 무관한 명시적 표지 선호'의 근거는 실험 3 동사 영역에서 ALL ≤ NONE이라는 것과 그에 따른 정확도다. 그러나 동사 surprisal은 앞선 '아이께서'를 조건으로 한 값이어서 -시-를 기대하는 것은 국소적으로 옳은 예측이고, 불일치 비용은 주어 영역에서 치러진다(Figure 4: SOLAR·KoBERT를 뺀 5개 모델, 곧 KoELECTRA와 디코더 4종은 실제로 높음). 두 영역을 합친 문장 단위 지표는 보고되지 않았다(저장소 코드에는 문장 확률 함수가 있으나 논문에 결과 없음). 표적 어형도 조건마다 달라(썼다/쓰셨다) 최소대립 비교가 아니다.",
+      "kind": "method_gap",
+      "src": "p.6-7 §4.3"
+    },
+    {
+      "id": "P02-H4",
+      "hook_ko": "비높임 주어 조건을 포함한 전 조건에 대해 인간 기준선을 같은 과제로 수집한다.",
+      "basis_ko": "저자가 명시한 유일한 한계가 실험 3의 인간 판단 자료 부재다. 실험 1·2의 인간 기준도 Song et al. (2019)의 경향을 수치 없이 빌린 것이어서, 모델-인간 비교는 순위의 방향 일치에 그친다. 인간과 모델에 같은 문장·같은 지시문으로 Likert 평정을 받으면 등급 차이의 크기까지 비교할 수 있다.",
+      "kind": "author_future_work",
+      "src": "p.8 §5.4"
+    },
+    {
+      "id": "P02-H5",
+      "hook_ko": "저자가 제안한 화용 요인을 직접 조작한다: (가) 친밀도·레지스터에 따른 높임 대상의 표지 생략, (나) 비높임 지시체에 대한 장난스러운 격상(우리 고양이께서 바쁘시다).",
+      "basis_ko": "논의 절이 분포 패턴만으로 설명하기 어려운 두 사례로 제시하고 '이런 요인을 직접 조작하는 실험'을 후속 과제로 명시했다. 서론은 수의성이 친밀도와 뉴스 같은 중립 서술 레지스터에서 나타난다고 했지만 자극은 모두 해라체 과거 서술문 한 가지였다. 맥락[격식·거리 / 친밀·중립 서술] × -시-[유/무]의 2×2로 옮기기 쉽고, 이해 문항(화자가 높이는 대상은 누구인가)과도 잘 맞는다.",
+      "kind": "author_future_work",
+      "src": "p.8 §5.1"
+    },
+    {
+      "id": "P02-H6",
+      "hook_ko": "수의성을 '정답/오답' 순위가 아니라 연속 척도의 등급 차이로 측정한다(높임 주어에서 무표지·시만·께서만·전부의 상대 수용도).",
+      "basis_ko": "논문은 높임 주어 + -시- 없음을 비문이 아니라 수용으로, '께서만'을 '?'(가장 덜 선호)로 둔 점에서 수의성을 존중한다. 그러나 실험 2 정확도는 '께서만이 최고 surprisal인가'만 채점해 나머지 세 조건의 순서를 버리고, Polyglot-Ko가 오답에서 ALL을 가장 낮게 평가한 것 같은 양상은 서술로만 남는다. 생략은 '덜 선호', 과잉 적용은 '비수용'이라는 비대칭이 인간 자료로 수치화된 적이 없다. 공개 저장소는 같은 조건을 ungrammatical로 표시해 저자 자료 안에서도 기준이 흔들린다.",
+      "kind": "method_gap",
+      "src": "p.2 §2.2; p.5 §3.2.2"
+    },
+    {
+      "id": "P02-H7",
+      "hook_ko": "사전 지정한 상호작용항과 효과크기·신뢰구간을 보고하는 분석 모형을 쓴다(주어·동사·모델 표본을 무선효과로).",
+      "basis_ko": "LME와 emmeans를 썼다고 하면서 계수·SE·p값·효과크기를 하나도 보고하지 않았고, 정확도도 우연 수준 대비 검정이나 구간 없이 막대 라벨뿐이다. 무선효과는 item set 절편 하나여서 주어 명사 10개, 동사 10개의 변동이 일반화 단위로 다뤄지지 않았다. 모델별 예외(Gemma 3, SOLAR, Llama 3)는 'most models'라는 서술로 처리된다.",
+      "kind": "method_gap",
+      "src": "p.5 §3.2.2"
+    },
+    {
+      "id": "P02-H8",
+      "hook_ko": "같은 대립(지위 × 표지)을 최신 상용 API 대화형 모델에서 행동 과제로 재검증한다.",
+      "basis_ko": "실험 모델은 2020~2025년 공개된 110M~10.7B 공개 가중치 모델이고 대부분 기반 모델이다. 저자는 '한국어를 많이 학습한 모델도 사회·화용 차원을 온전히 습득하지 못했다'고 일반화하지만 규모·지시 조정·RLHF의 효과는 시험되지 않았다. 한국어 중심 대 다국어 비교도 학습량 수치 없이(863GB 하나) 이뤄졌고 SOLAR의 규모가 교란한다. 상용 모델은 로그확률을 주지 않는 경우가 많아 Likert·이해 문항이 사실상 유일한 재검증 경로다.",
+      "kind": "model_generation",
+      "src": "p.5 §3.3; p.8 §5.3"
+    },
+    {
+      "id": "P02-H9",
+      "hook_ko": "동사 쪽 높임 실현 방식을 분리한다: 규칙적 -시- 부착 대 보충법 어휘 높임(드시다·주무시다·계시다), 그리고 규범형 활용만 쓴다.",
+      "basis_ko": "본문은 동사 10쌍이 '-si 유무'로만 다르다고 하지만 공개 저장소의 쌍에는 먹었다/드셨다(보충법)가 들어 있고 '널으셨다'는 규범형(너셨다)과 다르다. 또 '호통을 치다', '정원을 가꾸다'처럼 주어의 나이·지위와 개연성이 얽힌 술어가 있어 비높임 주어 문장의 자연성이 술어마다 다를 수 있다. item set 안 비교에서는 통제되지만 실험 간·주어 유형 간 비교에서는 교란이 된다.",
+      "kind": "unresolved_confound",
+      "src": "p.3 §3.1.1"
+    },
+    {
+      "id": "P02-H10",
+      "hook_ko": "주체 높임의 다른 하위 현상(간접 높임·사물 존대, 압존법, 내포절에서 높임 대상이 둘인 경우)과 객체 높임·상대 높임과의 교차로 넓힌다.",
+      "basis_ko": "논문은 단문에서 주어 하나, 표지 둘(-께서, -시-)만 다루고 상대 높임은 해라체로 고정했다. '완전 패러다임'은 두 형태 표지의 교차에 한정된 말이다. 표면 공기와 허가 조건이 가장 크게 갈리는 곳은 표지와 높임 대상이 일대일로 대응하지 않는 구문인데 이 영역은 비어 있다.",
+      "kind": "untested_condition",
+      "src": "p.2 §2.1"
+    },
+    {
+      "id": "P02-H11",
+      "hook_ko": "자극에서 주어 위치와 개입 요소를 분리해 통제한다(거리를 바꿔도 주어의 문장 내 위치는 고정).",
+      "basis_ko": "FAR는 부사구가 주어와 동사 사이에 들어가면서 주어가 문두로 가고, CLOSE는 주어가 부사구 뒤에 온다. 거리와 주어 위치가 함께 변해 인코더·디코더가 반대 방향의 거리 효과를 보인 이유, FAR에서 surprisal과 정확도가 함께 낮아진 이유를 저자도 결론 내리지 못했다. 행동 과제에서도 문장 길이·어순은 평정에 영향을 주므로 자극 제작 규칙으로 물려받아야 한다.",
+      "kind": "unresolved_confound",
+      "src": "p.8 §5.2"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "저자 공개 저장소(각주 2): 자극 생성기 generate_sentences.py(주어·동사 목록과 조건 라벨 포함), 모델 로딩 setup_model.py(체크포인트 ID), surprisal 계산 calculate_proba.py, 평가 evaluate.py, README. 2026-09-19 확인 시 data/ 폴더와 결과 CSV는 없고 라이선스 표기도 없음",
+      "url": "https://github.com/chloedkkwon/honorific-dependency"
+    },
+    {
+      "what": "논문 PDF와 BibTeX (ACL Anthology)",
+      "url": "https://aclanthology.org/2026.scil-main.35/"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md",
+    "agreements": [
+      "핵심 주장: 표면 형태통사 불일치 탐지는 되지만 주어의 사회적 지위와 무관하게 명시적 높임 표지를 선호하는 '체계적 해리'이며, 모델은 화용적 적절성보다 표면 분포 패턴을 우선한다(p.1 초록, p.8 §5.1).",
+      "Noh et al. (2024)을 두 방향으로 확장: -kkeyse를 포함한 완전 패러다임, 다국어·디코더 모델 포함(p.2 §1, p.3 §2.3).",
+      "실험 1은 주어 지위[높임/비높임] × 동사 -si[유/무]의 2×2에 거리[CLOSE/FAR]를 더한 설계로 HON-HON, HON-PLAIN, PLAIN-PLAIN, PLAIN-HON(*)의 네 조건, 4 × 10 × 10 × 2 = 800문장(p.3-4 §3.1.1).",
+      "실험 2는 높임 주어만 쓴 네 조건(NO, VERB-ONLY, SUBJECT-ONLY(?), ALL)이고 SUBJECT-ONLY가 인간에게 가장 덜 선호된다(Song et al., 2019). 실험 3은 비높임 주어로 NONE만 수용(p.4 §3.2.1, p.6 §4.2).",
+      "측정: surprisal = −log2 P(token|context)를 동사를 이루는 하위 토큰 전체에서 평균, 마스크 모델은 하위 토큰을 하나씩 마스킹, 인과 모델은 선행 문맥 기반. 실험 3에는 심사자 제안으로 주어 영역 surprisal 추가(p.4 §3.1.2, §3.2.2).",
+      "통계: 실험별 LME(lme4), item set 무선절편, AIC 모형 선택, emmeans 사후 비교(p.5 §3.2.2).",
+      "7개 모델 목록(KoBERT, KoELECTRA, Polyglot-Ko, KoGPT 3, SOLAR, Gemma 3, Llama 3)과 자체 인간 자료 없음(선행연구 인용만)(p.5 §3.3).",
+      "실험 2: 전 모델 우연 수준 0.25 초과, Polyglot-Ko 최고, Gemma 3 두 번째(p.6 §4.2).",
+      "실험 3: KoGPT 3 최고 55%, 오답에서는 모든 모델이 ALL을 최저 surprisal로 골랐다(p.7 §4.3).",
+      "거리: FAR에서 surprisal은 전반적으로 낮지만 정확도도 낮아 두 지표가 해리된다(p.8 §5.2).",
+      "저자가 밝힌 후속 과제(애완동물에 대한 장난스러운 격상, 친밀한 높임 대상에 대한 표지 생략을 직접 조작)와 한계(실험 3 인간 판단 자료 없음)(p.8 §5.1, §5.4)."
+    ],
+    "discrepancies": [
+      {
+        "item": "실험 3 정확도가 우연 수준에 대해 어느 위치인가",
+        "old": "절반 이상의 모델이 우연 수준 이하.",
+        "new": "원문은 'around or below the chance level'(우연 수준 안팎 또는 그 아래)이다. Figure 3b 판독상 해당 4개 모델(SOLAR 0.15/0.24, Gemma 3 0.24/0.27, Polyglot-Ko 0.23/0.29, KoELECTRA 0.33/0.27) 가운데 여러 값이 0.25를 넘으므로 '이하'는 원문보다 강한 표현이다.",
+        "basis_src": "p.7 §4.3, Figure 3b"
+      },
+      {
+        "item": "실험 3 ALL 조건 결과의 해석 범위",
+        "old": "모든 모델이 ALL(*아이께서 … 쓰시었다)에 가장 낮은 surprisal을 줬다. 즉 비문을 가장 자연스럽다고 판단.",
+        "new": "그 결과는 동사 영역의 조건부 surprisal에 한정된다. 같은 실험의 주어 영역에서는 SOLAR·KoBERT를 뺀 5개 모델이 비높임 주어 + -kkeyse에 더 높은 surprisal을 주었다(Figure 4). 따라서 모델이 문장 전체를 '가장 자연스럽다고 판단'했다는 것은 원문이 보인 것이 아니다. 저자도 'suggest', 'appear to'로 수위를 낮춘다. 또 원문은 '비문(ungrammatical)'이 아니라 '비수용(*, unacceptable)'이라고 쓰며, 논의 절에서는 ALL 선호를 'models except Llama 3'로 좁혀 말한다.",
+        "basis_src": "p.7 §4.3, Figure 4; p.7-8 §5.1"
+      },
+      {
+        "item": "거리 효과의 모델 유형별 방향",
+        "old": "인코더(KoBERT/KoELECTRA)는 CLOSE에서 우수, 디코더는 FAR에서 우수(실험 구분 없이 일반 서술).",
+        "new": "'디코더는 FAR에서 우수'는 실험 3에서 한 관찰이다('to varying degrees'). 실험 2에서는 대부분의 모델이 CLOSE에서 더 정확했고, 디코더 KoGPT 3(0.65/0.52)과 Llama 3(0.61/0.59)도 CLOSE가 높았다(Figure 2b). 저자는 §5.2에서 디코더는 '더 가변적'이었다고 요약한다.",
+        "basis_src": "p.6 §4.2, Figure 2b; p.7 §4.3; p.8 §5.2"
+      },
+      {
+        "item": "FAR에서 surprisal이 낮은 이유",
+        "old": "FAR 조건이 전반적으로 surprisal 낮음(개재어가 국소 문맥을 희석).",
+        "new": "'국소 맥락 희석'은 저자가 'One possibility'로 제시한 설명이다. 이어서 FAR의 낮은 surprisal과 낮은 정확도가 직접 관련된다고는 현재 자료로 결론 내릴 수 없다고 적는다. 원인으로 단정한 것은 원문보다 강하다.",
+        "basis_src": "p.8 §5.2"
+      },
+      {
+        "item": "정확도의 정의와 적용 범위",
+        "old": "실험 3 항목 아래에 '정확도 = 항목 세트별 순위가 인간 판단과 일치하는 비율'로만 적음. 실험 1 제외 사유 언급 없음.",
+        "new": "정확도는 실험 2·3 모두에서 계산했다. 채점은 전체 순위가 아니라 한 조건만 본다(실험 2: SUBJECT-ONLY가 최고 surprisal, 실험 3: NONE이 최저 surprisal). 실험 1은 주어 어휘 차이(아이 대 교수님)가 조건 비교를 교란하므로 계산하지 않았다(각주 3).",
+        "basis_src": "p.4 §3.2.2 각주 3; p.5 §3.2.2"
+      },
+      {
+        "item": "ALL 조건 동사형의 한글 복원",
+        "old": "*아이께서 … 쓰시었다",
+        "new": "원문 로마자 ssu-si-ess-ta는 형태소 분절 표기다. 카드는 저장소 자극 목록의 표기인 '쓰셨다'로 복원했다. 내용상 차이는 없지만 자극 문자열을 그대로 물려받을 때는 '쓰셨다'가 맞다.",
+        "basis_src": "p.5 Table 3"
+      }
+    ]
+  },
+  "verification": {
+    "status": "draft",
+    "by": null,
+    "notes": []
+  }
+}

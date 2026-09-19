@@ -1,0 +1,1236 @@
+{
+  "id": "P03",
+  "role": "core",
+  "short": "Kwon & Mun (2025)",
+  "title": "Evaluating Syntactic Generalization in Transformer-Based Models Using Korean Honorific Agreement",
+  "title_ko": "한국어 높임 일치를 이용한 트랜스포머 기반 모델의 통사적 일반화 평가",
+  "citation": {
+    "apa": "Kwon, N., & Mun, S. (2025). Evaluating syntactic generalization in Transformer-based models using Korean honorific agreement. In C.-R. Huang, Y. Harada, J.-B. Kim, N. T. M. Huyen, L. T. Huong, P. Hien, E. Chersoni, L. M. Nguyen, R. E. O. Roxas, & S. Dita (Eds.), Proceedings of the 39th Pacific Asia Conference on Language, Information and Computation (pp. 26–37). Association for Computational Linguistics. https://aclanthology.org/2025.paclic-1.3/",
+    "year": 2025,
+    "venue": "Proceedings of the 39th Pacific Asia Conference on Language, Information and Computation (PACLIC 39), Hanoi, Vietnam",
+    "status": "proceedings",
+    "doi": null,
+    "url": "https://aclanthology.org/2025.paclic-1.3/",
+    "bib_notes": "원문 PDF 12쪽 어디에도(머리말·꼬리말·각주·첫 쪽) 발표처·연도·쪽수 표기가 없다. 유일한 각주(p.4 각주 1)는 OSF 링크뿐이다. 발표처는 ACL Anthology에서 확인했다(2026-09-19 확인): Anthology ID 2025.paclic-1.3, Proceedings of the 39th Pacific Asia Conference on Language, Information and Computation, December 2025, Hanoi, Vietnam, Association for Computational Linguistics, pp. 26–37(12쪽으로 보유 PDF 쪽수와 일치). 출처 URL: https://aclanthology.org/2025.paclic-1.3/ , 권 단위 목록 https://aclanthology.org/volumes/2025.paclic-1/ . Anthology 페이지와 권 목록에 DOI·ISBN이 표시돼 있지 않아 null로 둔다. 편집자 10명은 권 목록 페이지 표기와 일치한다. 2026-09-19 Anthology 공식 PDF(https://aclanthology.org/2025.paclic-1.3.pdf)를 받아 대조한 결과 보유 PDF(papers/pdf/P03_KwonMun.pdf)와 SHA-256 해시가 같은 동일 파일이다(12쪽, Word 생성, 생성일 2025-10-06). 즉 공식 판 자체에 머리말·연도·쪽 번호가 없고 논문집 쪽수 26–37은 Anthology 메타데이터에만 있으므로, 카드의 수치는 공식 판 수치와 같다. 학회 개최 일자는 Anthology에 표시돼 있지 않아 기록하지 않는다."
+  },
+  "one_line": "통제 구문 8셀(6,640문장)의 -시- 일치 분류에서 KoGPT-2가 KoBERT를 앞섰지만 두 모델 모두 높임 유인자 간섭에 취약했고, 주의 가중치는 문법 능력의 믿을 만한 지표가 아니었다.",
+  "w5h1": {
+    "who": {
+      "headline": "오리건대 Nayoung Kwon과 경북대 Seongmin Mun이 SKT의 소형 한국어 모델 두 개(KoBERT 92M, KoGPT-2 125M)를 시험했고 인간 참여자는 없다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "Nayoung Kwon(University of Oregon), Seongmin Mun(Kyungpook National University). 제1저자는 한국어 높임 일치의 인간 문장 처리 연구(Kwon & Sturt 2016, 2019, 2024)의 저자이고, 제2저자는 이 논문이 주의 분석에 빌려 쓴 방법(Mun & Shin 2025)의 저자다. 두 사람은 이 프로젝트의 P04(Shin, Kwon & Mun 2026)에도 함께 참여한다. P02(Cho & Kwon 2026)의 Kwon은 다른 사람(Chloe Dokyung Kwon, Cornell University)이다.",
+          "src": "p.1 저자 표기; p.9-10 References"
+        },
+        {
+          "label": "실험 대상 모델",
+          "text": "KoBERT(Jeon, Lee, & Park, 2019; 92 million parameters; 마스크 언어모델)와 KoGPT-2(Jeon, 2021; 125 million parameters; 자기회귀 모델, 구현은 KoGPT-2-base-v2). 둘 다 12층 × 12헤드 구조에 분류 헤드를 얹어 미세조정했다.",
+          "src": "p.1 §1; p.3 §3.2; p.4 §3.3"
+        },
+        {
+          "label": "인간 참여자",
+          "text": "없음. 문법성 라벨은 인간 평정이 아니라 Sohn (2001)의 기술에 따른 이분 라벨이다. 인간 처리와의 유사성은 저자의 선행 연구(Kwon & Sturt 2016, 2019)를 인용해 주장할 뿐 같은 자극으로 비교하지 않았다.",
+          "src": "p.2 §3.1; p.5 §3.5"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2025년 12월 PACLIC 39 논문집에 실렸고, 실험 모델은 2019년·2021년에 나온 1억 개 안팎 매개변수의 구세대 한국어 모델이다.",
+      "items": [
+        {
+          "label": "발표 시점·게재 상태",
+          "text": "원문 PDF에는 연도 표기가 없다. ACL Anthology 기준 2025년 12월 발행된 학술대회 논문집 게재 논문이다(bib_notes 참조). 본문이 인용한 가장 늦은 문헌은 Mun & Shin (2025)와 2024년 문헌들이며, 보유 PDF의 메타데이터 생성일은 2025-10-06이다. 보유 PDF는 Anthology 공식 PDF와 같은 파일이다(SHA-256 일치, 2026-09-19 대조).",
+          "src": "p.1 원문에 연도 표기 없음 — ACL Anthology로 확인; p.10 References"
+        },
+        {
+          "label": "실험 모델의 세대",
+          "text": "KoBERT는 2019년, KoGPT-2(ver 2.0)는 2021년 공개. 각각 92 million, 125 million 매개변수로, 지시 조정(instruction tuning)이나 대화형 프롬프트가 불가능한 세대다. 그래서 평가가 프롬프트 기반 판단이 아니라 분류 헤드 미세조정(30 epoch)으로 이뤄졌다. 결과는 '소형 인코더 대 소형 디코더' 비교로만 유효하고 최신 상용 LLM의 능력에 대해서는 말해 주지 않는다.",
+          "src": "p.1 §1; p.3 §3.2; p.9 References"
+        },
+        {
+          "label": "분석 도구의 시점",
+          "text": "R 4.2.1, lme4 v1.1-31, lmerTest 3.1-3, emmeans(본문 v1.8.4-1, 참고문헌 Version 1.10.0으로 표기 불일치).",
+          "src": "p.4 §3.4; p.10 References"
+        }
+      ]
+    },
+    "where": {
+      "headline": "아시아·태평양 전산언어학 학회 PACLIC 39(하노이) 논문집에 실렸고, 데이터·코드는 OSF 열람 전용 링크로 공개됐다.",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "Proceedings of the 39th Pacific Asia Conference on Language, Information and Computation (PACLIC 39), Hanoi, Vietnam, pp. 26–37, ACL Anthology 2025.paclic-1.3. 원문에는 표기가 없어 외부에서 확인했다.",
+          "src": "p.1 원문에 발표처 표기 없음 — ACL Anthology로 확인"
+        },
+        {
+          "label": "데이터 출처",
+          "text": "저자가 직접 구성한 문장 6,640개(재계산: 1,336 + 5,304). NP1-control 대 NP2-control의 1:4 비율은 한국어의 자연 분포를 반영했다고 하지만 근거 코퍼스나 산출 방식은 밝히지 않았다. 문장 제작 절차(틀, 명사·동사 목록, 어휘 수)도 원문에 없다.",
+          "src": "p.3 §3.1"
+        },
+        {
+          "label": "공개 자료 위치",
+          "text": "각주 1: 모든 데이터와 분석 코드를 OSF에 공개(https://osf.io/fw82j/?view_only=56b9d1dc865e453086dfbc8957fee340). 열람 전용(view-only) 익명 링크다. 2026-09-19 OSF API로 접속을 확인했고 프로젝트명은 Syntactic Knowledge in KoBERT and KoGPT-2, 폴더는 Attention_Code_Python과 Statistical_Code_R이다(open_materials 참조 — 이 목록은 원문 밖 정보다).",
+          "src": "p.4 각주 1"
+        },
+        {
+          "label": "모델 저장소",
+          "text": "KoBERT: https://github.com/SKTBrain/KoBERT , KoGPT-2: https://huggingface.co/skt/kogpt2 (참고문헌 표기).",
+          "src": "p.9 References"
+        }
+      ]
+    },
+    "what": {
+      "headline": "트랜스포머 모델이 어휘 내용과 독립적으로 추상적 통사 구조에 일반화하는지를 한국어 주어–동사 높임 일치로 물었고, KoGPT-2 우위·공통된 유인자 간섭·주의 가중치의 불안정성을 보고했다.",
+      "items": [
+        {
+          "label": "연구 질문",
+          "text": "① 명시적 통사 모듈이 없는 트랜스포머 모델이 저자원 언어에서 추상적 통사 의존을 학습하는가 ② 높임 일치 데이터로 미세조정하면 통사 민감도가 올라가는가 ③ 그 지식이 자기주의(self-attention)에 어떻게 드러나는가.",
+          "src": "p.1-2 §1; p.2 §2"
+        },
+        {
+          "label": "핵심 주장",
+          "text": "세 가지 기여: (1) 두 모델 모두 어느 정도 통사 이해를 보이지만 KoGPT-2가 일관되게 앞서고 미세조정에 더 잘 반응한다 — 자기회귀 모델이 마스크 모델보다 위계적 의존 추적에 유리하다는 선행 주장을 저자원 언어로 확장. (2) 주의 가중치는 일부 조건(미세조정 후 KoGPT-2의 NP1-control)에서만 통사 역할과 정렬되므로 문법 지식의 믿을 만한 지표가 아니다. (3) 한국어 높임 일치는 표면 단서가 범주적이지 않아 통사 민감도의 엄격한 진단 도구가 된다.",
+          "src": "p.7-8 §4"
+        },
+        {
+          "label": "주요 결과 — 분류",
+          "text": "Epoch 1: KoGPT-2 M = 89.7% > KoBERT M = 81.1%, NP2-control M = 87.6% > NP1-control M = 76.8%. 자질이 일치하는 유인자가 선형으로 개입하는 셀(NP1-control, NH–H)에서 KoBERT 45.3%, KoGPT-2 52.4%(본문 p.4에는 52.3%)로 급락. 미세조정 후 같은 셀이 61.8%, 72.8%로 올랐다. 후속 Welch t 검정에서 NP1-control의 자질 불일치 조건(H–NH, NH–H)은 일치 조건(H–H, NH–NH)보다 유의하게 낮았고, 저자는 이를 미세조정 후에도 간섭이 남는 증거로 읽는다(검정에 쓴 epoch는 원문 미표기, 부록 D의 Epoch 30 셀 평균도 같은 방향). KoBERT는 NP1-control에서 개선이 없고 NP2-control에서는 오히려 하락.",
+          "src": "p.4-5 §3.5; p.11 Appendix B; p.12 Appendix D"
+        },
+        {
+          "label": "주요 결과 — 주의",
+          "text": "Epoch 1에서 KoGPT-2는 통제 유형과 무관하게 NP1에 주의가 쏠렸고(M = 76.8) 오히려 NP2-control에서 NP1 쏠림이 더 컸다. 미세조정 후 KoGPT-2는 정분류된 NP1-control 문장에서만 NP1(적법 주어)에 더 주의했다(t = −6.40, p < .0001). KoBERT의 주의는 미세조정 후 정오와 무관했다(ps > .78).",
+          "src": "p.6-7 §3.5"
+        }
+      ]
+    },
+    "how": {
+      "headline": "-시-가 항상 붙은 내포 동사의 적법 주어가 NP1인지 NP2인지 갈리는 통제 구문에 두 명사의 높임 자질(H/NH)을 교차시킨 8셀 문장을 이진 문법성 분류와 VERB1 기점 주의 비율로 평가하고 혼합효과모형으로 분석했다.",
+      "items": [
+        {
+          "label": "자극 설계",
+          "text": "문장 틀 [NP1 NP2 VERB1 VERB2]. 통제 유형(NP1-control / NP2-control) × NP1 자질(H/NH) × NP2 자질(H/NH) = 8셀. 내포 동사 VERB1에는 -시-가 항상 붙으므로 문법성은 구조적으로 적법한 주어가 H인지로만 결정된다(Table 1). 비적법 명사의 자질은 간섭(유인자) 검증용이다. 조건 간 어휘를 일치시켰다고 하나 어휘 목록은 없다. 예시는 영어 (5)(6)과 부록 A의 한국어 한 문장뿐이다.",
+          "src": "p.2 §3.1; p.3 Table 1; p.9 §4; p.11 Appendix A"
+        },
+        {
+          "label": "분류 과제",
+          "text": "문법적/비문법적 이진 분류. BertForSequenceClassification, GPT2ForSequenceClassification 사용. batch size = 16, epochs = 30, random seed = 42, 최대 길이 256, epsilon = 8e–8, learning rate = 0.0001. 훈련 90% / 시험 10%. Epoch 1을 'pre-trained', Epoch 30을 'fine-tuned'로 불러 비교한다.",
+          "src": "p.3 §3.2; p.3-4 §3.3"
+        },
+        {
+          "label": "주의 분석",
+          "text": "-시-가 표시되는 VERB1에서 NP1·NP2로 가는 자기주의 가중치를 추출해 NP1 Ratio = NP1 Attention / [NP1 Attention + NP2 Attention] × 100을 구하고, 주의 차이 점수 = NP1 Ratio − NP2 Ratio로 정의(양수 = NP1 선호). 두 모델이 모두 맞힌 400문장과 모두 틀린 56문장(NP1-control 104, NP2-control 352)만 분석. 음절 단위 토큰을 Stanza 형태소 분석기로 명사/동사 단위로 묶는 Mun & Shin (2025) 방법의 수정판을 썼고 목적어는 빼서 틀을 유지했다. 12층 × 12헤드를 어떻게 집계했는지는 원문에 없다.",
+          "src": "p.3-4 §3.3; p.5 §3.5; p.11 Appendix A"
+        },
+        {
+          "label": "통계",
+          "text": "정확도는 이항 GLMER(lme4), 주의는 LMER. 정확도 모형의 고정효과는 Model × Control Type × NP1 × NP2와 모든 상호작용, 주의 모형은 Model × Control Type × Classification Accuracy, 미세조정 비교는 Model × Epoch × Control Type. 모든 예측 변수 합 부호화(sum coding), 문장 무선 절편, 최대 무선효과 구조를 수렴에 맞춰 단순화, emmeans로 Holm 보정 쌍별 비교. 유인자 후속 분석은 Welch 이표본 t 검정.",
+          "src": "p.4 §3.4; p.5 §3.5"
+        }
+      ]
+    },
+    "why": {
+      "headline": "일치 현상으로 모델의 통사 지식을 캐는 연구가 영어 등 고자원 언어에 쏠려 있다는 문제의식에서 출발했고, 우리에게는 '구조적 허가 조건 대 표면 단서'를 가르는 8셀 통제 구문 설계와 그 설계의 빈칸(-시- 유무 미조작, 인간 기준선 부재, 구세대 모델)을 물려준다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "트랜스포머가 통사 지식을 암묵적으로 부호화한다는 증거는 늘고 있지만 어휘 내용과 독립적인 추상 구조 일반화가 어디까지인지는 불분명하고, 연구 대부분이 영어에 집중돼 있다. 한국어는 웹 콘텐츠의 1% 미만인 저자원 언어로 규정된다.",
+          "src": "p.1 §1"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "높임 일치는 수의적이면서도 구조적으로 제약되는 현상이라 범주적 표면 단서 없이 추상적 의존을 학습했는지 볼 수 있는 시험대이고, 풍부한 형태론과 자유 어순을 가진 저자원 언어 연구가 영어 중심 평가에서 가려진 모델 한계를 드러낸다.",
+          "src": "p.2 §2; p.8 §4"
+        },
+        {
+          "label": "저자가 밝힌 한계",
+          "text": "토큰화([UNK] 비율), 모델 크기 차이, 사전학습 코퍼스 성격(문어 대 구어) 같은 구현 세부가 결과에 미친 영향을 분리하지 못했다. 미세조정 후 NP2-control 오분류가 6개뿐이라 주의 분석의 검정력이 낮았다.",
+          "src": "p.7 §3.5; p.8-9 §4"
+        },
+        {
+          "label": "우리가 이어받을 것",
+          "text": "① 통제 유형 × 명사 자질 교차 설계는 '가까운 명사의 높임 자질'이라는 표면 단서와 '구조적 적법 주어'라는 허가 조건이 다른 예측을 내게 만드는 틀이므로 2×2로 줄여 그대로 쓸 수 있다. ② 이 논문은 -시-를 항상 붙여 수의성의 비대칭(높일 주어 + 무표지는 허용, 높일 수 없는 주어 + -시-는 비문)을 시험하지 않았다 — 주어 지위 × -시- 유무 2×2의 자리다. ③ 이진 분류·미세조정·주의 분석을 7점 Likert·이해 문항·상용 API zero-shot으로 바꾸고 인간 기준선을 같은 자극으로 확보해야 한다.",
+          "src": "p.2 §2-3.1; p.3 Table 1; p.5 §3.5"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "subject–verb honorific agreement",
+        "gloss_ko": "주어–동사 높임 일치",
+        "definition": "동사에 붙는 -si-가 구조적으로 적법한 주어의 높임 자질과 맞아야 하는 의존 관계. 영어·스페인어의 일치(본문은 'number and person agreement violations in English … and Spanish'로 묶는다)와 같은 부류의 통사적 일치로 취급한다. 조작적으로는 '-시-가 붙은 내포 동사의 적법 주어가 H이면 문법적, NH이면 비문법적'.",
+        "note": "제목과 본문 전체에서 'agreement'를 쓴다. politeness·deference·appropriateness 같은 화용 어휘는 한 번도 조작 변수로 쓰지 않는다. 높임을 공손성·경의의 문제로 부르는 논문(P01, P02의 제목 어휘)과 같은 현상을 다른 이름으로 부르는 지점이다.",
+        "src": "p.2 §2"
+      },
+      {
+        "term": "honorific marker -si- / honorific suffix -si-",
+        "gloss_ko": "주체 높임 선어말어미 -시-",
+        "definition": "동사에 붙어 주어에 대한 존경을 표시하는 형태소. 본문은 'marker'(§2)와 'suffix'(§4)를 번갈아 쓴다.",
+        "note": "이 논문의 모든 자극에서 내포 동사 VERB1에 -시-가 붙어 있다. -시-가 없는 조건은 없다.",
+        "src": "p.2 §2; p.7 §4"
+      },
+      {
+        "term": "H / NH",
+        "gloss_ko": "조건 라벨: 높임 자질 있음 / 없음",
+        "definition": "H = honorific(honorifiable) 명사구, NH = non-honorific(non-honorifiable) 명사구. 'H–NH'처럼 이음표로 이으면 앞이 NP1, 뒤가 NP2의 자질이다(예: NH–H = NP1은 높일 수 없는 명사, NP2는 높일 수 있는 명사). 통계 모형에서는 'Honorific features of NP1 and NP2 (H vs. NH)'라는 두 개의 2수준 요인이다.",
+        "note": "H/NH는 동사의 -시- 유무가 아니라 명사의 자질을 가리킨다. 다른 논문에서 H/NH가 '높임 표지가 있는 문장/없는 문장'을 뜻할 수 있으므로 횡단 비교 때 혼동 주의. 예시 명사는 teacher(H)와 kid(NH)뿐이며 전체 명사 목록은 원문에 없다.",
+        "src": "p.2 §3.1; p.3 Table 1; p.4 §3.4"
+      },
+      {
+        "term": "honorifiable / unhonorifiable / non-honorifiable / honorific NP / non-honorific NP",
+        "gloss_ko": "높일 수 있는 / 높일 수 없는 (주어·명사구)",
+        "definition": "명사가 -시-를 허가할 수 있는 지시체인지에 대한 어휘 고유 자질. §2는 honorifiable/unhonorifiable, §3.1은 non-honorifiable, §3.5는 honorific/non-honorific NP와 honorifiable/non-honorifiable을 섞어 쓴다.",
+        "note": "높임 가능성을 화자–지시체 관계나 발화 맥락이 아니라 명사에 고정된 이분 자질로 본다. 화자가 누구인지는 자극에 없다.",
+        "src": "p.2 §2-3.1; p.4 §3.5"
+      },
+      {
+        "term": "NP1 control / NP2 control",
+        "gloss_ko": "NP1 통제 / NP2 통제 (구문)",
+        "definition": "내포절 동사의 (보이지 않는) 주어가 누구와 같은가에 따른 두 구문. NP1 control은 주절 주어 NP1이 내포 동사의 주어('NP1i told NP2 that hei went'), NP2 control은 직접·간접 목적어 NP2가 내포 동사의 주어('NP1 told NP2i PROi to go'). 표면 어순은 둘 다 [NP1-NOM NP2-to VERB1 VERB2].",
+        "note": "부록 A의 한국어 예문(닫으시라고 말했다)으로 보면 NP2 control은 명령형 인용 어미 -(으)라고 구문이다. NP1 control의 한국어 어미는 원문에 없으나 (4)(5)의 영어 풀이('that he went', 'that __ closed')는 평서 인용절에 해당한다. 그렇다면 두 구문은 VERB1의 어미라는 표면 형태로도 구별된다(우리 관찰).",
+        "src": "p.2 §2 (4); p.11 Appendix A"
+      },
+      {
+        "term": "structurally licit / illicit (potential) subject",
+        "gloss_ko": "구조적으로 적법한 / 비적법한 주어 (후보)",
+        "definition": "통제 관계상 내포 동사 VERB1의 주어가 되는 명사구가 licit subject, 같은 문장에 있지만 주어가 될 수 없는 다른 명사구가 illicit potential subject. 비문은 '높임 동사가 구조적으로 적법하지만 높일 수 없는 주어와 나타난' 문장으로 정의된다.",
+        "note": "비문의 정의가 과잉 높임(높일 수 없는 주어 + -시-) 한 방향뿐이다.",
+        "src": "p.2 §3.1; p.5 §3.5"
+      },
+      {
+        "term": "(honorific) attractor / feature-matching attractor",
+        "gloss_ko": "(높임) 유인자 / 자질 일치 유인자",
+        "definition": "구조상 주어가 아닌데 동사의 높임 자질과 맞는 H 자질을 지닌 명사구. 대표 셀은 NP1-control의 NH–H(적법 주어 NP1은 NH, 비적법 NP2가 H). 본문은 'feature-matching attractor', 'honorific attractors', 'structurally irrelevant attractors', 'honorific feature interference'를 섞어 쓴다.",
+        "note": "후속 분석에서는 자질 '일치' 유인자(NH–H)뿐 아니라 H–NH(적법 주어는 H, 비적법 NP2가 NH)도 'mismatched' 조건으로 묶어 정확도 하락을 보고한다. H–NH의 하락은 '자질이 일치하는 유인자'로는 설명되지 않는다(우리 관찰).",
+        "src": "p.1 Abstract; p.4-5 §3.5; p.8 §4"
+      },
+      {
+        "term": "linearly intervene",
+        "gloss_ko": "선형적으로 개입하다",
+        "definition": "NP1-control에서 비적법 명사 NP2가 적법 주어 NP1과 동사 VERB1 사이에 놓이는 것. NP2-control에서는 비적법 NP1이 문두에 있어 주어–동사 사이에 끼지 않는다.",
+        "note": "이 논문에서 '의존 거리'와 '유인자 개입'은 통제 유형 하나로 함께 움직인다. 거리를 독립적으로 조작한 조건은 없다.",
+        "src": "p.4-5 §3.5; p.7 §4"
+      },
+      {
+        "term": "structurally complex constructions",
+        "gloss_ko": "구조적으로 복잡한 구문",
+        "definition": "NP1-control 문장을 가리킨다('structurally complex NP1-control configurations', 'syntactically complex NP1-control condition'). 유인자 NP2가 주어와 동사 사이에 끼고 의존 거리가 긴 쪽이다.",
+        "note": "단문 대 복문의 대비가 아니다. 자극은 전부 내포절이 있는 복문이고 단문 (1)–(3)은 설명용 예문이다.",
+        "src": "p.1 Abstract; p.5 §3.5; p.7 §4"
+      },
+      {
+        "term": "grammatical acceptability / grammaticality / ungrammatical",
+        "gloss_ko": "문법적 수용성 / 문법성 / 비문법적",
+        "definition": "Table 1의 제목은 'Grammatical acceptability', 과제 설명은 'grammatically acceptable from unacceptable', 라벨은 'Grammaticality labels', 별표(*)는 'grammatical violations'. 모두 Sohn (2001)에 따른 ✓/✗ 이분 라벨을 뜻한다.",
+        "note": "acceptability라는 말을 쓰지만 화자 평정이 아니다. 화자 판단을 수집한 논문(P05 제목의 speaker judgments 등)의 acceptability와 같은 단어, 다른 뜻이다.",
+        "src": "p.2 §3.1; p.3 Table 1, §3.2"
+      },
+      {
+        "term": "optional but structurally constrained",
+        "gloss_ko": "수의적이지만 구조적으로 제약된",
+        "definition": "-시-의 수의성은 비대칭이다: 주어가 높일 수 있는 대상일 때 -시-를 쓰지 않아도 되지만(2), 높일 수 없는 주어에 -시-를 쓰면 비문이 된다(3). 이 비대칭 때문에 '범주적 표면 단서 없이' 의존을 학습했는지 볼 수 있다고 주장한다.",
+        "note": "화용적 수의성은 이 한 구절로 인정만 하고 실험에서는 다루지 않는다(-시- 항상 부착).",
+        "src": "p.2 §2; p.8 §4"
+      },
+      {
+        "term": "syntactic generalization",
+        "gloss_ko": "통사적 일반화",
+        "definition": "어휘 내용과 독립적으로 추상적 통사 구조에 걸쳐 일반화하는 능력('generalize over abstract syntactic structures independently of lexical content'). 조작적으로는 8셀 분류 정확도, 그리고 '모델이 구조를 엄격히 따른다면 비적법 주어의 자질에 영향받지 않아야 한다'는 기준.",
+        "note": "어휘 독립성을 표방하지만 훈련에 없던 어휘로 시험했는지는 원문에 없다(90/10 분할 방식 미표기).",
+        "src": "p.1 §1; p.5 §3.5"
+      },
+      {
+        "term": "pre-trained (Epoch 1) / fine-tuned (Epoch 30)",
+        "gloss_ko": "사전학습 상태(1 epoch) / 미세조정 상태(30 epoch)",
+        "definition": "주의 가중치와 분류 정확도를 Epoch 1과 Epoch 30에서 뽑아 각각 'pre-trained', 'fine-tuned'로 부른다. p.5의 'During pre-training'도 사전학습 과정이 아니라 Epoch 1 시점을 뜻한다.",
+        "note": "분류 헤드는 새로 붙인 층이라 학습 없이는 80%대 정확도가 나오기 어렵다. Epoch 1이 가중치 갱신 전인지 1 epoch 학습 후인지 원문이 밝히지 않으므로 'pre-trained' 수치를 zero-shot 능력으로 읽으면 안 된다(우리 관찰).",
+        "src": "p.3-4 §3.3; p.4-5 §3.4-3.5"
+      },
+      {
+        "term": "attention difference score / NP1 Ratio / preference attention ratios",
+        "gloss_ko": "주의 차이 점수 / NP1 비율 / 선호 주의 비율",
+        "definition": "NP1 Ratio = NP1 Attention / [NP1 Attention + NP2 Attention] × 100, NP2도 같은 식. 주의 차이 점수 = NP1 Ratio − NP2 Ratio. 양수면 NP1 선호, 음수면 NP2 선호. 두 모델의 절대 주의 크기가 비교 불가능해서 정규화 비율을 쓴다.",
+        "note": "같은 지표를 §3.3에서는 attention difference score, §3.5에서는 preference attention ratios로 부른다.",
+        "src": "p.3-4 §3.3; p.6 §3.5"
+      },
+      {
+        "term": "syntactic alignment / structurally aligned",
+        "gloss_ko": "통사적 정렬",
+        "definition": "VERB1의 주의가 통사적으로 적법한 주어 쪽으로 쏠리는 것. 구조에 정렬된 모델이라면 NP1-control에서 더 큰 양수, NP2-control에서 더 큰 음수 점수가 나와야 한다.",
+        "note": "행동(분류 정확도)과 별개의 내부 지표로 설정돼 있고, 결론에서 '정렬이 곧 문법 능력은 아니다'로 귀결된다.",
+        "src": "p.6 §3.5; p.7 §3.5"
+      },
+      {
+        "term": "VERB1 / VERB2",
+        "gloss_ko": "첫째 동사(내포 서술어) / 둘째 동사(주절 동사)",
+        "definition": "VERB1은 -시-가 형태적으로 표시되는 내포절 서술어이자 주의 분석의 기점, VERB2는 주절 동사(told에 해당). 문장 틀은 [NP1 NP2 VERB1 VERB2].",
+        "note": "부록 A 예문에서는 VERB1 = 닫으시라고, VERB2 = 말했다.",
+        "src": "p.3 §3.3; p.4 §3.3; p.11 Appendix A"
+      },
+      {
+        "term": "low-resource language",
+        "gloss_ko": "저자원 언어",
+        "definition": "한국어를 '웹 콘텐츠의 1% 미만'을 근거로 저자원 언어로 규정하고, 이를 연구 의의의 축으로 삼는다.",
+        "note": "대규모 한국어 벤치마크 논문(P09, P10)이나 최신 상용 LLM 맥락에서는 한국어를 저자원으로 부르지 않을 수 있다. 2019–2021년 소형 모델 기준의 규정이다.",
+        "src": "p.1 §1; p.8 §4"
+      },
+      {
+        "term": "socio-pragmatic / sociopragmatic cues",
+        "gloss_ko": "사회·화용적 (단서)",
+        "definition": "높임의 화용적 성격을 가리키는 말. 'may appear socio-pragmatic in nature'처럼 양보절 안에서만 등장하고 곧바로 구조적 허가 조건으로 논의가 넘어간다.",
+        "note": "화용은 '겉보기'이고 허가 조건은 통사라는 입장을 드러내는 어휘 선택이다.",
+        "src": "p.2 §2; p.7 §4; p.8 §4"
+      },
+      {
+        "term": "헤지·평가 어휘 (may, suggest, not reliably, some degree of, relatively strong, decent, moderate)",
+        "gloss_ko": "결론 세기를 조절하는 표현",
+        "definition": "주의 관련 결론은 'may reflect … but not reliably indicate', 'not a reliable property'로 약하게, 모델 비교 결론은 'consistently outperformed', 'support prior claims'로 강하게 쓴다. 구조 차이에 의한 설명은 'may reflect architectural differences'로 누그러뜨린다.",
+        "note": "KoBERT의 같은 정확도(약 81%)를 'relatively strong', 'high', 'moderate', 'limited performance gains'로 번갈아 평가해 기준이 흔들린다.",
+        "src": "p.1 Abstract; p.5 §3.5; p.7-8 §4"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "Most work has focused on high-resource languages like English",
+        "paraphrase_ko": "통사 지식 탐침 연구가 영어 같은 고자원 언어에 몰려 있고, 웹 콘텐츠의 1% 미만인 한국어 같은 저자원 언어는 데이터가 적어 고유한 어려움이 있다는 공백 진술.",
+        "numbers": ["1%"],
+        "src": "p.1 §1"
+      },
+      {
+        "kind": "method",
+        "quote": "KoBERT (Jeon, Lee, & Park, 2019) (92 million parameters)",
+        "paraphrase_ko": "평가 대상은 KoBERT(92 million)와 KoGPT-2(125 million)이며 미세조정 전후의 행동을 비교한다.",
+        "numbers": ["92 million", "125 million"],
+        "src": "p.1 §1"
+      },
+      {
+        "kind": "claim",
+        "quote": "While the use of -si- is optional when the subject is honorifiable",
+        "paraphrase_ko": "주어가 높일 수 있는 대상이면 -시-는 수의적이지만, 높일 수 없는 주어에 쓰면 비문이 된다(Sohn 2001). 수의성의 비대칭을 전제로 깐 문장.",
+        "numbers": [],
+        "src": "p.2 §2"
+      },
+      {
+        "kind": "claim",
+        "quote": "Korean honorific agreement is processed as syntactic information, akin to other agreement phenomena",
+        "paraphrase_ko": "높임 일치 위반이 영어의 수·인칭, 스페인어의 일치 위반과 마찬가지로 P600을 일으킨다(Kwon & Sturt 2024)는 것을 근거로, 높임 일치가 통사 정보로 처리된다고 본다. 논문 전체의 전제다.",
+        "numbers": ["P600"],
+        "src": "p.2 §2"
+      },
+      {
+        "kind": "claim",
+        "quote": "its grammaticality depends on whether the subject structurally licenses agreement",
+        "paraphrase_ko": "-시-의 사용이 존경 같은 사회·화용 자질을 반영하기는 하지만 문법성은 주어가 구조적으로 일치를 허가하는지에 달려 있다(Yoon 2009의 '주어의 통사적 접근 가능성'). 화용은 인정하되 허가 조건은 통사로 돌리는 문장.",
+        "numbers": [],
+        "src": "p.2 §2"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "as an optional but structurally constrained phenomenon, it provides a unique testing ground",
+        "paraphrase_ko": "수의적이면서 구조적으로 제약된 현상이므로, 범주적 표면 단서 없이도 언어모델이 추상적 통사 의존을 습득할 수 있는지 가리는 시험대가 된다.",
+        "numbers": [],
+        "src": "p.2 §2"
+      },
+      {
+        "kind": "method",
+        "quote": "Since the embedded verb is always honorific, NP1-control sentences require NP1 to be honorific",
+        "paraphrase_ko": "내포 동사는 항상 높임형이므로 NP1-control은 NP1이, NP2-control은 NP2가 높임이어야 하며 다른 명사의 자질과는 무관하다. 네 가지 NP1–NP2 자질 조합(H–H, H–NH, NH–H, NH–NH)을 두 통제 유형에 모두 넣었다.",
+        "numbers": [],
+        "src": "p.2 §3.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "This design isolates structural understanding from lexical honorific effects",
+        "paraphrase_ko": "같은 명사 자질 조합이 통제 유형에 따라 문법성이 뒤집히므로, 구조 이해를 어휘적 높임 효과(문장에 높임 명사가 있기만 하면 되는 단서)와 분리할 수 있다는 설계 논리.",
+        "numbers": [],
+        "src": "p.2 §3.1"
+      },
+      {
+        "kind": "method",
+        "quote": "the dataset contained 1,336 NP1-control sentences and 5,304 NP2-control sentences",
+        "paraphrase_ko": "한국어의 자연 분포를 반영해 NP1-control 1,336문장, NP2-control 5,304문장으로 구성했고 훈련 90%, 시험 10%로 나눴다. 분포의 근거와 셀별 문항 수는 밝히지 않았다.",
+        "numbers": ["1,336", "5,304", "90%", "10%"],
+        "src": "p.3 §3.1"
+      },
+      {
+        "kind": "method",
+        "quote": "distinguish grammatically acceptable from unacceptable sentences based on honorific agreement",
+        "paraphrase_ko": "높임 일치에 따라 문법적으로 수용 가능한 문장과 그렇지 않은 문장을 가르는 이진 분류 과제. 30 epoch 미세조정, 시드 42 하나.",
+        "numbers": ["16", "30", "42", "256", "0.0001"],
+        "src": "p.3 §3.2"
+      },
+      {
+        "kind": "method",
+        "quote": "self-attention weights originating from the critical first verb (VERB1)",
+        "paraphrase_ko": "-시-가 표시되는 내포 서술어 VERB1에서 두 주어 후보 NP1·NP2로 향하는 자기주의 가중치를 뽑아, 모델이 통사적으로 적법한 주어에 더 주의하는지 본다.",
+        "numbers": [],
+        "src": "p.3 §3.3"
+      },
+      {
+        "kind": "method",
+        "quote": "positive values indicate a preference for NP1, while negative values reflect greater attention to NP2",
+        "paraphrase_ko": "NP1 비율에서 NP2 비율을 뺀 주의 차이 점수의 부호 해석. 두 모델의 절대 주의 크기가 달라 정규화 비율로 비교한다.",
+        "numbers": ["100"],
+        "src": "p.4 §3.3"
+      },
+      {
+        "kind": "method",
+        "quote": "we selected 400 sentences that were correctly classified by both models",
+        "paraphrase_ko": "주의 분석은 두 모델이 모두 맞힌 400문장과 모두 틀린 56문장만 대상으로 했다. 12층 × 12헤드 주의 행렬을 쓰며 집계 방식은 명시하지 않았다.",
+        "numbers": ["400", "56", "12"],
+        "src": "p.4 §3.3"
+      },
+      {
+        "kind": "method",
+        "quote": "All data and analysis code are available at the following link",
+        "paraphrase_ko": "각주 1로 OSF 열람 전용 링크를 제시한다. 원문에서 서지·공개 정보를 담은 유일한 각주다.",
+        "numbers": [],
+        "src": "p.4 각주 1"
+      },
+      {
+        "kind": "result",
+        "quote": "KoGPT-2 (M = 89.7%) significantly outperformed KoBERT (M = 81.1%)",
+        "paraphrase_ko": "Epoch 1 분석에서 모델과 통제 유형의 주효과: KoGPT-2가 KoBERT보다, NP2-control(87.6%)이 NP1-control(76.8%)보다 정확했다. 부록 B의 평균은 89.8, 81.2로 0.1씩 다르다.",
+        "numbers": ["89.7%", "81.1%", "87.6%", "76.8%"],
+        "src": "p.4 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "accuracy dropped sharply (KoBERT: 45.3%; KoGPT-2: 52.3%)",
+        "paraphrase_ko": "Control Type × NP1 × NP2 상호작용이 유의했다. 자질이 일치하는 유인자가 일치를 방해하는 셀(NP1-control, NP1은 NH·NP2는 H)에서 두 모델 모두 우연 수준 근처로 떨어졌다. KoGPT-2 값은 부록 B와 p.5·p.7 본문에서는 52.4%다.",
+        "numbers": ["45.3%", "52.3%"],
+        "src": "p.4 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoGPT-2 maintained high accuracy (92.4%)",
+        "paraphrase_ko": "유인자가 선형으로 개입하지 않는 셀(NP2-control, NP1은 H·NP2는 NH)에서는 KoGPT-2가 92.4%로 비문을 잘 가려냈고 KoBERT는 76.7%로 낮았다. 부록 B에는 92.5, 76.8로 실려 있다.",
+        "numbers": ["92.4%", "76.7%"],
+        "src": "p.4 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoBERT (81.3%) outperformed KoGPT-2 (69.5%)",
+        "paraphrase_ko": "KoGPT-2가 대부분의 조건에서 앞섰지만(ps < .03) NP1-control의 H–NH 셀(적법 주어 NP1은 H, 개입하는 NP2는 NH — 문법적 문장)에서만은 KoBERT가 앞섰다(p < .0001). KoGPT-2가 문법적 문장을 비문으로 오판한 셀이다.",
+        "numbers": ["81.3%", "69.5%", ".03", ".0001"],
+        "src": "p.4 §3.5"
+      },
+      {
+        "kind": "claim",
+        "quote": "performance declines with increasing agreement distance and feature-matching attractors",
+        "paraphrase_ko": "일치 거리가 늘고 자질이 일치하는 유인자가 주어–동사 의존에 끼어들수록 성능이 떨어지며, 이는 인간 문장 처리(Kwon & Sturt 2016, 2019)와 평행하다고 해석한다. 거리와 유인자를 따로 조작하지 않은 채 둘을 함께 원인으로 든다.",
+        "numbers": [],
+        "src": "p.4-5 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "Accuracy also improved after fine-tuning (88.0%) compared to the pre-trained state (85.4%)",
+        "paraphrase_ko": "Epoch 비교 모형에서 Model·Control type·Epoch 주효과가 모두 유의: KoGPT-2 92.4% 대 KoBERT 80.9%, NP2-control 88.5% 대 NP1-control 79.3%, 미세조정 후 88.0% 대 전 85.4%.",
+        "numbers": ["92.4%", "80.9%", "88.5%", "79.3%", "88.0%", "85.4%"],
+        "src": "p.5 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoBERT showed no significant improvement for NP1-control",
+        "paraphrase_ko": "Holm 보정 쌍별 비교: KoGPT-2는 미세조정 후 NP1-control(z = −8.21)과 NP2-control(z = −9.95) 모두 크게 올랐고, KoBERT는 NP1-control에서 변화가 없고(z = 1.20, p = .23) NP2-control에서는 하락했다(z = 4.01).",
+        "numbers": ["−8.21", "−9.95", "1.20", ".23", "4.01", ".001"],
+        "src": "p.5 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "After fine-tuning, both models showed improved classification accuracy for this construction",
+        "paraphrase_ko": "유인자가 선형 개입하는 셀(NP1-control, NH–H)의 정확도가 미세조정 후 KoBERT 45.3% → 61.8%, KoGPT-2 52.4% → 72.8%로 올랐다.",
+        "numbers": ["45.3%", "61.8%", "52.4%", "72.8%"],
+        "src": "p.5 §3.5"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "performance should be unaffected by the features of an illicit subject",
+        "paraphrase_ko": "모델이 통사 구조만 엄격히 따른다면 비적법 주어의 자질은 성능에 영향을 주지 않아야 한다 — 유인자 간섭 후속 분석의 귀무 기준. 우리 프로젝트의 '허가 조건 학습' 가설이 내는 예측과 같은 꼴이다.",
+        "numbers": [],
+        "src": "p.5 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "mismatched conditions significantly reduced classification accuracy for both models",
+        "paraphrase_ko": "NP1-control에서 두 명사의 자질이 다른 조건이 같은 조건보다 유의하게 낮았다(Welch t): H–NH 대 H–H는 KoBERT t(1089.3) = 5.60, KoGPT-2 t(679.16) = 10.87, NH–H 대 NH–NH는 KoBERT t(1075.9) = −6.57, KoGPT-2 t(635.37) = −14.25, 모두 p < .001.",
+        "numbers": ["t(1089.3) = 5.60", "t(679.16) = 10.87", "t(1075.9) = −6.57", "t(635.37) = −14.25", ".001"],
+        "src": "p.5 §3.5"
+      },
+      {
+        "kind": "claim",
+        "quote": "both models remain vulnerable to honorific feature interference",
+        "paraphrase_ko": "미세조정이 KoGPT-2의 전체 정확도와 구조 민감도를 크게 올렸어도 구조적으로 복잡한 NP1-control에서는 두 모델 모두 높임 자질 간섭에 취약하다.",
+        "numbers": [],
+        "src": "p.5 §3.5"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "a structurally aligned model should yield more positive scores for NP1-control sentences",
+        "paraphrase_ko": "구조에 정렬된 모델이라면 NP1-control에서 더 큰 양수, NP2-control에서 더 큰 음수의 주의 차이 점수를 보여야 한다는 예측.",
+        "numbers": [],
+        "src": "p.6 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoGPT-2 had higher attention difference scores (M = 76.8, SE = 0.55)",
+        "paraphrase_ko": "Epoch 1 주의: KoGPT-2(M = 76.8)가 KoBERT(M = −1.6)보다 NP1 쏠림이 훨씬 컸고, 정분류(M = 38.7)가 오분류(M = 0.29)보다 점수가 높았다. KoGPT-2는 오히려 NP2-control에서 NP1에 더 주의해(t(192) = −1.97, p = .05) 통사 역할과 어긋났다.",
+        "numbers": ["76.8", "0.55", "−1.6", "1.48", "38.7", "2.84", "0.29", "8.89", "−1.97", ".05"],
+        "src": "p.6 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoBERT allocated more attention to NP2 in incorrect trials than in correct ones",
+        "paraphrase_ko": "Epoch 1에서 KoBERT는 오분류 시행에서 NP2에 더 주의했고(t(192) = −4.45, p < .0001) KoGPT-2는 정오 차이가 없었다(t(192) = 0.45). 저자는 KoBERT의 NP2 쏠림을 정확한 주어 식별이 아니라 간섭의 반영으로 본다.",
+        "numbers": ["−4.45", ".0001", "0.45", "0.90"],
+        "src": "p.6 §3.5"
+      },
+      {
+        "kind": "claim",
+        "quote": "attention allocation patterns do not consistently reflect syntactic roles",
+        "paraphrase_ko": "사전학습 상태에서는 분류 정확도가 꽤 높은데도 주의 배분이 통사 역할을 일관되게 반영하지 않는다.",
+        "numbers": [],
+        "src": "p.6 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoGPT-2 showed lower attention difference scores (M = −41.9, SE = 3.65)",
+        "paraphrase_ko": "미세조정 후에는 KoGPT-2의 점수가 음수(M = −41.9, NP2 선호)로 뒤집혔고 KoBERT는 0 근처(M = 0.95). 정분류 M = −19.9 대 오분류 M = −24.3, NP1-control M = −1.69 대 NP2-control M = −26.1.",
+        "numbers": ["−41.9", "3.65", "0.95", "1.91", "−19.9", "2.72", "−24.3", "6.11", "−1.69", "5.56", "−26.1", "2.66"],
+        "src": "p.6 §3.5"
+      },
+      {
+        "kind": "result",
+        "quote": "KoGPT-2 allocated significantly more attention to NP1—the correct subject—in correctly classified NP1-control sentences",
+        "paraphrase_ko": "미세조정 후 KoGPT-2는 정분류된 NP1-control 문장에서 오분류 문장보다 NP1에 더 주의했다(t = −6.40, p < .0001). NP2-control에서는 차이가 없었고(t = −0.27, p = .789) KoBERT는 어느 조건에서도 없었다(ps > .78).",
+        "numbers": ["−6.40", ".0001", "−0.27", ".789", ".78"],
+        "src": "p.7 §3.5"
+      },
+      {
+        "kind": "limitation",
+        "quote": "likely due to the small number of classification errors (n = 6)",
+        "paraphrase_ko": "NP2-control에서 주의–정확도 연결이 보이지 않은 것은 오분류가 6개뿐이라 검정력이 낮았기 때문일 수 있다고 저자가 인정한다.",
+        "numbers": ["6"],
+        "src": "p.7 §3.5"
+      },
+      {
+        "kind": "claim",
+        "quote": "caution against interpreting attention weights as direct indicators of linguistic competence",
+        "paraphrase_ko": "주의는 일부 경우에 통사적 정렬을 반영하지만 모델·문장 유형에 걸쳐 믿을 만한 속성이 아니므로 언어 능력의 직접 지표로 읽지 말라는 경고. KoBERT는 정확도가 높은데도 주의 변조가 없었다.",
+        "numbers": [],
+        "src": "p.7 §3.5"
+      },
+      {
+        "kind": "claim",
+        "quote": "requires a licensing subject with matching features in a structurally appropriate position",
+        "paraphrase_ko": "높임이 사회·화용적으로 보일 수 있어도 -시-의 사용에는 구조적으로 알맞은 위치에 자질이 맞는 허가 주어가 필요하다 — 총론에서 통사적 일치 전제를 다시 못박는 문장.",
+        "numbers": [],
+        "src": "p.7 §4"
+      },
+      {
+        "kind": "result",
+        "quote": "KoBERT's pre-trained accuracy was only 45.3%, compared to 52.4% for KoGPT-2",
+        "paraphrase_ko": "총론의 재요약: 유인자 NP2가 주어와 동사 사이에 끼는 NP1-control 조건에서 Epoch 1 정확도는 KoBERT 45.3%, KoGPT-2 52.4%였고 미세조정 후 KoGPT-2 72.8%, KoBERT 61.8%.",
+        "numbers": ["45.3%", "52.4%", "72.8%", "61.8%"],
+        "src": "p.7-8 §4"
+      },
+      {
+        "kind": "claim",
+        "quote": "Korean honorific agreement as a rigorous diagnostic for evaluating syntactic sensitivity",
+        "paraphrase_ko": "셋째 기여: 영어 수 일치와 달리 한국어 높임 일치는 표면에서 늘 투명하지 않은 구조적 허가 조건의 지배를 받으므로, 모델이 표면 어휘 휴리스틱을 넘어섰는지 캐는 엄격한 진단 도구다.",
+        "numbers": [],
+        "src": "p.8 §4"
+      },
+      {
+        "kind": "claim",
+        "quote": "remains a significant challenge for current Transformer architectures",
+        "paraphrase_ko": "미세조정 후에도 두 모델이 높임 유인자 간섭을 받는다는 사실은, 장거리 의존과 자질 점검이 얽힌 구문에서 통사 구조를 완전히 추상화하는 일이 현 트랜스포머 구조에 여전히 큰 난제임을 시사한다.",
+        "numbers": [],
+        "src": "p.8 §4"
+      },
+      {
+        "kind": "claim",
+        "quote": "even when these dependencies are tied to sociopragmatic cues such as honorifics",
+        "paraphrase_ko": "트랜스포머 모델은 형태통사적 의존이 높임 같은 사회·화용 단서와 묶여 있을 때에도 그 의존에 대한 민감성을 습득할 수 있다 — 화용을 '단서', 의존을 '형태통사'로 나눠 부르는 결론문.",
+        "numbers": [],
+        "src": "p.8 §4"
+      },
+      {
+        "kind": "limitation",
+        "quote": "our analysis did not fully address how implementation details might have influenced the results",
+        "paraphrase_ko": "토큰화([UNK] 토큰 비율), 모델 크기 차이(두 모델은 추론 방식뿐 아니라 매개변수 규모도 다름), 사전학습 코퍼스 성격(문어 대 구어)이 결과에 기여했을 수 있다.",
+        "numbers": [],
+        "src": "p.8-9 §4"
+      },
+      {
+        "kind": "method",
+        "quote": "all test sentences were lexically matched across the experimental conditions",
+        "paraphrase_ko": "교란을 줄이려고 시험 문장의 어휘를 조건 간에 일치시켰고 차이는 조작 변수인 높임 자질뿐이다. 그래도 사전학습 코퍼스 차이 때문에 다른 문장 성분의 영향을 완전히 배제할 수는 없다고 덧붙인다.",
+        "numbers": [],
+        "src": "p.9 §4"
+      },
+      {
+        "kind": "future_work",
+        "quote": "incorporating explicit syntactic supervision or inductive biases",
+        "paraphrase_ko": "후속 과제: 트리뱅크 주석 코퍼스 학습이나 구조 인식 아키텍처 같은 명시적 통사 감독·귀납 편향이 일반화와 내부 표상의 해석 가능성을 높이는지, 특히 유형론적으로 다양한 언어에서 검토해야 한다.",
+        "numbers": [],
+        "src": "p.9 §4"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "Abstract",
+        "move": "claim",
+        "summary_ko": "저자원 언어에서 트랜스포머 모델이 추상적 통사 구조에 일반화하는지를 한국어 주어–동사 높임 일치로 본다. KoGPT-2가 (특히 미세조정 후) 구조적으로 복잡한 구문에서 KoBERT를 앞서고, 주의 분석에서도 더 통사적으로 정렬되지만 일관되지는 않으며, 두 모델 모두 높임 유인자 간섭을 받는다. 주의는 통사 구조를 반영할 수 있어도 문법 능력의 믿을 만한 지표는 아니다.",
+        "src": "p.1 Abstract"
+      },
+      {
+        "section": "1 Introduction ¶1",
+        "move": "gap",
+        "summary_ko": "트랜스포머가 통사 지식을 암묵적으로 부호화한다는 증거가 늘고 있으나 어휘 내용과 독립적으로 추상 구조에 일반화하는 정도는 불분명하다. 연구가 영어 등 고자원 언어에 쏠려 있고 한국어는 웹 콘텐츠의 1% 미만이다.",
+        "src": "p.1 §1"
+      },
+      {
+        "section": "1 Introduction ¶2",
+        "move": "background",
+        "summary_ko": "언어는 표면상 선형이지만 위계적이다. 일치 현상은 통사 일반화를 캐는 표준 도구다: Goldberg (2019)의 BERT 영어 일치, Bacon & Regier (2019)의 26개 언어 90% 이상 정확도와 유인자·장거리에서의 하락, Lasri et al. (2022)의 어휘 의존성, Chaves & Richter (2021)의 'BERT는 얕은 휴리스틱, GPT-2는 더 구조적'.",
+        "src": "p.1 §1"
+      },
+      {
+        "section": "1 Introduction ¶3",
+        "move": "claim",
+        "summary_ko": "KoBERT와 KoGPT-2를 높임 일치로 미세조정 전후 평가해, 명시적 통사 모듈 없이 통사 지식이 생기는지와 그것이 주의 기제와 어떻게 상호작용하는지 본다. 다국어 NLP와 해석 가능성에 기여한다고 밝힌다.",
+        "src": "p.1-2 §1"
+      },
+      {
+        "section": "2 Subject–Verb Honorific Agreement in Korean ¶1 + 예문 (1)–(3)",
+        "move": "background",
+        "summary_ko": "한국어는 교착적 SOV 언어이고 -si-는 주어에 대한 존경을 표시한다. 높일 수 있는 주어에는 -si-가 수의적이고 높일 수 없는 주어에는 비문이다. 이런 위반은 P600을 일으키므로 높임 일치는 다른 일치 현상처럼 통사 정보로 처리된다. 단문 예문 세 개로 예시한다.",
+        "src": "p.2 §2"
+      },
+      {
+        "section": "2 ¶2",
+        "move": "claim",
+        "summary_ko": "높임 일치는 주어의 통사적 접근 가능성에 좌우된다(Yoon 2009). -si-는 사회·화용 자질을 반영하지만 문법성은 주어의 구조적 허가에 달려 있다. '수의적이지만 구조적으로 제약된' 현상이라 범주적 표면 단서 없이 추상 의존을 학습했는지 시험하기에 알맞다.",
+        "src": "p.2 §2"
+      },
+      {
+        "section": "2 ¶3 + 도식 (4)",
+        "move": "method",
+        "summary_ko": "같은 표면 어순 [NP1-NOM NP2-to VERB.emb VERB.main]에서 내포 동사의 주어가 NP1인 NP1 control과 NP2인 NP2 control 두 구문을 만든다(Chomsky 1981; Kwon & Polinsky 2006). 분류 과제와 자기주의 분석을 진단 도구로 쓴다.",
+        "src": "p.2 §2"
+      },
+      {
+        "section": "3.1 Datasets + Table 1",
+        "move": "method",
+        "summary_ko": "두 통제 유형 각각에 NP1–NP2 자질 네 조합을 넣어 8셀을 만든다. 내포 동사가 항상 높임형이므로 적법 주어가 H면 문법적, NH면 비문법적이고, 비적법 명사의 자질은 간섭 검증용이다. 예문은 영어 (5)(6)으로만 제시. NP1-control 1,336문장, NP2-control 5,304문장, 훈련 90%·시험 10%.",
+        "src": "p.2-3 §3.1"
+      },
+      {
+        "section": "3.2 Classification task analysis",
+        "move": "method",
+        "summary_ko": "문법성 이진 분류. KoBERT는 토큰·위치·세그먼트 임베딩, 최대 길이 256, batch 16, 30 epoch, seed 42, epsilon 8e–8, 학습률 0.0001로 BertForSequenceClassification을 미세조정. KoGPT-2-base-v2는 BPE 토큰화와 인과적 언어모델링 목표, GPT2ForSequenceClassification. 두 모델 모두 30 epoch 학습 전후의 정확도와 주의 정렬을 비교한다.",
+        "src": "p.3 §3.2"
+      },
+      {
+        "section": "3.3 Attention patterns analysis",
+        "move": "method",
+        "summary_ko": "주의 지도의 언어학적 해석 가능성에 대한 찬반 문헌을 함께 인용한 뒤, VERB1 → NP1/NP2 주의 가중치를 정규화 비율과 차이 점수로 바꿔 Epoch 1과 Epoch 30에서 비교한다. 두 모델이 모두 맞힌 400문장과 모두 틀린 56문장이 대상이다. 음절 기반 토큰화의 분절 불일치를 Mun & Shin (2025) 방법의 수정판으로 보정해 [NP1 NP2 VERB1 VERB2] 구조를 유지한다.",
+        "src": "p.3-4 §3.3"
+      },
+      {
+        "section": "3.4 Statistical analyses",
+        "move": "method",
+        "summary_ko": "정확도는 이항 GLMER, 주의는 LMER. 고정효과 구성(정확도: Model × Control Type × NP1 × NP2, 주의: Model × Control Type × Accuracy, 미세조정: Model × Epoch × Control Type), 합 부호화, 문장 무선 절편, Holm 보정 쌍별 비교. 각주 1에서 OSF 링크를 제시한다.",
+        "src": "p.4 §3.4"
+      },
+      {
+        "section": "3.5 Results — Epoch 1 분류 정확도",
+        "move": "evidence",
+        "summary_ko": "Model·Control Type·NP1·NP2 주효과와 Control Type × NP1 × NP2 상호작용이 유의. 자질 일치 유인자가 개입하는 NP1-control NH–H 셀에서 45.3%, 52.3%로 급락, 유인자가 개입하지 않는 NP2-control H–NH 셀에서는 KoGPT-2 92.4%, KoBERT 76.7%. NP1-control H–NH 셀에서만 KoBERT(81.3%)가 KoGPT-2(69.5%)를 앞섰다.",
+        "src": "p.4 §3.5; p.11 Appendix B-C"
+      },
+      {
+        "section": "3.5 Results — Epoch 1 해석",
+        "move": "interpretation",
+        "summary_ko": "일치 거리 증가와 개입하는 자질 일치 유인자가 성능을 떨어뜨리며 이는 인간 문장 처리의 유인 효과(Kwon & Sturt 2016, 2019)와 평행하다. 자기회귀 모델이 간섭에 더 강하고 장거리 의존을 더 잘 유지하며 마스크 모델은 구조와 무관한 유인자의 자질 간섭에 더 약하다는 선행 연구와도 일치한다고 해석한다.",
+        "src": "p.4-5 §3.5"
+      },
+      {
+        "section": "3.5 Results — 미세조정 효과",
+        "move": "evidence",
+        "summary_ko": "Model·Control type·Epoch 주효과와 Model × Control type, Epoch × Model, 삼원 상호작용이 유의. KoGPT-2는 두 통제 유형 모두에서 크게 개선, KoBERT는 NP1-control 무변화·NP2-control 하락. Figure 1이 모델 × 통제 유형 × 학습 상태별 정확도를 막대로 보여 준다.",
+        "src": "p.5 §3.5; p.12 Appendix D-E"
+      },
+      {
+        "section": "3.5 Results — 유인자 간섭 후속 분석",
+        "move": "evidence",
+        "summary_ko": "NP1-control NH–H 셀은 미세조정 후 45.3% → 61.8%, 52.4% → 72.8%로 올랐다. 그러나 NP1-control에서 두 명사의 자질이 다른 조건(H–NH, NH–H)은 같은 조건(H–H, NH–NH)보다 Welch t 검정에서 모두 유의하게 낮아, 미세조정이 간섭을 없애지 못했다.",
+        "src": "p.5 §3.5"
+      },
+      {
+        "section": "3.5 Results — 분류 결과 소결",
+        "move": "interpretation",
+        "summary_ko": "KoGPT-2는 미세조정의 혜택을 크게 보고 KoBERT는 반응이 약하다. 이 차이는 두 모델이 통사 의존을 부호화하는 구조적 차이를 반영할 수 있으며(헤지: may) 자기회귀 설계가 구조 민감성을 더 잘 뒷받침한다고 본다. 그래도 두 모델 모두 NP1-control에서 구조와 무관한 명사구의 높임 자질 간섭을 받는다.",
+        "src": "p.5 §3.5"
+      },
+      {
+        "section": "3.5 Results — Epoch 1 주의 패턴 (Figure 2)",
+        "move": "evidence",
+        "summary_ko": "456시행(정분류 400, 오분류 56; NP1-control 104, NP2-control 352) 분석. KoGPT-2는 NP1 쏠림이 크고(M = 76.8) NP2-control에서 오히려 NP1에 더 주의해 문법 의존과 어긋난다. KoBERT는 오분류 시행에서 NP2 쪽으로 기운다. 사전학습 모델의 주의 분포는 통사 이해를 일관되게 나타내지 않는다고 결론짓고 주의 회의론 문헌과 연결한다.",
+        "src": "p.5-6 §3.5; p.12 Appendix F"
+      },
+      {
+        "section": "3.5 Results — Epoch 30 주의 패턴 (Figure 3)",
+        "move": "evidence",
+        "summary_ko": "미세조정 후 KoGPT-2 점수가 음수로 뒤집히고 Model × Control type × Accuracy 삼원 상호작용이 유의. KoGPT-2만 정분류 NP1-control 문장에서 NP1에 더 주의했다. NP2-control에서 효과가 없는 것은 오분류가 6개뿐이기 때문일 수 있다. KoBERT의 주의는 정오와 무관했다.",
+        "src": "p.6-7 §3.5; p.12 Appendix G"
+      },
+      {
+        "section": "3.5 Results — 주의 분석 소결",
+        "move": "interpretation",
+        "summary_ko": "주의 배분은 분류 성능을 한결같이 예측하지 않고 구조 유형과 모델 구조에 따라 달라진다. 주의 가중치를 언어 능력의 직접 지표로 해석하지 말아야 하며, KoBERT가 높은 정확도에도 주의 변조가 없다는 점은 마스크 모델 주의의 해석 가능성에 의문을 던진다.",
+        "src": "p.7 §3.5"
+      },
+      {
+        "section": "4 General Discussion ¶1",
+        "move": "claim",
+        "summary_ko": "연구 목적과 방법을 다시 정리하면서 '높임은 사회·화용적으로 보일 수 있지만 -si-는 구조적으로 알맞은 위치의 허가 주어를 요구한다'는 전제를 재확인한다.",
+        "src": "p.7 §4"
+      },
+      {
+        "section": "4 General Discussion — 기여 1",
+        "move": "interpretation",
+        "summary_ko": "두 모델 모두 비교적 높은 분류 성능을 보였지만 KoGPT-2가 일관되게 앞서고 미세조정에 더 잘 반응했다. 유인자 NP2가 끼는 NP1-control에서 KoBERT가 특히 취약했다. 자기회귀 모델이 위계 의존 추적에 유리하고 BERT는 얕은 휴리스틱에 기대 어휘 간섭에 약하다는 선행 주장(Chaves & Richter 2021; Lasri et al. 2022; McCoy et al. 2019)을 저자원 언어로 확장한다.",
+        "src": "p.7-8 §4"
+      },
+      {
+        "section": "4 General Discussion — 기여 2",
+        "move": "interpretation",
+        "summary_ko": "주의 가중치가 언어학적 설명과 안정적으로 대응하지 않는다는 기존 주장을 지지하되 일부 경우 정렬이 나타남을 보였다. KoGPT-2는 정분류 NP1-control에서 NP1에, 오분류에서는 NP2에 주의했다. KoBERT는 정확도가 약 81%에서 정체되고 주의도 구조에 둔감했다. 성능과 내부 해석 가능성을 함께 평가해야 한다.",
+        "src": "p.8 §4"
+      },
+      {
+        "section": "4 General Discussion — 기여 3",
+        "move": "claim",
+        "summary_ko": "한국어 높임 일치는 통사 민감도의 엄격한 진단 도구다. -si- 일치의 수의성과 형태통사적 특수성 덕에 모델이 표면 어휘 휴리스틱을 넘어 깊은 문법 일반화를 부호화하는지 캘 수 있다. 미세조정 후에도 남는 유인자 간섭은 장거리 의존과 자질 점검이 얽힌 구문의 완전한 추상화가 현 트랜스포머에 여전히 어렵다는 뜻이다.",
+        "src": "p.8 §4"
+      },
+      {
+        "section": "4 General Discussion — 종합",
+        "move": "interpretation",
+        "summary_ko": "트랜스포머 모델은 사회·화용 단서와 묶인 형태통사 의존에도 민감성을 습득할 수 있지만 개선은 균일하지 않다. 주의는 문법 지식의 지표로 한계가 있고, 풍부한 형태론과 자유 어순을 가진 저자원 언어 연구가 영어 중심 평가에서 가려진 한계를 드러낸다.",
+        "src": "p.8 §4"
+      },
+      {
+        "section": "4 General Discussion — 한계",
+        "move": "limitation",
+        "summary_ko": "토큰화([UNK] 비율), 모델 크기 차이, 사전학습 코퍼스 성격이 결과에 미친 영향을 다루지 못했다. 시험 문장의 어휘를 조건 간 일치시켜 교란을 줄였지만 사전학습 코퍼스 차이 때문에 다른 성분의 영향을 완전히 배제하지 못한다.",
+        "src": "p.8-9 §4"
+      },
+      {
+        "section": "4 General Discussion — 후속 과제",
+        "move": "future_work",
+        "summary_ko": "트리뱅크 주석 코퍼스 학습이나 구조 인식 아키텍처처럼 명시적 통사 감독·귀납 편향을 넣으면 일반화와 내부 표상의 해석 가능성이 나아지는지, 유형론적으로 다양한 언어에서 탐구해야 한다.",
+        "src": "p.9 §4"
+      },
+      {
+        "section": "Appendix A",
+        "move": "method",
+        "summary_ko": "주의 변환 절차 그림. 입력 문장 '꼬마가 선생님에게 문을 닫으시라고 말했다'에서 목적어를 뺀 '꼬마가 선생님에게 닫으시라고 말했다'를 KoBERT·KoGPT2 토크나이저가 음절 단위로 쪼개고, Stanza 형태소 분석기로 꼬마가/NOUN, 선생님에게/NOUN, 닫으시라고/VERB, 말했다/VERB 단위로 묶어 '닫으시라고'에서 나가는 주의(그림 속 값, 그림 판독: 꼬마가 16.141, 선생님에게 33.287, 말했다 29.281)를 쓴다. 캡션은 'Example (5)'라고 하지만 이 문장은 -(으)라고 명령 인용 구문으로 (6) NP2 control(NH–H, 문법적)에 해당한다(우리 관찰). 원문에서 한글로 제시된 유일한 자극이다.",
+        "src": "p.11 Appendix A"
+      },
+      {
+        "section": "Appendix B–G",
+        "move": "evidence",
+        "summary_ko": "B와 D는 Epoch 1과 Epoch 30의 8셀 정확도(괄호는 SE)와 모델 평균(KoBERT 81.2 → 80.8, KoGPT2 89.8 → 95.1). C는 Epoch 1 정확도 모형(15개 효과 중 NP2:Model:Type만 p = 0.08로 비유의), E는 Epoch 비교 모형(마지막 행 라벨이 'Epoch:Type'으로 중복 — 본문이 말하는 삼원 상호작용 행으로 보임), F와 G는 Epoch 1·30 주의 모형. 캡션은 이항 GLMER 결과도 'Linear Mixed Effects model'로 부른다.",
+        "src": "p.11-12 Appendix B-G"
+      }
+    ],
+    "context": [
+      {
+        "axis": "lineage",
+        "text_ko": "일치 현상으로 신경망의 통사 지식을 캐는 계보(Goldberg 2019; Bacon & Regier 2019; Lasri, Lenci, & Poibeau 2022; Chaves & Richter 2021; McCoy, Pavlick, & Linzen 2019) 위에 서 있고, 'BERT는 얕은 휴리스틱에 기대고 GPT-2는 더 구조적'이라는 기존 대비를 한국어로 옮겨 확인하는 구도다. 참고문헌의 Bacon & Regier (2019) 항목은 제목과 쪽수가 본문에서 인용한 내용(26개 언어 일치 평가)과 맞지 않아 보이므로(단어 의미 중의성 해소 논문 제목이 적혀 있음) 우리 보고서에서 재인용할 때는 원 서지를 따로 확인해야 한다.",
+        "related": [],
+        "src": "p.1 §1; p.8 §4; p.9 References"
+      },
+      {
+        "axis": "lineage",
+        "text_ko": "제1저자 자신의 심리언어학 연구를 모델 평가로 이식한 논문이다. 높임 일치의 유인 효과(Kwon & Sturt 2016), 근접성과 격 표지가 유인 효과를 키우지 않는다는 시선추적 결과(Kwon & Sturt 2019), 높임 위반의 P600(Kwon & Sturt 2024), 한국어 목적어 통제 구문(Kwon & Polinsky 2006)이 설계의 뼈대다. 이 프로젝트에서 Nayoung Kwon과 Mun은 P04(Shin, Kwon & Mun 2026)에도 함께 저자로 참여하므로 두 논문은 한 연구실 계보로 읽어야 하고 용어와 전제(높임 = 통사적 일치)를 공유할 가능성이 높다. P02(Cho & Kwon 2026)의 Kwon은 Cornell의 Chloe Dokyung Kwon으로 다른 사람이므로(P02 p.1 저자 표기) 성이 같다는 이유로 같은 계보로 묶으면 안 된다.",
+        "related": ["P02", "P04"],
+        "src": "p.2 §2; p.5 §3.5; p.9 References"
+      },
+      {
+        "axis": "lineage",
+        "text_ko": "주의 해석 가능성 논쟁에서는 찬성(Clark et al. 2019; Vig 2019 등)과 회의(Jain & Wallace 2019; Serrano & Smith 2019; Mohankumar et al. 2020; Thorne et al. 2019) 문헌을 함께 인용하고 결론은 회의론 쪽에 선다. 주의 단위 변환은 제2저자의 Mun & Shin (2025, COLING)에서 가져왔다.",
+        "related": [],
+        "src": "p.3 §3.3; p.6-8 §3.5-4; p.10 References"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "높임 일치를 통사적 일치로 본다. 근거는 세 겹이다: ① 규범 기술(Sohn 2001) — 높일 수 없는 주어 + -si-는 비문, ② 신경언어학 — 위반 시 P600(Kwon & Sturt 2024), ③ 통사론 — 주어의 통사적 접근 가능성(Yoon 2009). 화용적 수의성은 'optional' 한 단어로 인정하되 한 방향(높일 주어 + 무표지는 허용)만 수의적이라고 보고, 실험에서는 -시-를 항상 붙여 수의성이 개입할 여지를 아예 없앴다. 명사의 H/NH를 고정된 어휘 자질로 다루며 화자·청자·상황은 변수로 등장하지 않는다.",
+        "related": ["P01", "P02", "P05"],
+        "src": "p.2 §2; p.7 §4"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "KoBERT(2019, 92 million)와 KoGPT-2(2021, 125 million)는 프롬프트로 판단을 물을 수 없는 세대라 분류 헤드 미세조정이 유일한 행동 측정 수단이었다. '자기회귀 대 마스크' 구조 비교는 이 규모에서만 검증됐고 저자도 모델 크기·코퍼스 차이가 교란임을 인정한다. 최신 상용 LLM은 모두 자기회귀 계열이므로 이 논문의 구조 비교 축은 후속 연구에서 사라지고, 남는 질문은 '유인자 간섭이 규모와 지시 조정으로 사라지는가'다.",
+        "related": ["P04", "P07"],
+        "src": "p.1 §1; p.3 §3.2; p.8 §4"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "모델이 구조적 허가 조건보다 표면 단서(가까이 있는 높임 명사)에 끌린다는 결론은, 경어 처리에서 모델이 표면 공기(共起)에 의존한다는 취지의 결과를 내는 논문들과 합의할 법하다. 같은 저자군의 P04와, 저자는 다르지만 역시 주체 높임 -시-를 다루는 P02가 '비적법 위치의 높임 명사가 판단을 흔든다'는 점에서 직접 비교 대상이다. 실제 합의 여부는 횡단 분석에서 각 카드의 수치로 확인해야 한다.",
+        "related": ["P01", "P02", "P04"],
+        "src": "p.5 §3.5; p.8 §4"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "이 논문은 '높일 수 없는 주어 + -시-'를 범주적 비문(✗)으로 단정하고 인간 판단 없이 이분 라벨을 쓴다. 화자 판단이나 말뭉치 분포를 직접 수집하는 논문(P05)이나 공손성·적절성을 등급적 화용 현상으로 다루는 논문(P01)과는 같은 문장을 두고 '비문'과 '덜 적절함'으로 갈릴 법하다. 또 acceptability라는 말을 인간 평정이 아닌 규범 라벨의 뜻으로 써서 용어 충돌이 생긴다.",
+        "related": ["P01", "P05"],
+        "src": "p.2 §2-3.1; p.3 Table 1"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "평가 방식이 미세조정된 분류기의 정확도이므로, 미세조정 없이 프롬프트나 surprisal로 모델의 기존 지식을 재는 논문들과 '모델이 높임 일치를 안다'의 의미가 다르다. 이 논문의 Epoch 1 수치는 zero-shot 지식의 증거로 다른 논문의 수치와 나란히 놓을 수 없다. 한편 저자원 환경 미세조정으로 경어 오류 판단을 다루는 P07과는 방법상 가깝다.",
+        "related": ["P02", "P04", "P07"],
+        "src": "p.3 §3.2; p.3-4 §3.3"
+      },
+      {
+        "axis": "field",
+        "text_ko": "아시아·태평양권 전산언어학 학회(PACLIC) 논문으로, 독자는 NLP 해석 가능성 연구자와 심리언어학자다. 기여를 '저자원·유형론적 다양성'과 '주의 해석 가능성'이라는 NLP 의제로 포장했고 국어학 문헌은 Sohn (2001)과 Yoon (2009) 둘뿐이다. 한국어 경어법 이론(압존법, 간접 높임, 청자 높임과의 상호작용 등)에 대한 논의는 없다.",
+        "related": [],
+        "src": "p.1 §1; p.8 §4; p.9-10 References"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "주어–동사 높임 일치(주체 높임 -시-)의 구조적 허가. 표면 어순이 같은 [NP1 NP2 VERB1 VERB2] 복문에서 -시-가 붙은 내포 동사 VERB1의 적법 주어가 NP1(주절 주어)인지 NP2(여격 목적어)인지에 따라 문법성이 갈린다.",
+    "stimuli": "저자가 구성한 한국어 복문. 틀은 [NP1-이/가 NP2-에게 (목적어) VERB1(-시- 포함) VERB2]이고 VERB1에는 항상 -시-가 붙는다. 원문이 제시한 예는 영어 풀이 (5)(6)과 부록 A의 한국어 한 문장(꼬마가 선생님에게 문을 닫으시라고 말했다)뿐이다. 제작 절차(템플릿 수, 명사·동사 목록, 어휘 수, 자동 생성 여부)는 원문 미표기. 조건 간 어휘를 일치시켰다고 한다(lexically matched). 통제 유형 비율(약 1:4)은 한국어 자연 분포를 반영했다고 하나 근거 미표기. 단문 (1)–(3)은 설명용이고 자극이 아니다.",
+    "conditions": [
+      {
+        "label": "NP1-control × H–H",
+        "control_type": "NP1 control",
+        "np1": "H",
+        "np2": "H",
+        "licit_subject": "NP1 (H)",
+        "other_np": "NP2 (H) — 적법 주어와 동사 사이에 선형 개입, 자질 같음",
+        "grammatical": "✓",
+        "description": "적법 주어 NP1이 H라 문법적. 두 명사 자질이 같아(matched) 간섭 방향 없음."
+      },
+      {
+        "label": "NP1-control × H–NH",
+        "control_type": "NP1 control",
+        "np1": "H",
+        "np2": "NH",
+        "licit_subject": "NP1 (H)",
+        "other_np": "NP2 (NH) — 선형 개입, 동사의 높임 자질과 불일치",
+        "grammatical": "✓",
+        "description": "문법적. 동사 가까이에 NH 명사가 끼어 있어 '가까운 명사' 단서를 따르면 비문으로 오판한다. 예: (5)의 teacher … kid."
+      },
+      {
+        "label": "NP1-control × NH–H",
+        "control_type": "NP1 control",
+        "np1": "NH",
+        "np2": "H",
+        "licit_subject": "NP1 (NH)",
+        "other_np": "NP2 (H) — 선형 개입하는 자질 일치 유인자",
+        "grammatical": "✗",
+        "description": "비문법적. 저자가 말하는 대표적 유인자 셀(feature-matching attractor가 linearly intervene). 예: (5)의 *kid … teacher."
+      },
+      {
+        "label": "NP1-control × NH–NH",
+        "control_type": "NP1 control",
+        "np1": "NH",
+        "np2": "NH",
+        "licit_subject": "NP1 (NH)",
+        "other_np": "NP2 (NH) — 선형 개입, 자질 같음",
+        "grammatical": "✗",
+        "description": "비문법적. 문장 안에 H 명사가 하나도 없어 어휘 단서만으로도 비문 판정 가능."
+      },
+      {
+        "label": "NP2-control × H–H",
+        "control_type": "NP2 control",
+        "np1": "H",
+        "np2": "H",
+        "licit_subject": "NP2 (H)",
+        "other_np": "NP1 (H) — 문두, 주어–동사 사이에 끼지 않음",
+        "grammatical": "✓",
+        "description": "적법 주어 NP2가 H라 문법적."
+      },
+      {
+        "label": "NP2-control × H–NH",
+        "control_type": "NP2 control",
+        "np1": "H",
+        "np2": "NH",
+        "licit_subject": "NP2 (NH)",
+        "other_np": "NP1 (H) — 선형 개입하지 않는 자질 일치 유인자",
+        "grammatical": "✗",
+        "description": "비문법적. 저자가 '유인자가 선형으로 개입하지 않는' 대비 셀로 든다. 예: (6)의 teacher … *kid."
+      },
+      {
+        "label": "NP2-control × NH–H",
+        "control_type": "NP2 control",
+        "np1": "NH",
+        "np2": "H",
+        "licit_subject": "NP2 (H)",
+        "other_np": "NP1 (NH) — 문두, 개입하지 않음",
+        "grammatical": "✓",
+        "description": "문법적. 예: (6)의 kid … teacher, 부록 A의 '꼬마가 선생님에게 (문을) 닫으시라고 말했다'."
+      },
+      {
+        "label": "NP2-control × NH–NH",
+        "control_type": "NP2 control",
+        "np1": "NH",
+        "np2": "NH",
+        "licit_subject": "NP2 (NH)",
+        "other_np": "NP1 (NH) — 문두, 자질 같음",
+        "grammatical": "✗",
+        "description": "비문법적. 문장 안에 H 명사가 없음."
+      }
+    ],
+    "n_items": "총 6,640문장(재계산: NP1-control 1,336 + NP2-control 5,304). 훈련 90% / 시험 10%. 셀별 문항 수·분할 방식(무작위인지, 어휘 단위 분리인지) 원문 미표기. 주의 분석은 456시행(두 모델 모두 정분류 400 + 모두 오분류 56; NP1-control 104, NP2-control 352).",
+    "measures": [
+      "이진 문법성 분류 정확도(%) — 8셀 × 모델 × Epoch(1 대 30)",
+      "주의 차이 점수 = NP1 Ratio − NP2 Ratio (VERB1에서 NP1·NP2로 가는 자기주의 가중치의 정규화 비율 차, 양수 = NP1 선호) — Epoch 1과 Epoch 30"
+    ],
+    "models": [
+      "KoBERT (SK Telecom; Jeon, Lee, & Park, 2019) — 92 million parameters, 마스크 언어모델(양방향), BertForSequenceClassification으로 미세조정",
+      "KoGPT-2-base-v2 (SK Telecom; Jeon, 2021) — 125 million parameters, 자기회귀(인과적) 언어모델, GPT2ForSequenceClassification으로 미세조정"
+    ],
+    "humans": null,
+    "stats": "정확도: 이항 GLMER(R 4.2.1, lme4 v1.1-31, lmerTest 3.1-3) — 고정효과 Model × Control Type × NP1(H/NH) × NP2(H/NH)와 모든 상호작용. 미세조정 비교: Model × Epoch × Control Type. 주의: LMER — Model × Control Type × Classification Accuracy. 모든 예측 변수 합 부호화, 문장 무선 절편, 최대 무선효과 구조를 수렴에 맞춰 단순화(Barr et al. 2013), emmeans로 Holm 보정 쌍별 비교. 유인자 후속 분석은 NP1-control에서 자질 불일치 대 일치 조건의 Welch 이표본 t 검정. 학습은 단일 시드(42).",
+    "is_factorial": "예 — 문장 설계는 2×2×2: 통제 유형[NP1-control/NP2-control] × NP1 자질[H/NH] × NP2 자질[H/NH]. 여기에 Model[KoBERT/KoGPT-2]을 더해 2×2×2×2 GLMER로 분석하고, 미세조정 효과는 Model × Epoch[1/30] × 통제 유형으로 따로 본다. 단, 동사의 -시- 유무는 조작하지 않았다(항상 유). 셀 크기는 불균형(통제 유형 약 1:4)."
+  },
+  "stimulus_examples": [
+    {
+      "ko": "어머님이 우셨다.",
+      "gloss": "emenim-i wu-si-ess-ta / mother-nom cry-HON-past-decl / 'Mother cried.'",
+      "condition": "(1) Honorifiable subject with -si- — 문법적. 설명용 단문(분류 자극 아님)",
+      "src": "p.2 §2 (1)"
+    },
+    {
+      "ko": "어머님이 울었다.",
+      "gloss": "emenim-i wul-ess-ta / mother-nom cry-past-decl / 'Mother cried.'",
+      "condition": "(2) Honorifiable subject without -si- — 문법적(-시-의 수의성). 설명용 단문",
+      "src": "p.2 §2 (2)"
+    },
+    {
+      "ko": "*꼬마가 우셨다.",
+      "gloss": "*kkoma-ka wu-si-ess-ta / kid-nom cry-HON-past-decl / 'The kid cried.'",
+      "condition": "(3) Unhonorifiable subject with -si- — 비문법적. 설명용 단문",
+      "src": "p.2 §2 (3)"
+    },
+    {
+      "ko": "[NP1-이/가 NP2-에게 가-(내포) 말했다(주절)] — 도식이며 실제 문장 아님",
+      "gloss": "NP1-NOM NP2-to go.emb told.main / NP1 control: 'NP1i told NP2 that hei went.' / NP2 control: 'NP1 told NP2i PROi to go.'",
+      "condition": "(4) 두 통제 구문의 도식",
+      "src": "p.2 §2 (4)"
+    },
+    {
+      "ko": "선생님이 꼬마에게 문을 닫으셨다고 말했다. / *꼬마가 선생님에게 문을 닫으셨다고 말했다. [우리 재구성 — 원문은 영어 풀이만 제시하며 NP1 control의 한국어 어미는 원문에 없음]",
+      "gloss": "The *kid_i/teacher_i told the teacher/kid that __i closed (honorific) the door.",
+      "condition": "(5) NP1 control — teacher…kid = H–NH(✓), *kid…teacher = NH–H(✗)",
+      "src": "p.2 §3.1 (5)"
+    },
+    {
+      "ko": "꼬마가 선생님에게 문을 닫으시라고 말했다. / *선생님이 꼬마에게 문을 닫으시라고 말했다. [앞 문장은 부록 A에 한글로 실린 문장, 뒤 문장은 우리 재구성]",
+      "gloss": "The kid/teacher told the teacher_i/*kid_i __i to close (honorific) the door.",
+      "condition": "(6) NP2 control — kid…teacher = NH–H(✓), teacher…*kid = H–NH(✗)",
+      "src": "p.2 §3.1 (6)"
+    },
+    {
+      "ko": "꼬마가 선생님에게 문을 닫으시라고 말했다. → (주의 분석용, 목적어 제거) 꼬마가 선생님에게 닫으시라고 말했다.",
+      "gloss": "꼬마가/NOUN 선생님에게/NOUN 닫으시라고/VERB 말했다/VERB (Stanza 형태소 분석 단위). NP1 = 꼬마(NH), NP2 = 선생님(H), VERB1 = 닫으시라고, VERB2 = 말했다",
+      "condition": "부록 A 'Input sentence' — 캡션은 Example (5)라 하지만 -(으)라고 명령 인용이므로 NP2 control × NH–H(✓)에 해당(우리 판단). 원문에 한글로 실린 유일한 자극",
+      "src": "p.11 Appendix A"
+    }
+  ],
+  "key_numbers": [
+    {"what": "KoBERT 매개변수 수", "value": "92 million", "src": "p.1 §1"},
+    {"what": "KoGPT-2 매개변수 수", "value": "125 million", "src": "p.1 §1"},
+    {"what": "NP1-control 문장 수", "value": "1,336", "src": "p.3 §3.1"},
+    {"what": "NP2-control 문장 수", "value": "5,304", "src": "p.3 §3.1"},
+    {"what": "전체 문장 수 = 1,336 + 5,304", "value": "6,640 (재계산)", "src": "p.3 §3.1"},
+    {"what": "훈련 / 시험 분할", "value": "90% / 10%", "src": "p.3 §3.1"},
+    {"what": "미세조정 하이퍼파라미터: batch size, epochs, random seed, 최대 길이, 학습률", "value": "16, 30, 42, 256, 0.0001", "src": "p.3 §3.2"},
+    {"what": "주의 행렬 구조: 층 × 헤드", "value": "12 × 12", "src": "p.4 §3.3"},
+    {"what": "주의 분석 표본: 두 모델 모두 정분류 / 모두 오분류", "value": "400 / 56", "src": "p.4 §3.3"},
+    {"what": "주의 분석 표본: 전체 시행, NP1-control, NP2-control", "value": "456, 104, 352", "src": "p.5 §3.5"},
+    {"what": "Epoch 1 모델 평균 정확도(본문): KoGPT-2 / KoBERT", "value": "89.7% / 81.1%", "src": "p.4 §3.5"},
+    {"what": "Epoch 1 모델 평균 정확도(부록 B, 본문과 0.1 차이): KoGPT2 / KoBERT", "value": "89.8 / 81.2", "src": "p.11 Appendix B"},
+    {"what": "Epoch 1 통제 유형 평균 정확도: NP2-control / NP1-control", "value": "87.6% / 76.8%", "src": "p.4 §3.5"},
+    {"what": "Epoch 1, NP1-control NH–H(선형 개입하는 자질 일치 유인자) 정확도 — 본문 p.4 표기: KoBERT / KoGPT-2", "value": "45.3% / 52.3%", "src": "p.4 §3.5"},
+    {"what": "같은 셀의 KoGPT-2 값 — 부록 B와 p.5·p.7 본문 표기(p.4의 52.3%와 불일치)", "value": "52.4", "src": "p.11 Appendix B"},
+    {"what": "Epoch 1, NP2-control H–NH(개입하지 않는 유인자) 정확도 — 본문: KoGPT-2 / KoBERT", "value": "92.4% / 76.7%", "src": "p.4 §3.5"},
+    {"what": "같은 셀의 부록 B 표기(본문과 0.1 차이): KoGPT2 / KoBERT", "value": "92.5 / 76.8", "src": "p.11 Appendix B"},
+    {"what": "Epoch 1, NP1-control H–NH에서만 KoBERT가 앞섬: KoBERT / KoGPT-2", "value": "81.3% / 69.5%", "src": "p.4 §3.5"},
+    {"what": "부록 B — Epoch 1 KoBERT, NP1 ctrl 열의 H–H, H–NH, NH–H, NH–NH (괄호 안 SE는 0.01–0.02)", "value": "89.1, 81.3, 45.3, 84.2", "src": "p.11 Appendix B"},
+    {"what": "부록 B — Epoch 1 KoBERT, NP2 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "86.5, 76.8, 82.8, 84.6", "src": "p.11 Appendix B"},
+    {"what": "부록 B — Epoch 1 KoGPT2, NP1 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "93, 69.5, 52.4, 98.4", "src": "p.11 Appendix B"},
+    {"what": "부록 B — Epoch 1 KoGPT2, NP2 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "94.3, 92.5, 86.6, 97", "src": "p.11 Appendix B"},
+    {"what": "부록 D — Epoch 30 KoBERT, NP1 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "86.5, 74.1, 61.8, 79.6", "src": "p.12 Appendix D"},
+    {"what": "부록 D — Epoch 30 KoBERT, NP2 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "86.1, 79.2, 84.4, 78.5", "src": "p.12 Appendix D"},
+    {"what": "부록 D — Epoch 30 KoGPT2, NP1 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "98.4, 79.6, 72.8, 99.4", "src": "p.12 Appendix D"},
+    {"what": "부록 D — Epoch 30 KoGPT2, NP2 ctrl 열의 H–H, H–NH, NH–H, NH–NH", "value": "98.8, 97.1, 94.4, 97.8", "src": "p.12 Appendix D"},
+    {"what": "부록 D — Epoch 30 모델 평균: KoBERT / KoGPT2", "value": "80.8 / 95.1", "src": "p.12 Appendix D"},
+    {"what": "Epoch 비교 모형의 평균 정확도: KoGPT-2 / KoBERT", "value": "92.4% / 80.9%", "src": "p.5 §3.5"},
+    {"what": "Epoch 비교 모형의 평균 정확도: NP2-control / NP1-control", "value": "88.5% / 79.3%", "src": "p.5 §3.5"},
+    {"what": "Epoch 비교 모형의 평균 정확도: 미세조정 후 / 전", "value": "88.0% / 85.4%", "src": "p.5 §3.5"},
+    {"what": "KoGPT-2 미세조정 개선(Holm 보정): NP1-control / NP2-control", "value": "z = −8.21, p < .001 / z = −9.95, p < .001", "src": "p.5 §3.5"},
+    {"what": "KoBERT 미세조정 효과: NP1-control(무변화) / NP2-control(하락)", "value": "z = 1.20, p = .23 / z = 4.01, p < .001", "src": "p.5 §3.5"},
+    {"what": "NP1-control NH–H 셀의 미세조정 전 → 후: KoBERT; KoGPT-2", "value": "45.3% → 61.8%; 52.4% → 72.8%", "src": "p.5 §3.5"},
+    {"what": "같은 셀의 개선 폭 = 61.8 − 45.3; 72.8 − 52.4", "value": "+16.5%p; +20.4%p (재계산)", "src": "p.5 §3.5"},
+    {"what": "유인자 후속 분석(Welch t) — NP1-control H–NH 대 H–H: KoBERT; KoGPT-2", "value": "t(1089.3) = 5.60, p < .001; t(679.16) = 10.87, p < .001", "src": "p.5 §3.5"},
+    {"what": "유인자 후속 분석(Welch t) — NP1-control NH–H 대 NH–NH: KoBERT; KoGPT-2", "value": "t(1075.9) = −6.57, p < .001; t(635.37) = −14.25, p < .001", "src": "p.5 §3.5"},
+    {"what": "미세조정 후에도 남는 NP1-control 간섭 크기 = NH–NH − NH–H (부록 D): KoBERT 79.6 − 61.8; KoGPT2 99.4 − 72.8", "value": "17.8%p; 26.6%p (재계산)", "src": "p.12 Appendix D"},
+    {"what": "Epoch 1의 NP1-control 간섭 크기 = NH–NH − NH–H (부록 B): KoBERT 84.2 − 45.3; KoGPT2 98.4 − 52.4", "value": "38.9%p; 46.0%p (재계산)", "src": "p.11 Appendix B"},
+    {"what": "Epoch 1 주의 차이 점수: KoGPT-2 M (SE) / KoBERT M (SE)", "value": "76.8 (0.55) / −1.6 (1.48)", "src": "p.6 §3.5"},
+    {"what": "Epoch 1 주의 차이 점수: 정분류 M (SE) / 오분류 M (SE)", "value": "38.7 (2.84) / 0.29 (8.89)", "src": "p.6 §3.5"},
+    {"what": "Epoch 1 쌍별 비교: KoBERT 오분류 대 정분류 / KoGPT-2 NP2-control 대 NP1-control", "value": "t(192) = −4.45, p < .0001 / t(192) = −1.97, p = .05", "src": "p.6 §3.5"},
+    {"what": "Epoch 30 주의 차이 점수: KoGPT-2 M (SE) / KoBERT M (SE)", "value": "−41.9 (3.65) / 0.95 (1.91)", "src": "p.6 §3.5"},
+    {"what": "Epoch 30 주의 차이 점수: 정분류 / 오분류 M (SE)", "value": "−19.9 (2.72) / −24.3 (6.11)", "src": "p.6 §3.5"},
+    {"what": "Epoch 30 주의 차이 점수: NP1-control / NP2-control M (SE)", "value": "−1.69 (5.56) / −26.1 (2.66)", "src": "p.6 §3.5"},
+    {"what": "Epoch 30 KoGPT-2 정분류 대 오분류 주의 차: NP1-control / NP2-control", "value": "t = −6.40, p < .0001 / t = −0.27, p = .789", "src": "p.7 §3.5"},
+    {"what": "미세조정 후 NP2-control 오분류 수(검정력 한계)", "value": "n = 6", "src": "p.7 §3.5"},
+    {"what": "KoBERT 정확도 정체 수준(저자 표현)", "value": "∼81%", "src": "p.8 §4"},
+    {"what": "부록 C — Epoch 1 정확도 GLMER 핵심 계수: NP1:NP2 / NP1:NP2:Type / 4원 NP1:NP2:Model:Type (Estimate, z)", "value": "0.821, 21.16 / 0.446, 11.71 / −0.145, −3.91", "src": "p.11 Appendix C"},
+    {"what": "부록 C — 유일하게 비유의한 항 NP2:Model:Type (Estimate, z, p)", "value": "−0.067, −1.8, 0.08", "src": "p.11 Appendix C"},
+    {"what": "부록 E — Epoch 비교 GLMER: Epoch / Model / Epoch:Model (Estimate, z)", "value": "0.725, 8.76 / −2.182, −21.8 / −0.905, −10.9", "src": "p.12 Appendix E"},
+    {"what": "부록 E — 'Epoch:Type' 라벨이 두 번 나옴: 첫째 행(비유의) / 둘째 행(본문의 삼원 상호작용으로 추정) (Estimate, z, p)", "value": "−0.056, −1.08, 0.29 / 0.127, 2.46, 0.02", "src": "p.12 Appendix E"}
+  ],
+  "limitations": [
+    {
+      "text_ko": "토큰화(예: [UNK] 토큰 비율), 모델 크기 차이(추론 방식뿐 아니라 매개변수 규모도 다름), 사전학습 코퍼스의 성격(문어 대 구어)이 결과에 미친 영향을 충분히 다루지 못했다.",
+      "stated_by": "author",
+      "src": "p.8-9 §4"
+    },
+    {
+      "text_ko": "시험 문장의 어휘를 조건 간 일치시켰지만, 사전학습 코퍼스가 달라 높임 자질 외의 문장 성분이 효과를 냈을 가능성을 완전히 배제하지 못한다.",
+      "stated_by": "author",
+      "src": "p.9 §4"
+    },
+    {
+      "text_ko": "미세조정 후 NP2-control 오분류가 6개뿐이라 주의–정확도 관계를 검정할 힘이 부족했다.",
+      "stated_by": "author",
+      "src": "p.7 §3.5"
+    },
+    {
+      "text_ko": "인간 기준선이 없다. 문법성은 Sohn (2001)의 기술에 따른 ✓/✗ 이분 라벨이고, 같은 자극에 대한 화자 수용성 평정이나 이해 과제 자료가 없다. 인간 처리와 '평행하다'는 해석은 다른 자극을 쓴 선행 연구 인용에 기댄다.",
+      "stated_by": "us",
+      "src": "p.2 §3.1; p.4-5 §3.5"
+    },
+    {
+      "text_ko": "내포 동사에 -시-가 항상 붙어 있어 -시- 유무가 조작되지 않았다. 저자가 전제로 내세운 '수의성의 비대칭'(높일 주어 + 무표지는 허용) 쪽은 시험되지 않았고, 과제는 사실상 '높일 수 없는 주어 + -시-'라는 과잉 높임 탐지로 한정된다.",
+      "stated_by": "us",
+      "src": "p.2 §2-3.1"
+    },
+    {
+      "text_ko": "H/NH를 명사의 고정 어휘 자질(teacher 대 kid)로만 조작했다. 화자·청자·상황이 자극에 없어, 같은 명사의 높임 가능성이 맥락에 따라 달라지는 화용적 변이는 설계 밖이다.",
+      "stated_by": "us",
+      "src": "p.2 §2-3.1"
+    },
+    {
+      "text_ko": "'pre-trained'라고 부르는 상태가 Epoch 1이다. 새로 붙인 분류 헤드가 학습 없이 80%대 정확도를 내기는 어려우므로 Epoch 1은 이미 1 epoch 학습된 상태일 가능성이 크고, 원문은 이를 밝히지 않는다. 미세조정 없는 진짜 기준선이 없다.",
+      "stated_by": "us",
+      "src": "p.3-4 §3.3; p.4-5 §3.5"
+    },
+    {
+      "text_ko": "훈련 자료가 NP2-control(적법 주어가 동사에 가까운 NP2) 약 80%로 불균형하다. NP1-control의 두 오류 셀은 방향이 다르지만(NH–H는 비문을 문법적으로, H–NH는 문법적 문장을 비문으로 오판) 둘 다 '동사에 가장 가까운 명사의 자질을 본다'는 휴리스틱 하나로 설명되고, 이 휴리스틱은 훈련 분포에서 80% 맞는다. 저자의 '유인자 간섭' 해석과 '다수 구문에서 배운 최근접 명사 휴리스틱' 해석이 분리되지 않았다.",
+      "stated_by": "us",
+      "src": "p.3 §3.1; p.5 §3.5; p.11 Appendix B"
+    },
+    {
+      "text_ko": "의존 거리와 유인자의 선형 개입이 통제 유형 하나에 묶여 함께 변한다. NP1-control에서만 비적법 명사가 주어–동사 사이에 끼므로, 성능 저하가 거리 때문인지 개입 때문인지 구문 빈도 때문인지 가를 수 없다.",
+      "stated_by": "us",
+      "src": "p.4-5 §3.5"
+    },
+    {
+      "text_ko": "부록 A의 한국어 예문으로 보면 두 통제 유형은 VERB1의 인용 어미(-(으)라고 대 평서 인용)라는 표면 형태로 구별될 가능성이 크다. 그렇다면 모델이 배워야 할 것은 '어미 → 어느 명사를 볼지'의 대응이고, 이것을 '추상적 통사 구조 일반화'와 구별할 장치가 없다. NP1 control의 한국어 형태는 원문에 없어 확인 불가.",
+      "stated_by": "us",
+      "src": "p.2 §2 (4); p.11 Appendix A"
+    },
+    {
+      "text_ko": "자극 제작 절차, 명사·동사 목록, 셀별 문항 수, 90/10 분할 방식이 원문에 없다. 어휘 독립적 일반화를 표방하지만 시험 세트가 훈련에 없던 어휘로 구성됐는지 알 수 없다.",
+      "stated_by": "us",
+      "src": "p.3 §3.1; p.9 §4"
+    },
+    {
+      "text_ko": "정확도가 어떤 표본에서 계산됐는지 불분명하다. 시험 세트가 10%라면 NP1-control 시험 문장은 약 134개(재계산)인데, 후속 Welch t 검정의 자유도(635.37–1089.3)와 부록 B·D의 SE(0.01–0.02)는 그보다 훨씬 큰 표본을 시사한다. Welch t 검정이 어느 epoch 자료인지도 밝히지 않았다. NP1-control 셀이 균형이라면(셀당 334문장 = 1,336 ÷ 4, 재계산) 한 모델·한 epoch의 H–NH 대 H–H 비교는 자유도가 666을 넘을 수 없는데 KoBERT t(1089.3)과 KoGPT-2 t(679.16)이 모두 이를 넘는다. 검정 자료가 Epoch 1과 30을 합친 것이거나 셀이 불균형하다는 뜻이다(우리 추론).",
+      "stated_by": "us",
+      "src": "p.3 §3.1; p.5 §3.5; p.11-12 Appendix B, D"
+    },
+    {
+      "text_ko": "학습 시드가 하나(42)라 미세조정의 실행 간 변동을 알 수 없다. KoBERT의 NP2-control 하락 같은 결과가 시드 효과일 가능성을 배제하지 못한다.",
+      "stated_by": "us",
+      "src": "p.3 §3.2"
+    },
+    {
+      "text_ko": "주의 분석은 두 모델이 모두 맞히거나 모두 틀린 문장만 골랐고(오분류 56개), 12층 × 12헤드의 집계 방식이 없다. NP1이 항상 문두라서 KoGPT-2의 Epoch 1 NP1 쏠림(M = 76.8)이 통사와 무관한 문두 위치 효과일 가능성도 통제되지 않았다.",
+      "stated_by": "us",
+      "src": "p.4 §3.3; p.6 §3.5"
+    },
+    {
+      "text_ko": "수치·표기 불일치가 여럿이다: 본문 p.4의 52.3%·92.4%·76.7%·89.7%·81.1%가 부록 B에서는 52.4·92.5·76.8·89.8·81.2, 부록 E의 마지막 행 라벨 중복, emmeans 버전(본문 v1.8.4-1 대 참고문헌 1.10.0), 부록 A 캡션의 예문 번호. 인용할 때는 부록 표의 값을 기준으로 하고 본문 값과 다름을 밝혀야 한다.",
+      "stated_by": "us",
+      "src": "p.4 §3.5; p.10 References; p.11-12 Appendix A-E"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P03-H1",
+      "hook_ko": "주어 지위[H/NH] × -시-[유/무] 2×2로 '수의성의 비대칭'을 직접 검정한다: 높일 주어 + 무표지(허용)와 높일 수 없는 주어 + -시-(비문)를 같은 틀에서 Likert로 평정.",
+      "basis_ko": "저자는 -시-가 '수의적이지만 구조적으로 제약된다'는 점을 시험대의 근거로 내세우지만(p.2) 자극에서는 내포 동사에 -시-를 항상 붙여 -시- 유무를 조작하지 않았다. 표면 공기 학습이면 'H 명사와 -시-의 동시 출현'을 선호해 무표지 문장을 낮게 평가할 것이고, 허가 조건 학습이면 무표지 문장은 수용하고 NH + -시-만 거부할 것이므로 상호작용항에서 두 가설이 갈린다.",
+      "kind": "untested_condition",
+      "src": "p.2 §2-3.1"
+    },
+    {
+      "id": "P03-H2",
+      "hook_ko": "통제 유형[NP1/NP2-control] × 비적법 명사 자질[동사와 일치/불일치] 2×2를 상용 LLM zero-shot으로 재검증해, 유인자 간섭이 훈련 분포의 산물인지 모델 고유의 표면 단서 의존인지 가른다.",
+      "basis_ko": "NP1-control의 오류는 NH–H(비문을 수용)와 H–NH(문법적 문장을 거부) 양쪽에서 나며(부록 B: KoGPT2 52.4, 69.5) 둘 다 '동사에 가까운 명사를 본다'로 설명된다. 훈련 자료의 약 80%가 가까운 NP2가 주어인 NP2-control이라, 간섭 해석과 최근접 명사 휴리스틱 해석이 분리되지 않았다. 미세조정 없는 API 평가에서는 이 훈련 분포 교란이 사라진다.",
+      "kind": "unresolved_confound",
+      "src": "p.3 §3.1; p.5 §3.5; p.11 Appendix B"
+    },
+    {
+      "id": "P03-H3",
+      "hook_ko": "의존 거리와 유인자 개입을 분리한다: 어순 뒤섞기(NP2-에게 NP1-이 …)나 부사구 삽입으로 선형 거리·개입 여부를 통제 유형과 교차시킨다.",
+      "basis_ko": "저자는 성능 저하의 원인으로 '일치 거리 증가'와 '개입하는 자질 일치 유인자'를 함께 들지만(p.4) 두 요인은 NP1-control 한 조건에 묶여 있다. 결론부에서 한국어의 자유 어순을 장점으로 언급하면서도(p.8) 설계에 쓰지 않았다.",
+      "kind": "unresolved_confound",
+      "src": "p.4-5 §3.5; p.8 §4"
+    },
+    {
+      "id": "P03-H4",
+      "hook_ko": "같은 8셀(또는 2×2로 줄인) 자극에 대해 인간 7점 수용성 평정과 이해 문항 자료를 모아 모델과 같은 과제로 비교한다.",
+      "basis_ko": "문법성은 Sohn (2001)에 따른 이분 라벨이고 인간 자료가 없다. 모델 패턴이 인간 유인 효과(Kwon & Sturt 2016, 2019)와 '평행하다'는 주장은 다른 자극·다른 과제의 선행 연구 인용으로만 뒷받침된다. '높일 수 없는 주어 + -시-'가 화자에게 얼마나 범주적으로 나쁜지, 유인자가 있을 때 인간 평정도 흔들리는지는 같은 문장으로 확인해야 한다.",
+      "kind": "method_gap",
+      "src": "p.2 §3.1; p.4-5 §3.5"
+    },
+    {
+      "id": "P03-H5",
+      "hook_ko": "이해 문항('문을 닫은/닫을 사람은 누구인가', '화자가 높이는 대상은 누구인가')으로 통제 관계 해석과 높임 자질 점검을 분리 측정한다.",
+      "basis_ko": "이진 분류 오류가 (a) 누가 내포 동사의 주어인지(통제 해석)를 틀린 것인지 (b) 주어는 맞게 찾았으나 높임 자질 점검을 틀린 것인지 구별되지 않는다. 저자는 주의 분석으로 (a)를 간접 추정하려 했으나 주의는 믿을 만한 지표가 아니라고 스스로 결론지었다(p.7-8). 상용 API에서는 주의에 접근할 수 없으므로 이해 문항이 그 자리를 대신한다.",
+      "kind": "method_gap",
+      "src": "p.3 §3.3; p.7 §3.5"
+    },
+    {
+      "id": "P03-H6",
+      "hook_ko": "이진 분류·미세조정 대신 미세조정 없는 프롬프트 기반 7점 Likert 평정으로 바꾸고, '왜 그렇게 판단했는가' 설명을 함께 받아 옳은 답·틀린 이유 문제를 본다.",
+      "basis_ko": "이 논문의 'pre-trained' 수치는 Epoch 1(분류 헤드가 이미 학습됐을 가능성)이라 모델의 기존 지식을 재지 못했고, 등급적 수용성도 측정하지 못했다. KoBERT가 약 81% 정확도에도 주의가 구조와 무관했다는 결과(p.7-8)는 '정답이지만 근거가 다른' 행동의 사례로, P01이 제기한 문제와 이어진다.",
+      "kind": "method_gap",
+      "src": "p.3-4 §3.3; p.7-8 §3.5-4"
+    },
+    {
+      "id": "P03-H7",
+      "hook_ko": "2019·2021년 1억 매개변수급 모델의 유인자 간섭(미세조정 후에도 NP1-control NH–H 61.8%, 72.8%)이 최신 상용 LLM에서도 남는지 재검증한다.",
+      "basis_ko": "실험 모델은 KoBERT(92 million, 2019)와 KoGPT-2(125 million, 2021)뿐이고 저자도 모델 크기와 사전학습 코퍼스를 교란으로 인정한다. 저자는 남은 간섭을 '현 트랜스포머 구조의 난제'로 일반화하지만(p.8) 규모·지시 조정이 다른 모델에서 검증된 바 없다.",
+      "kind": "model_generation",
+      "src": "p.1 §1; p.5 §3.5; p.8 §4"
+    },
+    {
+      "id": "P03-H8",
+      "hook_ko": "명사의 H/NH를 어휘가 아니라 맥락으로 조작한다: 같은 명사(예: 선생님)의 높임 가능성을 화자·관계 정보로 뒤집어 구조적 허가와 화용적 허가를 교차시킨다.",
+      "basis_ko": "H/NH가 명사 고유의 이분 자질로 고정돼 있고 화자·청자·상황이 자극에 없다. 저자는 -시-가 사회·화용 자질을 반영한다고 인정하면서도(p.2, p.7) 그 측면을 변수로 다루지 않았다. 모델이 'H 명사 목록'을 외운 것인지 허가 조건을 배운 것인지는 어휘와 허가를 분리해야 보인다.",
+      "kind": "untested_condition",
+      "src": "p.2 §2-3.1; p.7 §4"
+    },
+    {
+      "id": "P03-H9",
+      "hook_ko": "자극 어휘를 통제한 최소대립쌍 세트를 새로 만들되, OSF 공개 자료에서 원 자극의 명사·동사 목록과 틀을 복원해 출발점으로 삼는다.",
+      "basis_ko": "어휘 독립적 일반화를 표방하지만 자극 제작 절차·어휘 목록·셀별 문항 수·분할 방식이 원문에 없고 held-out 어휘 검증도 보고되지 않았다. 각주 1의 OSF 프로젝트에 분류 결과 CSV가 올라와 있어(open_materials) 문장 목록을 확인할 수 있을 것으로 보인다.",
+      "kind": "method_gap",
+      "src": "p.3 §3.1; p.4 각주 1; p.9 §4"
+    },
+    {
+      "id": "P03-H10",
+      "hook_ko": "명시적 통사 감독이나 귀납 편향(트리뱅크 주석 학습, 구조 인식 아키텍처)이 일반화와 해석 가능성을 높이는지 검토한다.",
+      "basis_ko": "저자가 직접 밝힌 유일한 후속 과제다. 상용 API 기반인 우리 설계와는 거리가 있지만, 프롬프트에 추론 관점을 명시해 편향을 주는 접근(P08)과 '구조 정보를 주면 간섭이 줄어드는가'라는 질문으로 이어 볼 수 있다.",
+      "kind": "author_future_work",
+      "src": "p.9 §4"
+    },
+    {
+      "id": "P03-H11",
+      "hook_ko": "토큰화·모델 규모·사전학습 코퍼스 성격(문어 대 구어)을 모델 수준 공변인으로 기록해 모델 간 차이의 해석을 제한한다.",
+      "basis_ko": "저자가 한계로 직접 든 세 교란이다. KoBERT 대 KoGPT-2 차이를 '자기회귀 대 마스크' 구조 차이로 해석했지만 두 모델은 규모·토크나이저·코퍼스가 모두 다르다. 상용 모델 비교에서도 같은 문제가 생기므로 모델 차이를 가설 검정의 중심에 두지 말고 조건 간 상호작용에 걸어야 한다.",
+      "kind": "unresolved_confound",
+      "src": "p.8-9 §4"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "데이터와 분석 코드(OSF, 열람 전용 익명 링크) — 원문 각주 1. 2026-09-19 OSF API로 접속 확인: 프로젝트명 'Syntactic Knowledge in KoBERT and KoGPT-2'(비공개 프로젝트의 view-only 링크, 2025-03-28 생성·2025-06-17 최종 수정). 폴더 구성은 Attention_Code_Python(Code/Functions/BERT_Attention.py, GPT2_Attention.py, Code/Main/mainRun.py, Data)과 Statistical_Code_R(Data/gpt2_bert_epoch1_30.csv 약 6.2MB, Data/2_attention.csv, Code/1_Classification2.pdf, 2_Attention3.pdf). 파일 목록만 확인했고 내용은 내려받지 않았다. 이 목록은 원문 밖 정보다.",
+      "url": "https://osf.io/fw82j/?view_only=56b9d1dc865e453086dfbc8957fee340"
+    },
+    {
+      "what": "논문 공식 PDF와 서지(ACL Anthology)",
+      "url": "https://aclanthology.org/2025.paclic-1.3/"
+    },
+    {
+      "what": "KoBERT 모델 저장소(참고문헌 표기)",
+      "url": "https://github.com/SKTBrain/KoBERT"
+    },
+    {
+      "what": "KoGPT2 ver 2.0 모델(참고문헌 표기)",
+      "url": "https://huggingface.co/skt/kogpt2"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md — P3 절(99–131행), §0 지형도 표의 P3 행(15행), P5 절의 PLAIN subject 서술(209행), 참고문헌(330행). 미해결 목록은 같은 초안의 docs/인수인계서.md 51행·docs/재검증-보고서.html '미해결 — 3건'",
+    "agreements": [
+      "§0 지형도 표의 P3 행 — 경어법 유형 '주체높임 + 통사적 허가(NP1/NP2 control)', 측정 '분류 정확도, 어텐션 비율', 모델 'KoBERT, KoGPT-2 (미세조정 전후)', 인간 데이터 '없음'은 카드의 design·w5h1과 일치한다(p.1 §1; p.2-4 §2-3.4).",
+      "핵심 주장 인용 1('-si- honorific agreement provides a unique testing ground …')은 원문 p.7 §4 문장과 글자 그대로 같다. p.2 §2에도 거의 같은 문장이 있다.",
+      "설계 — -시-의 적격성이 주어의 구조적 접근 가능성(Yoon 2009)에 달렸다는 관점, NP1 control(내포절 주어 = 주절 주어 NP1)·NP2 control(내포절 주어 = 목적어 NP2), NP1·NP2 높임 자질 4조합(H–H, H–NH, NH–H, NH–NH) × 통제 유형 2 = 8조건(p.2 §2-3.1; p.3 Table 1).",
+      "데이터 — NP1-control 1,336문장 / NP2-control 5,304문장, 자연 분포 반영, 훈련 90%·시험 10%(p.3 §3.1).",
+      "측정 — BertForSequenceClassification / GPT2ForSequenceClassification 이진 분류, 30 epoch·학습률 0.0001(초안 표기 1e-4)·batch 16·최대 길이 256, VERB1 → NP1/NP2 정규화 비율과 차이 점수 NP1 − NP2, 이항 GLMER + LMER·합 부호화·Holm 보정(p.3-4 §3.2-3.4).",
+      "결과 — KoGPT-2 89.7% > KoBERT 81.1%, NP2-control 87.6% > NP1-control 76.8%; NP1-control NH–H에서 KoBERT 45.3%·KoGPT-2 52.3%(p.4 표기)로 급락; 미세조정 후 45.3% → 61.8%, 52.4% → 72.8%; KoBERT의 NP2-control 하락 z = 4.01, p < .001(p.4-5 §3.5).",
+      "미세조정 후에도 자질 불일치 조건(H–NH 대 H–H, NH–H 대 NH–NH)의 정확도 저하가 모두 p < .001로 유의하다는 서술은 저자 해석과 같다. 다만 Welch 검정에 쓴 epoch가 원문에 없다는 점은 카드 limitations에 새로 적었다(p.5 §3.5).",
+      "어텐션 — 사전학습 상태 KoGPT-2 차이 점수 M = 76.8(NP1 쏠림), 미세조정 후 M = −41.9로 역전(p.6 §3.5). '어텐션은 해석 지표로 믿을 수 없으므로 행동 지표를 쓴다'는 활용점은 카드 P03-H5·H6과 같은 방향이다(p.7-8 §3.5-4)."
+    ],
+    "discrepancies": [
+      {
+        "item": "발표처·연도 — 기존 초안의 미해결 항목 해소",
+        "old": "지형도 표: '학술대회 논문(발표처 미표기, 참고문헌상 2025 이후)'. 참고문헌: 'Kwon, N., & Mun, S. (n.d.) … [학술대회 논문, 발표처 미표기]'. 인수인계서·재검증 보고서는 'P3 발표처 — 저자 문의 또는 OSF 확인 필요'를 미해결로 남김.",
+        "new": "해소됨. Proceedings of the 39th Pacific Asia Conference on Language, Information and Computation(PACLIC 39), Hanoi, Vietnam, December 2025, Association for Computational Linguistics, pp. 26–37, ACL Anthology ID 2025.paclic-1.3(DOI 표시 없음). 원문에 표기가 없다는 관찰은 기존 초안과 같고, 보유 PDF가 Anthology 공식 PDF와 SHA-256까지 같은 파일이라 공식 판에도 표기가 없다. 인용형은 Kwon & Mun (2025).",
+        "basis_src": "p.1 원문에 발표처 표기 없음 — https://aclanthology.org/2025.paclic-1.3/ (citation.bib_notes)"
+      },
+      {
+        "item": "KoGPT-2의 NP1-control NH–H Epoch 1 정확도 표기",
+        "old": "사전학습 급락 값 52.3%와 미세조정 출발값 52.4%를 설명 없이 함께 씀.",
+        "new": "원문 자체의 불일치다. p.4 본문만 52.3%이고 부록 B와 p.5·p.7 본문은 52.4다. 같은 쪽 p.4의 92.4%·76.7%·89.7%·81.1%도 부록 B에서는 92.5·76.8·89.8·81.2다. 인용할 때는 부록 값을 기준으로 하고 본문 값과 다름을 밝힌다.",
+        "basis_src": "p.4 §3.5; p.5 §3.5; p.11 Appendix B"
+      },
+      {
+        "item": "핵심 주장 인용 2의 출처",
+        "old": "'attention weights do not reliably correspond to linguistic explanations… while attention can reflect syntactic alignment in some cases, this is not a reliable property across models or sentence types.'를 한 인용문으로 제시.",
+        "new": "말줄임표 앞뒤는 다른 쪽의 두 문장이다. 앞은 p.8 §4(기여 2), 뒤는 p.7 §3.5(주의 분석 소결)이며 원문 순서도 뒤 문장이 먼저다. 카드는 두 구절을 따로 15단어 이내로 인용한다.",
+        "basis_src": "p.7 §3.5; p.8 §4"
+      },
+      {
+        "item": "유인자 간섭의 해석(활용점)",
+        "old": "'유인자 간섭 = 표면 자질 일치가 판단을 오염시킨다는 증거'로 단정.",
+        "new": "저자 해석은 그렇지만 원문만으로는 확정되지 않는다. NP1-control의 오류는 자질 일치 유인자가 낀 NH–H(비문 수용)뿐 아니라 자질이 맞지 않는 NP2가 낀 H–NH(문법적 문장 거부, KoGPT2 69.5)에서도 나고, 둘 다 '동사에 가장 가까운 명사의 자질을 본다'는 휴리스틱으로 설명된다. 훈련 자료의 약 80%(5,304 ÷ 6,640, 재계산)가 가까운 NP2가 주어인 NP2-control이라 이 휴리스틱과 유인자 간섭이 분리되지 않는다(카드 P03-H2).",
+        "basis_src": "p.3 §3.1; p.4-5 §3.5; p.11 Appendix B"
+      },
+      {
+        "item": "P3의 비높임 주어 범주('PLAIN subject')",
+        "old": "P5 절: 'P2·P3·P4가 공유하는 PLAIN subject 정의도 전부 (i)(지시 대상 자체가 높임 대상이 아님)만 포함한다.'",
+        "new": "P3는 'PLAIN'이라는 라벨을 쓰지 않고 NH(non-honorific / non-honorifiable)라고 부른다. 원문이 보여 주는 NH 명사는 kid(꼬마) 하나뿐이라 (i)형이라는 점은 맞다. 하지만 명사 목록이 원문에 없으므로 '전부 (i)'인지는 원문으로 확인할 수 없고, OSF 자료로 확인해야 한다.",
+        "basis_src": "p.2 §3.1; p.3 Table 1; p.11 Appendix A"
+      },
+      {
+        "item": "공개 자료 주소",
+        "old": "참고문헌에 https://osf.io/fw82j/ 로 적음.",
+        "new": "원문 각주 1의 주소는 view_only 토큰이 붙은 https://osf.io/fw82j/?view_only=56b9d1dc865e453086dfbc8957fee340 이다. open_materials 기록상 비공개 프로젝트의 열람 전용 링크라 토큰 없는 주소로는 열리지 않을 수 있으므로 전체 주소를 쓴다.",
+        "basis_src": "p.4 각주 1"
+      }
+    ]
+  },
+  "verification": {
+    "status": "draft",
+    "by": null,
+    "notes": []
+  }
+}

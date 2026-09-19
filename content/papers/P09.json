@@ -1,0 +1,954 @@
+{
+  "id": "P09",
+  "role": "subdata",
+  "short": "Kim et al. (2025)",
+  "title": "KITE: A Benchmark for Evaluating Korean Instruction-Following Abilities in Large Language Models",
+  "title_ko": "KITE: 대규모 언어모델의 한국어 지시 이행 능력을 평가하는 벤치마크",
+  "citation": {
+    "apa": "Kim, D., Park, C., Park, C., & Lim, H. (2025). KITE: A benchmark for evaluating Korean instruction-following abilities in large language models (arXiv:2510.15558). arXiv. https://doi.org/10.48550/arXiv.2510.15558",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CL), v1",
+    "status": "preprint",
+    "doi": "10.48550/arXiv.2510.15558",
+    "url": "https://arxiv.org/abs/2510.15558",
+    "bib_notes": "원문 1쪽 여백 표기: arXiv:2510.15558v1 [cs.CL] 17 Oct 2025. arXiv 초록 페이지(https://arxiv.org/abs/2510.15558, 2026-09-19 확인)에는 v1 하나만 있고 Comments는 '13 pages, 3 figures, 5 tables'뿐이며 게재 학회·학술지 표기가 없다. 판형은 ACL 양식(Limitations·Ethics Statement 절)이나 채택 정보는 찾지 못해 preprint로 둔다. DOI는 arXiv가 부여한 DataCite DOI다. 논문 자체의 라이선스는 CC BY 4.0(arXiv 페이지). 저자명 옆 별표(Dongjun Kim, Chanjun Park)의 의미는 원문 미표기. 데이터·코드 라이선스(Apache-2.0)와 Honorifics 검사기 구현은 논문에 없고 저자 저장소(https://github.com/junkim100/KITE, https://huggingface.co/datasets/junkim100/KITE)를 2026-09-19에 직접 확인한 것이다 — 카드 안에서 '저장소 확인'이라고 표시한 서술은 모두 원문 밖 정보다."
+  },
+  "one_line": "IFEval을 한국어로 옮긴 427문항과 한국어 특화 100문항(그중 존댓말↔반말 전환 25문항)으로 LLM의 지시 이행을 규칙 기반으로 채점하지만, 경어 범주 점수는 따로 보고하지 않는다.",
+  "w5h1": {
+    "who": {
+      "headline": "고려대·숭실대 NLP 연구진이 2024년 상반기 세대 LLM 7종을 평가했고, 데이터 검수와 인간 평가는 같은 5명이 맡았다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "Dongjun Kim, Chanhee Park, Heuiseok Lim(고려대 컴퓨터학과), Chanjun Park(숭실대 소프트웨어학부). 국어학·언어학 소속 저자는 없다. Dongjun Kim과 Chanjun Park에 별표가 붙어 있으나 의미는 원문 미표기.",
+          "src": "p.1 저자 표기"
+        },
+        {
+          "label": "평가한 모델(7종)",
+          "text": "범용: gpt-3.5-turbo-0125, gpt-4o-2024-05-13, Llama 3 8B Instruct, Gemma 7b Instruct. 한국어 특화: SOLAR 1 Mini Chat, HyperCLOVA X 003, EEVE v1.0 10.8b Instruct. 파라미터 규모는 이름에 드러난 8B·7b·10.8b 외에는 원문 미표기.",
+          "src": "p.5 §4.2"
+        },
+        {
+          "label": "인간 참여자",
+          "text": "한국어 모어 화자 5명(NLP 지식이 있는 대학원생·학부생). 1996–2000년생, 전원 남성, 전공은 컴퓨터과학 3명·국제경제 2명. 이 5명이 IFEval 번역 문항 필터링(만장일치제), KITE Korean 범주 개발, 인간 평가를 모두 맡았다.",
+          "src": "p.4 §3.2; p.10 Table 3; p.11 부록 C"
+        },
+        {
+          "label": "상관 분석에 쓴 추가 모델",
+          "text": "Open Ko-LLM Leaderboard 상위 10개 지시 조정 모델로 KITE와 기존 벤치마크 점수의 상관을 냈다. 모델 이름은 원문 미표기.",
+          "src": "p.12 부록 C"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2025년 10월 arXiv 공개본이지만 실험 모델은 2023년 말–2024년 상반기 세대다.",
+      "items": [
+        {
+          "label": "발표 시점·게재 상태",
+          "text": "arXiv v1, 2025-10-17. 학회·학술지 게재 정보 없음(preprint).",
+          "src": "p.1 여백 arXiv 표기"
+        },
+        {
+          "label": "실험 모델의 세대",
+          "text": "모델 ID의 날짜 스냅숏이 0125(gpt-3.5-turbo)와 2024-05-13(gpt-4o)이고, 나머지는 Llama 3, Gemma(Team et al., 2024), SOLAR(Kim et al., 2023), HyperCLOVA X(Yoo et al., 2024), EEVE(Kim et al., 2024b)로 인용돼 있다. 즉 공개 시점보다 1년 이상 앞선 세대이며, 추론(thinking) 모드 모델은 하나도 없다.",
+          "src": "p.5 §4.2"
+        },
+        {
+          "label": "데이터 제작 시점",
+          "text": "IFEval 번역에 gpt-4o-2024-05-13을 썼다는 것 외에 제작·실험 시기는 원문 미표기.",
+          "src": "p.3 §3.2"
+        }
+      ]
+    },
+    "where": {
+      "headline": "arXiv에 공개됐고 데이터는 HuggingFace, 코드는 GitHub에 있다(둘 다 Apache-2.0, 저장소 확인).",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "arXiv cs.CL. 게재 학회 미확인.",
+          "src": "p.1 여백 arXiv 표기"
+        },
+        {
+          "label": "데이터 출처",
+          "text": "KITE General은 구글의 IFEval(Zhou et al., 2023) 541문항을 기계번역·수작업 검수·필터링한 것이고, KITE Korean 100문항은 저자와 검수자 5명이 새로 썼다. 코퍼스에서 뽑은 문장이 아니라 작성 문장이다.",
+          "src": "p.2-4 §3.1–3.3"
+        },
+        {
+          "label": "공개 자료 위치",
+          "text": "각주 1 https://huggingface.co/datasets/junkim100/KITE, 각주 2 https://github.com/junkim100/KITE. 논문은 라이선스를 밝히지 않았다. 저장소 확인(2026-09-19): 두 곳 모두 Apache-2.0. HuggingFace에는 culturally_aware_honorifics(25행) 등 범주별 설정이 따로 있어 경어 문항만 내려받을 수 있다.",
+          "src": "p.1 각주 1–2"
+        },
+        {
+          "label": "외부 비교 자료",
+          "text": "Open Ko-LLM Leaderboard(Ko-ARC, Ko-HellaSwag, Ko-MMLU, Ko-TruthfulQA, Ko-CommonGen V2) 점수와 상관을 비교했다.",
+          "src": "p.12 Figure 2"
+        }
+      ]
+    },
+    "what": {
+      "headline": "한국어 지시 이행을 재는 첫 전용 벤치마크를 내놓았고, 경어는 한국어 특화 4범주 가운데 하나(존댓말↔반말 전환 25문항)로만 들어 있다.",
+      "items": [
+        {
+          "label": "연구 질문",
+          "text": "LLM이 한국어로 주어진 개방형 지시를, 특히 한국어 고유의 언어 현상(삼행시·조사 생략·경어·수사 체계)이 걸린 지시를 얼마나 따르는가. 경어에 관한 독립된 가설이나 연구 질문은 없다.",
+          "src": "p.1-2 §1"
+        },
+        {
+          "label": "한국어 특화 범주 전체",
+          "text": "Acrostic Poem(삼행시), Post-position Drop(조사 생략), Honorifics(존댓말·반말 전환), Native/Sino Korean Number System(고유어·한자어 수사 전환). 범주마다 25문항, 합계 100문항.",
+          "src": "p.3 Table 1; p.4 §3.3"
+        },
+        {
+          "label": "경어 범주의 정의",
+          "text": "「존댓말과 반말 스타일 사이를 전환하는 능력」. 본문은 문장 종결 어미를 바꿔 같은 뜻을 다른 격식 수준으로 전달하게 한다고 설명하고, 이를 통해 사회적 위계와 공손에 대한 이해를 평가한다고 주장한다. 다루는 것은 상대높임(화계)의 존대/비존대 이분뿐이고 주체높임 -시-, 객체높임, 압존법은 범주 정의에 없다.",
+          "src": "p.3 Table 1; p.4 §3.3"
+        },
+        {
+          "label": "주요 결과",
+          "text": "gpt-4o-2024-05-13이 두 벤치마크 모두 1위(평균 General 90.27, Korean 64.46). 한국어 특화 모델 3종은 KITE Korean 평균 32.35–48.09로 GPT-4o에 못 미친다. 모든 모델이 General보다 Korean에서 낮다.",
+          "src": "p.5-6 §4.4, Table 2"
+        },
+        {
+          "label": "경어 범주 점수",
+          "text": "보고되지 않았다. Table 2와 Table 5의 제목은 'Different Task Categories'이지만 열은 KITE General과 KITE Korean 두 개뿐이고, 네 범주별 점수는 본문·부록·저장소 README 어디에도 없다.",
+          "src": "p.6 Table 2; p.11 Table 5"
+        }
+      ]
+    },
+    "how": {
+      "headline": "지시를 하위 지시로 쪼개 규칙 기반 검사기로 준수 여부(0/1)를 매기고 하위 지시 단위 정확도를 낸다 — 경어 검사기는 실제로는 문자열 두 개를 찾는 규칙이다.",
+      "items": [
+        {
+          "label": "자극 설계",
+          "text": "KITE General: IFEval을 gpt-4o-2024-05-13으로 번역 → 수작업 검수 → 5명 만장일치 필터(대문자 등 영어에만 해당하는 범주 제거, 541→427). KITE Korean: 규칙으로 검증할 수 있는 언어 범주를 우선해 4범주 × 25문항을 새로 작성.",
+          "src": "p.3-4 §3.2–3.3"
+        },
+        {
+          "label": "경어 문항의 구조(논문)",
+          "text": "논문이 보여 주는 예는 Table 1의 한 문항뿐이다: 해요체 두 문장을 주고 반말로 바꾸라고 지시한다. 목표 말 단계가 지시문에 명시되고, 화자·청자 관계나 상황 맥락은 주어지지 않는다.",
+          "src": "p.3 Table 1"
+        },
+        {
+          "label": "경어 문항의 구조(저장소 확인)",
+          "text": "honorifics.jsonl 25문항 = 단일 지시 5 + 복합 지시 20(요청 반복 5, 최소 단어 수 5, 끝 구절 지정 5, 제목 포함 5). 변환 방향은 →존댓말 14, →반말 11. 하위 지시는 45개(경어 25 + 일반 형식 제약 20). 원문장은 모두 맥락 없는 짧은 발화로 24문항은 2문장, 1문항('너 요즘 뭐 해? …')은 3문장이고, 일부는 -시-·드리다·제가/저는·당신을 포함한다.",
+          "src": "p.1 각주 2 저장소 honorifics.jsonl(원문 외, 2026-09-19 확인)"
+        },
+        {
+          "label": "측정 지표",
+          "text": "Accuracy = 준수된 하위 지시 수 / 전체 하위 지시 수 × 100%. 0-shot과 1·3·5-shot에서 각각 산출. few-shot 예시는 데이터셋 전체에서 무작위로 골랐다.",
+          "src": "p.5 §4.3 식 (1); p.5 §4.4"
+        },
+        {
+          "label": "경어 준수의 자동 검증(논문)",
+          "text": "논문은 'rule-based checking'이라고만 하고 경어 범주에서 어떤 형태를 보는지는 밝히지 않는다. LLM 판정자는 쓰지 않았다.",
+          "src": "p.5 §4.3"
+        },
+        {
+          "label": "경어 준수의 자동 검증(저장소 확인)",
+          "text": "HonorificsChecker는 응답을 공백으로 나눈 토큰 가운데 '니다.' 또는 '요.'(마침표 포함)를 담은 것이 하나라도 있는지만 본다. →존댓말 지시는 하나라도 있으면 통과, →반말 지시는 하나라도 있으면 실패. 형태소 분석기를 쓰지 않고, -시-·께서·어휘 높임·의문형(요?, 니까?)·의미 보존은 검사하지 않는다. 평가 스크립트(evaluation_main.py)는 IFEval처럼 엄격(strict)·느슨(loose) 두 판정을 모두 출력하는데, 느슨 판정은 응답의 첫 줄·끝 줄·'*'를 뺀 변형 가운데 하나라도 통과하면 준수로 친다. 논문은 Table 2가 어느 판정인지 밝히지 않는다.",
+          "src": "p.1 각주 2 저장소 eval/instructions.py(원문 외, 2026-09-19 확인)"
+        },
+        {
+          "label": "통계 분석",
+          "text": "Pearson 상관계수뿐이다(자동 점수 대 인간 점수, KITE 대 Open Ko-LLM Leaderboard). 유의성 검정·신뢰구간·문항 수준 일치도는 없다. 생성 파라미터(temperature 등)·시스템 프롬프트·반복 횟수는 원문 미표기.",
+          "src": "p.12 부록 C"
+        }
+      ]
+    },
+    "why": {
+      "headline": "영어 중심 지시 이행 평가의 공백을 메우려는 공학적 벤치마크이며, 우리에게는 '시키면 높임말로 쓸 수 있는가'라는 산출 쪽 보조 과제와 자동 채점의 반면교사를 준다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "지시 이행 평가(IFEval 등)는 영어 중심이고, 기존 한국어 벤치마크는 지식·객관식 위주라 개방형 지시 이행을 재지 못한다.",
+          "src": "p.1 Abstract; p.2 §2"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "한국어 고유 현상을 담은 검증 가능한 지시문을 공개해 문화·언어 포용적 LLM 개발과 다른 언어의 유사 벤치마크를 촉진한다.",
+          "src": "p.2 §1 기여; p.6 §5"
+        },
+        {
+          "label": "저자가 밝힌 한계",
+          "text": "언어·문화적 뉘앙스를 다 담지 못함, 평가 모델 수가 적음, 인간 평가자가 적고 부분집합만 평가, 지시 복잡도 분류가 거칢, 다른 언어로의 일반화 불확실, 실제 사용 지시와의 거리.",
+          "src": "p.6-7 Limitations"
+        },
+        {
+          "label": "우리가 이어받을 것 ①: 산출 과제라는 보조 축",
+          "text": "KITE의 경어 문항은 목표 말 단계를 지시문에 적어 주고 형태를 바꾸게 하는 산출·지시 준수 과제다. P01–P05가 재는 '높임의 허가 조건을 아는가'(판단)와 층위가 다르므로, 같은 모델에서 판단 점수와 산출 점수가 갈리는지 보는 보조 지표로 쓸 수 있다.",
+          "src": "p.4 §3.3"
+        },
+        {
+          "label": "우리가 이어받을 것 ②: 자유 산출 채점의 반면교사",
+          "text": "문자열 두 개로 존대 여부를 판정하는 규칙은 의문문·느낌표 종결·마침표 없는 응답에서 오판하고 -시-와 어휘 높임을 전혀 보지 못한다. 후속 연구에서 모델의 자유 산출을 채점하려면 형태소 단위 검사와 문항 수준의 인간 일치도 검증이 필요하다.",
+          "src": "p.5 §4.3"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "Honorifics (범주명)",
+        "gloss_ko": "경어(존댓말·반말 전환)",
+        "definition": "Table 1의 조작적 정의는 모델이 존댓말과 반말 스타일 사이를 전환하는 능력이다. 한국어 설명은 '존댓말과 반말', 영어 설명은 'honorific and non-honorific styles of speech'.",
+        "note": "P02–P05가 honorific으로 부르는 것은 주체높임 -시-의 일치·허가이고, KITE의 honorific은 상대높임(청자 대우)의 종결 어미다. 같은 단어가 다른 현상을 가리키므로 용어 대조표에서 반드시 갈라 적어야 한다. 현상만 보면 P01(청자 높임)·P06(화계 번역)에 가깝다.",
+        "src": "p.3 Table 1"
+      },
+      {
+        "term": "honorific speech / informal speech / non-honorific",
+        "gloss_ko": "존댓말 / 반말",
+        "definition": "본문은 'honorific and informal speech', 표는 'honorific and non-honorific', 예시 지시문의 영역은 'informal speech'로 옮긴다. 반말의 영어 대응어가 informal과 non-honorific 사이에서 흔들린다.",
+        "note": "존대 쪽을 하십시오체와 해요체로 나누지 않는다. 저장소 검사기도 '니다.'와 '요.'를 똑같이 존대로 친다. 화계를 셋으로 나누는 P06보다 거친 이분법이다.",
+        "src": "p.3-4 Table 1, §3.3"
+      },
+      {
+        "term": "levels of politeness / levels of formality",
+        "gloss_ko": "공손 수준 / 격식 수준",
+        "definition": "같은 문단에서 'different levels of politeness'와 'different levels of formality'를 구별 없이 번갈아 쓴다.",
+        "note": "국어학에서는 격식성(하십시오체 대 해요체)과 높임(존대 대 비존대)을 다른 축으로 본다. KITE는 두 축을 하나로 뭉쳐 쓰므로, P01·P04·P06의 politeness·formality 정의와 대조할 때 주의한다.",
+        "src": "p.4 §3.3"
+      },
+      {
+        "term": "social hierarchy",
+        "gloss_ko": "사회적 위계",
+        "definition": "종결 어미를 바꾸게 함으로써 한국 문화의 사회적 위계와 공손에 대한 이해가 평가된다고 서술한다.",
+        "note": "과대 해석이다. 목표 말 단계가 지시문에 주어지므로 위계를 추론할 필요가 없다. 위계 이해는 이 과제로 검증되지 않는다(우리 판단).",
+        "src": "p.4 §3.3"
+      },
+      {
+        "term": "verifiable instructions",
+        "gloss_ko": "검증 가능한 지시",
+        "definition": "IFEval에서 가져온 개념. 준수 여부를 객관적·기계적으로 확인할 수 있게 설계한 지시. KITE Korean의 범주 선정 기준이기도 하다.",
+        "note": "검증 가능성을 우선한 탓에 문화 맥락은 규칙으로 검증하기 어렵다며 범주에서 빼고 문장 내용에만 '녹였다'. 경어에서 맥락(누가 누구에게)이 빠진 이유가 여기에 있다.",
+        "src": "p.2 §3.1; p.4 §3.3; p.5 §4.3"
+      },
+      {
+        "term": "sub-instruction / followed",
+        "gloss_ko": "하위 지시 / 준수",
+        "definition": "지시 I_i를 하위 지시 s_i1…s_in으로 분해하고, 응답이 기준을 충족하면 f(s_ij)=1로 표시한다. 정확도의 분모는 지시 수가 아니라 하위 지시 수다.",
+        "note": "경어 문항 다수가 '경어 전환 + 형식 제약'의 복합 지시라서(저장소 확인), KITE Korean 점수에는 경어와 무관한 하위 지시가 섞여 있다.",
+        "src": "p.5 §4.3"
+      },
+      {
+        "term": "rule-based checking",
+        "gloss_ko": "규칙 기반 검사",
+        "definition": "하위 지시마다 규칙으로 준수 여부를 판정하는 방식. 논문에는 범주별 규칙의 내용이 없다.",
+        "note": "저장소 확인: 경어 규칙은 토큰에 '니다.' 또는 '요.'가 들어 있는지 보는 부분 문자열 검사다. LLM 판정도 형태소 분석도 아니다.",
+        "src": "p.5 §4.3"
+      },
+      {
+        "term": "KITE General / KITE Korean",
+        "gloss_ko": "일반판 / 한국어 특화판",
+        "definition": "General은 IFEval 번역·필터 427문항, Korean은 새로 만든 100문항.",
+        "note": "Figure 1의 그래프 제목은 'KITE Easy', 'KITE Hard'로 되어 있어 내부 명칭이 본문과 다르다. 저장소 폴더명은 translated_and_filtered / culturally_aware.",
+        "src": "p.2 §3.1; p.11 Figure 1"
+      },
+      {
+        "term": "open-ended instruction-following",
+        "gloss_ko": "개방형 지시 이행",
+        "definition": "객관식·지식 문항과 대비해, 자유 생성 응답이 지시의 제약을 지켰는지를 보는 평가.",
+        "note": "우리 설계의 Likert·이해 문항(판단)과 반대편에 있는 측정 양식이다. KoBALT(P10)의 4지선다와도 대비된다.",
+        "src": "p.1 Abstract; p.6 §5"
+      },
+      {
+        "term": "culturally embedded / cultural context",
+        "gloss_ko": "문화 맥락의 내장",
+        "definition": "문화 맥락을 별도 범주로 두지 않고 언어 범주의 지시문 속에 '신중히 녹였다'고 서술한다.",
+        "note": "헤지성 자기평가 표현(thoughtfully, carefully)이다. 경어 문항에서 문화 맥락이 어떻게 구현됐는지는 제시되지 않는다.",
+        "src": "p.2-4 §3.1, §3.3"
+      },
+      {
+        "term": "We speculate / may not",
+        "gloss_ko": "헤지 표현",
+        "definition": "shot 수가 늘 때 점수가 떨어지는 이유를 예시의 이질성 탓으로 '추측한다'고 쓰고, 한계 절에서는 'may not cover', 'may not fully reflect'를 반복한다.",
+        "note": "반대로 'completely opposite', 'rigorously', 'highest ethical standards'처럼 강한 표현도 섞여 있어 주장 세기가 고르지 않다.",
+        "src": "p.5-7 §4.4, Limitations"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "lacks a dedicated benchmark for assessing open-ended instruction-following capabilities",
+        "paraphrase_ko": "통사·형태·경어 체계·이중 수사 체계를 가진 한국어에는 개방형 지시 이행을 평가하는 전용 벤치마크가 없다는 것이 출발점이다.",
+        "numbers": [],
+        "src": "p.1 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "honorific system and dual numbering systems (Sino-Korean and native Korean) add layers of complexity",
+        "paraphrase_ko": "경어 체계와 이중 수사 체계가 복잡성을 더하므로 전용 평가가 필요하다고 주장한다. 경어에 관한 언어학 문헌은 인용하지 않는다.",
+        "numbers": [],
+        "src": "p.1 §1"
+      },
+      {
+        "kind": "method",
+        "quote": "KITE General consists of 427 instructions",
+        "paraphrase_ko": "KITE General은 427문항, KITE Korean은 처음부터 새로 만든 100문항이다.",
+        "numbers": ["427", "100"],
+        "src": "p.2 §3.1"
+      },
+      {
+        "kind": "method",
+        "quote": "we prioritized linguistic categories that allow for precise, rule-based assessment",
+        "paraphrase_ko": "검증 가능성을 중시해 규칙으로 정확히 채점할 수 있는 언어 범주를 우선했다. 경어가 '전환' 과제로 좁혀진 이유다.",
+        "numbers": [],
+        "src": "p.2 §3.1"
+      },
+      {
+        "kind": "method",
+        "quote": "Evaluates the model's ability to switch between honorific and non-honorific styles of speech.",
+        "paraphrase_ko": "Honorifics 범주의 정의: 존댓말과 반말 사이를 전환하는 능력을 평가한다.",
+        "numbers": [],
+        "src": "p.3 Table 1"
+      },
+      {
+        "kind": "method",
+        "quote": "Out of the original 541 instructions, 114 were filtered out",
+        "paraphrase_ko": "IFEval 541문항 가운데 5명 만장일치 기준으로 114문항을 걸러 427문항을 남겼다.",
+        "numbers": ["541", "114", "427"],
+        "src": "p.4 §3.2"
+      },
+      {
+        "kind": "method",
+        "quote": "switching between different levels of politeness, specifically between honorific and informal speech",
+        "paraphrase_ko": "경어 지시는 공손 수준 사이의 전환, 구체적으로 존댓말과 반말 사이의 전환 능력을 본다. 같은 뜻을 유지하면서 문장 종결 어미를 바꾸게 한다.",
+        "numbers": [],
+        "src": "p.4 §3.3"
+      },
+      {
+        "kind": "claim",
+        "quote": "the model's understanding of social hierarchy and politeness in Korean culture is evaluated",
+        "paraphrase_ko": "종결 어미 전환을 통해 사회적 위계와 공손에 대한 이해가 평가된다고 주장한다. 그러나 목표 말 단계가 지시문에 주어지므로 위계 판단은 요구되지 않는다(우리 평가).",
+        "numbers": [],
+        "src": "p.4 §3.3"
+      },
+      {
+        "kind": "method",
+        "quote": "For each of these four categories, we created 25 instructions, totaling 100 instructions",
+        "paraphrase_ko": "네 범주마다 25문항씩, 모두 100문항을 만들었다. 경어 문항은 25개다.",
+        "numbers": ["25", "100"],
+        "src": "p.4 §3.3"
+      },
+      {
+        "kind": "limitation",
+        "quote": "Given the difficulty of verifying cultural context through a rule-based evaluation",
+        "paraphrase_ko": "문화 맥락은 규칙 기반으로 검증하기 어려워 검증 가능한 언어 범주에 집중했다고 밝힌다. 곧 맥락에 따른 높임 선택은 평가 대상에서 빠졌다.",
+        "numbers": [],
+        "src": "p.4 §3.3"
+      },
+      {
+        "kind": "method",
+        "quote": "This rule-based checking ensures each part of a multi-part instruction is addressed correctly",
+        "paraphrase_ko": "하위 지시마다 규칙으로 준수 여부를 0/1로 판정해 복합 지시의 각 부분을 따로 확인한다. 경어 규칙의 구체 내용은 논문에 없다.",
+        "numbers": [],
+        "src": "p.5 §4.3"
+      },
+      {
+        "kind": "method",
+        "quote": "we randomly selected examples from the entire dataset to provide different shot settings",
+        "paraphrase_ko": "few-shot 예시는 데이터셋 전체에서 무작위로 뽑았다. 범주가 다른 예시가 섞일 수 있다.",
+        "numbers": [],
+        "src": "p.5 §4.4"
+      },
+      {
+        "kind": "result",
+        "quote": "GPT-4o-2024-05-13 demonstrates high and consistent performance across both benchmarks",
+        "paraphrase_ko": "gpt-4o가 두 벤치마크에서 가장 높고 shot 수에 따른 변동도 작다. 평균은 General 90.27, Korean 64.46이다.",
+        "numbers": ["90.27", "64.46"],
+        "src": "p.5 §4.4"
+      },
+      {
+        "kind": "result",
+        "quote": "still fall short of the Korean language proficiency exhibited by GPT-4",
+        "paraphrase_ko": "한국어 특화 모델(SOLAR 1 Mini Chat, HyperCLOVA X 003, EEVE)은 KITE Korean 평균 32.35, 48.09, 42.54로 GPT-4o의 64.46에 못 미친다.",
+        "numbers": ["32.35", "48.09", "42.54", "64.46"],
+        "src": "p.5 §4.4"
+      },
+      {
+        "kind": "result",
+        "quote": "we found that in the IF task, the results were completely opposite",
+        "paraphrase_ko": "shot을 늘리면 성능이 오를 것이라는 통념과 반대였다고 서술한다. 다만 Table 2에서 하락이 뚜렷한 것은 Llama 3(General 70.83→55.55), Gemma, EEVE(75.92→56.48)이고 gpt-3.5(75.92→82.87)·gpt-4o·SOLAR(46.29→60.18)는 오히려 올랐다.",
+        "numbers": ["70.83", "55.55", "75.92", "56.48", "82.87"],
+        "src": "p.5-6 §4.4, Table 2"
+      },
+      {
+        "kind": "method",
+        "quote": "20% of the full instruction set was randomly selected for manual evaluation",
+        "paraphrase_ko": "인간 평가는 검수자 5명이 전체 지시의 20% 무작위 부분집합에 대해 하위 지시 준수 비율을 계산하는 방식이었다.",
+        "numbers": ["20%"],
+        "src": "p.11 부록 C"
+      },
+      {
+        "kind": "result",
+        "quote": "r = 0.96 for KITE General and r = 0.93 for KITE Korean",
+        "paraphrase_ko": "자동 점수와 인간 점수의 Pearson 상관이 General 0.96, Korean 0.93이라며 자동 채점의 신뢰성을 주장한다. Figure 1로 보면 모델별 평균 7쌍의 상관으로 보이며, 문항 수준 일치도가 아니다.",
+        "numbers": ["0.96", "0.93"],
+        "src": "p.12 부록 C"
+      },
+      {
+        "kind": "result",
+        "quote": "human evaluations show no significant change in performance across different shot settings",
+        "paraphrase_ko": "인간 평가 점수는 shot 설정에 따라 거의 변하지 않았다. 자동 점수가 shot에 따라 크게 출렁인 것과 어긋나는데, 저자는 이를 인간과 모델의 추론 과정 차이로 해석한다.",
+        "numbers": [],
+        "src": "p.11 부록 C"
+      },
+      {
+        "kind": "limitation",
+        "quote": "may not cover all linguistic and cultural nuances of the Korean language",
+        "paraphrase_ko": "수록 지시문이 한국어의 언어·문화적 뉘앙스 전체를 포괄하지 못한다고 인정한다.",
+        "numbers": [],
+        "src": "p.6 Limitations"
+      },
+      {
+        "kind": "limitation",
+        "quote": "conducted by a limited number of experts and covered a subset",
+        "paraphrase_ko": "인간 평가는 소수 전문가가 부분집합에 대해서만 수행했고, 더 크고 다양한 평가자 집단이 필요하다고 밝힌다.",
+        "numbers": [],
+        "src": "p.7 Limitations"
+      },
+      {
+        "kind": "future_work",
+        "quote": "expanding KITE to include a more diverse range of instruction types and additional languages",
+        "paraphrase_ko": "지시 유형과 언어를 넓히고 실제 응용 시나리오를 넣겠다고 한다.",
+        "numbers": [],
+        "src": "p.6 §5"
+      },
+      {
+        "kind": "future_work",
+        "quote": "include a more granular categorization of instruction complexity",
+        "paraphrase_ko": "지시 복잡도를 더 세밀하게 분류해야 한다고 한다.",
+        "numbers": [],
+        "src": "p.7 Limitations"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "Abstract · §1 Introduction",
+        "move": "gap",
+        "summary_ko": "지시 이행 평가가 영어 중심이라는 배경에서, 교착어적 형태·조사·경어 체계·이중 수사 체계를 가진 한국어에는 전용 벤치마크가 없다는 공백을 세운다. 경어는 한국어의 '복잡성' 목록 가운데 한 항목으로만 언급된다.",
+        "src": "p.1-2"
+      },
+      {
+        "section": "§1 기여 목록",
+        "move": "claim",
+        "summary_ko": "세 가지 기여(KITE 소개, 다양한 실험을 통한 검증, 코드·데이터 공개)를 든다. '통사, 경어, 이중 수사 체계를 포함한 언어·문화적 뉘앙스를 포착한다'는 주장이 여기서 나온다.",
+        "src": "p.2"
+      },
+      {
+        "section": "§2 Related Works",
+        "move": "background",
+        "summary_ko": "IFEval·InstructEval은 영어 중심이고 KoBBQ·KorNAT·KMMLU·CLIcK·HAE-RAE Bench는 한국어이지만 지시 이행을 재지 않는다고 정리한다. 경어법 관련 NLP·언어학 선행연구는 인용하지 않는다.",
+        "src": "p.2"
+      },
+      {
+        "section": "§3.1 Overview",
+        "move": "method",
+        "summary_ko": "번역만으로는 언어·문화적 뉘앙스를 담지 못한다는 이유로 General(427)과 Korean(100) 두 판을 둔다. 규칙으로 정확히 채점할 수 있는 언어 범주를 우선했다는 설계 원칙을 밝힌다.",
+        "src": "p.2-3"
+      },
+      {
+        "section": "§3.2 Development of KITE General",
+        "move": "method",
+        "summary_ko": "gpt-4o로 IFEval을 번역하고 수작업으로 고친 뒤, 모어 화자 5명이 독립 검토해 만장일치로 승인한 문항만 남겼다(541→427). 걸러진 예는 대문자·소문자·응답 언어 지정 등이다.",
+        "src": "p.3-4"
+      },
+      {
+        "section": "§3.3 Development of KITE Korean · Table 1",
+        "move": "method",
+        "summary_ko": "저자와 검수자 5명이 문법 구조·언어 특징·문화 관행을 검토해 네 범주를 정했다. Honorifics는 존댓말과 반말 사이에서 종결 어미를 바꿔 같은 뜻을 전하게 하는 과제로 정의되고, 범주당 25문항을 만들었다. 문화 맥락은 규칙 검증이 어려워 범주로 두지 않고 문장 내용에 녹였다고 한다.",
+        "src": "p.3-4"
+      },
+      {
+        "section": "§4.1–4.3 실험 설계·모델·평가",
+        "move": "method",
+        "summary_ko": "범용 4종·한국어 특화 3종을 0·1·3·5-shot으로 평가하고, 하위 지시 단위 정확도를 규칙 기반으로 계산한다. 인간 평가와 Open Ko-LLM Leaderboard 상관 분석을 보조 검증으로 둔다. 생성 설정은 기술하지 않는다.",
+        "src": "p.4-5"
+      },
+      {
+        "section": "§4.4 Main Results · Table 2",
+        "move": "evidence",
+        "summary_ko": "Table 2는 모델 7종 × shot 4종의 점수를 General과 Korean 두 묶음으로만 보여 준다. GPT-4o가 최고이고 한국어 특화 모델이 뒤처지며, 지시 이행은 추론·상식과 별개 능력이라 전용 튜닝이 필요하다고 해석한다. 네 범주별 분해는 없다.",
+        "src": "p.5-6"
+      },
+      {
+        "section": "§4.4 Impact of Shot Settings",
+        "move": "interpretation",
+        "summary_ko": "shot이 늘수록 성능이 떨어졌다고 요약하고 예시의 이질성 때문이라고 추측한다. GPT-4o의 안정성을 우수한 지시 이행 능력의 지표로 해석한다. 실제 표에서는 모델에 따라 방향이 다르다.",
+        "src": "p.5-6"
+      },
+      {
+        "section": "§5 Conclusion",
+        "move": "future_work",
+        "summary_ko": "KITE의 신뢰성을 인간–자동 평가의 높은 상관으로 뒷받침하고, 지시 유형·언어 확장과 실제 응용 시나리오 도입을 후속 과제로 든다.",
+        "src": "p.6"
+      },
+      {
+        "section": "Limitations",
+        "move": "limitation",
+        "summary_ko": "데이터 범위, 모델 다양성, 인간 평가 규모, 지시 복잡도 분류, 타 언어 일반화, 실제 적용성의 여섯 한계를 나열한다. 경어 범주나 검사기의 타당성에 관한 한계는 언급하지 않는다.",
+        "src": "p.6-7"
+      },
+      {
+        "section": "Ethics Statement",
+        "move": "claim",
+        "summary_ko": "개인정보를 넣지 않았고 문화적으로 민감하게 설계했으며 자료를 공개해 재현성을 확보했다고 선언한다. 구체적 절차는 없다.",
+        "src": "p.7"
+      },
+      {
+        "section": "Appendix A–B",
+        "move": "method",
+        "summary_ko": "검수자 5명의 출생연도·성별·전공(Table 3)과, 영어 중심이라 걸러진 IFEval 지시 예시(Table 4)를 제시한다. Appendix B 본문은 이 필터링을 'KITE Korean' 제작 과정이라고 적었으나 §3.2에 따르면 KITE General의 과정이다.",
+        "src": "p.10"
+      },
+      {
+        "section": "Appendix C Human Evaluations",
+        "move": "evidence",
+        "summary_ko": "5명이 20% 부분집합을 평가한 점수(Table 5)와 자동 점수의 Pearson 상관(0.96, 0.93), Open Ko-LLM Leaderboard 벤치마크와의 상관(0.24–0.50)을 보고한다. 인간 점수는 shot에 따라 거의 변하지 않는다. 범주별 인간 평가도 없다.",
+        "src": "p.11-13"
+      }
+    ],
+    "context": [
+      {
+        "axis": "theory",
+        "text_ko": "산출 대 판단의 구분. KITE의 경어 문항이 재는 것은 '시키면 높임말(또는 반말)로 쓸 수 있는가'다. 목표 말 단계를 지시문이 정해 주고 모델은 종결 어미를 바꿔 쓰기만 하면 되므로, 이것은 지시 준수·형태 변환(산출) 능력이다. 반면 P01–P05가 묻는 것은 '어떤 조건에서 높임이 허가되는가를 아는가'다(수용성·확률·surprisal 같은 판단 지표, 기존 초안 지형도 기준이며 각 카드에서 확인 필요). KITE는 경어법을 통사적 일치로도 화용적 허가로도 보지 않고 표면 문체의 전환으로 다룬다. 따라서 KITE에서 점수가 높다는 것은 허가 조건 지식의 증거가 되지 못하고, 거꾸로 허가 조건을 알아도 형식 제약이 겹친 복합 지시에서 실패할 수 있다. 두 능력의 해리 여부는 열린 경험적 질문이며 우리 후속 연구가 보조 지표로 확인할 수 있다.",
+        "related": ["P01", "P02", "P03", "P04", "P05"],
+        "src": "p.4 §3.3"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "용어 충돌. KITE의 honorific은 존댓말, 즉 상대높임의 종결 어미(-습니다, -요)이고, P02–P05의 honorific은 주체높임 -시-와 -께서의 일치다(기존 초안 지형도 기준). 현상 층위만 보면 KITE는 P01(청자 높임)·P06(화계)과 같은 축에 있다. 또한 KITE는 politeness와 formality를 구별 없이 쓰고 존대를 이분법으로 처리하므로, 화계를 세분하는 논문과 용어를 맞출 때 그대로 옮기면 안 된다.",
+        "related": ["P01", "P02", "P05", "P06"],
+        "src": "p.3-4 Table 1, §3.3"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "'이해'의 증거 기준 충돌. KITE는 종결 어미 전환 성공을 사회적 위계 이해의 평가라고 부른다. 그러나 전략서가 P01에서 계승하려는 문제의식('옳은 답, 틀린 이유')에 비추면, 형태를 바꿀 줄 아는 것과 허가 조건을 아는 것은 구별해야 한다. KITE식 성공을 경어 지식의 증거로 인용하는 것은 피해야 한다.",
+        "related": ["P01"],
+        "src": "p.4 §3.3"
+      },
+      {
+        "axis": "lineage",
+        "text_ko": "IFEval(Zhou et al., 2023)의 직계다. 검증 가능한 지시, 하위 지시 분해, 엄격·느슨 판정 코드까지 물려받았고 거기에 한국어 검사기 네 개를 덧붙였다(저장소 확인). 한국어 벤치마크(KoBBQ, KorNAT, KMMLU, CLIcK, HAE-RAE)는 '지시 이행을 재지 않는다'는 대비용으로만 인용된다. 언어학 문헌은 Lee et al. (2015) 개론서 하나뿐이며 경어법 이론·심리언어학 문헌은 없다.",
+        "related": ["P10"],
+        "src": "p.2 §2; p.5 §4.3"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "평가 모델은 gpt-3.5-turbo-0125, gpt-4o-2024-05-13, Llama 3 8B, Gemma 7b, SOLAR 1 Mini, HyperCLOVA X 003, EEVE 10.8b로 모두 2023년 말–2024년 상반기 세대다. 최고 모델도 KITE Korean에서 60%대에 머물렀지만 이것이 경어 범주 때문인지는 알 수 없다. 현재의 상용 프런티어·추론 모드 모델에서는 존댓말↔반말 전환이 천장에 닿을 가능성이 높아, 재검증 없이 'LLM은 경어 전환에 약하다'고 인용하면 안 된다.",
+        "related": ["P05", "P10"],
+        "src": "p.5-6 §4.2, Table 2"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "한국어 특화 학습이 곧 한국어 현상에서의 우위를 뜻하지 않는다는 관찰(GPT-4o > SOLAR·HyperCLOVA X·EEVE)은 우리 모델 추천에서 '글로벌 프런티어 + 한국어 특화 상용 API'를 함께 넣어 비교해야 한다는 근거가 된다. 다만 KITE의 근거는 범주를 합친 총점이므로 경어에 한정된 합의로 쓰려면 범주별 재분석이 필요하다.",
+        "related": ["P02", "P10"],
+        "src": "p.5 §4.4"
+      },
+      {
+        "axis": "field",
+        "text_ko": "NLP 평가·벤치마크 분야(ACL 양식)의 공학 논문이고 독자는 LLM 개발자다. 실험언어학적 통제(최소대립쌍, 조건 균형, 통계 모형)는 없다. 우리에게는 이론적 근거가 아니라 공개 데이터와 채점 코드라는 자원으로서의 가치가 있다.",
+        "related": [],
+        "src": "p.1-2"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "한국어 개방형 지시 이행 전반. 경어 관련은 Honorifics 범주 하나로, 주어진 문장을 존댓말↔반말(상대높임 종결 어미의 존대/비존대 이분)로 바꿔 쓰는 산출 과제다. 주체높임·객체높임·압존법·화계 세분은 다루지 않는다.",
+    "stimuli": "KITE General: IFEval 지시문의 한국어 번역(gpt-4o-2024-05-13 번역 → 수작업 검수 → 5명 만장일치 필터). KITE Korean: 새로 작성한 지시문. 경어 문항은 '다음 문장을 존댓말로/반말로 바꾸세요' + 맥락 없는 짧은 발화(25문항 중 24문항은 2문장, 1문항은 3문장, 저장소 확인)이며, 다수는 IFEval식 형식 제약(요청 반복, 최소 단어 수, 끝 구절, 제목)이 덧붙은 복합 지시다(복합 구성은 저장소 확인).",
+    "conditions": [
+      "벤치마크: KITE General(427문항) / KITE Korean(100문항)",
+      "KITE Korean 범주: Acrostic Poem / Post-position Drop / Honorifics / Native·Sino Korean Number System (각 25문항)",
+      "Honorifics 내부 변환 방향(저장소 확인, 논문은 요인으로 다루지 않음): →존댓말 14문항 / →반말 11문항",
+      "shot 설정: 0 / 1 / 3 / 5 (예시는 데이터셋 전체에서 무작위 추출)"
+    ],
+    "n_items": "KITE General 427 + KITE Korean 100(4범주 × 25). Honorifics 25문항(저장소 기준 하위 지시 45개 = 경어 25 + 형식 제약 20)",
+    "measures": [
+      "하위 지시 단위 정확도(%) = 준수된 하위 지시 수 / 전체 하위 지시 수 × 100, 규칙 기반 자동 판정(0/1)",
+      "인간 평가: 5명이 20% 무작위 부분집합에서 하위 지시 준수 비율을 계산, 평가자 평균",
+      "Pearson 상관: 자동 점수 대 인간 점수, KITE 대 Open Ko-LLM Leaderboard 5개 벤치마크",
+      "경어 검사기(저장소 확인): 공백 토큰에 '니다.' 또는 '요.' 포함 여부 — →존댓말은 있으면 통과, →반말은 있으면 실패"
+    ],
+    "models": [
+      "gpt-3.5-turbo-0125 (OpenAI API, 규모 미표기)",
+      "gpt-4o-2024-05-13 (OpenAI API, 규모 미표기)",
+      "Llama 3 8B Instruct (공개 가중치)",
+      "Gemma 7b Instruct (공개 가중치)",
+      "SOLAR 1 Mini Chat (Upstage API, 규모 미표기)",
+      "HyperCLOVA X 003 (NAVER API, 규모 미표기)",
+      "EEVE v1.0 10.8b Instruct (공개 가중치)",
+      "상관 분석용: Open Ko-LLM Leaderboard 상위 10개 지시 조정 모델(이름 미표기)"
+    ],
+    "humans": "5명. 한국어 모어 화자, NLP 지식이 있는 대학원생·학부생, 1996–2000년생, 전원 남성, 전공 컴퓨터과학 3·국제경제 2. 문항 필터링·범주 개발·인간 평가를 모두 담당했다. 경어 산출물의 자연스러움·적절성 평정은 없고, 자동 채점과 같은 '하위 지시 준수 여부'만 판정했다.",
+    "stats": "Pearson 상관계수만 보고(r = 0.96, 0.93 등). 유의성 검정, 신뢰구간, 평가자 간 일치도, 문항 수준 일치도 없음. 반복 표집·temperature 등 생성 설정 미표기. 범주별 점수 미보고.",
+    "is_factorial": "아님 — 모델(7) × shot(4) × 벤치마크(2)의 기술적 교차표이며 가설 검정용 요인설계가 아니다. 경어 범주 안의 변환 방향(→존댓말/→반말)도 요인으로 분석되지 않았다."
+  },
+  "stimulus_examples": [
+    {
+      "ko": "다음 문장을 반말로 바꿔 보세요: '어제 정말 즐거웠어요. 다음에 또 만나요.'",
+      "gloss": "Convert the following sentence to informal speech: 'I had a really good time yesterday. Let's hang out again next time.'",
+      "condition": "Honorifics — 존댓말(해요체)→반말 전환 [논문 Table 1의 예시. 공개 데이터의 해당 문항은 문장이 조금 다르다]",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "삼행시는 주어진 세 글자 단어의 각 글자로 시작하는 일관성 있는 짧막한 이야기야. '밤하늘'로 삼행시를 지어줘.",
+      "gloss": "An acrostic poem involves creating a short, coherent story where each line begins with a specific letter from a given three-character word. Please write an acrostic poem using the word '밤하늘' (night sky).",
+      "condition": "Acrostic Poem [논문 Table 1] — 지시문 자체가 반말(해체)로 쓰였다",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "주격 조사, 목적격 조사 없이 한글이 만들어진 기원에 대해서 설명하세요.",
+      "gloss": "Explain the origin of the Korean script without using subject or object postpositions.",
+      "condition": "Post-position Drop [논문 Table 1]",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "다음 문장의 숫자를 순한국어로 바꾸세요. '이 회의는 90분 동안 지속됩니다.'",
+      "gloss": "Change the numbers in the following sentence to native Korean: 'This meeting lasts for ninety minutes.'",
+      "condition": "Native/Sino Korean Number System [논문 Table 1]",
+      "src": "p.3 Table 1"
+    },
+    {
+      "ko": "다음 문장을 존댓말로 바꾸세요. '너 왜 이렇게 늦었어? 약속 시간 지키는 게 중요하다는 걸 몰라?'",
+      "gloss": "Change the following into polite speech: 'Why are you so late? Don't you know keeping appointments matters?' (우리 번역)",
+      "condition": "[저장소] Honorifics 단일 지시, →존댓말. 두 문장이 모두 의문문이라 올바른 답(…늦으셨어요? …모르세요?)에는 '요.'가 없어 검사기가 실패로 판정한다",
+      "src": "p.1 각주 2 저장소 honorifics.jsonl(원문 외)"
+    },
+    {
+      "ko": "다음 문장을 반말로 바꾸세요. '오늘 저녁은 제가 요리할게요. 당신은 쉬세요.'",
+      "gloss": "Change the following into plain (banmal) speech: 'I'll cook dinner tonight. You get some rest.' (우리 번역)",
+      "condition": "[저장소] Honorifics 단일 지시, →반말. 제대로 바꾸려면 제가→내가, 당신→너, 쉬세요(-시-)→쉬어가 함께 바뀌어야 하지만 검사기는 '요.'·'니다.'의 부재만 본다",
+      "src": "p.1 각주 2 저장소 honorifics.jsonl(원문 외)"
+    },
+    {
+      "ko": "다음 문장을 반말로 바꾸세요. '어제는 정말 즐거웠어요. 다음에 또 같이 놀아요.' 먼저 요청한 내용을 단어 그대로 반복한 후에 답변하세요 (…)",
+      "gloss": "Change to banmal: 'Yesterday was really fun. Let's play together again.' First repeat the request word for word, then answer. (우리 번역, 괄호 안 세부 조건 생략)",
+      "condition": "[저장소] Honorifics + 요청 반복 복합 지시, →반말. 요청을 그대로 반복하면 응답에 '바꾸세요.'와 '즐거웠어요.'가 들어가 엄격(strict) 판정에서는 경어 검사기가 자동으로 실패 처리한다 — 두 하위 지시가 검사기상 양립하지 않는다(느슨 판정은 반복 요청이 따로 한 줄이면 첫 줄을 뺀 변형으로 통과할 수 있다)",
+      "src": "p.1 각주 2 저장소 honorifics.jsonl(원문 외)"
+    },
+    {
+      "ko": "다음 문장을 존댓말로 바꾸세요. '여기서 기다려. 내가 금방 돌아올게.' 답변을 '존댓말 반말 변환 끝'으로 마무리해.",
+      "gloss": "Change to polite speech: 'Wait here. I'll be right back.' End your answer with '존댓말 반말 변환 끝'. (우리 번역)",
+      "condition": "[저장소] Honorifics + 끝 구절 복합 지시, →존댓말. 한 프롬프트 안에서 지시문의 말 단계가 '바꾸세요'(존대)와 '마무리해'(반말)로 섞여 있다",
+      "src": "p.1 각주 2 저장소 honorifics.jsonl(원문 외)"
+    }
+  ],
+  "key_numbers": [
+    {
+      "what": "KITE General 지시문 수",
+      "value": "427",
+      "src": "p.2 §3.1"
+    },
+    {
+      "what": "IFEval 원본 지시문 수 → 필터로 제외한 수 → 남은 수",
+      "value": "541 → 114 → 427",
+      "src": "p.4 §3.2"
+    },
+    {
+      "what": "KITE Korean 지시문 수(네 범주, 범주당 25개)",
+      "value": "100",
+      "src": "p.4 §3.3"
+    },
+    {
+      "what": "Honorifics 범주 지시문 수",
+      "value": "25",
+      "src": "p.4 §3.3"
+    },
+    {
+      "what": "Table 2 KITE Korean, gpt-3.5-turbo-0125: 0 / 1 / 3 / 5 Shot / Avg. (범주 합산 점수이며 경어 범주 단독 점수가 아님, 이하 같음)",
+      "value": "46.19 / 49.74 / 50.76 / 52.28 / 49.74",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE Korean, gpt-4o-2024-05-13: 0 / 1 / 3 / 5 Shot / Avg.",
+      "value": "61.42 / 64.97 / 65.48 / 65.98 / 64.46",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE Korean, Llama 3 8B IT: 0 / 1 / 3 / 5 Shot / Avg.",
+      "value": "51.77 / 40.60 / 45.68 / 45.68 / 45.93",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE Korean, Gemma 7b IT: 0 / 1 / 3 / 5 Shot / Avg.",
+      "value": "48.73 / 38.57 / 46.70 / 46.19 / 45.04",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE Korean, SOLAR 1 Mini Chat: 0 / 1 / 3 / 5 Shot / Avg.",
+      "value": "32.99 / 28.93 / 33.50 / 34.01 / 32.35",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE Korean, HyperCLOVA X 003: 0 / 1 / 3 / 5 Shot / Avg.",
+      "value": "45.68 / 47.71 / 50.76 / 48.22 / 48.09",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE Korean, EEVE v1.0 10.8b IT: 0 / 1 / 3 / 5 Shot / Avg.",
+      "value": "48.73 / 36.04 / 43.65 / 44.67 / 42.54",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE General 평균(Avg.) — 표의 모델 순서대로 gpt-3.5, gpt-4o, Llama 3, Gemma, SOLAR, HyperCLOVA X, EEVE",
+      "value": "81.91 / 90.27 / 58.55 / 61.45 / 59.60 / 64.22 / 60.18",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 2 KITE General 0 Shot — 같은 모델 순서",
+      "value": "75.92 / 89.35 / 70.83 / 76.85 / 46.29 / 60.64 / 75.92",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Table 5 인간 평가 KITE Korean 평균(Avg.) — 같은 모델 순서",
+      "value": "54.88 / 64.90 / 42.15 / 50.93 / 35.85 / 45.15 / 43.93",
+      "src": "p.11 Table 5"
+    },
+    {
+      "what": "Table 5 인간 평가 KITE General 평균(Avg.) — 같은 모델 순서",
+      "value": "83.60 / 84.15 / 58.55 / 64.70 / 63.15 / 61.15 / 58.45",
+      "src": "p.11 Table 5"
+    },
+    {
+      "what": "자동 점수와 인간 점수의 Pearson 상관(General, Korean)",
+      "value": "r = 0.96, r = 0.93",
+      "src": "p.12 부록 C"
+    },
+    {
+      "what": "KITE와 Open Ko-LLM Leaderboard 벤치마크의 Pearson 상관(Ko-MMLU, Ko-TruthfulQA, Ko-CommonGen V2, Ko-HellaSwag, Ko-ARC 순)",
+      "value": "0.50, 0.50, 0.40, 0.33, 0.24",
+      "src": "p.12 Figure 2"
+    },
+    {
+      "what": "인간 평가에 쓴 지시문 비율(무작위 부분집합)",
+      "value": "20%",
+      "src": "p.11 부록 C"
+    },
+    {
+      "what": "검수자·인간 평가자 수와 출생연도 범위",
+      "value": "5명, 1996–2000",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "KITE Korean 점수의 분모(전체 하위 지시 수). Table 2의 KITE Korean 점수 28개를 모두 k/D×100(소수 둘째 자리 버림 또는 반올림)으로 재현하는 가장 작은 D를 역산했고, 저장소 culturally_aware.jsonl의 하위 지시 수 합계와 일치한다",
+      "value": "197 (재계산)",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "KITE Korean 점수에서 경어 검사 하위 지시가 차지하는 몫 = 경어 하위 지시 25 / 전체 하위 지시 197",
+      "value": "12.7% (재계산)",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "Honorifics 25문항의 하위 지시 수(저장소 honorifics.jsonl 집계: 경어 25 + 형식 제약 20)와 변환 방향 분포(→존댓말 / →반말)",
+      "value": "45개, 14 / 11 (재계산)",
+      "src": "p.1 각주 2 저장소(원문 외)"
+    },
+    {
+      "what": "KITE General 점수의 분모 역산값. Table 2의 General 점수 28개를 모두 재현하는 가장 작은 D. 저장소 relevant.jsonl은 427문항·하위 지시 562개라서 일치하지 않는다(원인 미상)",
+      "value": "216 (재계산)",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "자동 점수와 인간 점수의 설정별 괴리 예: EEVE, KITE General 0 Shot의 자동 75.92 − 인간 58.00",
+      "value": "17.92%p (재계산)",
+      "src": "p.6 Table 2; p.11 Table 5"
+    }
+  ],
+  "limitations": [
+    {
+      "text_ko": "데이터 범위: 수록 지시문은 대표적이지만 한국어의 언어·문화적 뉘앙스 전체를 포괄하지 못한다.",
+      "stated_by": "author",
+      "src": "p.6 Limitations"
+    },
+    {
+      "text_ko": "모델 다양성: 범용·한국어 특화 소수 모델만 평가했다.",
+      "stated_by": "author",
+      "src": "p.6-7 Limitations"
+    },
+    {
+      "text_ko": "인간 평가 제약: 소수 전문가가 부분집합만 평가했다. 더 크고 다양한 평가자 집단이 필요하다.",
+      "stated_by": "author",
+      "src": "p.7 Limitations"
+    },
+    {
+      "text_ko": "지시 복잡도: 복잡도 분류가 세밀하지 않다.",
+      "stated_by": "author",
+      "src": "p.7 Limitations"
+    },
+    {
+      "text_ko": "일반화·실제 적용성: 다른 언어로 그대로 옮기기 어렵고, 실제 사용 환경의 지시 다양성을 충분히 반영하지 못한다.",
+      "stated_by": "author",
+      "src": "p.7 Limitations"
+    },
+    {
+      "text_ko": "경어 범주 점수가 없다. Table 2·Table 5는 KITE Korean 총점만 제시하므로 모델별 경어 전환 성적을 이 논문에서 인용할 수 없다. 총점에서 경어 검사 하위 지시의 몫은 약 12.7%(재계산)에 그친다.",
+      "stated_by": "us",
+      "src": "p.6 Table 2"
+    },
+    {
+      "text_ko": "경어 검사 규칙이 논문에 기술돼 있지 않다. 저장소 구현은 '니다.'·'요.' 부분 문자열 검사여서 ① 의문문(요?, 니까?)·느낌표·마침표 없는 종결을 놓치고 ② →반말 지시에서는 무관한 응답도 통과하며 ③ -시-, 께서, 어휘 높임, 겸양 대명사, 의미 보존을 전혀 보지 않는다.",
+      "stated_by": "us",
+      "src": "p.5 §4.3"
+    },
+    {
+      "text_ko": "복합 지시와 검사기의 충돌(저장소 확인). '요청을 그대로 반복한 뒤 답하라'가 붙은 5문항에서는 반복된 지시문 자체('바꾸세요.')가 '요.'를 포함하므로 →존댓말 3문항은 변환과 무관하게 통과하고, 엄격(strict) 판정에서는 →반말 2문항이 반드시 실패한다(첫·끝 줄을 뺀 변형도 보는 느슨 판정에서는 반복 요청이 따로 한 줄이면 통과할 수 있다).",
+      "stated_by": "us",
+      "src": "p.5 §4.3"
+    },
+    {
+      "text_ko": "구성 타당도: 목표 말 단계가 지시문에 명시되고 화자·청자 관계가 주어지지 않으므로, 저자가 주장하는 '사회적 위계 이해'는 측정되지 않는다. 측정되는 것은 명시적 지시에 따른 종결 어미 변환이다.",
+      "stated_by": "us",
+      "src": "p.4 §3.3"
+    },
+    {
+      "text_ko": "자동 채점의 타당화가 약하다. r = 0.96/0.93은 모델 평균 수준의 상관으로 보이고(Figure 1), 설정별로는 자동 점수와 인간 점수가 크게 어긋난다(예: EEVE General 0 Shot 자동 75.92 대 인간 58.00). 인간 점수는 shot에 따라 거의 변하지 않는데 자동 점수는 크게 출렁인다. 평가자는 데이터 제작에 참여한 동질적 5명이다.",
+      "stated_by": "us",
+      "src": "p.11-12 Table 5, 부록 C"
+    },
+    {
+      "text_ko": "shot 효과 서술이 표와 다르다. 본문은 shot이 늘면 결과가 '정반대'였다고 일반화하지만 Table 2에서 gpt-3.5·gpt-4o·SOLAR(General)는 shot이 늘수록 올랐다.",
+      "stated_by": "us",
+      "src": "p.5-6 §4.4, Table 2"
+    },
+    {
+      "text_ko": "보고 불일치. Table 2의 KITE General 점수는 분모 216(재계산)과 맞아떨어지는데 공개 데이터는 427문항·하위 지시 562개다. Appendix B는 필터링을 'KITE Korean' 제작 과정이라고 적었고, Figure 1은 General/Korean을 Easy/Hard로 표기한다. Table 1의 경어 예시 문장은 공개 데이터의 문항과 글자 그대로 일치하지 않는다.",
+      "stated_by": "us",
+      "src": "p.6 Table 2"
+    },
+    {
+      "text_ko": "재현 정보 부족. temperature·최대 토큰·시스템 프롬프트·반복 횟수·API 호출 시점이 없고, 저장소에도 응답 생성 모듈이 빠져 있다(2026-09-19 확인). few-shot 예시의 응답을 어떻게 만들었는지도 알 수 없다.",
+      "stated_by": "us",
+      "src": "p.5 §4.1–4.4"
+    },
+    {
+      "text_ko": "프롬프트 말 단계가 통제되지 않았다. 지시문이 범주·문항에 따라 반말('지어줘', '마무리해')과 존대('바꾸세요', '설명하세요')로 섞여 있어, 모델이 사용자 말 단계에 맞추는 경향과 경어 전환 성패가 교란될 수 있다.",
+      "stated_by": "us",
+      "src": "p.3 Table 1"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P09-H1",
+      "hook_ko": "KITE Honorifics 25문항을 우리 모델 라인업(상용 API)에 0-shot으로 다시 돌려 '시키면 높임말로 쓸 수 있는가'의 산출 기준선을 범주 단독·변환 방향별로 보고한다.",
+      "basis_ko": "논문은 네 범주를 합친 KITE Korean 총점만 보고해 경어 전환 성적을 알 수 없다(Table 2). 공개 평가 코드는 지시 ID별 정확도를 출력하므로 범주 단독 점수는 바로 산출할 수 있고, HuggingFace에 honorifics 설정이 따로 있다(저장소 확인, Apache-2.0). 25문항이라 호출 비용은 무시할 만하다.",
+      "kind": "method_gap",
+      "src": "p.6 Table 2"
+    },
+    {
+      "id": "P09-H2",
+      "hook_ko": "자유 산출 채점기를 형태소 단위로 새로 만든다: 종결 어미(합쇼·해요·해·해라), 선어말 -시-, 조사 께서·께, 어휘 높임(드리다·계시다 등), 겸양 대명사(저·제)를 형태소 분석기로 추출해 문장 단위로 판정하고, 의미 보존은 별도 기준(인간 또는 LLM 판정)으로 본다. 채점기는 문항 수준에서 인간 판정과의 일치도(κ)로 검증한다.",
+      "basis_ko": "논문은 rule-based checking이라고만 하고 규칙을 밝히지 않았다(§4.3). 저장소의 실제 규칙은 '니다.'·'요.' 부분 문자열 검사여서 의문문·느낌표 종결에서 오판하고 -시-와 어휘 높임을 보지 못한다. 타당화도 모델 평균 수준의 Pearson r뿐이다(부록 C).",
+      "kind": "method_gap",
+      "src": "p.5 §4.3"
+    },
+    {
+      "id": "P09-H3",
+      "hook_ko": "판단–산출 해리 검사: 우리 2×2 판단 실험(7점 Likert·이해 문항)의 자극과 같은 상황을 주고 발화를 직접 쓰게 하는 산출 과제를 보조 종속변수로 붙여, 허가 조건 판단 점수와 산출 정확도가 같은 모델에서 함께 움직이는지 본다.",
+      "basis_ko": "KITE는 목표 말 단계를 지시문에 명시하므로 산출·지시 준수만 재고, 저자가 말하는 '사회적 위계 이해'는 검증되지 않는다(§3.3). P01–P05는 판단 쪽만 잰다. 두 능력이 해리되는지는 어느 쪽 문헌에서도 검증되지 않았다.",
+      "kind": "untested_condition",
+      "src": "p.4 §3.3"
+    },
+    {
+      "id": "P09-H4",
+      "hook_ko": "'맥락 암시' 변형 문항: '존댓말로 바꾸세요' 대신 청자 관계만 준다(예: 이 말을 지도교수에게/동생에게 한다면). 2×2로 짜면 [말 단계 지시: 명시/암시] × [청자 지위: 상위/하위]이고, 종속변수는 산출문의 존대 종결 비율이다. 암시 조건에서만 떨어지면 형태 변환은 되지만 허가 조건 추론이 약하다는 증거가 된다.",
+      "basis_ko": "KITE 경어 문항에는 화자·청자 관계나 상황이 전혀 없고, 저자 스스로 문화 맥락은 규칙 검증이 어려워 범주에서 뺐다고 밝혔다(§3.3). 관계에서 말 단계를 추론하는 조건은 검증되지 않았다.",
+      "kind": "untested_condition",
+      "src": "p.4 §3.3"
+    },
+    {
+      "id": "P09-H5",
+      "hook_ko": "주어가 곧 청자인 문항에서 상대높임과 주체높임의 연동을 본다: '꼭 보셔야 해요'를 반말로 바꿀 때 -시-까지 내리는지(봐야 해), 어미만 내리는지(보셔야 해)를 분류한다. 역방향(→존댓말)에서는 -시-를 새로 넣는지를 본다.",
+      "basis_ko": "KITE 원문장 일부에 -시-·드리다·제가·당신이 들어 있지만(저장소 확인) 검사기는 종결 문자열만 본다. 범주 정의도 종결 어미 교체로 한정돼 있어(§3.3) 주체높임·어휘 높임의 동반 변화는 평가된 적이 없다. P02–P05의 -시- 허가 조건과 KITE의 화계 전환이 만나는 지점이다.",
+      "kind": "untested_condition",
+      "src": "p.4 §3.3"
+    },
+    {
+      "id": "P09-H6",
+      "hook_ko": "경어 산출 과제에서 복합 지시를 떼어 낸다: 순수 전환 점수와 형식 제약 점수를 따로 내고, 요청 반복형처럼 검사기와 충돌하는 문항은 빼거나 고쳐 쓴다.",
+      "basis_ko": "정확도의 분모가 하위 지시 수이고(식 1) 경어 25문항 가운데 20문항이 형식 제약과 묶인 복합 지시라(저장소 확인) 경어 능력과 일반 형식 준수가 한 점수에 섞인다. 요청 반복형 5문항은 반복된 지시문이 '요.'를 포함해 엄격(strict) 판정에서는 검사 결과가 변환과 무관하게 정해진다(느슨 판정에서는 →반말 문항이 첫 줄을 뺀 변형으로 통과할 수 있다).",
+      "kind": "unresolved_confound",
+      "src": "p.5 §4.3 식 (1)"
+    },
+    {
+      "id": "P09-H7",
+      "hook_ko": "프롬프트 자체의 말 단계를 통제하거나 요인으로 쓴다: 지시문을 존대/반말로 바꿔 모델 산출의 말 단계가 따라 움직이는지(동조) 확인하고, 본 실험에서는 지시문 말 단계를 고정한다.",
+      "basis_ko": "KITE 지시문은 '지어줘'·'마무리해'(반말)와 '바꾸세요'·'설명하세요'(존대)가 섞여 있고 한 프롬프트 안에서도 섞인다(Table 1, 저장소 확인). 말 단계 전환을 재면서 입력 말 단계를 통제하지 않은 것은 교란이다.",
+      "kind": "unresolved_confound",
+      "src": "p.3 Table 1"
+    },
+    {
+      "id": "P09-H8",
+      "hook_ko": "few-shot을 쓰지 않고 시행마다 새 컨텍스트의 0-shot으로 통일한다. 예시가 필요하면 같은 범주·같은 방향 예시만 쓰고 예시 구성을 공변인으로 기록한다.",
+      "basis_ko": "예시를 데이터셋 전체에서 무작위로 뽑은 결과 Llama 3·Gemma·EEVE는 1-shot에서 KITE General 기준 15–20%p(KITE Korean 기준 10–13%p) 급락했고, 저자도 예시의 이질성 때문일 것이라고 추측만 했다(§4.4). 예시 구성과 shot 수가 분리되지 않았다.",
+      "kind": "unresolved_confound",
+      "src": "p.5-6 §4.4, Table 2"
+    },
+    {
+      "id": "P09-H9",
+      "hook_ko": "모델이 산출한 전환문을 인간과 모델이 같은 7점 Likert(자연스러움·공손성)로 평정하게 해, 규칙 통과 여부와 적절성 평정이 얼마나 겹치는지 본다. 평가자는 성별·연령·전공을 다양화한다.",
+      "basis_ko": "인간 평가는 자동 채점과 같은 '하위 지시 준수 여부'만 따졌고 산출문의 자연스러움·적절성은 평정하지 않았다. 평가자는 데이터 제작에 참여한 20대 남성 5명이며 저자도 더 크고 다양한 평가자 집단이 필요하다고 했다(Limitations).",
+      "kind": "method_gap",
+      "src": "p.7 Limitations; p.10 Table 3; p.11 부록 C"
+    },
+    {
+      "id": "P09-H10",
+      "hook_ko": "2024년 상반기 세대 결과를 현행 상용 모델(글로벌 프런티어·한국어 특화 API·추론 모드 포함)에서 재검증한다. 경어 전환이 천장에 닿는다면 산출 과제는 변별력이 없으므로 H4·H5의 어려운 변형으로 옮겨 간다.",
+      "basis_ko": "평가 모델은 gpt-3.5-turbo-0125, gpt-4o-2024-05-13, Llama 3 8B, Gemma 7b 등이며 최고 모델도 KITE Korean 평균 64.46에 그쳤다. 그러나 이 수치는 범주 합산이고 검사기 오판이 섞여 있어 현재 모델의 경어 전환 능력에 대한 근거로 쓸 수 없다.",
+      "kind": "model_generation",
+      "src": "p.5-6 §4.2, Table 2"
+    },
+    {
+      "id": "P09-H11",
+      "hook_ko": "저자가 예고한 '실제 응용 시나리오'와 '지시 유형 다양화'를 경어 쪽에서 구체화한다: 이메일·민원 응대·메신저처럼 관계가 드러나는 장면에서 말 단계를 고르게 하고, 화계를 이분법이 아니라 하십시오체·해요체·해체·해라체로 나눠 지시한다.",
+      "basis_ko": "결론과 한계 절이 지시 유형 확장, 실제 응용 시나리오 도입, 복잡도의 세밀한 분류를 후속 과제로 명시한다. 현재 경어 범주는 존대/비존대 이분과 맥락 없는 2–3문장 발화에 머문다.",
+      "kind": "author_future_work",
+      "src": "p.6-7 §5, Limitations"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "KITE 데이터셋(HuggingFace). 논문 각주 1. 저장소 확인(2026-09-19): 라이선스 Apache-2.0. 설정 culturally_aware_honorifics(25행), culturally_aware_acrostic·numbers·postposition(각 25행), culturally_aware_all(100행), translated_and_filtered(427행). 열: instruction, instruction_id_list, kwargs 등",
+      "url": "https://huggingface.co/datasets/junkim100/KITE"
+    },
+    {
+      "what": "KITE 평가 코드(GitHub). 논문 각주 2. 저장소 확인(2026-09-19): 라이선스 Apache-2.0. 경어 문항은 korean_instruction_following_eval/data/culturally_aware/instruction/honorifics.jsonl, 검사기는 eval/instructions.py의 HonorificsChecker(지시 ID 'Korean:honorifics', 인자 direction_to = honorific | non-honorific). evaluation_main.py가 지시 ID별 정확도를 출력한다. 응답 생성 모듈은 저장소에 없다",
+      "url": "https://github.com/junkim100/KITE"
+    },
+    {
+      "what": "원천 데이터 IFEval(Zhou et al., 2023). 논문 각주 3",
+      "url": "https://github.com/google-research/google-research/tree/master/instruction_following_eval/data"
+    },
+    {
+      "what": "논문 원문(arXiv, CC BY 4.0)",
+      "url": "https://arxiv.org/abs/2510.15558"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md §B1(KITE)과 §0 전체 지형도의 B1 행",
+    "agreements": "문항 수(General 427, Korean 100, 541→427의 5인 만장일치 필터), 네 범주 × 25문항 구성, Table 1의 경어 예시 지시문, 규칙 기반 검증 가능성을 우선해 범주를 골랐다는 점, GPT-4o가 한국어 특화 모델보다 높다는 결과, 모델 7종·인간 평가 보조라는 지형도 기재는 모두 원문과 일치한다. '경어 과제는 화계 전환(형태 변환)이라 허가 조건 과제와 층위가 다르다'는 기존 판단도 원문 정의(§3.3, 종결 어미 교체)와 맞는다. 사실 오류는 찾지 못했다.",
+    "discrepancies": [
+      "보완(오류 아님): 기존 분석은 범주별 점수가 없다는 사실을 적지 않았다. 원문 Table 2·Table 5는 KITE Korean 총점만 제시하므로 '경어 25문항 성적'은 이 논문에서 인용할 수 없다.",
+      "보완: 기존 분석은 KITE를 '규칙 검증 채점기 설계 참고'로 제안했으나, 논문은 경어 규칙을 기술하지 않았고 저장소의 실제 규칙은 '니다.'·'요.' 부분 문자열 검사다. 따라 쓸 본보기가 아니라 피해야 할 사례로 참고해야 한다.",
+      "보완: 기존 분석이 옮긴 경어 예시 문장은 논문 Table 1과는 일치하지만 공개 데이터의 문항과는 글자 그대로 같지 않다(공개본은 '어제는 정말 즐거웠어요. 다음에 또 같이 놀아요.'이고 요청 반복 제약이 붙어 있다). 자극으로 재사용할 때는 공개 데이터를 기준으로 한다.",
+      "보완: '언어 특화 ≠ 우수'라는 요약은 평균 기준으로 맞지만, 범주 합산 점수와 검사기 오판에 기댄 결과라는 단서를 붙여야 한다."
+    ]
+  },
+  "verification": {
+    "status": "corrected",
+    "by": "P1-11 Opus 검증",
+    "notes": [
+      "successor_hooks[P09-H8].basis_ko: 'Llama 3·Gemma·EEVE는 1-shot에서 15–20%p 급락' → 'KITE General 기준 15–20%p(KITE Korean 기준 10–13%p) 급락' — 15–20%p는 General(15.28/19.91/19.44)에만 해당하고 Korean은 11.17/10.16/12.69 (근거 p.6 Table 2)",
+      "layers.sentence[result 'completely opposite'].paraphrase_ko: 'gpt-3.5와 gpt-4o는 오히려 올랐다' → 'gpt-3.5·gpt-4o·SOLAR(46.29→60.18)는 오히려 올랐다' — General 1-shot 상승 모델 누락 보완, limitations 서술과도 맞춤 (근거 p.6 Table 2)",
+      "w5h1.how[경어 문항의 구조(저장소 확인)]: '원문장은 모두 맥락 없는 2문장 발화' → '24문항은 2문장, 1문항은 3문장' — honorifics.jsonl의 '너 요즘 뭐 해? 요즘 나도 할 일이 많아서 바빠. 주말에는 …'은 3문장 (근거 p.1 각주 2 저장소, 2026-09-19 gh api 확인)",
+      "design.stimuli: '맥락 없는 2문장 발화' → '맥락 없는 짧은 발화(25문항 중 24문항은 2문장, 1문항은 3문장, 저장소 확인)' (근거 위와 같음)",
+      "successor_hooks[P09-H11].basis_ko: '맥락 없는 2문장 발화' → '맥락 없는 2–3문장 발화' (근거 위와 같음)",
+      "limitations[복합 지시와 검사기의 충돌]: '→반말 2문항은 반드시 실패한다' → '엄격(strict) 판정에서는 반드시 실패, 느슨 판정에서는 통과할 수 있음' — 저장소 evaluation_main.py가 strict·loose를 모두 계산하고 loose는 첫 줄 제거 변형도 검사함. 논문은 어느 판정을 보고했는지 미표기 (근거 p.5 §4.3; 저장소 확인)",
+      "stimulus_examples[요청 반복 복합 지시].condition, successor_hooks[P09-H6].basis_ko: 같은 사유로 '엄격(strict) 판정에서는' 한정어와 느슨 판정 단서 추가 (근거 p.5 §4.3; 저장소 확인)",
+      "보충: w5h1.how[경어 준수의 자동 검증(저장소 확인)]에 strict·loose 두 판정 출력과 논문의 판정 미표기 사실을 추가 — 경어 하위 항목 재사용 시 판정 방식을 정해야 하므로 (근거 p.5 §4.3; 저장소 확인)",
+      "확인(수정 없음): 경어 범주 정의·예시 지시문(Table 1)·문항 수 25는 원문 그대로. 논문은 경어 검증을 'rule-based checking'이라고만 쓰고 규칙 내용·LLM 판정 언급이 없다. 저장소 HonorificsChecker('니다.'/'요.' 부분 문자열), 25문항 = 단일 5 + 복합 20, 방향 14/11, 하위 지시 45, culturally_aware.jsonl 하위 지시 197, relevant.jsonl 427문항·562개, HF culturally_aware_honorifics 25행, HF·GitHub 모두 Apache-2.0, README에 범주별 점수 없음, main.py가 임포트하는 응답 생성 모듈(translation_and_filtering) 부재를 모두 2026-09-19에 확인. 경어 범주의 모델별 수치는 원문에 없다(Table 2·5는 General/Korean 총점만).",
+      "참고(원문 자체의 불일치, 카드는 표 값을 그대로 옮김): Table 2의 EEVE KITE Korean Avg. 42.54는 네 shot 평균 43.27과 다르고, gpt-3.5 General Avg. 81.91도 네 shot 평균 81.94와 다르다. Table 2·5의 모델별 Avg. 7쌍으로 Pearson r을 재계산하면 General 0.963, Korean 0.923으로 원문 0.96/0.93과 General만 맞는다 (근거 p.6 Table 2; p.11 Table 5; p.12)",
+      "대조 범위: key_numbers 24건, sentence 8건(claim 3·result 5; hypothesis 없음, method·limitation·future_work 인용 14건도 원문 대조), design, hooks 11건, citation(DOI → arxiv.org/abs/2510.15558 연결·저자 순서·v1 2025-10-17·CC BY 4.0 확인), w5h1 사실 항목(who 4·when 3·where 4)"
+    ]
+  }
+}

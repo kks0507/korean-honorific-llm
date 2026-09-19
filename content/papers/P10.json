@@ -1,0 +1,1154 @@
+{
+  "id": "P10",
+  "role": "subdata",
+  "short": "Shin et al. (2025)",
+  "title": "KoBALT: Korean Benchmark For Advanced Linguistic Tasks",
+  "title_ko": "KoBALT: 고급 언어학 과제를 위한 한국어 벤치마크",
+  "citation": {
+    "apa": "Shin, H., Lee, S., Jang, D., Song, W., Kim, J., Oh, C., Jo, H., Ahn, Y., Oh, S., Chang, H., Kim, S., & Lee, J. (2025). KoBALT: Korean benchmark for advanced linguistic tasks (arXiv:2505.16125). arXiv. https://doi.org/10.48550/arXiv.2505.16125",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CL), arXiv:2505.16125v1",
+    "status": "preprint",
+    "doi": "10.48550/arXiv.2505.16125",
+    "url": "https://arxiv.org/abs/2505.16125",
+    "bib_notes": "원문 1쪽 머리글에 'arXiv:2505.16125v1 [cs.CL] 22 May 2025'만 있고 게재처는 없다. arXiv 초록 페이지(https://arxiv.org/abs/2505.16125, 2026-09-19 확인)에서 v1 단일 판(2025-05-22), Comments 란 'Under Reveiw'[원문 철자 그대로], DOI 10.48550/arXiv.2505.16125를 확인했다. 정식 학술대회·학술지 게재본은 검색으로 찾지 못했다(미확인). 데이터 공개 위치와 라이선스는 논문 본문에 없어서 Hugging Face 데이터셋 카드(https://huggingface.co/datasets/snunlp/KoBALT-700)와 GitHub 저장소(https://github.com/snunlp/KoBALT-700)에서 확인했다: CC BY-NC 4.0, 700행, 열은 ID·Class·Subclass·Question·Answer·Level·Sampling_YN, 평가 모델은 18개로 표기. 논문 PDF 자체의 arXiv 배포 라이선스는 CC BY-NC-ND 4.0."
+  },
+  "one_line": "언어학자가 새로 쓴 10지선다 700문항(5영역·24현상)으로 LLM을 평가했지만, 경어법은 독립 현상이 아니라 통사 '일치'(104문항)의 하위 유형과 화용 '대인 관계'(3문항)에 흩어져 있다.",
+  "w5h1": {
+    "who": {
+      "headline": "서울대 언어학 연구진 10명과 LG AI Research 2명이 만들었고, 본문은 LLM 20개를 평가했다고 쓰지만 열거된 모델과 표의 행은 18개이며, 인간 95명은 문항을 푼 것이 아니라 모델 응답의 선호를 투표했다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "신효필(Hyopil Shin) 외 서울대학교 소속 10명, LG AI Research 소속 2명(Sunkyoung Kim, Jinsik Lee). 교신저자 표시는 없다.",
+          "src": "p.1"
+        },
+        {
+          "label": "문항 제작자",
+          "text": "언어학 훈련을 받은 주석자 7명이 문항을 만들고 서로 교차 검토했다. 기존 시험 문항이나 번역은 쓰지 않았다고 밝힌다.",
+          "src": "p.3 §3"
+        },
+        {
+          "label": "평가 모델",
+          "text": "공개 모델 12개(LLaMA 3.1 8B, LLaMA 3.3 70B, Mistral 7B, Ministral 8B, Mistral Small 3.1 24B, Gemma 2 9B, Gemma 3 27B, Qwen 2.5 7B/32B/72B, Aya Expanse 8B/32B)와 '비공개' 목록 6개(GPT-4o, Claude 3.5 Sonnet, Claude 3.7 Sonnet, C4ai Command A 03, DeepSeek V3, DeepSeek V3 XL). 본문은 세 곳에서 '20 LLMs'라고 하지만 열거와 Table 3·Figure 3은 18개다.",
+          "src": "p.9 §4.1 Model"
+        },
+        {
+          "label": "상용 API 모델",
+          "text": "엄밀한 의미의 상용 API 전용 모델은 GPT-4o, Claude 3.5 Sonnet, Claude 3.7 Sonnet 셋이다. DeepSeek V3는 공개 가중치를 Together API(fp8)와 llama.cpp(2.71비트 양자화)로 돌렸고, 저자는 모델 목록에서는 closed-source로, 분석 문단에서는 open-source로 다르게 분류한다.",
+          "src": "p.9 §4.1 각주 4-5"
+        },
+        {
+          "label": "인간 참여자",
+          "text": "선호 평가자 95명(언어학 전공 54명, 비전공 41명). 연령·모집 경로·보상은 원문 미표기. 이들은 모델 응답 쌍 중 더 나은 쪽을 골랐을 뿐, 700문항에 대한 인간 정답률 기준선은 없다.",
+          "src": "p.11 §5"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2025년 5월 22일 arXiv 초판(심사 중)이며, 평가 모델은 2024년~2025년 초 세대(Claude 3.7 Sonnet 20250219, GPT-4o, DeepSeek-V3-0324)로 추론 특화 모델은 빠져 있다.",
+      "items": [
+        {
+          "label": "발표 시점·상태",
+          "text": "arXiv v1, 2025-05-22. 정식 게재본은 확인되지 않았다(arXiv Comments: Under Review).",
+          "src": "p.1"
+        },
+        {
+          "label": "모델 세대",
+          "text": "최고 성능 모델의 스냅샷은 Claude-3.7-Sonnet-20250219, DeepSeek은 V3-0324. LLaMA 3.3, Qwen 2.5, Gemma 3, Mistral Small 3.1이 가장 최신 공개 모델이다. o1·DeepSeek-R1 같은 추론 모델은 서론에서 인용만 하고 평가하지 않았다.",
+          "src": "p.9 §4.1"
+        },
+        {
+          "label": "평가 시기 단서",
+          "text": "참고문헌의 접속일이 Claude 3.5 Sonnet 2025-04-01, Claude 3.7 Sonnet·Mistral Small 3.1 2025-05-01이어서 평가는 2025년 4~5월에 이뤄진 것으로 보인다(본문에 평가 일자는 없음).",
+          "src": "p.22-24 References"
+        },
+        {
+          "label": "결과의 유효 기간",
+          "text": "난이도 등급이 당시 상위 4개 모델의 정오답으로 정해졌으므로, 이후 세대 모델에서는 Level 3(298문항)의 의미가 달라진다. 저자는 이 등급이 미래 모델에도 유효할 것이라고 주장하지만 근거는 제시하지 않는다.",
+          "src": "p.5-6 §3.1"
+        }
+      ]
+    },
+    "where": {
+      "headline": "arXiv cs.CL 프리프린트이고, 문항은 교육과정·시험을 분석해 세운 분류 위에 새로 썼으며, 데이터는 '공개'라고만 적혀 있어 실제 위치(Hugging Face snunlp/KoBALT-700, CC BY-NC 4.0)는 논문 밖에서 확인해야 한다.",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "arXiv:2505.16125v1 [cs.CL]. 학술대회·학술지 표기 없음.",
+          "src": "p.1"
+        },
+        {
+          "label": "현상 분류의 출처",
+          "text": "국어과 교육과정(L1·L2)과 고부담 시험(KLT, TOPIK, 수능, 공무원 시험)을 분석해 현상을 뽑고 이론적 고려로 보충했다. 다만 화용론 5개 현상만은 교육과정이 아니라 학계 연구의 분류에서 골랐다.",
+          "src": "p.3 §3"
+        },
+        {
+          "label": "어휘 통제 자료",
+          "text": "국립국어원 어휘 등급 자료를 참조해 난이도별 어휘를 고루 썼다(해당 자료는 공공누리 BY-NC-ND).",
+          "src": "p.5 각주 1"
+        },
+        {
+          "label": "데이터 공개 위치·라이선스",
+          "text": "논문에는 데이터가 공개되어 있다는 한 문장만 있고 URL·라이선스가 없다. 외부 확인 결과 Hugging Face `snunlp/KoBALT-700`과 GitHub `snunlp/KoBALT-700`에 CC BY-NC 4.0으로 공개되어 있고, 열은 ID·Class·Subclass·Question·Answer·Level·Sampling_YN이다(출처는 citation.bib_notes).",
+          "src": "p.17 §8 Ethics Statement"
+        }
+      ]
+    },
+    "what": {
+      "headline": "5영역·24현상 700문항 가운데 경어법 전용 현상은 없고, 최고 모델(Claude 3.7 Sonnet)의 전체 정확도가 0.61, 화용론 0.64, 형태론 0.36이며 경어가 섞인 '일치'는 0.70, 3문항짜리 '대인 관계'는 1.00이다.",
+      "items": [
+        {
+          "label": "연구 질문",
+          "text": "번역·재활용 문항에 의존하고 언어학 전문성이 부족하며 언어 고유 현상을 덮지 못하는 기존 한국어 벤치마크의 세 문제를, 언어학자가 새로 쓴 문항으로 해결할 수 있는가.",
+          "src": "p.3 §2.2"
+        },
+        {
+          "label": "전체 구성(현상별 문항 수)",
+          "text": "통사 300(일치 104, 논항 구조·결합가 96, 안긴절 86, 생략 11, 뒤섞기 3) / 의미 215(서술어-논항 의미 호응 60, 수사 표현 28, 단어 간 의미 관계 28, 중의성 27, 수 분류사 27, 접속 24, 문장 간 의미 관계 21) / 화용 81(함축 22, 화행 22, 대화 원리·담화 전략 17, 직시·지시 17, 대인 관계 3) / 음성·음운 62(음운 변동 34, 음운 제약 14, 기초 조음 음성학 7, 초분절 7) / 형태 42(단어 형성 22, 용언 활용 12, 품사·형태소 8).",
+          "src": "p.5 Figure 1"
+        },
+        {
+          "label": "경어법의 위치",
+          "text": "① 통사 영역 '일치(Agreement)' 104문항 안에 주어-동사 일치, NPI 허가, 시제-상, 태 교체와 나란히 '경어 일치(honorific agreement)'가 들어 있다(경어 문항 수는 따로 보고하지 않음). ② 화용 영역 '대인 관계(IPR, 표에서는 Relationship ID)' 3문항이 경어·호칭·화계에서 사회적 관계를 추론하게 한다. ③ 화행(22)은 공손 형식을, 직시·지시(17)는 사회 직시를 정의에서 언급한다. 형태론 영역에는 경어 형태소가 언급되지 않는다.",
+          "src": "p.6-8 §3.2-3.6"
+        },
+        {
+          "label": "주요 결과(영역)",
+          "text": "Claude 3.7 Sonnet이 전체 0.61로 최고이고 영역별로 통사 0.66, 의미 0.66, 화용 0.64, 형태 0.36, 음성 0.31이다. 초록의 66%·31%·36%는 평균이 아니라 이 최고 모델의 영역 점수다. 전체 0.4를 넘는 모델은 GPT-4o(0.44), Claude 3.5(0.52), Claude 3.7(0.61), DeepSeek V3(0.43/0.47)뿐이고 나머지 공개 모델은 Qwen2.5-72B의 0.37이 최고다.",
+          "src": "p.10 Table 3"
+        },
+        {
+          "label": "주요 결과(경어 관련 현상)",
+          "text": "일치: Claude 3.7 0.70, Claude 3.5 0.58, DeepSeek V3 0.54, Qwen2.5-72B 0.50, GPT-4o 0.44. 대인 관계(3문항): Claude 3.5·3.7, Command A, Qwen2.5-72B가 1.00, GPT-4o·Qwen2.5-32B 0.67, 9개 모델 0.00. 화행: Claude 3.7 0.64, GPT-4o 0.36. 직시·지시: Claude 3.7 0.35가 최고이고 9개 모델이 0.00.",
+          "src": "p.11-12 Table 4, Table 6"
+        },
+        {
+          "label": "인간 선호와의 상관",
+          "text": "24개 현상 단위 정확도와 Bradley–Terry 점수의 Pearson 상관이 Claude 3.5 Sonnet 0.638, GPT-4o 0.632, Qwen·Llama 0.570. 초록의 'r=0.638'은 최고 상관값 하나다.",
+          "src": "p.14-15 Table 10"
+        }
+      ]
+    },
+    "how": {
+      "headline": "지문(선택)+문제+보기 A~J의 10지선다 문항을 CoT 프롬프트로 한 번씩 풀게 해 정규식으로 정답을 뽑아 정확도를 냈고, 99문항·4모델·95명의 쌍대 선호 투표를 Bradley–Terry 모형으로 집계했다.",
+      "items": [
+        {
+          "label": "문항 형식",
+          "text": "모든 문항이 10지선다. 유형은 빈칸 채우기, 문법성 판단, 최소대립쌍 대조, 문맥 해석을 섞었다. 예시는 Table 1의 5문항뿐이며 '~아닌 것은?'처럼 부정형 질문이 많다. 부록은 없다.",
+          "src": "p.3-4 §3, Table 1"
+        },
+        {
+          "label": "프롬프트·디코딩",
+          "text": "시스템 '당신은 문제를 해결하는 전문가입니다.' + 사용자 지시(충분히 추론한 뒤 A~J 중 선택, 마지막은 '정답은 [정답 보기]입니다.') + '한 번 천천히 생각해봅시다' 유도. 상용 모델 temperature=0.0, 공개 모델 do_sample=False, max_new_tokens=2048, 1회 실행.",
+          "src": "p.9 Figure 2"
+        },
+        {
+          "label": "측정 지표",
+          "text": "정규식으로 뽑은 보기 글자가 정답과 정확히 일치하면 정답. 정확도(정답 수/전체 문항 수)만 보고하며 신뢰구간·유의성 검정·반복 실행은 없다. 형식 위반 응답의 처리 방식은 원문 미표기.",
+          "src": "p.9 §4.1 Metric"
+        },
+        {
+          "label": "오염 방지",
+          "text": "문항을 전부 새로 썼고 '일반적인 한국어 학습 코퍼스'와의 n-gram 중복이 bigram 8.6% 미만, trigram 0.7% 미만이라고 한다. 그러나 대상 코퍼스, 토큰 단위, 산출 절차를 설명하는 절이 본문에 없다.",
+          "src": "p.2 §1"
+        },
+        {
+          "label": "난이도 부여",
+          "text": "Claude 3.7·3.5 Sonnet, GPT-4o, DeepSeek-V3 네 모델이 모두 맞히면 Level 1(182), 2~3개면 Level 2(220), 0~1개면 Level 3(298)로 사후 분류했다.",
+          "src": "p.5-6 §3.1, Table 2"
+        },
+        {
+          "label": "인간 선호 평가",
+          "text": "현상마다 3문항(문항 많은 5개 현상은 1~2개 추가)씩 99문항을 뽑아 사람이 묻는 듯한 질의로 고쳐 쓰고, Claude 3.5 Sonnet·GPT-4o·Qwen2.5-72B·LLaMA 3.3 70B의 응답 쌍을 Chatbot Arena 방식으로 제시했다. 평가자는 질문·두 응답·정답을 보고 A 우세/B 우세/차이 없음을 골랐고(내용·구성·태도 고려, 태도 항목에 공손성 포함), 51 528개 비교를 BT 모형으로 집계한 뒤 현상 단위 정확도와 Pearson 상관(n=24)을 냈다.",
+          "src": "p.11-16 §5-6"
+        }
+      ]
+    },
+    "why": {
+      "headline": "기존 한국어 벤치마크의 번역 의존·오염·언어학적 얕음을 겨냥했지만 경어법은 통제된 독립 현상으로 다루지 않았으므로, 우리 연구는 KoBALT를 문항 형식의 본보기와 모델 선별용 보조 지표로만 쓰고 경어 전용 2×2 자극은 새로 만들어야 한다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "BLiMP류 최소대립쌍 벤치마크는 지나치게 통제된 문장이라 여러 영역의 고급 언어 능력을 못 재고, 언어학 올림피아드류는 일반 추론만 재며, 한국어 벤치마크는 영어 번역이 많다는 진단에서 출발한다.",
+          "src": "p.2 §1"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "① 24현상을 덮는 언어학자 제작 데이터, ② 최신 모델도 한국어 언어 능력에 한계가 있음을 보인 체계적 평가, ③ 인간 선호와의 정렬로 보인 생태학적 타당성.",
+          "src": "p.17 §7"
+        },
+        {
+          "label": "저자가 밝힌 한계",
+          "text": "한국어 전용이라 다른 언어 모델 평가에 일반화할 수 없고, 난이도 체계가 모델 성능에 기대고 있어 인간·모델 양쪽에 근거한 체계가 필요하며, 선호 평가는 모델 4개뿐이라 확대가 필요하다.",
+          "src": "p.17 Limitations"
+        },
+        {
+          "label": "우리가 이어받을 것 ① 문항 형식",
+          "text": "지문+문제+보기, 정답 형식 고정, 정규식 채점이라는 틀은 우리 이해 문항(4지선다: 화자가 높이는 대상, 누가 윗사람인가)에 그대로 옮길 수 있다. 특히 '언어 형식에서 사회적 관계를 추론하라'는 IPR의 과제 정의가 우리 이해 문항과 같은 구조다.",
+          "src": "p.8 §3.4 IPR"
+        },
+        {
+          "label": "우리가 이어받을 것 ② 모델 선별",
+          "text": "상용 API 3종만 화용 0.40 이상·일치 0.44 이상이고 8B급 공개 모델은 화용 0.11~0.15로 10지선다 우연 수준(0.10)에 가깝다. 경어 2×2 실험에서 소형 공개 모델의 '차이 없음' 결과는 경어 지식 부재가 아니라 과제 수행 능력 부재일 수 있으므로, KoBALT 화용·일치 점수를 모델 포함 기준이나 공변인으로 쓸 수 있다.",
+          "src": "p.10-12 Table 3, 4, 6"
+        },
+        {
+          "label": "우리가 메울 공백",
+          "text": "경어 문항 수 미보고, IPR 3문항, 요인 조작 없음, 인간 정답률 기준선 없음. 즉 '모델이 경어의 허가 조건을 아는가'라는 질문에는 KoBALT가 답하지 못한다.",
+          "src": "p.5-8 Figure 1, §3.2, §3.4"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "honorific agreement",
+        "gloss_ko": "경어 일치",
+        "definition": "통사 영역 'Agreement' 현상이 다루는 다섯 가지 의존 관계 중 하나로만 나열된다. 별도 정의·문항 수·예시는 없다.",
+        "note": "P02·P03이 핵심 개념으로 쓰는 말을 KoBALT는 주어-동사 일치, NPI 허가, 시제-상 호응, 태 교체와 같은 급의 하위 유형으로 둔다. 같은 용어지만 여기서는 '문법 용어로 위반 원인을 설명하는 메타언어 문항'의 소재일 뿐, 최소대립쌍으로 조작된 조건이 아니다.",
+        "src": "p.6 §3.2"
+      },
+      {
+        "term": "Agreement (Agr)",
+        "gloss_ko": "일치(통사 현상, 104문항)",
+        "definition": "문법 요소 사이의 통사적 의존. 문항은 일치 위반을 찾아 원인을 추론하기, 같은 일치 유형끼리 묶기, 태를 바꾸면서 일치를 유지하도록 문장을 조작하기를 요구한다.",
+        "note": "Table 4의 Agreement 정확도(예: Claude 3.7 0.70)는 다섯 하위 유형이 섞인 값이라 경어 일치 성능으로 읽으면 안 된다.",
+        "src": "p.6 §3.2"
+      },
+      {
+        "term": "Inter-person Relationship (IPR) / Relationship ID",
+        "gloss_ko": "대인 관계(화용 현상, 3문항)",
+        "definition": "경어·호칭어·화계 표지로 이뤄진 한국어의 사회적 지표 체계를 이해하는지 평가한다. 문항은 언어 형식에서 사회적 관계를 추론하게 한다.",
+        "note": "본문은 Inter-person Relationship(IPR), 그림과 표는 Relationship ID, Hugging Face 카드는 Social Relationship Marking으로 이름이 제각각이다. 경어법을 화용으로 다루는 유일한 현상이지만 3문항이라 정확도가 0.00/0.33/0.67/1.00 네 값만 나온다.",
+        "src": "p.8 §3.4"
+      },
+      {
+        "term": "social indexing system",
+        "gloss_ko": "사회적 지표(색인) 체계",
+        "definition": "honorifics, address terms, speech level markers 세 가지를 묶어 부르는 말. 담화 참여자 사이의 사회적 관계를 반영한다고 기술한다.",
+        "note": "주체·객체·상대 높임의 구분은 없다. 경어를 '일치'(통사)와 '지표'(화용) 두 말로 나눠 부르는 것이 이 논문의 암묵적 이론 입장이다.",
+        "src": "p.8 §3.4"
+      },
+      {
+        "term": "politeness forms",
+        "gloss_ko": "공손 형식",
+        "definition": "화행(Speech Acts) 현상의 설명에서 문법 표지·수사 의문문과 함께 간접 화행과 화자 의도를 해석하는 단서로 언급된다.",
+        "note": "politeness가 독립 변인이 아니라 화행 해석의 단서로만 등장한다. 한편 인간 선호 평가 지침과 질적 관찰에서는 politeness가 '모델 응답의 문체 특성'이라는 전혀 다른 뜻으로 쓰인다(p.16). P01의 politeness와 대조가 필요한 용어다.",
+        "src": "p.7 §3.4"
+      },
+      {
+        "term": "social deixis / social deictic markers",
+        "gloss_ko": "사회 직시",
+        "definition": "직시·지시(DR) 현상이 다루는 네 직시 유형(인칭·공간·시간·사회) 중 하나. 사회적 관계에 민감한 지시 표현을 해소하는 능력을 묻는다.",
+        "note": "DR은 모든 모델이 가장 못한 화용 현상이고(최고 0.35), 저자는 그 원인을 한국어 고유의 호칭·지칭어로 추정한다. 경어 연구에서 호칭어가 교란 요인이 될 수 있음을 시사한다.",
+        "src": "p.7 §3.4"
+      },
+      {
+        "term": "general accuracy / Average",
+        "gloss_ko": "전체 정확도",
+        "definition": "700문항 전체에서 정규식으로 추출한 답이 정답과 일치한 비율. Table 3의 Average 열.",
+        "note": "초록의 61%는 최고 모델의 전체 정확도이고, 같은 문장의 66%(의미)·31%(음운)·36%(형태)는 그 모델의 영역 점수다. 영역 점수를 전체 점수로, 최고 모델 값을 평균으로 읽지 않도록 주의한다. 10지선다이므로 우연 수준은 0.10이다.",
+        "src": "p.1 Abstract"
+      },
+      {
+        "term": "metalinguistic abstraction",
+        "gloss_ko": "메타언어적 추상화",
+        "definition": "저자가 모델의 약점을 설명할 때 쓰는 말. 한국어 고유 패턴에 대한 메타언어적 추상화에서 모델이 고전한다고 해석한다.",
+        "note": "저자 스스로 이 벤치마크가 언어 사용이 아니라 언어에 대한 명시적 지식을 묻는다는 점을 드러낸 표현이다. 제목과 결론의 'linguistic competence'와 긴장 관계에 있다.",
+        "src": "p.11 §4"
+      },
+      {
+        "term": "minimal n-gram overlap / data contamination",
+        "gloss_ko": "n-gram 중복 최소화 / 데이터 오염",
+        "definition": "문항이 표준 한국어 코퍼스와 겹치는 bigram이 8.6% 미만, trigram이 0.7% 미만이라는 수치로 오염 위험이 낮다고 주장한다.",
+        "note": "수치는 초록·서론에만 나오고 산출 방법(대상 코퍼스, 토큰화, 분모)은 어디에도 없다. 재현할 수 없는 주장으로 취급해야 한다.",
+        "src": "p.2 §1"
+      },
+      {
+        "term": "ecological validity",
+        "gloss_ko": "생태학적 타당성",
+        "definition": "벤치마크 점수가 원어민이 모델을 체감하는 선호와 상관된다는 뜻으로 쓴다. 현상 단위 정확도와 BT 점수의 Pearson 상관으로 조작화했다.",
+        "note": "심리언어학에서 말하는 생태학적 타당성(자연스러운 언어 사용 상황에의 일반화)과 다르다. 평가자에게 정답을 함께 보여 주었으므로 상관이 부풀려졌을 수 있다.",
+        "src": "p.3 §2.1"
+      },
+      {
+        "term": "proprietary / closed-source vs. open-source",
+        "gloss_ko": "상용·비공개 모델 대 공개 모델",
+        "definition": "모델 목록에서는 GPT-4o, Claude 3.5·3.7, Command A, DeepSeek V3·V3 XL을 closed-source로 묶지만, 결과 해석에서는 DeepSeek-V3를 open-source의 예외로 부른다.",
+        "note": "분류가 일관되지 않다. '모든 상용 모델이 0.4를 넘는다'는 문장은 Command A(0.36)를 상용에서 빼야 성립한다. 우리 보고서에서는 API 전용 3종 / 공개 가중치로 다시 나눠 인용한다.",
+        "src": "p.9 §4.1"
+      },
+      {
+        "term": "might stem from / one possible explanation / likely stem from",
+        "gloss_ko": "헤지 표현",
+        "definition": "영역별 성능 차이의 원인(자기회귀 학습, 지시 튜닝, 서브워드 토큰화, 호칭·지칭어)을 설명하는 문장은 모두 추정 표현으로 되어 있다.",
+        "note": "원인 설명을 뒷받침하는 통제 실험이나 오류 분석은 없다. 인용할 때 '저자의 추정'임을 밝혀야 한다.",
+        "src": "p.10-11 §4"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "comprising 700 multiple-choice questions spanning 24 phenomena across five linguistic domains",
+        "paraphrase_ko": "KoBALT는 통사·의미·화용·음성/음운·형태 다섯 영역의 24개 현상에 걸친 선다형 700문항으로 이뤄진다.",
+        "numbers": [
+          "700",
+          "24"
+        ],
+        "src": "p.1 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "these benchmarks were built with highly controlled sentences",
+        "paraphrase_ko": "BLiMP·Holmes·SyntaxGym 같은 전통적 언어학 벤치마크는 고도로 통제된 문장으로 만들어져 여러 영역의 고급 언어 능력을 평가하기에 부족하다는 비판. 최소대립쌍 패러다임과 거리를 두는 출발점이다.",
+        "numbers": [],
+        "src": "p.2 §1"
+      },
+      {
+        "kind": "method",
+        "quote": "minimal n-gram overlap with common Korean training corpora (bigrams <8.6%, trigrams <0.7%)",
+        "paraphrase_ko": "문항은 언어학자가 새로 썼고 일반적인 한국어 학습 코퍼스와의 bigram 중복이 8.6% 미만, trigram 중복이 0.7% 미만이어서 오염 우려를 줄인다고 주장한다. 산출 방법은 제시되지 않는다.",
+        "numbers": [
+          "8.6%",
+          "0.7%"
+        ],
+        "src": "p.2 §1"
+      },
+      {
+        "kind": "method",
+        "quote": "Each question presents ten choices",
+        "paraphrase_ko": "모든 문항이 보기 10개를 제시한다. 우연 정답 확률을 낮추고 오답 매력도를 넓히려는 설계다.",
+        "numbers": [],
+        "src": "p.3 §3"
+      },
+      {
+        "kind": "method",
+        "quote": "subject-verb agreement, honorific agreement, negative polarity item (NPI) licensing",
+        "paraphrase_ko": "일치(Agreement) 현상은 주어-동사 일치, 경어 일치, 부정극어 허가, 시제-상 호응, 피동·사동의 태 교체를 한데 묶는다. 경어 일치는 그중 하나일 뿐이며 문항 수는 나뉘어 보고되지 않는다.",
+        "numbers": [],
+        "src": "p.6 §3.2"
+      },
+      {
+        "kind": "claim",
+        "quote": "verbal forms and particles reflect social relationships between discourse participants",
+        "paraphrase_ko": "한국어는 용언 형태와 조사가 담화 참여자 사이의 사회적 관계를 반영하는 풍부한 경어 체계를 가져, 인도유럽어와 다른 일치 패턴을 보인다고 기술한다. 사회적 관계를 말하면서도 이를 통사적 '일치'로 분류한다.",
+        "numbers": [],
+        "src": "p.6 §3.2"
+      },
+      {
+        "kind": "method",
+        "quote": "our selection on pragmatic phenomena is based on the taxonomy of the field's academic research",
+        "paraphrase_ko": "화용 능력은 교육과정·표준 시험에서 거의 다뤄지지 않으므로, 다른 영역과 달리 화용 현상은 학계 연구의 분류 체계에서 골랐다.",
+        "numbers": [],
+        "src": "p.7 §3.4"
+      },
+      {
+        "kind": "claim",
+        "quote": "the same sentential meaning can take different forms depending on interpersonal relationships",
+        "paraphrase_ko": "같은 문장 의미가 대인 관계에 따라 다른 형식을 취한다는 한국어의 특징을 반영하려고 '대인 관계' 현상을 화용 영역에 추가했다고 밝힌다.",
+        "numbers": [],
+        "src": "p.7 §3.4"
+      },
+      {
+        "kind": "method",
+        "quote": "Korean employs grammatical markers, politeness forms, and a rich system of rhetorical questions",
+        "paraphrase_ko": "화행 현상은 진술·표현·약속·질문·지시/명령·제안을 다루며, 문법 표지·공손 형식·수사 의문문이 간접 화행과 화자 의도 해석에 핵심이라고 본다.",
+        "numbers": [],
+        "src": "p.7 §3.4"
+      },
+      {
+        "kind": "method",
+        "quote": "Questions require models to infer social relationships from linguistic forms.",
+        "paraphrase_ko": "대인 관계(IPR) 문항은 경어·호칭어·화계 표지 같은 언어 형식에서 사회적 관계를 추론하게 한다. 우리 이해 문항과 과제 구조가 같다.",
+        "numbers": [],
+        "src": "p.8 §3.4"
+      },
+      {
+        "kind": "method",
+        "quote": "Models are required to provide its answer after a reasoning step.",
+        "paraphrase_ko": "모델은 추론 단계를 거친 뒤 정해진 형식으로 답을 내야 한다. 즉 모든 결과가 CoT 조건에서 얻어졌다.",
+        "numbers": [],
+        "src": "p.9 §4.1"
+      },
+      {
+        "kind": "result",
+        "quote": "The best performing model was Claude-3.7-Sonnet-20250219, which scored 0.61.",
+        "paraphrase_ko": "최고 성능은 Claude 3.7 Sonnet(20250219 스냅샷)의 전체 정확도 0.61이다.",
+        "numbers": [
+          "0.61"
+        ],
+        "src": "p.9 §4.1 General analysis"
+      },
+      {
+        "kind": "result",
+        "quote": "All proprietary models and Deepseek-V3 exceed 0.4",
+        "paraphrase_ko": "평균 0.4 부근에서 경계가 갈린다. 상용 모델과 DeepSeek-V3(fp8 0.43이 최저)는 0.4를 넘고, 그 밖의 공개 모델은 Qwen2.5-72B의 0.37이 최고다. 다만 closed-source 목록에 있던 Command A는 0.36이어서 이 문장과 어긋난다.",
+        "numbers": [
+          "0.4",
+          "0.43",
+          "0.37"
+        ],
+        "src": "p.9 §4.1 General analysis"
+      },
+      {
+        "kind": "result",
+        "quote": "Semantics > Pragmatics > Syntax > Morphology > Phonetics/Phonology",
+        "paraphrase_ko": "언어 단위가 잘게 쪼개질수록 성능이 떨어지는 경향이 가장 흔하다. 다만 Claude 3.7처럼 통사(0.66)가 화용(0.64)보다 높은 예외가 있다.",
+        "numbers": [],
+        "src": "p.9 §4.1 General analysis"
+      },
+      {
+        "kind": "claim",
+        "quote": "models' aptitude in pragmatics is somewhat predictable",
+        "paraphrase_ko": "지시 튜닝이 사용자 의도 파악과 대화 능력을 키우므로 함축·대화 원리 같은 화용 현상에서 모델이 비교적 잘하는 것은 예상할 만하다는 저자의 해석(추정).",
+        "numbers": [],
+        "src": "p.10 §4"
+      },
+      {
+        "kind": "result",
+        "quote": "the models struggled with metalinguistic abstraction involving Korean-specific patterns",
+        "paraphrase_ko": "한국어 고유 패턴이 걸린 메타언어적 추상화에서는 모델이 고전한다. 직시·지시는 최고 36% 미만, 용언 활용은 34% 미만이다.",
+        "numbers": [
+          "36%",
+          "34%"
+        ],
+        "src": "p.11 §4"
+      },
+      {
+        "kind": "claim",
+        "quote": "unique terms of address and reference, seen in Deixis and Reference",
+        "paraphrase_ko": "직시·지시 현상의 저조한 성적은 한국어 고유의 호칭어·지칭어 같은 어휘가 자주 쓰이기 때문일 수 있다고 추정한다. 검증은 하지 않았다.",
+        "numbers": [],
+        "src": "p.11 §4"
+      },
+      {
+        "kind": "method",
+        "quote": "We gathered 95 participants (54 linguistics majors, 41 non-linguistics majors)",
+        "paraphrase_ko": "KoBALT에서 뽑은 99문항을 사람 말투의 질의로 고쳐 쓰고 4개 모델의 응답 쌍에 대해 95명(언어학 전공 54, 비전공 41)이 선호를 투표했다.",
+        "numbers": [
+          "95",
+          "54",
+          "41",
+          "99"
+        ],
+        "src": "p.11 §5"
+      },
+      {
+        "kind": "result",
+        "quote": "Phenomenon-level accuracy correlates positively with BT scores",
+        "paraphrase_ko": "현상 단위 정확도와 BT 점수의 상관은 Claude 3.5 Sonnet 0.638, GPT-4o 0.632, Qwen2.5-72B와 Llama 3.3 70B 0.570이다.",
+        "numbers": [
+          "0.638",
+          "0.632",
+          "0.570"
+        ],
+        "src": "p.14 §6.1"
+      },
+      {
+        "kind": "result",
+        "quote": "a similar downward shift in preference appears in Pragmatics domains",
+        "paraphrase_ko": "화용 영역에서는 벤치마크 점수가 높았던 모델(특히 GPT-4o)의 인간 선호가 상대적으로 내려간다. 화용 BT 점수는 Claude 1.769, GPT-4o 0.998.",
+        "numbers": [
+          "1.769",
+          "0.998"
+        ],
+        "src": "p.14 §6.1"
+      },
+      {
+        "kind": "future_work",
+        "quote": "Understanding which stylistic properties sway human judgement in this saturation regime",
+        "paraphrase_ko": "정확도가 천장에 가까운 쉬운 문항에서는 평가자가 응답 길이·공손성·문체 같은 부차적 단서에 기대므로, 어떤 문체 특성이 인간 판단을 좌우하는지는 후속 연구 과제로 남긴다.",
+        "numbers": [],
+        "src": "p.16 §6.1 Qualitative Observations"
+      },
+      {
+        "kind": "limitation",
+        "quote": "our level system is based on model performance",
+        "paraphrase_ko": "난이도 체계가 모델 성능에 근거하므로, 인간과 모델 양쪽에서 신뢰할 수 있는 난이도 체계를 세우는 후속 연구가 필요하다.",
+        "numbers": [],
+        "src": "p.17 Limitations"
+      },
+      {
+        "kind": "limitation",
+        "quote": "in the human preference evaluation, we only considered 4 models",
+        "paraphrase_ko": "참여자 부담 때문에 선호 평가에는 공개 2개·상용 2개, 모두 4개 모델만 넣었고 확대 실험이 필요하다.",
+        "numbers": [
+          "4"
+        ],
+        "src": "p.17 Limitations"
+      },
+      {
+        "kind": "claim",
+        "quote": "Our dataset is openly available and free of harmful content.",
+        "paraphrase_ko": "데이터가 공개되어 있다고 밝히지만 URL과 라이선스는 논문에 적지 않았다.",
+        "numbers": [],
+        "src": "p.17 §8 Ethics Statement"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "Abstract",
+        "move": "claim",
+        "summary_ko": "700문항·24현상·5영역, n-gram 중복 최소화, 20개 LLM 평가(최고 전체 61%, 의미 66%·음운 31%·형태 36%), 95명 선호 평가와의 상관이라는 네 가지 주장을 한 문단에 압축한다. 영역 수치는 최고 모델의 값이다.",
+        "src": "p.1 Abstract"
+      },
+      {
+        "section": "1 Introduction",
+        "move": "gap",
+        "summary_ko": "지식 집약형·번역 기반 벤치마크는 한국어의 실제 언어 능력을 못 잰다 → 언어학 기반 벤치마크의 두 흐름(BLiMP류 통제 문장, 올림피아드류 추론 퍼즐)도 각각 부족하다 → KoBALT 제안과 핵심 수치 예고로 이어진다.",
+        "src": "p.1-2 §1"
+      },
+      {
+        "section": "2.1 Benchmarks for Linguistic Evaluation",
+        "move": "background",
+        "summary_ko": "GLUE/SuperGLUE의 포화 → MMLU·BIG-Bench의 백과사전적 지식 편중 → BLiMP·Holmes·SyntaxGym, 화용의 PUB·MultiPragEval, PhonologyBench → 올림피아드 계열(Linguini, IOLBench, LINGOLY) 순으로 계보를 그린 뒤, 언어 지식과 추론을 함께 재고 인간 선호와의 상관까지 검증한다는 차별점을 내세운다.",
+        "src": "p.2-3 §2.1"
+      },
+      {
+        "section": "2.2 Korean Benchmarks",
+        "move": "gap",
+        "summary_ko": "KLUE(전통 NLP 과제), Ko-H5(번역), KoBEST(범위 협소), HAE-RAE Bench(크라우드소싱·퀴즈 자료, 오염 우려), CLIcK(분류 모호, 시험 문항 직접 추출)를 비판하고 세 가지 공통 문제(번역·재활용 의존, 언어학 전문성 부족, 언어 고유 현상 미포괄)로 정리한다. 경어법을 다룬 선행 평가 연구는 한 편도 인용하지 않는다.",
+        "src": "p.3 §2.2"
+      },
+      {
+        "section": "3 KoBALT (구축 원칙)",
+        "move": "method",
+        "summary_ko": "7명의 주석자, 10지선다, 네 원칙(포괄적 현상 범위 / 구조·어휘 다양성 / 자연성·대표성 / 언어 지식과 세계 지식의 활용)을 제시한다. 문항 유형을 의도적으로 섞었고 일부 문항은 세계 지식을 함께 요구하도록 했다고 밝힌다. 다섯 번째 원칙은 본문에서 확인되지 않는다('five principles'라 했지만 네 개만 서술).",
+        "src": "p.3-5 §3"
+      },
+      {
+        "section": "3.1 Assigning Difficulty Levels",
+        "move": "method",
+        "summary_ko": "상위 4개 모델의 정답 수로 3단계 난이도를 사후 부여했다(182/220/298). 이 네 모델이 성능 상한을 대표하므로 미래 모델에도 유효할 것이라는 주장을 덧붙인다.",
+        "src": "p.5-6 §3.1"
+      },
+      {
+        "section": "3.2 Syntax",
+        "move": "method",
+        "summary_ko": "일치·논항 구조·안긴절은 중등 문법과 시험에서, 생략·뒤섞기는 한국어 고유 패턴으로 골랐다. 경어 일치는 일치 현상 정의의 둘째 항목으로 등장하고, 풍부한 경어 체계가 인도유럽어와 다른 일치 패턴을 낳는다는 한 문장이 전부다.",
+        "src": "p.6 §3.2"
+      },
+      {
+        "section": "3.3 Semantics",
+        "move": "method",
+        "summary_ko": "일곱 의미 현상의 정의. 경어와 직접 닿는 내용은 없다. 수사 표현에서 문화 특수적 비유를, 접속에서 담화 수준 추론을 다룬다.",
+        "src": "p.6-7 §3.3"
+      },
+      {
+        "section": "3.4 Pragmatics",
+        "move": "method",
+        "summary_ko": "함축·화행·직시는 화용론의 핵심 주제로, 대화 원리·담화 전략은 담화 수준 해석을 위해, 대인 관계는 한국어의 특징을 반영하려고 넣었다. 화행은 공손 형식을, 직시는 사회 직시를, 대인 관계는 경어·호칭·화계를 언급한다. 경어 관련 서술이 가장 밀집한 절이지만 문항 수는 대인 관계가 3개뿐이다.",
+        "src": "p.7-8 §3.4"
+      },
+      {
+        "section": "3.5 Phonetics and Phonology / 3.6 Morphology",
+        "move": "method",
+        "summary_ko": "음운 변동·제약·조음·초분절, 단어 형성·용언 활용·품사/형태소의 정의. 용언 활용은 규칙·불규칙 활용만 다루고 선어말어미 -시-나 경어 형태소는 언급하지 않는다. 초분절 현상은 종결어미로 문장 유형을 판별하는 문항을 포함한다.",
+        "src": "p.8 §3.5-3.6"
+      },
+      {
+        "section": "4.1 Evaluation",
+        "move": "method",
+        "summary_ko": "모델 목록, Figure 2의 프롬프트, 결정적 디코딩, 2048 토큰 상한, A100 사용량, 정규식 채점과 정확도 지표를 기술한다.",
+        "src": "p.8-9 §4.1"
+      },
+      {
+        "section": "4 결과 분석 (General / by scale / by domain)",
+        "move": "evidence",
+        "summary_ko": "전체 0.4 경계, 모델 크기 효과(24현상 중 14개에서 8B<32B<70B<100B+), 영역 서열을 제시하고 Table 3~8로 현상별 수치를 보인다. 한국어 고유 현상(용언 활용, 생략)은 크기 효과의 예외라고 보고한다.",
+        "src": "p.9-13 §4"
+      },
+      {
+        "section": "4 결과 해석",
+        "move": "interpretation",
+        "summary_ko": "의미·화용·통사가 상대적으로 높은 것은 자기회귀 학습과 지시 튜닝 덕분이고, 음운·형태가 낮은 것은 명시적 규칙·전문 용어·미세 단위가 텍스트 학습 데이터에 덜 드러나기 때문이라고 추정한다. 직시·지시의 저조는 호칭·지칭어, 용언 활용의 저조는 서브워드 토큰화 탓으로 돌린다. 모두 헤지 표현이며 오류 분석은 없다.",
+        "src": "p.10-11 §4"
+      },
+      {
+        "section": "5-6 Human Preference Evaluation",
+        "move": "evidence",
+        "summary_ko": "99문항·4모델·95명·51 528 비교를 BT 모형으로 집계했다. 전체 순위는 정확도 순위와 같지만 의미에서 Qwen이 GPT-4o를 앞서고 화용에서도 GPT-4o의 선호가 내려간다. 둘 다 정답일 때와 둘 다 오답일 때, 한쪽만 정답일 때를 나눠 보고한다. 절 번호와 제목이 뒤섞여 있고(5.1·5.2 제목 뒤에 방법 서술) Figure 6의 캡션은 Figure 2의 것을 잘못 붙였다.",
+        "src": "p.11-16 §5-6"
+      },
+      {
+        "section": "7 Discussion and Conclusion",
+        "move": "claim",
+        "summary_ko": "최고 모델도 61%에 그쳤고 의미에서 음운으로 갈수록 성능이 떨어지며 인간 선호와 유의하게 상관된다는 점을 요약하고 세 가지 기여를 나열한다. 경어법에 대한 결론은 없다.",
+        "src": "p.16-17 §7"
+      },
+      {
+        "section": "Limitations / 8 Ethics Statement",
+        "move": "limitation",
+        "summary_ko": "한국어 전용, 모델 성능 기반 난이도, 선호 평가 모델 4개라는 세 한계를 밝힌다. 윤리 절에서는 유해 내용·실명 배제, 데이터 공개, 선호 평가가 IRB 대상인지 불확실해 내부 윤리 검토로 대신했음을 적는다.",
+        "src": "p.17 Limitations, §8"
+      }
+    ],
+    "context": [
+      {
+        "axis": "lineage",
+        "text_ko": "영어권 언어학 벤치마크(BLiMP, Holmes, SyntaxGym)와 화용 벤치마크(PUB, MultiPragEval), 언어학 올림피아드 계열(Linguini, IOLBench, LINGOLY)에 자신을 대비시키고, 한국어 쪽에서는 KLUE·Ko-H5·KoBEST·HAE-RAE Bench·CLIcK을 비판적으로 잇는다. 한국어 경어법을 LLM으로 평가한 선행 연구(이 프로젝트의 P01~P08 계열)는 전혀 인용하지 않는다. 즉 경어 연구 계보 밖에 있는 범용 벤치마크다.",
+        "related": [
+          "P01",
+          "P02",
+          "P03",
+          "P09"
+        ],
+        "src": "p.2-3 §2"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "경어법을 하나의 체계로 보지 않고 둘로 쪼갠다. 문장 안의 형태 호응은 통사 영역의 '일치'(경어 일치), 형식에서 관계를 읽어 내는 일은 화용 영역의 '대인 관계'다. 문항 수의 무게(104 중 일부 대 3)로 보면 경어를 기본적으로 통사적 일치로 취급하는 입장이며, 화용적 허가 조건(누가 누구를 어떤 상황에서 높일 수 있는가)은 사실상 비어 있다. 두 관점을 한 설계 안에서 맞붙이지 않았다는 점이 우리 2×2의 자리다.",
+        "related": [
+          "P02",
+          "P03"
+        ],
+        "src": "p.6-8 §3.2, §3.4"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "서론은 최소대립쌍·통제 문장 기반 평가가 고급 언어 능력을 재기에 부족하다고 비판한다. 이는 최소대립쌍과 surprisal·수용성 판단으로 경어 일치를 보는 P02·P03·P04의 방법론과 정면으로 엇갈린다. KoBALT는 통제를 버린 대가로 '왜 틀렸는가'를 조건 대비로 설명할 수 없게 되었고, 우리 연구는 통제(2×2)를 유지하면서 행동 과제(Likert·이해 문항)로 옮긴다는 점에서 두 입장의 중간에 선다.",
+        "related": [
+          "P02",
+          "P03",
+          "P04"
+        ],
+        "src": "p.2 §1"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "2024년~2025년 5월 시점의 모델이다. 상용은 GPT-4o, Claude 3.5·3.7 Sonnet뿐이고 Gemini 계열, 추론 모델(o1·o3, DeepSeek-R1), 한국어 특화 상용 모델(HyperCLOVA X, EXAONE, Solar 등)은 없다. 공저 기관이 LG AI Research인데도 EXAONE은 평가하지 않았다. 최신 상용 API 모델에서 일치·화용 점수가 어떻게 달라졌는지는 열려 있다.",
+        "related": [
+          "P09"
+        ],
+        "src": "p.9 §4.1 Model"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "한국어 고유 현상에서 크기 효과가 깨지고(용언 활용, 생략) 호칭·지칭어가 걸린 직시에서 모든 모델이 바닥이라는 관찰은, 범용 능력이 높아도 한국어의 사회적·형태적 세부에서는 약하다는 경어 연구들의 공통 문제의식과 맞닿을 법하다. 같은 벤치마크 계열인 P09(KITE)의 경어 관련 하위 과제 결과와 나란히 놓고 대조할 가치가 있다(P09 카드와 교차 확인 필요).",
+        "related": [
+          "P09",
+          "P05",
+          "P07"
+        ],
+        "src": "p.9-11 §4"
+      },
+      {
+        "axis": "field",
+        "text_ko": "독자는 LLM 평가·벤치마크 연구자다. 통계는 정확도 기술과 Pearson 상관뿐이고 혼합효과 모형이나 조건 간 검정이 없다. 국어학·심리언어학 독자에게는 문항 수준 자료(어떤 경어 문항을 왜 틀렸는가)가 필요한데 논문은 이를 주지 않는다. 다만 데이터가 공개되어 있어 재분석은 가능하다.",
+        "related": [],
+        "src": "p.9 §4.1 Metric"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "한국어 언어학 5영역·24현상 전반. 경어 관련 하위 항목은 ① 통사 > 일치(104) 안의 '경어 일치', ② 화용 > 대인 관계(3), ③ 화용 > 화행(22)의 공손 형식, ④ 화용 > 직시·지시(17)의 사회 직시. 경어법 독립 현상은 없다.",
+    "stimuli": "언어학 훈련을 받은 7명이 새로 쓴 10지선다 문항. 구성은 지문(선택) + 문제 + 보기 A~J이고 유형은 빈칸 채우기, 문법성 판단, 최소대립쌍 대조, 문맥 해석. 국립국어원 어휘 등급을 참조해 어휘 난이도를 분산했고 주석자끼리 문법성·자연성·명료성·현상 대표성을 교차 검토했다. 논문에 실린 예시는 Table 1의 5문항뿐이고 경어 예시는 없다.",
+    "conditions": [
+      "조작된 실험 조건 없음 — 분류 축만 존재: 영역 5(통사 300 / 의미 215 / 화용 81 / 음성·음운 62 / 형태 42)",
+      "현상 24(통사 5, 의미 7, 화용 5, 음성·음운 4, 형태 3)",
+      "난이도 3수준(Level 1 182 / Level 2 220 / Level 3 298) — 4개 상위 모델의 정답 수로 사후 부여"
+    ],
+    "n_items": "700문항. 경어 직접 관련: 일치 104문항 중 경어 일치 문항 수 미보고 + 대인 관계 3문항. 인간 선호 평가용 부분집합 99문항.",
+    "measures": [
+      "정확도(정규식으로 추출한 보기 글자와 정답의 완전 일치 비율) — 전체·영역·현상 단위",
+      "Bradley–Terry 점수(쌍대 선호, '차이 없음'은 양쪽 0.5점)",
+      "한쪽만 정답일 때의 승률(%)",
+      "현상 단위 정확도와 BT 점수의 Pearson 상관(n=24)"
+    ],
+    "models": [
+      "Claude-3-7-sonnet (20250219) — 전체 0.61",
+      "Claude-3-5-sonnet — 0.52",
+      "DeepSeek-V3-XL (V3-0324, 2.71비트 양자화, llama.cpp) — 0.47",
+      "GPT-4o — 0.44",
+      "DeepSeek-V3 (V3-0324, fp8, Together API) — 0.43",
+      "Qwen2.5-72B Instruct — 0.37",
+      "C4ai-command-a-03 — 0.36",
+      "Gemma-3-27b Instruct — 0.35",
+      "Llama-3.3-70B Instruct — 0.32",
+      "Mistral-Small-3.1-24B Instruct — 0.32",
+      "Qwen2.5-32B Instruct — 0.30",
+      "Aya-expanse-32b — 0.25",
+      "Gemma-2-9b Instruct — 0.21",
+      "Qwen2.5-7B Instruct — 0.19",
+      "Aya-expanse-8b — 0.19",
+      "Llama-3.1-8B Instruct — 0.17",
+      "Ministral-8B Instruct (2410) — 0.17",
+      "Mistral-7B-v0.3 Instruct — 0.12",
+      "※ 본문은 20개 모델이라고 쓰지만 열거·Table 3·Figure 3은 위 18개다."
+    ],
+    "humans": "문항 제작·검수: 언어학 훈련 주석자 7명. 선호 평가: 95명(언어학 전공 54, 비전공 41), 온라인 Chatbot Arena 방식 익명 투표, 질문·두 응답·정답을 함께 제시. 700문항에 대한 인간 정답률 기준선은 없다. IRB 심의 대신 내부 윤리 검토.",
+    "stats": "정확도 기술통계만 보고(신뢰구간·유의성 검정·반복 실행 없음). 인간 선호는 Bradley–Terry 모형(반복 최대우도)과 Pearson 상관(p값 0.001, 0.004). 문항·참여자 무선효과 모형은 쓰지 않았다.",
+    "is_factorial": "아님 — 요인 조작이 없는 10지선다 메타언어 지식 벤치마크(영역 5 × 현상 24의 분류 체계, 난이도 3수준은 사후 부여)"
+  },
+  "stimulus_examples": [
+    {
+      "ko": "문제: 갑의 질문에 대해 을의 대답을 통해 긍정/부정을 판단할 수 있는 예가 아닌 것은? / 정답: 갑: 따님은 공부를 잘 하나요? — 을: 애가 머리는 저를 안 닮고 애엄마를 닮았어요. / 오답 예: 갑: 영화 좋아하세요? — 을: 전 활동적인 취미가 좋더라고요.",
+      "gloss": "간접 대답에서 긍정·부정을 읽어낼 수 없는 대화를 고르는 문항. 지문 없이 문제 + 대화쌍 보기 10개, 부정형 질문, 단일 정답.",
+      "condition": "Pragmatics > Implicature (논문에 실린 유일한 화용 예시. 우리 이해 문항 설계의 직접 본보기)",
+      "src": "p.4 Table 1"
+    },
+    {
+      "ko": "문제: 문장 내에서 '들'이 조사로서 사용되지 않은 경우는? / 정답: 너희'들' 빨래는 다 널었니? / 오답 예: 어서'들' 오세요.",
+      "gloss": "복수 표지 '들'이 접미사인 경우와 보조사인 경우를 가르는 메타언어 문항. 오답 보기에 '-세요' 높임 문장이 섞여 있지만 경어는 표적이 아니다.",
+      "condition": "Morphology > Part of Speech & Morphemes",
+      "src": "p.4 Table 1"
+    },
+    {
+      "ko": "문제: 다음 문장은 서술어가 여러 개 있는 복합문이다. 이중 안긴 문장의 서술어의 자릿수가 1개인 것은? / 정답: 고객님, 점선을 따라서 편안한 숙소로 가세요.",
+      "gloss": "안긴절 서술어의 자릿수(결합가)를 문법 용어로 묻는 문항. 정답 문장에 호칭 '고객님'과 '-세요'가 들어 있어, 경어 형식이 표적과 무관하게 자극에 섞여 있음을 보여 준다.",
+      "condition": "Syntax > Embedded Clauses",
+      "src": "p.4 Table 1"
+    },
+    {
+      "ko": "지문: <보기> 값[갑] / 문제: <보기>의 예시에서 나타난 음운 현상이 나타나지 않는 것을 고르시오. / 정답: 깎다 / 오답: 외곬, 읊고, 값, 맑게, 넓다, 넋, 훑고, 밝지, 묽고",
+      "gloss": "자음군 단순화가 일어나지 않는 단어 고르기. 보기 10개(정답 1 + 오답 9)가 모두 실린 유일한 예시로, 10지선다의 실제 모양을 확인할 수 있다.",
+      "condition": "Phonetics & Phonology > Phonological Alternation",
+      "src": "p.4 Table 1"
+    },
+    {
+      "ko": "지문: 대괄호로 표시한 장소 명사([회사1], [구내 식당], [탕비실], [휴게실], [집1] 등)가 든 세 문장짜리 글 / 문제: 다음 지문의 괄호 중 의미적 역할이 가장 유사한 것들로 구성된 선지를 고르시오. / 정답: [회사1], [탕비실], [휴게실]",
+      "gloss": "지문 속 표시 성분의 의미역을 비교해 묶는 문항. 지문 + 문제 + 조합형 보기라는 형식의 예.",
+      "condition": "Semantics > Semantic Concord Between Predicates and Arguments",
+      "src": "p.4 Table 1"
+    },
+    {
+      "ko": "System: 당신은 문제를 해결하는 전문가입니다. / User: 다음 문제에 대해서 충분히 생각하고 추론하여, 10개의 보기(A~J) 중 정답을 고르세요. <QUESTION> 답변은 반드시 '정답은 [정답 보기]입니다.'로 끝나야 합니다. / 정답: 문제를 풀기 위해, 한 번 천천히 생각해봅시다.",
+      "gloss": "평가 프롬프트 템플릿(요약). 추론 유도 + 출력 형식 고정 + 정규식 추출.",
+      "condition": "평가 프롬프트 (모든 문항 공통)",
+      "src": "p.9 Figure 2"
+    }
+  ],
+  "key_numbers": [
+    {
+      "what": "전체 문항 수 / 현상 수 / 영역 수",
+      "value": "700 / 24 / 5",
+      "src": "p.2 §1"
+    },
+    {
+      "what": "영역별 문항 수: 통사 / 의미 / 화용 / 음성·음운 / 형태",
+      "value": "300 / 215 / 81 / 62 / 42",
+      "src": "p.2 §1"
+    },
+    {
+      "what": "통사 5현상 문항 수: 일치 / 논항 구조 / 안긴절 / 생략 / 뒤섞기",
+      "value": "104 / 96 / 86 / 11 / 3",
+      "src": "p.5 Figure 1(a)"
+    },
+    {
+      "what": "일치(Agreement)가 통사 영역에서 차지하는 비율 — 경어 일치는 이 안의 하위 유형이며 별도 문항 수 미보고",
+      "value": "34.7%",
+      "src": "p.5 Figure 1(a)"
+    },
+    {
+      "what": "화용 5현상 문항 수: 화행 / 함축 / 대화 원리·담화 전략 / 직시·지시 / 대인 관계(Relationship ID)",
+      "value": "22 / 22 / 17 / 17 / 3",
+      "src": "p.5 Figure 1(c)"
+    },
+    {
+      "what": "대인 관계(IPR)가 화용 영역에서 차지하는 비율",
+      "value": "3.7%",
+      "src": "p.5 Figure 1(c)"
+    },
+    {
+      "what": "대인 관계 3문항이 전체 700문항에서 차지하는 비율 (3/700)",
+      "value": "0.43% (재계산)",
+      "src": "p.5 Figure 1(c)"
+    },
+    {
+      "what": "의미 7현상 문항 수: 의미 호응 / 수사 표현 / 단어 간 의미 관계 / 중의성 / 수 분류사 / 접속 / 문장 간 관계",
+      "value": "60 / 28 / 28 / 27 / 27 / 24 / 21",
+      "src": "p.5 Figure 1(b)"
+    },
+    {
+      "what": "음성·음운 4현상: 음운 변동 / 음운 제약 / 기초 조음 음성학 / 초분절",
+      "value": "34 / 14 / 7 / 7",
+      "src": "p.5 Figure 1(d)"
+    },
+    {
+      "what": "형태 3현상: 단어 형성 / 용언 활용 / 품사·형태소",
+      "value": "22 / 12 / 8",
+      "src": "p.5 Figure 1(e)"
+    },
+    {
+      "what": "보기 수(10지선다)에 따른 우연 정답률 (1/10)",
+      "value": "0.10 (재계산)",
+      "src": "p.3 §3"
+    },
+    {
+      "what": "학습 코퍼스와의 n-gram 중복 상한: bigram / trigram",
+      "value": "<8.6% / <0.7%",
+      "src": "p.2 §1"
+    },
+    {
+      "what": "난이도별 문항 수: Level 1 / Level 2 / Level 3",
+      "value": "182 / 220 / 298",
+      "src": "p.6 Table 2"
+    },
+    {
+      "what": "평가 모델 수 — 본문 주장 대 실제 열거·표 행 수",
+      "value": "20 (본문) 대 18 (Table 3 행 수, 재계산)",
+      "src": "p.9-10 §4.1, Table 3"
+    },
+    {
+      "what": "Claude 3.7 Sonnet: 전체 / 통사 / 의미 / 화용 / 형태 / 음성",
+      "value": "0.61 / 0.66 / 0.66 / 0.64 / 0.36 / 0.31",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "Claude 3.5 Sonnet: 전체 / 통사 / 의미 / 화용 / 형태 / 음성",
+      "value": "0.52 / 0.52 / 0.65 / 0.51 / 0.36 / 0.24",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "GPT-4o: 전체 / 통사 / 의미 / 화용 / 형태 / 음성",
+      "value": "0.44 / 0.45 / 0.55 / 0.40 / 0.17 / 0.26",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "DeepSeek-V3 (fp8): 전체 / 통사 / 의미 / 화용 / 형태 / 음성",
+      "value": "0.43 / 0.41 / 0.57 / 0.42 / 0.26 / 0.23",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "Qwen2.5-72B(DeepSeek 제외 공개 모델 최고): 전체 / 통사 / 의미 / 화용 / 형태 / 음성",
+      "value": "0.37 / 0.33 / 0.51 / 0.37 / 0.24 / 0.18",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "C4ai Command A 03(closed-source 목록에 있으나 0.4 미만): 전체 / 화용 / 형태",
+      "value": "0.36 / 0.36 / 0.24",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "화용 영역 평균 — API 전용 3종(GPT-4o·Claude 3.5·3.7) 대 공개 12종. 산식: Table 3 화용 열의 단순 평균",
+      "value": "0.52 대 0.20 (재계산)",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "형태 영역 평균 — API 전용 3종 대 공개 12종. 산식: Table 3 형태 열의 단순 평균",
+      "value": "0.30 대 0.16 (재계산)",
+      "src": "p.10 Table 3"
+    },
+    {
+      "what": "일치(Agreement, 104문항) 정확도: Claude 3.7 / Claude 3.5 / DeepSeek-V3 / DeepSeek-V3-XL / Qwen2.5-72B / GPT-4o",
+      "value": "0.70 / 0.58 / 0.54 / 0.51 / 0.50 / 0.44",
+      "src": "p.11 Table 4"
+    },
+    {
+      "what": "일치 정확도 최저권: Mistral-7B / Aya-8b / Ministral-8B / Llama-3.1-8B",
+      "value": "0.13 / 0.14 / 0.16 / 0.17",
+      "src": "p.11 Table 4"
+    },
+    {
+      "what": "대인 관계(Relationship ID, 3문항) 정확도 1.00인 모델: Command A, Qwen2.5-72B, Claude 3.5, Claude 3.7 / GPT-4o·Qwen2.5-32B / DeepSeek 2종·Llama-3.3-70B",
+      "value": "1.00 / 0.67 / 0.33",
+      "src": "p.12 Table 6"
+    },
+    {
+      "what": "대인 관계 정확도가 0.00인 모델 수(18개 중). 산식: Table 6 Relationship ID 열에서 0.00인 행 수",
+      "value": "9 (재계산)",
+      "src": "p.12 Table 6"
+    },
+    {
+      "what": "화행(22문항) 정확도: Claude 3.7 / Claude 3.5·DeepSeek 2종 / GPT-4o·Qwen2.5-72B",
+      "value": "0.64 / 0.45 / 0.36",
+      "src": "p.12 Table 6"
+    },
+    {
+      "what": "함축(22문항) 정확도: Claude 3.7 / Claude 3.5 / GPT-4o",
+      "value": "0.77 / 0.68 / 0.55",
+      "src": "p.12 Table 6"
+    },
+    {
+      "what": "직시·지시(17문항) 정확도: Claude 3.7(최고) / Llama-3.3-70B / Claude 3.5 / GPT-4o",
+      "value": "0.35 / 0.18 / 0.12 / 0.00",
+      "src": "p.12 Table 6"
+    },
+    {
+      "what": "용언 활용(12문항) 정확도: 최고(Qwen2.5-7B) / Claude 3.5·3.7 / GPT-4o",
+      "value": "0.33 / 0.17 / 0.00",
+      "src": "p.13 Table 8"
+    },
+    {
+      "what": "24현상 중 모델 크기 순서(8B<32B<70B<100B+)가 지켜진 현상 수",
+      "value": "14",
+      "src": "p.9 §4.1 Analysis by model scale"
+    },
+    {
+      "what": "디코딩 설정: temperature / max_new_tokens",
+      "value": "0.0 / 2048",
+      "src": "p.9 §4.1 Implementation Detail"
+    },
+    {
+      "what": "인간 선호 평가: 문항 수 / 모델 수 / 참여자 수(언어학 전공 / 비전공)",
+      "value": "99 / 4 / 95 (54 / 41)",
+      "src": "p.11 §5"
+    },
+    {
+      "what": "쌍대 비교 투표 수",
+      "value": "51 528",
+      "src": "p.13 §6.1"
+    },
+    {
+      "what": "전체 BT 점수: Claude 3.5 Sonnet / GPT-4o / Qwen2.5-72B / Llama-3.3-70B",
+      "value": "1.650 / 1.018 / 0.878 / 0.514",
+      "src": "p.14 Table 9"
+    },
+    {
+      "what": "화용 영역 BT 점수: Claude / GPT-4o / Qwen / Llama",
+      "value": "1.769 / 0.998 / 0.808 / 0.506",
+      "src": "p.14 Table 9"
+    },
+    {
+      "what": "형태 영역 BT 점수: Claude / GPT-4o / Qwen / Llama",
+      "value": "1.368 / 1.285 / 0.888 / 0.492",
+      "src": "p.14 Table 9"
+    },
+    {
+      "what": "현상 단위 정확도와 BT 점수의 Pearson r: Claude 3.5 / GPT-4o / Llama-3.3-70B / Qwen2.5-72B (n = 24)",
+      "value": "0.638 / 0.632 / 0.570 / 0.570",
+      "src": "p.15 Table 10"
+    },
+    {
+      "what": "위 상관의 p값: Claude·GPT-4o / Llama·Qwen",
+      "value": "0.001 / 0.004",
+      "src": "p.15 Table 10"
+    },
+    {
+      "what": "한쪽만 정답일 때 승률: Qwen2.5-72B / Claude 3.5 / GPT-4o / Llama-3.3-70B",
+      "value": "92.1% / 91.5% / 87.7% / 82.0%",
+      "src": "p.16 Table 12"
+    },
+    {
+      "what": "직시·지시 정확도가 0.00인 모델 수(18개 중). 산식: Table 6 Deixis 열에서 0.00인 행 수",
+      "value": "9 (재계산)",
+      "src": "p.12 Table 6"
+    }
+  ],
+  "limitations": [
+    {
+      "text_ko": "한국어로만 구축되어 다른 언어(특히 영어) 모델 평가에는 쓸 수 없고, 정확도와 인간 선호의 상관도 다른 단일 언어 모델에 일반화된다고 보장할 수 없다.",
+      "stated_by": "author",
+      "src": "p.17 Limitations"
+    },
+    {
+      "text_ko": "난이도 체계가 모델 성능에 근거한다. 인간과 모델 양쪽에 근거한 신뢰할 만한 난이도 체계는 후속 과제다.",
+      "stated_by": "author",
+      "src": "p.17 Limitations"
+    },
+    {
+      "text_ko": "인간 선호 평가에 참여자 부담 때문에 모델 4개만 포함했다. 정확도 평가의 모델 수에 비해 적다.",
+      "stated_by": "author",
+      "src": "p.17 Limitations"
+    },
+    {
+      "text_ko": "경어법이 독립 현상이 아니다. 경어 일치는 일치(104문항) 안의 다섯 하위 유형 중 하나로 문항 수와 정확도가 분리 보고되지 않고, 경어를 화용으로 다루는 대인 관계는 3문항뿐이라 모델 간 차이를 통계적으로 말할 수 없다(가능한 값이 0.00/0.33/0.67/1.00).",
+      "stated_by": "us",
+      "src": "p.5-8 Figure 1, §3.2, §3.4"
+    },
+    {
+      "text_ko": "문법 용어로 묻는 메타언어 지식 선다형이고 요인설계가 아니다. 조건 간 최소 대비가 없어 '표면 공기 학습 대 허가 조건 학습'처럼 상호작용으로만 갈리는 가설을 검정할 수 없다. 저자도 모델의 약점을 메타언어적 추상화라고 부른다.",
+      "stated_by": "us",
+      "src": "p.3 §3"
+    },
+    {
+      "text_ko": "700문항에 대한 인간 정답률 기준선이 없다. 95명은 정답을 제공받은 상태에서 모델 응답의 선호만 투표했으므로, 모델 0.61이 원어민 대비 어느 수준인지 알 수 없다.",
+      "stated_by": "us",
+      "src": "p.11 §5"
+    },
+    {
+      "text_ko": "오염 방지의 핵심 근거인 n-gram 중복 수치(bigram 8.6% 미만, trigram 0.7% 미만)의 대상 코퍼스·토큰 단위·산출 절차가 본문에 없다. 공개 저장소의 README에도 없다.",
+      "stated_by": "us",
+      "src": "p.2 §1"
+    },
+    {
+      "text_ko": "초록·4.1절·결론이 모두 20개 LLM을 평가했다고 쓰지만, 열거된 모델과 Table 3~8, Figure 3의 행은 18개다. 공개 데이터셋 카드도 18개로 적는다.",
+      "stated_by": "us",
+      "src": "p.9-10 §4.1, Table 3"
+    },
+    {
+      "text_ko": "프롬프트 하나, 결정적 디코딩 1회 실행, 신뢰구간 없음. 보기 순서(정답 위치) 통제도 보고되지 않았다. 문항이 3~12개인 현상(뒤섞기 3, 대인 관계 3, 조음 음성학 7, 초분절 7, 품사 8, 생략 11, 용언 활용 12)의 정확도는 한두 문항에 좌우된다.",
+      "stated_by": "us",
+      "src": "p.9 §4.1"
+    },
+    {
+      "text_ko": "모든 결과가 CoT 유도 + 출력 형식 강제 조건에서 나왔고, 일부 문항은 의도적으로 세계 지식을 함께 요구한다. 따라서 정확도에는 언어 지식 외에 추론 능력, 문법 용어 지식, 형식 준수 능력이 섞여 있다(형식 위반 응답의 처리 방식은 미보고, Qwen의 형식 오류 출력 10건이 선호 평가에서 언급됨).",
+      "stated_by": "us",
+      "src": "p.5 §3"
+    },
+    {
+      "text_ko": "논문에 실린 예시 문항이 Table 1의 5개뿐이고 부록이 없다. 경어·높임 관련 예시 문항은 하나도 없어, 경어 문항의 실제 형식은 공개 데이터셋을 직접 열어 봐야 알 수 있다. Table 1의 '외 9개' 표기는 10지선다(정답 1 + 오답 9)와 맞지 않는다(정답·예시 오답 외에 9개면 11지).",
+      "stated_by": "us",
+      "src": "p.4 Table 1"
+    },
+    {
+      "text_ko": "상용/공개 분류가 일관되지 않다. DeepSeek V3를 closed-source 목록에 넣고 분석에서는 open-source의 예외로 부르며, closed-source 목록의 Command A(0.36)는 '모든 상용 모델이 0.4 초과'라는 문장과 어긋난다. 한국어 특화 상용 모델은 평가하지 않았다.",
+      "stated_by": "us",
+      "src": "p.9 §4.1"
+    },
+    {
+      "text_ko": "프리프린트 수준의 편집 오류가 남아 있다: 5.1·5.2절 제목이 본문 없이 연달아 나오고, Figure 6(선호 평가 지침 영문 번역)의 캡션이 Figure 2의 캡션과 같으며, 구축 원칙을 다섯 가지라 하고 네 가지만 서술한다. 생략 현상의 상한을 55% 미만이라 쓰지만 Table 4의 최고값은 0.36이다.",
+      "stated_by": "us",
+      "src": "p.11-16 §5-6"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P10-H1",
+      "hook_ko": "경어법을 독립 현상으로 세운 통제 자극 세트를 새로 만든다. KoBALT는 그 공백의 증거로 인용한다.",
+      "basis_ko": "가장 포괄적이라는 한국어 언어학 벤치마크에서조차 경어 일치는 일치(104문항)의 다섯 하위 유형 중 하나로만 나열되고 문항 수·정확도가 분리되지 않는다. 형태 영역(42문항)에는 경어 형태소가 아예 없다. 따라서 Table 4의 Agreement 0.70(Claude 3.7)은 경어 성능의 근거가 될 수 없고, 경어 전용 평가가 비어 있다는 사실 자체가 후속 연구의 동기다.",
+      "kind": "untested_condition",
+      "src": "p.6 §3.2"
+    },
+    {
+      "id": "P10-H2",
+      "hook_ko": "대인 관계(IPR)의 과제 정의 — 언어 형식에서 사회적 관계 추론 — 를 우리 이해 문항(누가 윗사람인가, 화자가 높이는 대상은 누구인가)의 원형으로 삼고, 문항 수를 늘려 2×2 조건에 배치한다.",
+      "basis_ko": "IPR은 경어·호칭어·화계에서 관계를 읽어 내게 하는 유일한 현상인데 3문항뿐이다. 그 결과 4개 모델이 1.00(천장), 9개 모델이 0.00(바닥)으로 갈려 변별 정보가 거의 없고, 어떤 단서(호칭어인지 -시-인지 종결어미인지)로 맞혔는지도 알 수 없다. 단서 유형을 요인으로 조작하면 이 공백을 메운다.",
+      "kind": "untested_condition",
+      "src": "p.8 §3.4"
+    },
+    {
+      "id": "P10-H3",
+      "hook_ko": "이해 문항의 형식을 KoBALT에서 빌리되 고친다: 지문 + 문제 + 보기, 출력 형식 고정과 정규식 채점은 유지하고, 보기는 4개로 줄이며 정답 위치를 무선화하고, 부정형 질문('~아닌 것은?')은 피한다.",
+      "basis_ko": "Figure 2의 프롬프트(추론 유도 + '정답은 [보기]입니다' 형식 + 정규식 추출)는 상용 API에서 그대로 재현 가능한 절차다. 그러나 KoBALT는 보기 순서 통제와 형식 위반 응답의 처리 방식을 보고하지 않았고, 10지선다·부정형 질문은 인간 참여자에게 부담이 커 인간과 모델에 같은 과제를 주려는 우리 원칙에 맞지 않는다. Table 1의 함축 문항이 화용 이해 문항의 구체적 본보기다.",
+      "kind": "method_gap",
+      "src": "p.9 Figure 2"
+    },
+    {
+      "id": "P10-H4",
+      "hook_ko": "같은 경어 현상을 메타언어 질문(문법 용어로 위반 원인 설명)과 직접 판단(Likert 수용성·이해 문항)으로 각각 물어 과제 형식의 효과를 분리한다.",
+      "basis_ko": "KoBALT 문항은 '안긴 문장의 서술어 자릿수', '조사로 쓰이지 않은 들'처럼 문법 용어 지식을 전제한다. 저자도 모델이 한국어 고유 패턴의 메타언어적 추상화에서 고전한다고 해석한다. 메타언어 과제의 낮은 점수가 언어 사용 능력의 부재를 뜻하는지는 검증되지 않았다. 우리 설계의 프롬프트 메타언어 통제 실험이 바로 이 지점을 겨눈다.",
+      "kind": "method_gap",
+      "src": "p.11 §4"
+    },
+    {
+      "id": "P10-H5",
+      "hook_ko": "KoBALT의 화용·일치 점수를 모델 선별 기준과 모델 수준 공변인으로 쓴다(예: 화용 0.40 이상 또는 전체 0.4 이상 모델만 본 실험에 포함하고, 그 미만은 바닥 효과 대조군으로만 둔다).",
+      "basis_ko": "전체 0.4를 넘는 것은 GPT-4o, Claude 3.5·3.7, DeepSeek V3뿐이고 8B급 공개 모델의 화용 정확도는 0.11~0.15로 10지선다 우연 수준(0.10)에 가깝다. 이런 모델이 경어 2×2에서 조건 차이를 보이지 않아도 그것은 경어 지식이 아니라 과제 수행 능력의 문제일 수 있다. 데이터가 CC BY-NC 4.0으로 공개되어 있어 새 모델에 직접 돌려 선별 점수를 얻을 수 있다(비상업 연구 목적에 한함).",
+      "kind": "method_gap",
+      "src": "p.10 Table 3"
+    },
+    {
+      "id": "P10-H6",
+      "hook_ko": "최신 상용 API 모델(추론 모드 포함)과 한국어 특화 상용 모델에서 일치·화용·대인 관계 문항을 재평가한다.",
+      "basis_ko": "평가 모델은 2025년 5월 이전 세대(Claude 3.7 Sonnet 20250219, GPT-4o, DeepSeek-V3-0324)이고 Gemini 계열, 추론 특화 모델, HyperCLOVA X·EXAONE 같은 한국어 특화 모델이 빠져 있다. 난이도 등급도 당시 상위 4개 모델로 정해져 세대가 바뀌면 의미가 달라진다.",
+      "kind": "model_generation",
+      "src": "p.9 §4.1 Model"
+    },
+    {
+      "id": "P10-H7",
+      "hook_ko": "공개 데이터(Subclass 열)에서 일치 104문항과 화용 81문항을 내려받아 경어 관련 문항만 골라 재집계한다 — 논문이 주지 않은 '경어 하위 점수'를 보조 자료로 확보한다.",
+      "basis_ko": "논문은 경어 일치 문항이 몇 개인지, 모델이 그 문항에서 얼마나 맞혔는지 보고하지 않는다. 데이터셋에는 문항·정답·난이도(Level)·선호 평가 포함 여부(Sampling_YN)가 있으므로, 경어 표지(-시-, 께서, 호칭어, 화계)를 기준으로 문항을 분류하면 경어 문항의 수·유형·난이도 분포를 얻고 우리 자극과 겹치지 않는지도 점검할 수 있다. 본 카드 작성에서는 데이터 파일을 열어 보지 않았다.",
+      "kind": "untested_condition",
+      "src": "p.5 Figure 1"
+    },
+    {
+      "id": "P10-H8",
+      "hook_ko": "호칭어·지칭어를 경어 일치와 교차하는 요인으로 둔다(예: 호칭 유형 × -시- 유무). 직시·지시 저조의 원인에 대한 저자 추정을 검증하는 실험이 된다.",
+      "basis_ko": "직시·지시는 최고 모델도 0.35, 18개 중 9개 모델이 0.00이다. 저자는 한국어 고유의 호칭·지칭어 때문일 수 있다고 추정만 하고 오류 분석을 하지 않았다. 안긴절 예시 문항의 정답에도 '고객님 … 가세요'가 들어 있듯, 호칭어와 경어 형식은 자극 안에서 함께 다니므로 분리하지 않으면 교란이 된다.",
+      "kind": "unresolved_confound",
+      "src": "p.11 §4"
+    },
+    {
+      "id": "P10-H9",
+      "hook_ko": "언어 지식과 추론·세계 지식을 분리한다: CoT 유무를 통제 변수로 기록하고, 자극이 세계 지식을 요구하지 않도록 한다.",
+      "basis_ko": "KoBALT는 모든 문항을 CoT로 풀게 했고 일부 문항은 의도적으로 세계 지식을 요구한다. 모델 크기 효과(14/24 현상)가 언어 지식이 아니라 추론 능력에서 올 수 있는데 이를 가를 조건이 없다. 우리 설계는 추론 모드를 모델 수준 공변인으로 기록하기로 했으므로 이 교란을 직접 다룰 수 있다.",
+      "kind": "unresolved_confound",
+      "src": "p.5 §3"
+    },
+    {
+      "id": "P10-H10",
+      "hook_ko": "인간과 모델에 같은 과제를 주어, 경어 문항에 한해 인간 기반 난이도와 인간 기준선을 제공한다.",
+      "basis_ko": "저자가 한계 절에서 인간·모델 양쪽에 근거한 난이도 체계를 후속 과제로 직접 밝혔다. KoBALT에는 문항에 대한 인간 정답률이 없고, 난이도는 평가 대상이기도 한 4개 모델로 정의되어 순환적이다.",
+      "kind": "author_future_work",
+      "src": "p.17 Limitations"
+    },
+    {
+      "id": "P10-H11",
+      "hook_ko": "Likert 평가에서 '자극 문장의 경어 적절성'과 '모델 응답 자체의 공손한 문체'를 분리한다.",
+      "basis_ko": "저자는 쉬운 문항일수록 평가자가 응답 길이·공손성·문체에 기대며, 어떤 문체 특성이 판단을 좌우하는지를 후속 과제로 남겼다. 선호 평가 지침의 태도 항목에도 공손성이 들어 있다. 경어 연구에서 모델의 자유 서술 응답을 사람이 평가하게 하면 같은 교란이 생기므로, 닫힌 응답 형식(척도 값, 보기 선택)으로 고정해야 한다.",
+      "kind": "author_future_work",
+      "src": "p.16 §6.1 Qualitative Observations"
+    },
+    {
+      "id": "P10-H12",
+      "hook_ko": "반복 표집과 문항·모델 무선효과를 넣은 혼합효과 모형으로 조건 차이를 검정하고, 조건당 문항 수를 충분히 확보한다.",
+      "basis_ko": "KoBALT는 결정적 디코딩 1회의 정확도만 보고하고 신뢰구간이 없으며, 3~12문항짜리 현상의 점수를 다른 현상과 같은 표에서 비교한다. 대인 관계 3문항의 1.00과 0.67은 한 문항 차이다. 소표본 하위 점수를 근거로 삼지 않으려면 설계 단계에서 검정력을 확보해야 한다.",
+      "kind": "method_gap",
+      "src": "p.12 Table 6"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "논문 PDF (arXiv v1, CC BY-NC-ND 4.0)",
+      "url": "https://arxiv.org/abs/2505.16125"
+    },
+    {
+      "what": "KoBALT-700 데이터셋 (Hugging Face, CC BY-NC 4.0, 700행; 열: ID, Class, Subclass, Question, Answer, Level, Sampling_YN) — 논문 본문에는 URL이 없어 외부에서 확인함",
+      "url": "https://huggingface.co/datasets/snunlp/KoBALT-700"
+    },
+    {
+      "what": "KoBALT-700 GitHub 저장소 (data 폴더, evaluation_protocol.md, 18개 모델 결과표; CC BY-NC 4.0) — 외부 확인",
+      "url": "https://github.com/snunlp/KoBALT-700"
+    },
+    {
+      "what": "국립국어원 어휘 등급 자료 (문항 어휘 난이도 통제에 참조, 공공누리 BY-NC-ND) — 논문 각주 1",
+      "url": "https://korean.go.kr/front/reportData/reportDataView.do?mn_id=207&report_seq=1160"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md (0절 지형도 표의 B2 행, 'B2. KoBALT' 절) 및 같은 초안의 design/04_모델선정-실험운영.md의 KoBALT 인용 2곳",
+    "agreements": "700문항·5영역·24현상, 일치(Agr)에 honorific agreement 포함, 화용 IPR의 정의(경어·호칭어·화계 표지에서 사회적 관계 추론), Claude 3.7 Sonnet 전체 61%와 의미 66%·음운 31%·형태 36%(모두 이 모델의 점수로 바르게 읽음 — 61%를 전체 정확도로 본 정정 이력과 일치), IPR 3문항(기존 분석은 0.00/0.33/0.67/1.00 네 값에서 추론했고, 원문 Figure 1(c)가 'Relationship ID (3)'으로 직접 확인해 준다), 직시 최고 0.35, 95명·51 528 비교·Bradley–Terry·r=0.638, APA 서지(arXiv:2505.16125)가 원문과 일치한다. '경어 문항이 극단적으로 적다'는 활용점 판단도 원문 근거와 부합한다.",
+    "discrepancies": [
+      {
+        "item": "보기 수",
+        "prior": "지형도 표와 B2 절 모두 '4지선다'로 기술",
+        "paper": "10지선다. 본문 'Each question presents ten choices', 프롬프트도 보기 A~J 10개(p.3, p.5, p.9 Figure 2). 우연 수준은 0.25가 아니라 0.10이다.",
+        "resolution": "원문을 따른다. 4지선다는 우리 후속 연구의 이해 문항 계획이지 KoBALT의 형식이 아니다."
+      },
+      {
+        "item": "평가 모델 수",
+        "prior": "'20종'",
+        "paper": "본문은 세 곳(p.1, p.8, p.17)에서 20개라고 쓰지만 p.9의 모델 열거와 Table 3~8·Figure 3의 행은 18개다. 공개 데이터셋 카드도 18개.",
+        "resolution": "'본문 주장 20개, 실제 보고 18개'로 병기한다."
+      },
+      {
+        "item": "직시·지시 분포",
+        "prior": "'최고 0.35, 대부분 0.00'",
+        "paper": "Table 6(p.12)에서 0.00은 18개 중 9개(절반)이고 나머지는 0.06~0.35다.",
+        "resolution": "'절반(9개)이 0.00'으로 고친다."
+      },
+      {
+        "item": "상관계수의 범위",
+        "prior": "'정확도-BT 상관 r=0.638'만 제시",
+        "paper": "0.638은 Claude 3.5 Sonnet 하나의 값이고 GPT-4o 0.632, Llama-3.3-70B·Qwen2.5-72B 0.570이다(p.15 Table 10, n=24 현상). 선호 평가 대상도 최고 성능 모델인 Claude 3.7이 아니라 Claude 3.5다.",
+        "resolution": "범위(0.570~0.638)와 대상 모델을 함께 적는다."
+      },
+      {
+        "item": "Claude 3.7의 화용 하위범주 '전부 최고'(design/04)",
+        "prior": "함축 0.77·화행 0.64·대화원리 0.71·대인관계 1.00·직시 0.35로 5개 전부 최고",
+        "paper": "수치는 맞지만 대화 원리 0.71은 DeepSeek-V3-XL과, 대인 관계 1.00은 Claude 3.5·Command A·Qwen2.5-72B와 공동 1위다(p.12 Table 6).",
+        "resolution": "'단독 또는 공동 최고'로 표현을 고친다. 대인 관계는 3문항이라 근거로 쓰지 않는다."
+      },
+      {
+        "item": "오염 방지 서술",
+        "prior": "'n-gram 중복 최소화 → 오염 회피'를 사실로 기술",
+        "paper": "수치(bigram <8.6%, trigram <0.7%)만 초록·서론에 있고 대상 코퍼스·산출 절차는 본문 어디에도 없다(p.1-2).",
+        "resolution": "저자의 주장으로 인용하고 방법 미보고를 한계로 적는다."
+      },
+      {
+        "item": "기존 분석에 없던 사항",
+        "prior": "언급 없음",
+        "paper": "현상별 문항 수 전체(Figure 1), 경어 일치 문항 수 미보고, CoT 프롬프트와 정규식 채점, 난이도의 모델 기반 사후 부여, 인간 정답률 기준선 부재, 상용/공개 분류의 비일관(DeepSeek V3, Command A), 예시 문항이 Table 1의 5개뿐이고 부록이 없다는 점, 데이터 URL·라이선스가 논문에 없다는 점.",
+        "resolution": "본 카드에 새로 기록했다."
+      }
+    ]
+  },
+  "verification": {
+    "status": "draft",
+    "by": null,
+    "notes": []
+  }
+}

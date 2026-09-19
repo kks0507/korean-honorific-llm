@@ -1,0 +1,1273 @@
+{
+  "id": "P05",
+  "role": "core",
+  "short": "Jung & Kim (2026)",
+  "title": "A comparative analysis of AI-generated texts, corpus data, and speaker judgments: Subject honorification patterns in Korean",
+  "title_ko": "AI 생성 텍스트·말뭉치 자료·화자 판단의 비교 분석: 한국어 주체 높임의 양상",
+  "citation": {
+    "apa": "Jung, Y., & Kim, K. M. (2026). A comparative analysis of AI-generated texts, corpus data, and speaker judgments: Subject honorification patterns in Korean. Applied Corpus Linguistics, 6, 100171. https://doi.org/10.1016/j.acorp.2025.100171",
+    "year": 2026,
+    "venue": "Applied Corpus Linguistics, 6, 100171 (Elsevier)",
+    "status": "published",
+    "doi": "10.1016/j.acorp.2025.100171",
+    "url": "https://doi.org/10.1016/j.acorp.2025.100171",
+    "bib_notes": "DOI·권(6)·논문번호(100171)·온라인 공개일(Available online 19 November 2025)·저작권(© 2025 The Authors, CC BY-NC)은 모두 원문 p.1에 표기돼 있어 웹 검색을 하지 않았다. 호(issue) 번호는 원문 미표기. 두 저자는 공동 제1저자(Equal first authorship)이자 공동 교신저자다. 권호 연도는 2026, DOI 접두부·저작권 연도는 2025다."
+  },
+  "one_line": "ChatGPT 4.0은 주어·서술어를 모두 높인 정형만(99.93 %) 생성했고 말뭉치는 불일치형이 28.01 %였으며, L1은 '비높임 주어+-시-'를 거부(2.83)했지만 L2는 수용(5.01)했다.",
+  "w5h1": {
+    "who": {
+      "headline": "유타대 Yejin Jung과 보스턴대 Kathy MinHye Kim(공동 제1저자)이 ChatGPT 4.0 산출문 1453개, 국립국어원 구어 말뭉치 용례 1453개, 그리고 L1 34명·L2 16명의 수용성 판단을 비교했다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "Yejin Jung(University of Utah), Kathy MinHye Kim(Boston University). 각주에 'Equal first authorship', 두 사람 모두 교신저자. CRediT에 따르면 Software·Funding acquisition은 Kim 담당.",
+          "src": "p.1"
+        },
+        {
+          "label": "연구비",
+          "text": "Boston University 내부 Research Support Grant(Kathy Kim 수혜). 외부 연구비 없음.",
+          "src": "p.9 Funding"
+        },
+        {
+          "label": "실험한 모델",
+          "text": "ChatGPT 4.0(OpenAI, 2023) 단 하나. 모델은 '문장 생성자' 역할만 했고 수용성 판단 과제는 받지 않았다. 파라미터 규모, 모델 스냅샷, 접속 경로(웹/ API), temperature, 생성 일자는 모두 원문 미표기.",
+          "src": "p.4 §3.2"
+        },
+        {
+          "label": "인간 참여자 — L1",
+          "text": "한국어 원어민 34명(Mage = 34.97, 범위 20–48, 남 12·여 22). Prolific에서 46명을 모집했고 한국어가 비우세 언어라고 답한 12명을 제외했다.",
+          "src": "p.5 §4.3"
+        },
+        {
+          "label": "인간 참여자 — L2",
+          "text": "중·고급 한국어 학습자 16명(Mage = 20.81, 범위 18–30, 남 5·여 11). 매사추세츠·캘리포니아·유타 소재 기관의 고급 한국어 수업에서 모집, 전원 4학기 이상 과정 수강 중. 한국어 습득 시작 나이 평균 14.9(SD = 5.86). 학습자의 모어와 계승어 화자 여부는 원문 미표기(배경 설문에서 가족과의 한국어 사용은 물었으나 분석에 쓰지 않음).",
+          "src": "p.5 §4.2-4.3"
+        },
+        {
+          "label": "코더·검수자",
+          "text": "Study 1은 훈련받은 제2코더가 무작위 표집한 10 %(290개 = ChatGPT 145 + 말뭉치 145)를 재코딩했고 불확실한 경우 제1저자와 논의했다. 1차 코더가 누구인지는 원문 미표기. Study 2 자극은 원어민 3명(경력 한국어 교원 1명 포함)이 적절성을 확인.",
+          "src": "p.4-5"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2025년 11월 19일 온라인 공개, 2026년 6권 게재. 실험 모델은 2023년 세대의 ChatGPT 4.0 하나뿐이고 생성 시점은 밝히지 않았다.",
+      "items": [
+        {
+          "label": "게재 상태",
+          "text": "Applied Corpus Linguistics 6 (2026) 100171, 'Available online 19 November 2025', © 2025 The Authors. 최종 출판본(published).",
+          "src": "p.1"
+        },
+        {
+          "label": "실험 모델의 세대",
+          "text": "참고문헌 표기는 'OpenAI. (2023). ChatGPT (Version 4.0)'. GPT-4 세대 챗 인터페이스로 보이며 스냅샷·생성 일자 미표기. 2026년 현재 상용 모델에서 재검증이 필요한 구세대 결과다.",
+          "src": "p.4 §3.2; p.10 References"
+        },
+        {
+          "label": "말뭉치 시점",
+          "text": "NIKL Korean Dialogue Summarization Corpus 2023 (v.1.0), 참고문헌상 2024년 공개.",
+          "src": "p.4 §3.2"
+        },
+        {
+          "label": "인간 자료 수집 시점",
+          "text": "수집 일자는 원문 미표기. 분석 환경은 R 4.3.1, glmmTMB 1.1.11, emmeans 1.11.1.",
+          "src": "p.5-6 §4.4"
+        },
+        {
+          "label": "선행 인간 연구와의 시간 관계",
+          "text": "Kwon & Sturt (2024)의 자극을 개작했고, Shin et al. (2025)의 L2 수용성 판단 결과(L2는 NHsubj-Hverb를 일치형만큼 수용, L1은 네 조건 중 가장 낮게 평정)를 뒤이어 재확인하는 위치에 있다.",
+          "src": "p.3 §2.3; p.5 §4.2"
+        }
+      ]
+    },
+    "where": {
+      "headline": "Elsevier의 오픈액세스 학술지 Applied Corpus Linguistics에 실렸고, 자료는 국립국어원 일상대화 요약 말뭉치와 ChatGPT에서 왔으며, 자극·R 스크립트·분석 결과는 OSF(osf.io/3y6mq)에 공개돼 있다.",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "Applied Corpus Linguistics(Elsevier), CC BY-NC 오픈액세스. 키워드: Data-driven learning, Inductive learning, L2 pragmatics, Korean honorifics, GenAI, ChatGPT, Acceptability testing — 독자는 말뭉치 기반 L2 교육 연구자다.",
+          "src": "p.1"
+        },
+        {
+          "label": "말뭉치 출처",
+          "text": "국립국어원 'Korean Dialogue Summarization Corpus 2023'(v.1.0): L1 화자 둘 이상의 일상 대화 전사 2000건, 300만 어절(word segments), 비격식 상호작용 구어. 참고문헌 URL은 https://kli.korean.go.kr.",
+          "src": "p.4 §3.2; p.10 References"
+        },
+        {
+          "label": "GenAI 자료 출처",
+          "text": "ChatGPT 4.0에 한국어 페르소나 프롬프트를 주어 '대화 중에 발화할 법한 주체 높임 예문'을 50개씩 받아 1453문장을 모았다.",
+          "src": "p.4 §3.2"
+        },
+        {
+          "label": "참가자 모집처·실험 플랫폼",
+          "text": "L1은 Prolific, L2는 미국 3개 주(매사추세츠·캘리포니아·유타) 교육기관의 고급 한국어 수업. 과제는 Gorilla에서 제시(의사 무선화), 지시문은 한국어·영어 병기.",
+          "src": "p.5 §4.2-4.3"
+        },
+        {
+          "label": "공개 자료 위치",
+          "text": "'All study materials, R scripts, and analysis outputs'가 OSF https://osf.io/3y6mq 에 공개. Appendix A(코딩 프로토콜)·B(쌍별 비교)·C(배경 설문)·D(문항 전체 목록)는 PDF에 없고 온라인 보충자료(doi:10.1016/j.acorp.2025.100171)에 있다.",
+          "src": "p.6 §4.4; p.9 Supplementary materials"
+        }
+      ]
+    },
+    "what": {
+      "headline": "ChatGPT는 주어·서술어를 모두 높인 정형(99.93 %)만 내놓았고 말뭉치는 불일치형이 28.01 %였으며, L1은 '비높임 주어+-시-'를 2.83점으로 거부했지만 L2는 5.01점으로 받아들였다.",
+      "items": [
+        {
+          "label": "연구 질문 1",
+          "text": "AI가 생성한 주체 높임 예문은 자연 발화 구어에서 확인되는 예문과 주어-서술어 (불)일치 면에서 다른가.",
+          "src": "p.3 §2.4"
+        },
+        {
+          "label": "연구 질문 2",
+          "text": "한국어 L1·L2 화자는 주어-서술어 (불)일치의 수용성 판단에서 얼마나 다른가.",
+          "src": "p.3 §2.4"
+        },
+        {
+          "label": "Study 1 결과 — 세 범주 분포(Table 1)",
+          "text": "ChatGPT: Hsubj-Hverb 1452(99.93 %), Hsubj-NHverb 1(0.07 %), NHsubj-Hverb 0(0.00 %). 말뭉치: Hsubj-Hverb 1046(71.99 %), Hsubj-NHverb 48(3.30 %), NHsubj-Hverb 359(24.71 %). 분모는 자료원별 1453개. NHsubj-NHverb는 Study 1에서 집계하지 않았다(표에 '—').",
+          "src": "p.4 Table 1"
+        },
+        {
+          "label": "24.71 %의 정체(분모 확인)",
+          "text": "24.71 % = 359 / 1453. 분모는 '말뭉치 전체'가 아니라 조사 -께서 또는 기본형 -(으)시-가 들어 있어 추출·정제된 말뭉치 '주체 높임 용례' 1453개다. 분자는 '주어 위치에 높임 표지가 전혀 없고 서술어에만 -시-가 있는' NHsubj-Hverb 전체이며, 친족어 주어만 센 값이 아니다. 저자는 이 유형의 'a majority'가 엄마·아빠·삼촌·이모 같은 비높임 친족어 주어라고만 했고 친족어 비율 수치는 제시하지 않았다(예문 (7)의 주어는 친족어가 아닌 '사람들'). 또 저자는 '높이면 안 되는 주어 + -시-'(부적절한 NHsubj-Hverb)는 말뭉치에서도 관찰되지 않았다고 적어, 이 359건을 대체로 화용적으로 허용되는 용례로 본다. 1453개가 정제 후 전수인지 표본인지는 원문상 불분명하다. 따라서 '친밀 지칭어 주어 + -시-가 말뭉치의 24.71 %'는 틀린 요약이며, 친족어 주어 비율은 원문에서 산출할 수 없다.",
+          "src": "p.4-5 Table 1-2; p.7 §5; p.8 §6"
+        },
+        {
+          "label": "Study 1 결과 — 주어 표지 유형(Table 2)",
+          "text": "ChatGPT는 어휘+조사(-께서) 병용이 1426(98.14 %), -께서만 27(1.86 %)로 1453개 전부에 -께서가 붙었다. 말뭉치는 어휘만 813(55.95 %), -께서만 25(1.72 %), 병용 256(17.62 %), 무표지 359(24.71 %).",
+          "src": "p.5 Table 2"
+        },
+        {
+          "label": "Study 2 결과 — 기술통계(Table 3)",
+          "text": "L1: Hsubj-Hverb 6.28, Hsubj-NHverb 5.32, NHsubj-Hverb 2.83, NHsubj-NHverb 6.53. L2: 5.39, 4.36, 5.01, 5.21(같은 순서). L1은 네 조건을 뚜렷이 갈랐고 L2는 Hsubj-NHverb만 낮췄다.",
+          "src": "p.6 Table 3"
+        },
+        {
+          "label": "Study 2 결과 — 모형(Table 4)",
+          "text": "가장 큰 상호작용은 Language × NHsubj-Hverb(b = 3.07, SE = 0.36, z = 8.59, p < 0.001). Language × Hsubj-NHverb는 유의하지 않아(b = −0.07, p = .840) 이 불일치에 대한 민감도는 두 집단이 비슷하다.",
+          "src": "p.6 Table 4"
+        },
+        {
+          "label": "핵심 주장",
+          "text": "L1 판단은 말뭉치의 다양한 분포와, L2 판단은 정형만 내는 ChatGPT와 닮았다는 것. 근거는 Table 5의 범주 라벨 병치(GenAI 99.93/0.07/0.0, Corpus 71.99/3.3/24.71, L1 Acceptable/Less Acceptable/Reject, L2 Acceptable/Less Acceptable/Acceptable)이며 두 분포의 닮음을 재는 정량 지표는 없다.",
+          "src": "p.1 Abstract; p.6 §4.6; p.8 Table 5"
+        },
+        {
+          "label": "산출-지각의 괴리",
+          "text": "L1 화자는 NHsubj-Hverb를 실제 대화에서 꽤 산출하면서(24.71 %) 판단에서는 거부했고(2.83), Hsubj-NHverb는 드물게 산출하면서(3.30 %) 비교적 높게 평정했다(5.32). 저자는 순간순간의 상호작용 적응과 검색어 설계의 영향이라는 두 가능성을 든다.",
+          "src": "p.8 §5"
+        }
+      ]
+    },
+    "how": {
+      "headline": "Study 1은 페르소나 프롬프트로 50문장씩 생성시킨 ChatGPT 산출과 '-께서/-(으)시-' 검색으로 뽑은 말뭉치 용례를 세 범주로 코딩했고, Study 2는 40세트×4조건 라틴 방격의 7점 수용성 판단을 혼합효과모형으로 분석했다.",
+      "items": [
+        {
+          "label": "ChatGPT 프롬프트(한국어 원문)",
+          "text": "① 당신은 한국어 원어민으로 행동합니다. ② 당신은 1명 또는 1명 이상의 한국어 원어민과 대화를 하고 있습니다. ③ 당신이 대화 중에 발화할 법한 주체 높임의 예문 50개를 제공해 주십시오. ④ (후속) 앞서 제공한 50개의 예문을 제외한 또 다른 주체 높임의 예문 50개를 제공해 주십시오. — Persona Pattern(White et al., 2023) 적용. 프롬프트가 '주체 높임'이라는 메타언어 용어로 예문을 직접 요구한다.",
+          "src": "p.4 §3.2"
+        },
+        {
+          "label": "생성 절차",
+          "text": "상황 설정은 '원어민 화자가 다른 원어민 한 명 이상과 대화 중'이 전부이고 화자·청자·지시 대상의 관계는 지정하지 않았다. 50개씩 요청을 되풀이해 1453문장을 모았다. 요청 횟수, 세션 수, 중복·부적합 문장 제거 기준은 원문 미표기(1453은 50의 배수가 아니다). 말뭉치 쪽도 같은 크기(1453)로 맞췄다고만 적혀 있어 어느 쪽을 어느 쪽에 맞췄는지, 표집 방식은 불분명하다.",
+          "src": "p.4 §3.2"
+        },
+        {
+          "label": "말뭉치 추출·정제",
+          "text": "-께서 또는 -(으)시-가 있는 발화를 검색한 뒤 Appendix A 프로토콜로 정제. 서술어 표지는 시제·양태 결합형(예: 신, 셨)을 빼고 기본형 -(으)시-만, 주어 조사는 -께서(높임)와 -이/-가/-은/-는(비높임)만 포함하고 -만·-도는 제외.",
+          "src": "p.4 §3.2"
+        },
+        {
+          "label": "코딩·신뢰도",
+          "text": "2906개를 Hsubj-Hverb / Hsubj-NHverb / NHsubj-Hverb 세 범주로 분류. 10 %(290개 = 145 + 145)를 제2코더가 재코딩, percent agreement 98.95 %. 자료가 한 범주에 치우쳐 있어 Cohen's kappa 대신 일치율을 보고한다고 밝혔다. 빈도 차이에 대한 추론통계는 없다.",
+          "src": "p.4 §3.3"
+        },
+        {
+          "label": "Study 2 자극",
+          "text": "Kwon & Sturt (2024) 문장을 개작한 핵심 문장 40세트를 네 조건(원장님은/영희는 × 기다리셨다/기다렸다)으로 만들어 라틴 방격 4목록에 배분, 채움 문장 20개(8~16단어). 은사님 같은 저빈도어는 고빈도어로 교체. 원문에 실린 예시 세트 (8)–(11)은 네 조건 모두 주어 조사가 -은/-는이고 -께서는 쓰이지 않았으며 문맥 없는 단문이다. 40세트 전체 목록은 Appendix D(온라인 보충자료)에 있어 PDF로는 확인되지 않는다.",
+          "src": "p.5 §4.2"
+        },
+        {
+          "label": "절차·척도",
+          "text": "Gorilla에서 의사 무선화(같은 조건 문장이 연달아 나오지 않게) 제시, 7점 Likert(1 = very unacceptable, 7 = very acceptable), 이후 배경 설문(Appendix C).",
+          "src": "p.5 §4.2"
+        },
+        {
+          "label": "통계 분석",
+          "text": "glmmTMB 선형 혼합효과 회귀. 고정효과 Language(L1 = 0, L2 = 1) × Condition(4수준 더미 코딩, 기준 Hsubj-Hverb). 최종식 Response ~ Lang * Cond + (1+Cond | Subj) + (1 + Lang| Item). 계획 대비는 emmeans + Bonferroni. 최대 구조의 베이지안 서열(ordinal) 모형도 같은 결론(Language × Hsubj-NHverb만 신용구간이 0 포함). L1 목록별 Cronbach's alpha 0.92, 0.92, 0.86, 0.94.",
+          "src": "p.5-6 §4.4-4.5; p.6 Table 4 Note"
+        }
+      ]
+    },
+    "why": {
+      "headline": "L2 화용 교육의 귀납적 학습(DDL)에 GenAI 산출문을 입력으로 써도 되는지를 따진 연구이며, 우리에게는 '같은 2×2 수용성 과제를 LLM에게는 주지 않았다'는 공백과 7점 척도 L1 기준선을 남긴다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "화용 교육의 핵심은 실제적 입력(authentic input) 제공인데, 교재는 실제 언어의 복잡성을 과소 대표하고 교사는 자료를 구할 시간이 없다. GenAI가 DDL을 보완할 수 있는지, 그 산출이 교육적으로 적절한 입력인지 확인이 필요하다.",
+          "src": "p.1-2 §1"
+        },
+        {
+          "label": "저자가 본 공백",
+          "text": "한국어 AI 화용 연구는 화행 추론(간접 화행, 함축)에 치우쳐 있고 경어 같은 다른 화용 자원은 다뤄지지 않았다. L2 교육 연구는 주어-서술어 (불)일치의 다양한 실현형에 주목하지 않았다.",
+          "src": "p.3 §2.2-2.3"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "ChatGPT 예문의 동질성은 일치 규칙을 귀납적으로 알아차리게 하는 데 쓸 수 있고, 말뭉치 예문은 변이와 맥락을 보여 준다. 다만 부적절한 NHsubj-Hverb는 두 자료 어디에도 없으므로 명시적 메타언어 교수가 필요하다(Table 5).",
+          "src": "p.8 §6"
+        },
+        {
+          "label": "저자가 밝힌 한계",
+          "text": "① 서술어 표지를 기본형 -(으)시-로만 조작화해 대표성이 제한됨 ② -께서/-(으)시- 검색이라 '교수님이 말했어' 같은 어휘 전용 Hsubj-NHverb가 과소 표집됨 ③ 객관적 숙달도 측정 없음, 계승어 화자 미구분 ④ 교재 노출 설명은 교재 분석으로 검증해야 함.",
+          "src": "p.8 §5; p.9 §7"
+        },
+        {
+          "label": "우리가 이어받을 것 ① 인간 기준선과 자극",
+          "text": "우리 후속 연구와 같은 7점 Likert로 잰 L1 2×2 셀 평균(6.28 / 5.32 / 2.83 / 6.53)과 OSF 공개 40세트가 그대로 기준선·자극 후보가 된다. P04가 쓴 6점 척도 인간 자료와 나란히 놓을 수 있다.",
+          "src": "p.5-6 §4.2-4.5"
+        },
+        {
+          "label": "우리가 이어받을 것 ② LLM에게 같은 판단 과제 주기",
+          "text": "이 논문에서 LLM은 생성만, 인간은 판단만 했다. 'L2 ≈ ChatGPT'는 서로 다른 과제를 견준 유비다. 같은 문항·같은 지시문을 상용 LLM에 주면 모델의 평정 프로파일이 L1형(상호작용 큼)인지 L2형(상호작용 작음)인지 직접 검정할 수 있다.",
+          "src": "p.6 §4.6; p.8 Table 5"
+        },
+        {
+          "label": "우리가 이어받을 것 ③ NHsubj 라벨에 묶인 두 현상 분리",
+          "text": "말뭉치의 NHsubj(엄마·아빠: 높일 수 있는 지시체, 어휘만 비높임)와 Study 2의 NHsubj(영희: 높일 수 없는 지시체)는 다른 것이다. '지시체 존대 가능성 × 주어 어휘의 높임 형태'를 교차하면 표면 공기 학습과 허가 조건 학습이 상호작용항에서 갈린다.",
+          "src": "p.7 §5; p.8 §6"
+        },
+        {
+          "label": "우리가 이어받을 것 ④ 프롬프트 메타언어 통제",
+          "text": "프롬프트가 '주체 높임의 예문'을 직접 요구했으므로 99.93 %는 모델의 자연 산출 분포라기보다 교과서형 예시 요청에 대한 응답일 수 있다. 저자도 'unless prompted otherwise by users'로 단서를 단다. 메타언어 용어 유무를 조작하는 통제 실험의 직접 근거다.",
+          "src": "p.4 §3.2; p.6 §5"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "subject honorification",
+        "gloss_ko": "주체 높임",
+        "definition": "화자가 문법적 주어에게 'politeness'를 전하는 높임 유형. 주어(조사 -kkeyse 또는 nim 같은 높임 어휘)와 서술어(-(u)si) 양쪽의 외현 표지를 요구한다고 정의한다.",
+        "note": "정의 단계에서는 '양쪽 표지 필요'라고 쓰지만 곧바로 일치가 통사 규칙이 아니라 수의적이라는 반증을 소개한다. 정의와 입장이 한 절 안에서 어긋난다.",
+        "src": "p.2 §2.1"
+      },
+      {
+        "term": "Hsubj-Hverb / Hsubj-NHverb / NHsubj-Hverb / NHsubj-NHverb",
+        "gloss_ko": "조건 라벨(주어 높임 여부-서술어 높임 여부)",
+        "definition": "H = 문장에 높임 표지 있음, NH = 비높임. 첫 글자는 주어 위치, 둘째 글자는 서술어 위치(Table 1 Note 1). Study 1은 앞의 세 범주만 집계하고, Study 2에서 NHsubj-NHverb를 기준(baseline) 조건으로 추가했다.",
+        "note": "같은 NHsubj 라벨이 Study 1에서는 '주어 명사구에 높임 표지가 없음'(엄마, 사람들)을, Study 2에서는 '높일 수 없는 지시체의 고유명'(영희)을 가리킨다. P02–P04의 honorifiable / non-honorifiable subject 구분과 대조할 때 주의.",
+        "src": "p.4 Table 1 Note; p.5 §4.2"
+      },
+      {
+        "term": "subject-verb honorific (mis)match / agreement",
+        "gloss_ko": "주어-서술어 높임 (불)일치 / 일치",
+        "definition": "주어 위치와 서술어 위치의 높임 표지 유무가 같으면 match, 다르면 mismatch. 'agreement'와 'match'를 섞어 쓴다.",
+        "note": "이론적으로는 일치가 수의적이라고 하면서도 용어는 통사적 일치의 것을 그대로 쓴다. 토론에서는 'NHsubj–Hverb agreement'라는 표현까지 나온다. P03의 'honorific agreement'(통사 정보로 처리)와 용어는 같고 입장은 다르다.",
+        "src": "p.2 §2.1; p.7 §5"
+      },
+      {
+        "term": "-(u)si, -kkeyse, nim",
+        "gloss_ko": "선어말어미 -(으)시-, 주격 조사 -께서, 접미사 -님",
+        "definition": "서술어 표지는 기본형 -(u)si만(신·셨 등 결합형 제외), 주어 표지는 조사 -께서(높임) 대 -이/-가/-은/-는(비높임), 그리고 높임 어휘(lexical items)로 조작화.",
+        "note": "표기가 일관되지 않다(-kkeyse / -kkyese, -(u)si / -u(si)). 한계 절에서는 '주어 위치의 높임을 -u(si)로만 조작화'라고 써서 서술어 위치를 주어 위치로 잘못 적었다.",
+        "src": "p.4 §3.2; p.9 §7"
+      },
+      {
+        "term": "lexical only / morphosyntactic only / both / no honorifics",
+        "gloss_ko": "주어 위치 높임 표지의 네 유형",
+        "definition": "Table 2의 분류. lexical = 높임 어휘(교수님, 어머니 등), morphosyntactic = 조사 -께서. 'no honorifics'는 Table 1의 NHsubj-Hverb와 같은 359건이다.",
+        "note": "'어머니'는 어휘적 높임, '엄마'는 비높임으로 분류한다(mom rather than mother). 예문 (4) '오빠께서는'은 이 기준상 morphosyntactic only로 보이지만, 원문은 개별 예문이 어느 유형으로 분류됐는지 밝히지 않는다(우리 해석).",
+        "src": "p.5 Table 2; p.8 §6"
+      },
+      {
+        "term": "acceptability",
+        "gloss_ko": "수용성",
+        "definition": "7점 Likert(1 = very unacceptable, 7 = very acceptable) 평정. 문맥 없는 단문에 대한 판단이다.",
+        "note": "결과 해석에서는 'natural', 'ungrammatical', 'pragmatic inappropriateness'로 바꿔 부른다. 측정한 것은 수용성 하나인데 문법성·자연성·화용적 적절성으로 번갈아 해석한다. P04의 6점(0–5) 수용성 척도와 범위가 다르다.",
+        "src": "p.5 §4.2; p.7 §5"
+      },
+      {
+        "term": "appropriacy / pragmatically appropriate",
+        "gloss_ko": "적절성 / 화용적으로 적절한",
+        "definition": "연구 목적 진술에서는 GenAI·말뭉치 텍스트의 'appropriacy of honorific use'를 본다고 하고, 말뭉치의 '엄마가 … 좋아하시거든'을 'pragmatically appropriate'라고 평가한다.",
+        "note": "이 적절성은 저자의 판단이며 참가자에게 측정한 값이 아니다. Study 2는 친족어 주어 문장을 평정시키지 않았다.",
+        "src": "p.3 §2.4; p.8 §6"
+      },
+      {
+        "term": "politeness",
+        "gloss_ko": "공손",
+        "definition": "주체 높임을 '문법적 주어를 향한 공손의 전달'로, 경어를 'politeness, social hierarchy, and formality'를 전하는 화용 자질로 규정한다.",
+        "note": "지시 대상(주어) 높임을 politeness라 부른다. P01은 politeness를 청자를 향한 격식(요, 제)으로, P02는 주체 높임을 deference로 부르므로 같은 단어가 가리키는 축이 다르다.",
+        "src": "p.2 §1, §2.1"
+      },
+      {
+        "term": "formal / formality",
+        "gloss_ko": "격식적 / 격식성",
+        "definition": "ChatGPT 산출을 'highly formal use of honorifics'라 부르며 그 내용을 -께서 + 높임 어휘 + -(으)시-의 '최대 사용(maximal use)'으로 풀이한다.",
+        "note": "격식성을 화계(청자 높임 등급)가 아니라 주체 높임 표지의 중첩으로 조작화했다. Chen et al. (2024), Tao et al. (2024)의 '격식적인 ChatGPT' 결과와 잇기 위한 재해석이다.",
+        "src": "p.6 §5"
+      },
+      {
+        "term": "sensitivity",
+        "gloss_ko": "민감도",
+        "definition": "GenAI에는 산출 분포에 변이가 없다는 뜻으로('showing no sensitivity to variation'), L2에는 조건 간 평정 차이가 작다는 뜻으로 쓴다.",
+        "note": "'L2 판단이 ChatGPT를 닮았다'는 결론은 산출 분포와 평정 차이라는 서로 다른 측정에 같은 단어를 적용한 데 기대고 있다.",
+        "src": "p.1 Abstract; p.6 §4.6"
+      },
+      {
+        "term": "authentic input / real-life language",
+        "gloss_ko": "실제적 입력 / 실제 언어",
+        "definition": "말뭉치는 언어 공동체의 실제 사용을 대표하는 'authentic' 표본, ChatGPT는 'AI-generated language'로 대비된다. 연구 목표는 L2 입력의 'currency and reliability' 평가.",
+        "note": "LLM 평가 논문들(P01–P04)의 'human-like processing' 기준과 달리 기준이 교육용 입력으로서의 적합성이다.",
+        "src": "p.1-2 §1; p.3 §3.1"
+      },
+      {
+        "term": "Data-driven Learning (DDL) / inductive learning",
+        "gloss_ko": "데이터 기반 학습 / 귀납적 학습",
+        "definition": "말뭉치 도구와 기법을 L2 교수·학습에 쓰는 접근으로, 학습자가 언어 사용의 패턴을 귀납적으로 발견하게 한다.",
+        "note": "논문 전체의 틀이며 결론도 '어느 유형을 귀납으로, 어느 유형을 명시적 교수로 가르칠까'(Table 5의 L2 Pedagogy 열)로 맺는다.",
+        "src": "p.1 §1; p.8 Table 5"
+      },
+      {
+        "term": "Persona Pattern",
+        "gloss_ko": "페르소나 패턴(프롬프트 기법)",
+        "definition": "LLM에게 특정 인물의 'hat'을 쓰게 해 특정 맥락의 출력을 얻는 프롬프트 기법(White et al., 2023). 여기서는 '한국어 원어민' 정체성 부여.",
+        "note": "산출을 말뭉치와 '비교 가능하게' 만들려는 장치로 소개하지만 지시 대상·관계·장면은 지정하지 않았다.",
+        "src": "p.4 §3.2"
+      },
+      {
+        "term": "L1 / L2 speakers, native speaker",
+        "gloss_ko": "L1·L2 화자, 원어민",
+        "definition": "L1은 Prolific 모집자 중 한국어가 우세 언어라고 답한 사람, L2는 4학기 이상 한국어 수업 수강자.",
+        "note": "한계 절에서 'native speaker' 개념의 고정성 비판(Cheng et al., 2021)과 계승어 화자 연속체를 스스로 거론한다. 객관적 숙달도 측정은 없다.",
+        "src": "p.5 §4.3; p.9 §7"
+      },
+      {
+        "term": "percent agreement",
+        "gloss_ko": "일치율(코더 간 신뢰도)",
+        "definition": "일치 수 / 전체 수 × 100. 자료가 한 범주에 크게 치우쳐 있어 우연 일치를 보정하는 Cohen's kappa보다 투명하다고 정당화한다.",
+        "note": "98.95 %는 290건 기준 정수 일치 건수로 환산되지 않는다(287/290 = 98.97 %). 산식 세부는 Appendix A 확인 필요.",
+        "src": "p.4 §3.3"
+      },
+      {
+        "term": "헤지 표현: might, to some extent, unless prompted otherwise, two possible explanations",
+        "gloss_ko": "결론 세기를 낮추는 표현",
+        "definition": "친족어 빈도의 원인('might be related to the nature of casual spoken discourse'), L2 수용의 원인('We propose two possible explanations'), ChatGPT 격식성('unless prompted otherwise by users'), 대표성 한계('to some extent').",
+        "note": "기술 결과(빈도·평정)는 단정형으로, 원인 설명은 모두 가능성 표현으로 쓴다. 교재 과다 노출·일치 원리 과적용 설명은 검증되지 않은 가설이다.",
+        "src": "p.6-8 §5; p.9 §7"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "ChatGPT predominantly favored a subject-verb matched form",
+        "paraphrase_ko": "초록의 첫째 결론: ChatGPT는 주어-서술어 일치형에 치우쳤고, 말뭉치는 맥락 의존적인 복잡한 변이를 보였다.",
+        "numbers": [],
+        "src": "p.1 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "L1 judgments aligned more closely with the corpus results",
+        "paraphrase_ko": "L1 판단은 미묘한 (불)일치형에 대한 민감도를 보여 말뭉치 결과와 더 가깝다는 주장. 정량적 정렬 지표 없이 서술로만 제시된다.",
+        "numbers": [],
+        "src": "p.1 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "L2 judgments closely mirrored ChatGPT’s patterns, lacking sensitivity beyond the matched forms",
+        "paraphrase_ko": "L2 판단은 일치형 너머의 민감도가 없다는 점에서 ChatGPT의 패턴을 닮았다는 주장. ChatGPT는 생성, L2는 평정이므로 서로 다른 과제를 견준 것이다.",
+        "numbers": [],
+        "src": "p.1 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "subject-verb match in Korean honorifics is not a syntactic rule but occurs optionally",
+        "paraphrase_ko": "Kwon & Sturt (2024), Song et al. (2019)를 근거로 높임 일치가 통사 규칙이 아니라 수의적이며 화용적 목적에 따라 유연하게 쓰인다는 이론적 전제를 세운다.",
+        "numbers": [],
+        "src": "p.2 §2.1"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "Do AI-generated examples of subject honorification differ from those identified in naturally-occurring spoken discourse",
+        "paraphrase_ko": "연구 질문 1. 방향 가설은 세우지 않았고, 비교 축은 주어-서술어 (불)일치 세 유형의 출현이다.",
+        "numbers": [],
+        "src": "p.3 §2.4"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "To what extent do L1 and L2 speakers of Korean differ in judging the acceptability",
+        "paraphrase_ko": "연구 질문 2. L1·L2의 (불)일치 수용성 판단 차이와, 어떤 유형이 L2에게 어려운지를 묻는다.",
+        "numbers": [],
+        "src": "p.3 §2.4"
+      },
+      {
+        "kind": "method",
+        "quote": "searched for utterances that have either the subject honorific particle -kkeyse",
+        "paraphrase_ko": "말뭉치에서는 조사 -께서 또는 선어말어미 -(으)시-가 있는 발화만 검색했다. 따라서 두 표지가 모두 없는 발화(NHsubj-NHverb, 어휘 전용 Hsubj-NHverb)는 애초에 표본에 들어오지 않는다.",
+        "numbers": ["2000", "3 million word segments"],
+        "src": "p.4 §3.2"
+      },
+      {
+        "kind": "method",
+        "quote": "the study utilized the Persona Pattern (White et al., 2023)",
+        "paraphrase_ko": "ChatGPT에 한국어 원어민 정체성을 부여하고 대화 중 발화할 법한 주체 높임 예문을 50개씩 내게 했다.",
+        "numbers": ["50"],
+        "src": "p.4 §3.2"
+      },
+      {
+        "kind": "method",
+        "quote": "this study collected 1453 sentences from ChatGPT and established the same-sized list",
+        "paraphrase_ko": "ChatGPT에서 1453문장을 모으고 말뭉치 쪽도 같은 크기의 목록으로 맞췄다. 합계 2906개를 세 범주로 분류했다.",
+        "numbers": ["1453", "2906"],
+        "src": "p.4 §3.2-3.3"
+      },
+      {
+        "kind": "result",
+        "quote": "both a subject and a verb contained honorific markers in 99.93 %",
+        "paraphrase_ko": "AI 생성문은 주어·서술어 양쪽에 높임 표지가 있는 경우가 99.93 %(1452/1453)로 거의 완전한 일치를 보였다.",
+        "numbers": ["99.93 %", "1452", "1453"],
+        "src": "p.4 §3.4"
+      },
+      {
+        "kind": "result",
+        "quote": "four hundred seven instances of subject honorification (28.01 % of all instances",
+        "paraphrase_ko": "말뭉치에서는 주어나 서술어 한쪽에만 높임이 있는 불일치가 407건, 인간 산출 주체 높임 용례 전체(1453)의 28.01 %였다(48 + 359).",
+        "numbers": ["28.01 %", "48", "359"],
+        "src": "p.4 §3.4"
+      },
+      {
+        "kind": "result",
+        "quote": "human speakers showed a high preference for honorifying a subject lexically without use of -kkyese",
+        "paraphrase_ko": "인간 화자는 -께서 없이 어휘만으로 주어를 높이는 방식을 가장 선호했고(55.95 %), ChatGPT는 어휘+-께서 병용이 98.14 %였다.",
+        "numbers": ["55.95 %", "813", "98.14 %", "1426"],
+        "src": "p.5 §3.4"
+      },
+      {
+        "kind": "result",
+        "quote": "kinship-related words in its non-honorific form such as mom (엄마), dad (아빠)",
+        "paraphrase_ko": "NHsubj-Hverb 용례의 '다수(a majority)'는 엄마·아빠·삼촌·이모 같은 비높임 친족어가 주어였고, 이런 주어는 Hsubj-NHverb에는 나타나지 않았다. 비율 수치는 없으며 Song et al. (2019)의 70 % 보고를 방증으로 든다.",
+        "numbers": ["24.71 %", "3.3 %"],
+        "src": "p.6-7 §5"
+      },
+      {
+        "kind": "method",
+        "quote": "distributed across four lists using a Latin Square design",
+        "paraphrase_ko": "핵심 문장 40세트를 네 조건으로 만들어 라틴 방격으로 네 목록에 나눴고, 채움 문장 20개를 더했다.",
+        "numbers": ["8 to 16 words"],
+        "src": "p.5 §4.2"
+      },
+      {
+        "kind": "method",
+        "quote": "Participants rated sentence acceptability on a 7-point Likert scale",
+        "paraphrase_ko": "참가자는 7점 척도(1 = 매우 수용 불가, 7 = 매우 수용 가능)로 문장 수용성을 평정했다. 지시문은 한국어와 영어로 제공됐다.",
+        "numbers": ["7-point", "1", "7"],
+        "src": "p.5 §4.2"
+      },
+      {
+        "kind": "method",
+        "quote": "We recruited 34 native Korean speakers",
+        "paraphrase_ko": "L1 34명(Prolific, 46명 중 12명 제외)과 L2 16명(미국 3개 주의 고급 한국어 수업)을 모집했다.",
+        "numbers": ["34", "16", "46", "12", "14.9", "SD = 5.86"],
+        "src": "p.5 §4.3"
+      },
+      {
+        "kind": "method",
+        "quote": "Response ~ Lang * Cond + (1+Cond | Subj) + (1 + Lang| Item)",
+        "paraphrase_ko": "최종 모형식. Condition은 4수준 단일 요인(더미 코딩, 기준 Hsubj-Hverb)이며 주어 × 서술어의 2×2 상호작용항으로 분해하지 않았다.",
+        "numbers": [],
+        "src": "p.6 Table 4 Note"
+      },
+      {
+        "kind": "result",
+        "quote": "native Korean speakers generally provided higher ratings than L2 Korean speakers",
+        "paraphrase_ko": "기술통계의 첫째 패턴: L1이 L2보다 전반적으로 높게 평정했다. 예외는 NHsubj-Hverb로 L1 2.83, L2 5.01이다.",
+        "numbers": ["2.83", "5.01"],
+        "src": "p.6 §4.5"
+      },
+      {
+        "kind": "result",
+        "quote": "the NHsubj-Hverb condition led to the largest drop in ratings",
+        "paraphrase_ko": "L1(기준 집단)에서 NHsubj-Hverb는 Hsubj-Hverb 대비 가장 큰 하락을 보였다. Hsubj-NHverb도 유의하게 낮고(b = −0.96), NHsubj-NHverb는 소폭 높았다(b = 0.25).",
+        "numbers": ["b = −3.45", "z = −17.30", "p < .001", "b = −0.96", "b = 0.25"],
+        "src": "p.6 §4.5"
+      },
+      {
+        "kind": "result",
+        "quote": "L2 speakers’ responses in NHsubj-Hverb were 3.07 points higher than L1 speakers’ responses",
+        "paraphrase_ko": "Language × NHsubj-Hverb 상호작용이 가장 컸다는 보고. 단 3.07은 더미 코딩 상호작용 계수(차이의 차이)이고, 이 조건에서의 두 집단 평균 차이는 Table 3 기준 5.01 − 2.83 = 2.18이다. 본문의 'nearly three points' 풀이는 계수를 단순 집단 차로 읽은 것이다.",
+        "numbers": ["3.07", "SE 0.36", "z = 8.59"],
+        "src": "p.6 §4.5"
+      },
+      {
+        "kind": "result",
+        "quote": "did not differ significantly between L1 and L2 speakers (p = .84)",
+        "paraphrase_ko": "Hsubj-Hverb 대비 Hsubj-NHverb의 하락 폭은 두 집단이 다르지 않았다. L2도 '높임 주어 + 비높임 서술어'에는 L1만큼 민감하다.",
+        "numbers": ["b = −0.07", "SE 0.33", "p = .84"],
+        "src": "p.6 §4.5"
+      },
+      {
+        "kind": "result",
+        "quote": "The rating was as low as 2.83 (out of 7)",
+        "paraphrase_ko": "L1에서 비높임 주어 + 높임 서술어는 2.83까지 떨어졌고, 높임 주어 + 비높임 서술어는 일치형보다 유의하게 낮지만 5.32로 비교적 수용됐다. 불일치 효과가 비대칭이다.",
+        "numbers": ["2.83", "5.32"],
+        "src": "p.7 §5"
+      },
+      {
+        "kind": "claim",
+        "quote": "the NHsubj–Hverb agreement is perceived as ungrammatical, while the other mismatch is not",
+        "paraphrase_ko": "높임의 수의성은 NHsubj–Hverb에는 미치지 않는다는 해석. 수용성 평정을 '비문법적'이라는 문법성 판단으로 옮겨 읽는다.",
+        "numbers": [],
+        "src": "p.7 §5"
+      },
+      {
+        "kind": "result",
+        "quote": "Their ratings for NHsubj–Hverb were as high as those for the matched",
+        "paraphrase_ko": "L2는 NHsubj–Hverb를 두 일치 조건만큼 높게 평정했다(쌍별 비교 p = 1.00, Appendix B).",
+        "numbers": ["p = 1.00"],
+        "src": "p.7 §5"
+      },
+      {
+        "kind": "claim",
+        "quote": "represent a formal realization of subject honorification, unless prompted otherwise by users",
+        "paraphrase_ko": "ChatGPT 예문은 주체 높임의 격식적 실현형을 대표한다는 해석. '사용자가 달리 프롬프트하지 않는 한'이라는 단서로 프롬프트 의존성을 인정한다.",
+        "numbers": [],
+        "src": "p.6 §5"
+      },
+      {
+        "kind": "claim",
+        "quote": "L1 Korean speakers produced a fair amount of NHsubj-Hverb sentences",
+        "paraphrase_ko": "L1 화자는 실제 대화에서 NHsubj-Hverb를 꽤 산출하면서도 판단 과제에서는 수용 불가로 평정했다는 산출-지각 괴리. 단 산출된 것은 친족어 주어, 평정된 것은 고유명 주어여서 같은 문장 유형이 아니다.",
+        "numbers": [],
+        "src": "p.8 §5"
+      },
+      {
+        "kind": "result",
+        "quote": "Hsubj-NHverb was infrequent in actual productions",
+        "paraphrase_ko": "Hsubj-NHverb는 산출 빈도는 낮은데(말뭉치 3.30 %) 수용성 평정은 비교적 높았다.",
+        "numbers": ["3.30 %"],
+        "src": "p.8 §5"
+      },
+      {
+        "kind": "limitation",
+        "quote": "were under-represented in the current dataset and as a result occurred less frequently than anticipated",
+        "paraphrase_ko": "검색어가 -께서와 -(으)시-였기 때문에 '교수님이 말했어'처럼 -께서 없이 어휘로만 주어를 높인 Hsubj-NHverb가 과소 대표됐다는 저자의 방법론적 단서.",
+        "numbers": [],
+        "src": "p.8 §5"
+      },
+      {
+        "kind": "claim",
+        "quote": "explicit metalinguistic instruction is needed to prevent misuse",
+        "paraphrase_ko": "주어를 높이면 안 되는데 -시-를 붙이는 NHsubj-Hverb는 ChatGPT에도 말뭉치에도 나타나지 않으므로 명시적 메타언어 교수가 필요하다는 교육적 결론.",
+        "numbers": [],
+        "src": "p.8 §6"
+      },
+      {
+        "kind": "limitation",
+        "quote": "this criterion limited a representativeness of the dataset included in this study to some extent",
+        "paraphrase_ko": "서술어 표지를 기본형 -(으)시-로만 조작화해(시제·음운 환경에 따른 이형태 제외) 자료의 대표성이 제한됐다.",
+        "numbers": [],
+        "src": "p.9 §7"
+      },
+      {
+        "kind": "limitation",
+        "quote": "The present study did not include objective proficiency measures",
+        "paraphrase_ko": "L2 참가자 전원이 4학기 이상 수강자라는 것 외에 객관적 숙달도 측정이 없어 숙달도 효과를 배제할 수 없다.",
+        "numbers": [],
+        "src": "p.9 §7"
+      },
+      {
+        "kind": "future_work",
+        "quote": "A textbook analysis would be helpful in further evidencing",
+        "paraphrase_ko": "교재 내용이 L2의 유형별 민감도 차이와 관련되는지 교재 분석으로 확인해야 한다.",
+        "numbers": [],
+        "src": "p.9 §7"
+      },
+      {
+        "kind": "future_work",
+        "quote": "heritage language learners with pragmatic usage exposed early in life through family interaction",
+        "paraphrase_ko": "숙달도와 언어 노출 배경(가정에서 일찍 화용적 사용에 노출된 계승어 학습자 등)에 따라 (불)일치 수용이 어떻게 달라지는지가 후속 과제다.",
+        "numbers": [],
+        "src": "p.9 §7"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "1. Introduction (전반)",
+        "move": "background",
+        "summary_ko": "L2 교육은 기술의 덕을 봐 왔고 DDL은 말뭉치의 실제성에 기대 귀납적 패턴 발견을 돕는다. GenAI가 DDL을 보완할 수 있다는 논의가 시작됐고, 화용 교육에서는 실제적 입력 제공이 핵심이다. 영어 (비)동의 표현의 말뭉치 기반 교재 개발 사례를 든다.",
+        "src": "p.1-2 §1"
+      },
+      {
+        "section": "1. Introduction (후반)",
+        "move": "gap",
+        "summary_ko": "교사는 화용 지식 갱신이 필요하고 교재는 자연 언어의 복잡성을 과소 대표한다. 이에 말뭉치와 GenAI라는 두 입력원의 예문을 검토하고 화자의 수용성 지각을 함께 조사한다는 목표와, 산출 분석에 수용성 검사를 결합하는 이유(산출된 용법과 지각된 규범의 수렴·발산 지점 확인, L2 민감도 기준선 확보)를 밝힌다.",
+        "src": "p.2 §1"
+      },
+      {
+        "section": "2.1 Korean honorifics",
+        "move": "background",
+        "summary_ko": "주체 높임은 주어와 서술어 양쪽 표지를 요구한다고 소개한 뒤, 전통적으로 통사적 일치로 여겨졌으나 최근 연구가 일치의 수의성과 화자 입장(stance) 표지를 위한 높임·비높임 전환을 보였다고 정리한다. (불)일치는 화용적 목적에 유연하게 쓰인다는 입장을 세운다.",
+        "src": "p.2 §2.1"
+      },
+      {
+        "section": "2.2 Pragmatics in AI language",
+        "move": "gap",
+        "summary_ko": "ChatGPT의 화행 실현은 인간과 비슷하나 지나치게 격식적이고 장황하다는 영어권 결과를 소개한다. 한국어는 Kakao Mini 상호작용, 간접 화행·화용 추론 평가(Koo et al., 2025; Park et al., 2024) 정도뿐이어서 화행 추론을 넘어선 화용 자원 연구가 필요하다고 공백을 짚는다. 한국어 경어를 LLM으로 평가한 연구(P01–P04 계열)는 인용되지 않는다.",
+        "src": "p.2-3 §2.2"
+      },
+      {
+        "section": "2.3 Honorifics as a pragmatic resource in L2 Korean",
+        "move": "background",
+        "summary_ko": "Mueller & Jiang (2013)의 자기조절 읽기와 Shin et al. (2025)의 수용성 판단은 L1이 NHsubj-Hverb에 특히 민감한 반면 L2는 이를 일치형만큼 수용함을 보였다. 명시적 교수의 효과 연구는 있으나 (불)일치의 다양한 실현형을 교실에 들이는 작업은 부족하다고 본다.",
+        "src": "p.3 §2.3"
+      },
+      {
+        "section": "2.4 Research questions",
+        "move": "claim",
+        "summary_ko": "L2 화용, 기술 보조 언어 교육, 외국어로서의 한국어 교육의 교차점에서 두 연구 질문을 제시한다. RQ1은 산출 자료(말뭉치 대 AI), RQ2는 지각 자료(L1 대 L2)를 다룬다. 방향 가설은 없다.",
+        "src": "p.3 §2.4"
+      },
+      {
+        "section": "3.1-3.2 Study 1 Overview, Data",
+        "move": "method",
+        "summary_ko": "국립국어원 일상대화 요약 말뭉치에서 -께서/-(으)시- 포함 발화를 뽑아 프로토콜(Appendix A)로 정제해 1453개를 얻고, ChatGPT 4.0에는 페르소나 패턴 한국어 프롬프트로 50개씩 예문을 받아 같은 크기로 모았다.",
+        "src": "p.3-4 §3.1-3.2"
+      },
+      {
+        "section": "3.3 Data coding and analysis",
+        "move": "method",
+        "summary_ko": "2906개를 세 범주로 분류하고 10 %를 제2코더가 재코딩해 일치율 98.95 %를 얻었다. 범주 편중 때문에 kappa 대신 일치율을 쓴다고 정당화한다.",
+        "src": "p.4 §3.3"
+      },
+      {
+        "section": "3.4 Results (Study 1)",
+        "move": "evidence",
+        "summary_ko": "Table 1: ChatGPT 99.93 % 일치, 말뭉치는 불일치 28.01 %(NHsubj-Hverb 24.71 %, Hsubj-NHverb 3.30 %). 예문 (2)–(7). Table 2: ChatGPT는 어휘+-께서 병용 98.14 %, 말뭉치는 어휘 전용 55.95 %, 무표지 24.71 %. 검정 없이 빈도와 백분율만 제시한다.",
+        "src": "p.4-5 §3.4"
+      },
+      {
+        "section": "4.1-4.3 Study 2 Overview, Materials, Participants",
+        "move": "method",
+        "summary_ko": "귀납적 교수 설계를 위해 (불)일치형이 어떻게 지각되는지 알아야 한다는 취지를 밝히고, Kwon & Sturt (2024)를 개작한 40세트(네 조건, 라틴 방격, 채움 20), Gorilla 제시, 7점 척도, 배경 설문, L1 34명·L2 16명을 기술한다.",
+        "src": "p.5 §4.1-4.3"
+      },
+      {
+        "section": "4.4 Data analysis",
+        "move": "method",
+        "summary_ko": "glmmTMB 선형 혼합효과 회귀, Language × Condition(더미 코딩), 최대 임의효과 구조에서 출발해 수렴 실패 시 단순화, emmeans 계획 대비 + Bonferroni, OSF 공개.",
+        "src": "p.5-6 §4.4"
+      },
+      {
+        "section": "4.5 Results (Study 2)",
+        "move": "evidence",
+        "summary_ko": "L1 목록별 alpha 0.86–0.94. L2는 기준 조건에서 L1보다 낮게 평정(b = −0.90). L1에서 NHsubj-Hverb가 최대 하락(b = −3.45), Hsubj-NHverb도 하락(b = −0.96), NHsubj-NHverb는 소폭 상승(b = 0.25). Language × NHsubj-Hverb 상호작용이 가장 크고(3.07), Language × Hsubj-NHverb는 유의하지 않다(p = .84).",
+        "src": "p.6 §4.5"
+      },
+      {
+        "section": "4.6 Summary of study 1 & 2 results",
+        "move": "claim",
+        "summary_ko": "네 개의 글머리표로 요약: GenAI는 정형 일색으로 변이에 민감하지 않다 / 말뭉치는 다양하다 / L1은 조건을 뚜렷이 가른다(일치형 수용, Hsubj-NHverb 덜 확실, NHsubj-Hverb 거부) / L2는 모든 형태를 수용하되 Hsubj-NHverb만 덜 수용한다.",
+        "src": "p.6 §4.6"
+      },
+      {
+        "section": "5. Discussion — Study 1 해석",
+        "move": "interpretation",
+        "summary_ko": "ChatGPT의 편중을 '격식성' 선행 결과와 잇는다. Kim et al. (2006), Song et al. (2019)과 달리 NHsubj-Hverb가 Hsubj-NHverb보다 많았던 이유로 비높임 친족어 주어를 지목하고, 일상 대화 장르의 특성과 '나이 위계 + 낮은 사회적 거리'가 주어 무표지·서술어 유표지 조합을 낳는다고 추정한다.",
+        "src": "p.6-7 §5"
+      },
+      {
+        "section": "5. Discussion — Study 2 해석",
+        "move": "interpretation",
+        "summary_ko": "L1은 일치형을 가장 자연스럽게 보고 불일치에는 비대칭(2.83 대 5.32)을 보인다. L2가 NHsubj-Hverb를 수용하는 이유로 교재의 높임체 과다 노출(Brown, 2010: 높임 문체 87.6 %)로 -시-를 기본형으로 여길 가능성을, Hsubj-NHverb에는 민감한 이유로 일치 원리의 과적용을 제안한다.",
+        "src": "p.7-8 §5"
+      },
+      {
+        "section": "5. Discussion — 산출과 지각의 괴리",
+        "move": "limitation",
+        "summary_ko": "일치형은 산출과 지각이 맞지만 두 불일치형은 어긋난다. 원인으로 지각과 산출의 본질적 차이(상호작용 중의 순간적 조정)와 검색어 설계에 따른 어휘 전용 Hsubj-NHverb 과소 표집을 든다. 친족어 주어와 고유명 주어가 다른 문장 유형이라는 점은 원인으로 거론하지 않는다.",
+        "src": "p.8 §5"
+      },
+      {
+        "section": "6. Conclusion and pedagogical implications",
+        "move": "claim",
+        "summary_ko": "AI 활용 교수는 실제 자료와 학습자 지각에 대한 이해로 보완될 때 가치가 크다. ChatGPT 예문의 동질성은 일치 규칙 귀납에, 말뭉치 예문(어머니가/엄마가 … 좋아하시거든)은 변이·예외 인지와 후속 명시적 설명에 쓰자고 제안한다. 부적절한 NHsubj-Hverb와 저빈도 Hsubj-NHverb는 명시적 교수·추가 입력이 필요하다(Table 5).",
+        "src": "p.8 §6"
+      },
+      {
+        "section": "7. Limitations and future directions",
+        "move": "future_work",
+        "summary_ko": "기본형 -(으)시- 한정에 따른 대표성 한계를 인정하고 더 망라적인 목록을 후속 과제로 든다. 이어 교재 분석, 그리고 원어민 개념 재고·계승어 화자·숙달도에 따른 (불)일치 수용 차이 연구를 제안한다. NHsubj-Hverb 일치 처리가 'largely structural'이라는 Kwon & Sturt (2024)를 다시 인용한다.",
+        "src": "p.9 §7"
+      }
+    ],
+    "context": [
+      {
+        "axis": "lineage",
+        "text_ko": "인용 계보는 세 갈래다. ① 말뭉치 기반 L2 교육·DDL(Boulton & Vyatkina, 2021; Crosthwaite & Baisa, 2023; Bardovi-Harlig 계열) ② 한국어 높임의 심리언어학·L2 습득(Kwon & Sturt, 2024; Song et al., 2019; Mueller & Jiang, 2013; Shin et al., 2025; Brown, 2010) ③ AI 화용(Chen et al., 2024; Tao et al., 2024; Koo et al., 2025; Park et al., 2024; Nam et al., 2023). 한국어 경어를 LLM으로 평가한 P01(Lee & Wang, 2023)–P04와 KITE·KoBALT(P09·P10)는 참고문헌에 없다. 응용언어학 쪽과 NLP·심리언어학 쪽 LLM-경어 연구의 인용 계보가 끊겨 있다.",
+        "related": ["P01", "P02", "P03", "P04", "P09", "P10"],
+        "src": "p.9-10 References"
+      },
+      {
+        "axis": "lineage",
+        "text_ko": "직접 인용은 없지만 공통 조상은 있다. Kwon & Sturt (2024)는 P05 Study 2 자극의 원천이고 P03·P06도 인용한다. Song et al. (2019)는 P02·P04가 인용한다. Shin et al. (2025, Languages 10(8), 180; P04 제1저자 Gyu-Ho Shin의 연구)는 P05가 L2 수용성 선행연구로 인용하는데, P04가 익명 처리해 쓴 수용성 평정 데이터(학습 환경과 학습 성과, 주어-서술어 높임 일치, L1·L2·계승어 세 집단)의 설명이 이 논문 제목과 일치한다. 익명 처리돼 있어 단정은 못 하지만 P04와 P05가 같은 인간 연구를 서로 다른 방식으로 잇고 있을 가능성이 높다.",
+        "related": ["P02", "P03", "P04", "P06"],
+        "src": "p.3 §2.3; p.5 §4.2; p.10 References"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "이론적 입장은 '비대칭적 수의성'이다. 서론에서는 높임 일치가 통사 규칙이 아니라 화용적으로 유연하게 쓰인다고 하지만, 결과 해석에서는 NHsubj–Hverb가 'ungrammatical'로 지각된다고 하고 한계 절에서는 그 처리가 'largely structural'이라고 쓴다. 즉 높일 수 있는 주어에서 -시-를 빼는 것은 화용적 선택, 높일 수 없는 주어에 -시-를 붙이는 것은 구조적 위반이라는 그림이다. 한편 말뭉치의 '엄마가 … 좋아하시거든'을 'pragmatically appropriate'로 보는 대목은 -시-의 허가가 주어 명사구의 높임 형태가 아니라 지시체의 존대 가능성에 달려 있음을 보여 주는 자연 발화 증거다.",
+        "related": ["P02", "P03", "P04"],
+        "src": "p.2 §2.1; p.7 §5; p.8 §6; p.9 §7"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "실험 모델은 ChatGPT 4.0(OpenAI, 2023) 하나다. 스냅샷·접속 경로·temperature·생성 일자·요청 횟수가 없어 재현이 어렵고, 단일 프롬프트·단일 모델의 산출 분포다. 2026년 시점의 상용 모델(추론 모드 포함)과 한국어 특화 모델에서 같은 분포가 나오는지, 프롬프트를 바꾸면 달라지는지는 미검증이다.",
+        "related": ["P01", "P04"],
+        "src": "p.4 §3.2"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "P02는 모델이 주어의 사회적 지위와 무관하게 외현 높임 표지를 선호한다고 보고했는데(P02 초록), ChatGPT가 -께서 + 높임 어휘 + -시-를 최대한 겹쳐 쓴 정형만 내놓았다는 P05의 결과와 방향이 같다. 또 L1이 '높일 수 없는 주어 + -시-'를 가장 강하게 거부한다는 Study 2 결과는 P03이 전제하는 '높일 수 있는 주어에서는 -시-가 수의적, 높일 수 없는 주어에서는 비문'이라는 구도, 그리고 P04가 쓴 인간 수용성 자료(할아버지/영수 × -시- 유무)의 설계와 맞물린다.",
+        "related": ["P02", "P03", "P04"],
+        "src": "p.6 §4.5-4.6"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "P05에서 ChatGPT는 NHsubj-Hverb를 한 번도 산출하지 않았으므로(0.00 %) 산출 기준으로는 '오류 없는' 모델이다. 반면 P02는 모델이 비높임 주어에도 높임 표지를 선호한다고 본다. 산출 빈도(P05)와 문장 확률·처리 지표(P01–P04)는 측정이 달라 직접 비교할 수 없고, 같은 모델이 '생성은 보수적, 판단은 관대'일 가능성이 열려 있다. 또 저자 스스로 밝힌 불일치로, Kim et al. (2006)·Song et al. (2019)은 Hsubj-NHverb가 더 많다고 했으나 P05 말뭉치에서는 NHsubj-Hverb(24.71 %)가 Hsubj-NHverb(3.3 %)보다 많았다.",
+        "related": ["P01", "P02", "P03", "P04"],
+        "src": "p.4 Table 1; p.6-7 §5"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "'L2 판단이 ChatGPT를 닮았다'는 결론은 범주 라벨 수준의 유비다. NHsubj-Hverb만 놓고 보면 L2는 이를 수용하고(5.01) ChatGPT는 전혀 산출하지 않아(0.00 %) 오히려 어긋나며, 이 유형을 실제로 산출하는 쪽은 말뭉치의 L1 화자(24.71 %)다. 같은 과제를 모델에 주지 않는 한 'LLM은 L2 학습자형'이라는 명제는 검증된 것이 아니다.",
+        "related": ["P02", "P04"],
+        "src": "p.1 Abstract; p.8 Table 5"
+      },
+      {
+        "axis": "field",
+        "text_ko": "독자는 말뭉치 언어학·L2 화용 교육 연구자와 한국어 교사다. LLM은 평가 대상이 아니라 '교육용 입력원'으로 다뤄지고, 결론도 교수법 권고(Table 5의 L2 Pedagogy 열)다. 그래서 모델 통제(버전, 표집, 프롬프트 변형)는 느슨하고 인간 판단 실험의 통제(라틴 방격, 혼합효과모형, 베이지안 강건성 확인, OSF 공개)는 촘촘하다. 우리 후속 연구는 이 인간 쪽 설계를 그대로 물려받고 모델 쪽 통제를 보강하는 위치에 선다.",
+        "related": [],
+        "src": "p.1 Keywords; p.8 Table 5"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "주체 높임(subject honorification)에서 주어 위치의 높임 표지(조사 -께서, 높임 어휘·접미사 -님)와 서술어 선어말어미 -(으)시-의 일치·불일치(subject-verb honorific (mis)match)",
+    "stimuli": "Study 1: (가) ChatGPT 4.0에 페르소나 패턴 한국어 프롬프트('당신은 한국어 원어민으로 행동합니다' / '1명 또는 1명 이상의 한국어 원어민과 대화를 하고 있습니다' / '대화 중에 발화할 법한 주체 높임의 예문 50개를 제공해 주십시오' / 후속 '앞서 제공한 50개의 예문을 제외한 또 다른 … 50개')를 주어 받은 1453문장. (나) 국립국어원 일상대화 요약 말뭉치 2023(v.1.0, 전사 2000건, 300만 어절)에서 -께서 또는 기본형 -(으)시-가 든 발화를 검색·정제한 1453용례. Study 2: Kwon & Sturt (2024) 문장을 개작한 핵심 문장 40세트(저빈도어 교체, 원어민 3명 검수), 채움 문장 20개(8~16단어). 원문 예시 세트 (8)–(11) 기준으로 문맥 없는 단문, 평서 '-다' 종결, 주어 조사는 네 조건 모두 -은/-는. 전체 문항은 Appendix D·OSF(이 카드에서 미확인).",
+    "conditions": [
+      "Hsubj-Hverb — 주어·서술어 모두 높임 (Study 2 예: 원장님은 행사장 주변에서 기다리셨다.)",
+      "Hsubj-NHverb — 주어만 높임 (원장님은 … 기다렸다.)",
+      "NHsubj-Hverb — 서술어만 높임 (영희는 … 기다리셨다.)",
+      "NHsubj-NHverb — 둘 다 비높임 (영희는 … 기다렸다.) · Study 2에서만 추가된 기준(baseline) 조건, Study 1에서는 집계하지 않음",
+      "Study 1의 자료원: GenAI(ChatGPT)-generated texts 대 Corpus texts",
+      "Study 2의 피험자 간 요인 Language: L1 대 L2"
+    ],
+    "n_items": "Study 1: 자료원별 1453개, 합계 2906개 용례. Study 2: 핵심 문장 40세트 × 4조건을 라틴 방격 4목록에 배분 + 채움 20문항 — 참가자 1인당 핵심 40문항(조건당 10문항은 라틴 방격 구조에서 추정, 원문 미표기)과 채움 20문항.",
+    "measures": [
+      "Study 1: 세 범주(Hsubj-Hverb / Hsubj-NHverb / NHsubj-Hverb)의 빈도와 비율 — 분모는 자료원별 1453개",
+      "Study 1: 주어 위치 높임 표지 유형 4분류(lexical only / morphosyntactic only / both / no honorifics)",
+      "Study 1: 코더 간 일치율(percent agreement) 98.95 %, 10 % 표본(290개) 재코딩",
+      "Study 2: 7점 Likert 수용성 평정(1 = very unacceptable, 7 = very acceptable)",
+      "Study 2: 목록별 Cronbach's alpha(L1만 산출: 0.92, 0.92, 0.86, 0.94)"
+    ],
+    "models": [
+      "ChatGPT 4.0 (OpenAI, 2023) — 생성 과제만 수행, 수용성 판단은 시키지 않음. 파라미터 규모·스냅샷·temperature·접속 경로(웹/API)·생성 일자·요청 횟수 원문 미표기"
+    ],
+    "humans": "L1: 한국어 원어민 34명(Mage = 34.97, 범위 20–48, 남 12·여 22), Prolific 모집 46명 중 한국어 비우세 응답자 12명 제외. L2: 중·고급 학습자 16명(Mage = 20.81, 범위 18–30, 남 5·여 11), 미국 매사추세츠·캘리포니아·유타의 고급 한국어 수업, 전원 4학기 이상 수강, 습득 시작 나이 14.9(SD = 5.86), 객관적 숙달도 측정 없음, 모어·계승어 여부 미표기. 그 밖에 Study 1 제2코더 1명, Study 2 자극 검수 원어민 3명.",
+    "stats": "Study 1: 빈도·백분율 기술통계만(추론통계 없음). Study 2: R 4.3.1의 glmmTMB 1.1.11 선형 혼합효과 회귀, 고정효과 Language(L1 = 0, L2 = 1) × Condition(더미 코딩, Hsubj-Hverb = 0) 및 상호작용, 최종식 Response ~ Lang * Cond + (1+Cond | Subj) + (1 + Lang| Item). 최대 임의효과 구조(Barr et al., 2013)에서 시작해 수렴 실패 시 단순화. 계획된 쌍별 대비는 emmeans 1.11.1 + Bonferroni(결과표는 Appendix B). 강건성 확인으로 최대 구조의 베이지안 서열 모형 — 결론 동일.",
+    "is_factorial": "Study 2는 설계상 2×2(주어 높임[원장님류 높임 명사 / 영희류 고유명] × 서술어 -시-[유 / 무])에 피험자 간 요인 Language[L1 / L2]가 더해진 2×2×2다(Table 3도 Subject × Verb 교차표로 제시). 그러나 통계 모형은 Condition을 4수준 단일 요인으로 더미 코딩해 Language × Condition만 검정했고, 주어 × 서술어 상호작용항은 직접 검정하지 않았다. 주어 요인은 -께서 유무가 아니라 명사 종류(직함+님 대 고유명)로 조작됐다. Study 1은 요인설계 아님 — 자료원 2종 × 범주 3종의 빈도 기술."
+  },
+  "stimulus_examples": [
+    {
+      "ko": "선생님께서 수업을 하신다.",
+      "gloss": "sunsengnim-kkeyse sueob-eul ha-si-en-ta 'A teacher gives a class' (원문의 로마자 표기 그대로. 표준 Yale 표기가 아니며 -nim, -kkeyse, -si-를 굵게 표시)",
+      "condition": "예문 (1) — 주체 높임의 정의 예시, Hsubj-Hverb(-께서 + 님 + -(으)시-)",
+      "src": "p.2 §2.1 (1)"
+    },
+    {
+      "ko": "선생님께서는 항상 학생들에게 친절히 대해주십니다.",
+      "gloss": "The teacher always treats the students kindly.",
+      "condition": "Study 1 Hsubj-Hverb — GenAI 산출 (2). 어휘(님) + 조사(-께서) 병용형의 예",
+      "src": "p.5 §3.4 (2)"
+    },
+    {
+      "ko": "교수님이 하시는데",
+      "gloss": "The professor is doing it.",
+      "condition": "Study 1 Hsubj-Hverb — Corpus (3). -께서 없이 어휘로만 주어를 높인 유형(말뭉치 55.95 %)의 예",
+      "src": "p.5 §3.4 (3)"
+    },
+    {
+      "ko": "오빠께서는 이 문제를 어떻게 해결할까요?",
+      "gloss": "How would older brother solve this problem?",
+      "condition": "Study 1 Hsubj-NHverb — GenAI 산출 (4). Table 1에서 GenAI의 이 범주는 1건뿐이다. 주어는 친족어 + -께서, 서술어에 -시- 없음",
+      "src": "p.5 §3.4 (4)"
+    },
+    {
+      "ko": "기사 아저씨께서 뭐 한번 거기 마스크 쓰세요 이렇게 막 말하면은 되니까,",
+      "gloss": "When the driver just says something like, 'Hey, wear a mask there,' it works.",
+      "condition": "Study 1 Hsubj-NHverb — Corpus (5). 인용절 안의 '쓰세요'와 별개로 주절 서술어 '말하면은'에 -시-가 없다",
+      "src": "p.5 §3.4 (5)"
+    },
+    {
+      "ko": "반려동물 사람들이 되게 많이 키우시는데",
+      "gloss": "People raise a lot of pets.",
+      "condition": "Study 1 NHsubj-Hverb — Corpus (7). 같은 범주의 GenAI 칸 (6)은 '[no occurrence]'. 이 예문의 주어는 친족어가 아니라 '사람들'이다",
+      "src": "p.5 §3.4 (6)-(7)"
+    },
+    {
+      "ko": "원장님은 행사장 주변에서 기다리셨다.",
+      "gloss": "The director waited around the event venue.",
+      "condition": "Study 2 Hsubj-Hverb (8)",
+      "src": "p.5 §4.2 (8)"
+    },
+    {
+      "ko": "원장님은 행사장 주변에서 기다렸다.",
+      "gloss": "The director waited around the event venue.",
+      "condition": "Study 2 Hsubj-NHverb (9)",
+      "src": "p.5 §4.2 (9)"
+    },
+    {
+      "ko": "영희는 행사장 주변에서 기다리셨다.",
+      "gloss": "Younghee waited around the event venue.",
+      "condition": "Study 2 NHsubj-Hverb (10)",
+      "src": "p.5 §4.2 (10)"
+    },
+    {
+      "ko": "영희는 행사장 주변에서 기다렸다.",
+      "gloss": "Younghee waited around the event venue.",
+      "condition": "Study 2 NHsubj-NHverb (11) — 기준(baseline) 조건",
+      "src": "p.5 §4.2 (11)"
+    },
+    {
+      "ko": "어머니가 고기를 안 좋아하시거든",
+      "gloss": "my mother does not like meat",
+      "condition": "말뭉치 Hsubj-Hverb — 어휘적으로 높인 주어(어머니). 교육 자료 제안의 예",
+      "src": "p.8 §6"
+    },
+    {
+      "ko": "엄마가 고기를 안 좋아하시거든",
+      "gloss": "my mom does not like meat",
+      "condition": "말뭉치 NHsubj-Hverb — 주어는 어휘적으로 비높임(엄마)이지만 저자가 'pragmatically appropriate'로 평가. 수용성 판단 과제에는 포함되지 않은 유형",
+      "src": "p.8 §6"
+    },
+    {
+      "ko": "교수님이 말했어",
+      "gloss": "a professor said it",
+      "condition": "Hsubj-NHverb(어휘 전용 주어 높임) — -께서/-(으)시- 검색으로는 잡히지 않아 과소 대표된 유형의 예로 저자가 제시",
+      "src": "p.8 §5"
+    },
+    {
+      "ko": "당신은 한국어 원어민으로 행동합니다.",
+      "gloss": "You are assuming the role of a native Korean speaker.",
+      "condition": "Study 1 ChatGPT 프롬프트 ① — 페르소나 부여",
+      "src": "p.4 §3.2"
+    },
+    {
+      "ko": "당신은 1명 또는 1명 이상의 한국어 원어민과 대화를 하고 있습니다.",
+      "gloss": "You are engaged in a conversation with one or more native Korean speakers.",
+      "condition": "Study 1 ChatGPT 프롬프트 ② — 상황 설정(대화 상대·관계·장면은 지정하지 않음)",
+      "src": "p.4 §3.2"
+    },
+    {
+      "ko": "당신이 대화 중에 발화할 법한 주체 높임의 예문 50개를 제공해 주십시오.",
+      "gloss": "Please provide 50 examples of subject honorification that would naturally occur in your speech during conversation.",
+      "condition": "Study 1 ChatGPT 프롬프트 ③ — 과제 지시('주체 높임'이라는 메타언어 용어 사용)",
+      "src": "p.4 §3.2"
+    },
+    {
+      "ko": "앞서 제공한 50개의 예문을 제외한 또 다른 주체 높임의 예문 50개를 제공해 주십시오.",
+      "gloss": "Additionally, please provide another 50 examples of subject honorification, ensuring they are distinct from the previously provided examples.",
+      "condition": "Study 1 ChatGPT 프롬프트 ④ — 반복 요청(반복 횟수는 원문 미표기)",
+      "src": "p.4 §3.2"
+    }
+  ],
+  "key_numbers": [
+    {
+      "what": "Study 1 표본 크기 — ChatGPT 산출문, 말뭉치 용례, 합계",
+      "value": "1453 + 1453 = 2906 instances",
+      "src": "p.4 §3.2-3.3"
+    },
+    {
+      "what": "말뭉치 규모 — 국립국어원 Korean Dialogue Summarization Corpus 2023 (v.1.0)",
+      "value": "2000 transcripts, 3 million word segments",
+      "src": "p.4 §3.2"
+    },
+    {
+      "what": "ChatGPT 1회 요청당 예문 수(요청 반복 횟수는 원문 미표기)",
+      "value": "50 examples per request",
+      "src": "p.4 §3.2"
+    },
+    {
+      "what": "Table 1 — GenAI(ChatGPT) 행: 세 범주의 빈도(비율). 분모는 ChatGPT 산출문 1453개",
+      "value": "Hsubj-Hverb 1452 (99.93 %), Hsubj-NHverb 1 (0.07 %), NHsubj-Hverb 0 (0.00 %), NHsubj-NHverb —, Total 1453 (100 %)",
+      "src": "p.4 Table 1"
+    },
+    {
+      "what": "Table 1 — Corpus 행: 세 범주의 빈도(비율). 분모는 정제된 말뭉치 주체 높임 용례 1453개",
+      "value": "Hsubj-Hverb 1046 (71.99 %), Hsubj-NHverb 48 (3.30 %), NHsubj-Hverb 359 (24.71 %), NHsubj-NHverb —, Total 1453 (100 %)",
+      "src": "p.4 Table 1"
+    },
+    {
+      "what": "24.71 %의 분모와 분자 — 분자는 말뭉치 NHsubj-Hverb 용례 전체(주어 위치에 높임 표지가 없고 서술어에 -(으)시-가 있는 것; Table 2의 'No honorifics'와 같은 359건), 분모는 -께서 또는 기본형 -(으)시-가 들어 있어 추출·정제된 말뭉치 주체 높임 용례 1453개. '말뭉치 전체의 24.71 %'도 '친밀 지칭어(친족어) 주어 + -시-의 비율'도 아니다. 친족어(엄마·아빠·삼촌·이모) 주어는 이 359건 가운데 'a majority'라고만 서술되고 수치는 없다(p.7). 예문 (7)의 주어는 '사람들'. 저자는 부적절한 NHsubj-Hverb(높이면 안 되는 주어 + -시-)가 말뭉치에서 관찰되지 않았다고 적는다(p.8). 1453이 정제 후 전수인지 표본인지는 불분명",
+      "value": "359 / 1453 = 24.71 %",
+      "src": "p.4 Table 1"
+    },
+    {
+      "what": "말뭉치의 불일치 합계(Hsubj-NHverb + NHsubj-Hverb = 48 + 359 = 407건). 분모는 말뭉치 용례 1453개. 원문은 건수를 영어 단어로 표기",
+      "value": "four hundred seven instances (28.01 %)",
+      "src": "p.4 §3.4"
+    },
+    {
+      "what": "Table 2 — GenAI 행: 주어 위치 높임 표지 유형. ChatGPT 산출문 전부(27 + 1426 = 1453)에 -께서가 붙었다",
+      "value": "Lexical only 0 (0.00 %), Morphosyntactic only 27 (1.86 %), Both 1426 (98.14 %), No honorifics 0 (0.00 %)",
+      "src": "p.5 Table 2"
+    },
+    {
+      "what": "Table 2 — Corpus 행: 주어 위치 높임 표지 유형. 813 + 25 + 256 = 1094 = Table 1의 Hsubj 합(1046 + 48)",
+      "value": "Lexical only 813 (55.95 %), Morphosyntactic only 25 (1.72 %), Both 256 (17.62 %), No honorifics 359 (24.71 %)",
+      "src": "p.5 Table 2"
+    },
+    {
+      "what": "말뭉치에서 -께서가 붙은 주어(Table 2의 25 + 256 = 281건) 가운데 서술어에 -시-가 없는 비율의 상한. Hsubj-NHverb 48건이 모두 -께서 주어라고 가정한 48 / 281이다. 한 발화에 다른 절의 -시-가 있으면(예문 (5)의 '쓰세요'처럼) 어휘로만 높인 주어도 검색될 수 있고 저자도 그런 용례가 '과소'했다고만 하므로, 실제 값은 이보다 작거나 같다",
+      "value": "17.08 % (재계산)",
+      "src": "p.4-5 Table 1-2"
+    },
+    {
+      "what": "Study 1 코더 간 신뢰도 — 전체의 10 % 재코딩, percent agreement",
+      "value": "290 instances (145 + 145), 98.95 %",
+      "src": "p.4 §3.3"
+    },
+    {
+      "what": "Song et al. (2019) 말뭉치 분석에서 NHsubj-Hverb 중 가족 관련어 주어의 비율(P05 자체 수치가 아니라 인용한 선행 보고)",
+      "value": "seventy percent",
+      "src": "p.7 §5"
+    },
+    {
+      "what": "Study 2 문항 구성 — 원문은 수를 영어 단어로 표기(Forty sets, four lists, Twenty filler sentences). 채움 문장 길이만 숫자 표기",
+      "value": "Forty sets of critical sentences, four lists (Latin Square), Twenty fillers of 8 to 16 words",
+      "src": "p.5 §4.2"
+    },
+    {
+      "what": "Study 2 척도",
+      "value": "7-point Likert (1 = very unacceptable; 7 = very acceptable)",
+      "src": "p.5 §4.2"
+    },
+    {
+      "what": "L1 참가자",
+      "value": "N = 34 (Mage = 34.97, range 20–48; 12 males, 22 females); 46 recruited, 12 excluded",
+      "src": "p.5 §4.3"
+    },
+    {
+      "what": "L2 참가자",
+      "value": "N = 16 (Mage = 20.81, range 18–30; 5 males, 11 females); age of acquisition 14.9 (SD = 5.86)",
+      "src": "p.5 §4.3"
+    },
+    {
+      "what": "L1 자료의 목록별 Cronbach's alpha (Lists A, B, C, D). L2는 목록별 표본이 작아 산출하지 않음",
+      "value": "0.92, 0.92, 0.86, 0.94",
+      "src": "p.6 §4.5"
+    },
+    {
+      "what": "Table 3 — L1 수용성 평균 (SE) [95 % CI]. 표는 Verb(행) × Subject(열) 교차표이며 여기서는 조건 라벨로 풀어 적음",
+      "value": "Hsubj-Hverb 6.28 (0.06) [6.16, 6.40]; Hsubj-NHverb 5.32 (0.09) [5.15, 5.49]; NHsubj-Hverb 2.83 (0.08) [2.68, 2.99]; NHsubj-NHverb 6.53 (0.04) [6.45, 6.61]",
+      "src": "p.6 Table 3"
+    },
+    {
+      "what": "Table 3 — L2 수용성 평균 (SE) [95 % CI]",
+      "value": "Hsubj-Hverb 5.39 (0.10) [5.20, 5.58]; Hsubj-NHverb 4.36 (0.14) [4.09, 4.62]; NHsubj-Hverb 5.01 (0.12) [4.78, 5.24]; NHsubj-NHverb 5.21 (0.10) [5.01, 5.41]",
+      "src": "p.6 Table 3"
+    },
+    {
+      "what": "Table 4 고정효과 — (Intercept): L1의 Hsubj-Hverb 추정 평균",
+      "value": "b = 6.28, SE = 0.10, z = 64.04, p < 0.001",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 고정효과 — Language(L2): 기준 조건 Hsubj-Hverb에서 L2 − L1",
+      "value": "b = −0.90, SE = 0.18, z = −5.11, p < 0.001",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 고정효과 — Hsubj-NHverb(L1에서 Hsubj-Hverb 대비)",
+      "value": "b = −0.96, SE = 0.19, z = −5.09, p < 0.001",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 고정효과 — NHsubj-Hverb(L1에서 Hsubj-Hverb 대비)",
+      "value": "b = −3.45, SE = 0.20, z = −17.30, p < 0.001",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 고정효과 — NHsubj-NHverb(L1에서 Hsubj-Hverb 대비). z는 표에서 2.97, 본문에서 2.96으로 다르게 적혀 있다",
+      "value": "b = 0.25, SE = 0.09, z = 2.97 (본문 2.96), p = .003",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 상호작용 — Language × Hsubj-NHverb (유의하지 않음)",
+      "value": "b = −0.07, SE = 0.33, z = −0.20, p = .840",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 상호작용 — Language × NHsubj-Hverb (가장 큰 상호작용). 더미 코딩 계수이므로 '차이의 차이'다",
+      "value": "b = 3.07, SE = 0.36, z = 8.59, p < 0.001",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 상호작용 — Language × NHsubj-NHverb",
+      "value": "b = −0.42, SE = 0.17, z = −2.43, p = .015",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Table 4 임의효과 SD. 표 머리글이 조판상 어긋나 'By Subject / By Items'가 고정효과 열 위에 놓여 있으나 마지막 두 SD 열이 각각 by-subject, by-item으로 읽힌다",
+      "value": "by-subject SD: intercept 0.45, Hsubj-NHverb 0.96, NHsubj-Hverb 1.09, NHsubj-NHverb 0.32; by-item SD: intercept 0.14, Language 0.25",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "쌍별 비교 — Hsubj-NHverb 조건에서 L1 대 L2",
+      "value": "b = 0.96, t = 2.91, p = .004",
+      "src": "p.6 §4.5"
+    },
+    {
+      "what": "쌍별 비교 — L2 집단에서 NHsubj–Hverb 대 두 일치 조건(Appendix B)",
+      "value": "p = 1.00",
+      "src": "p.7 §5"
+    },
+    {
+      "what": "쌍별 비교 — L2 집단에서 Hsubj-NHverb 대 Hsubj-Hverb, Hsubj-NHverb 대 NHsubj-NHverb",
+      "value": "p = .001, p = .001",
+      "src": "p.8 §5"
+    },
+    {
+      "what": "L1의 2×2 상호작용 대비 = (Hsubj-Hverb − Hsubj-NHverb) − (NHsubj-Hverb − NHsubj-NHverb) = (6.28 − 5.32) − (2.83 − 6.53). 원문은 이 대비를 검정하지 않았고 Table 3 평균으로 우리가 계산",
+      "value": "4.66점 (재계산)",
+      "src": "p.6 Table 3"
+    },
+    {
+      "what": "L2의 2×2 상호작용 대비 = (5.39 − 4.36) − (5.01 − 5.21). Table 3 평균으로 우리가 계산",
+      "value": "1.23점 (재계산)",
+      "src": "p.6 Table 3"
+    },
+    {
+      "what": "NHsubj-Hverb 조건에서 L2 − L1 기술 평균 차 = 5.01 − 2.83. 본문이 '3.07 points higher'라고 풀이한 값과 다르다(3.07은 상호작용 계수)",
+      "value": "2.18점 (재계산)",
+      "src": "p.6 Table 3"
+    },
+    {
+      "what": "NHsubj-Hverb 조건에서 모형 기준 L2 − L1 = Language 주효과 + Language × NHsubj-Hverb = −0.90 + 3.07. 기술 평균 차(2.18)와 거의 같아, 본문의 '3.07 points higher'가 계수 하나만 읽은 풀이임을 확인해 준다",
+      "value": "2.17점 (재계산)",
+      "src": "p.6 Table 4"
+    },
+    {
+      "what": "Brown (2010) 교재 분석 인용 — 대화문의 높임 문체 비율(L2의 -시- 기본형화 설명의 근거로 인용)",
+      "value": "honorific styles 87.6 % (polite 59.3 %, deferential 28.3 %), non-honorific 12.4 %",
+      "src": "p.7 §5"
+    }
+  ],
+  "limitations": [
+    {
+      "text_ko": "서술어 높임을 기본형 -(으)시-로만 조작화했다(시제·음운 환경에 따른 이형태 제외). 교착어 특성상 자료의 대표성이 제한됐고, 더 망라적인 목록은 후속 과제로 남겼다.",
+      "stated_by": "author",
+      "src": "p.9 §7"
+    },
+    {
+      "text_ko": "검색어가 -께서와 -(으)시-였으므로 '교수님이 말했어'처럼 어휘로만 주어를 높이고 서술어에 -시-가 없는 Hsubj-NHverb가 과소 대표됐다. NHsubj-Hverb > Hsubj-NHverb라는 빈도 순서는 이 방법론적 선택의 산물일 수 있다.",
+      "stated_by": "author",
+      "src": "p.8 §5"
+    },
+    {
+      "text_ko": "일상 대화라는 장르 특성이 비높임 친족어 주어, 나아가 NHsubj-Hverb의 높은 빈도를 낳았을 수 있다.",
+      "stated_by": "author",
+      "src": "p.7 §5"
+    },
+    {
+      "text_ko": "객관적 숙달도 측정이 없고 L1/L2 이분법을 썼다. 계승어 화자 등 다언어 능력의 연속체와 숙달도 효과를 배제하지 못한다.",
+      "stated_by": "author",
+      "src": "p.9 §7"
+    },
+    {
+      "text_ko": "L2는 목록별 표본이 작아 문항 신뢰도(Cronbach's alpha)를 산출하지 못했다.",
+      "stated_by": "author",
+      "src": "p.9 Notes"
+    },
+    {
+      "text_ko": "L2가 NHsubj-Hverb를 수용하는 이유로 든 교재 과다 노출과 일치 원리 과적용은 이 연구에서 검증되지 않은 설명이며, 교재 분석이 필요하다.",
+      "stated_by": "author",
+      "src": "p.7-8 §5; p.9 §7"
+    },
+    {
+      "text_ko": "LLM은 생성만, 인간은 판단만 했다. 'L2 판단이 ChatGPT를 닮았다'는 결론은 서로 다른 과제의 결과를 범주 라벨로 병치한 유비이고 정렬 정도를 재는 정량 지표가 없다. NHsubj-Hverb에서는 L2(수용, 5.01)와 ChatGPT(산출 0.00 %)가 오히려 어긋난다.",
+      "stated_by": "us",
+      "src": "p.1 Abstract; p.8 Table 5"
+    },
+    {
+      "text_ko": "NHsubj 라벨이 두 연구에서 다른 것을 가리킨다. 말뭉치의 NHsubj-Hverb는 주로 높일 수 있는 지시체를 비높임 어휘로 부른 경우(엄마·아빠)이고, 수용성 과제의 NHsubj-Hverb는 높일 수 없는 지시체(영희)에 -시-를 붙인 경우다. '산출은 많은데 판단은 거부'라는 괴리의 상당 부분이 이 혼동에서 나왔을 수 있으나 저자는 원인으로 거론하지 않는다.",
+      "stated_by": "us",
+      "src": "p.7-8 §5"
+    },
+    {
+      "text_ko": "Study 2의 주어 조작은 직함+님(원장님) 대 고유명(영희)이라 지시체의 사회적 지위, 접미사 -님의 유무, 보통명사/고유명 차이가 한데 묶여 있다. 또 원문에 실린 예시 세트는 네 조건 모두 -은/-는을 써서, ChatGPT 산출문 전부에 붙어 있던 -께서의 효과는 판단 과제에서 검증되지 않은 것으로 보인다(40세트 전체는 Appendix D에 있어 미확인).",
+      "stated_by": "us",
+      "src": "p.5 §4.2; p.5 Table 2"
+    },
+    {
+      "text_ko": "프롬프트가 '주체 높임의 예문'을 메타언어로 직접 요구했고 지시 대상·관계·장면을 주지 않았다. 99.93 %는 자연 대화 산출 분포라기보다 예시 요청에 대한 교과서형 응답일 수 있다. 단일 모델·단일 프롬프트이며 스냅샷, temperature, 요청 횟수, 중복 제거 기준이 보고되지 않아 재현이 어렵다.",
+      "stated_by": "us",
+      "src": "p.4 §3.2"
+    },
+    {
+      "text_ko": "Study 1의 백분율은 '높임 표지가 하나라도 있는 발화'를 분모로 한 조건부 비율이다. 높일 수 있는 지시체가 주어인데 표지가 전혀 없는 발화(NHsubj-NHverb)는 관찰되지 않으므로 '-시-를 얼마나 생략하는가'는 이 자료로 알 수 없다. 자료원 간 빈도 차이에 대한 추론통계도 없다.",
+      "stated_by": "us",
+      "src": "p.4 §3.2-3.4"
+    },
+    {
+      "text_ko": "집단 구성이 불균형하다. L1 34명 대 L2 16명, 평균 나이 34.97 대 20.81, 모집 경로도 Prolific 대 대학 수업으로 다르다. L2의 모어가 보고되지 않았다.",
+      "stated_by": "us",
+      "src": "p.5 §4.3"
+    },
+    {
+      "text_ko": "본문이 상호작용 계수 3.07을 'NHsubj-Hverb에서 L2가 L1보다 3.07점 높다'로 풀이했으나, 더미 코딩에서 이 계수는 차이의 차이이고 Table 3의 해당 조건 평균 차는 2.18이다. 기술 오류로 보인다.",
+      "stated_by": "us",
+      "src": "p.6 §4.5"
+    },
+    {
+      "text_ko": "편집상 불일치가 여럿 있다. z = 2.96(본문) 대 2.97(Table 4), p.7의 'see Table 1'은 Table 3을 가리키는 것으로 보임, Table 4 머리글 위치 어긋남, 한계 절의 'subject position … -u(si)'는 서술어 위치의 오기, p.8의 'convergence'는 문맥상 divergence, -kkeyse/-kkyese 표기 혼용. 수치 인용 시 표를 기준으로 삼아야 한다.",
+      "stated_by": "us",
+      "src": "p.6-9"
+    },
+    {
+      "text_ko": "수용성 하나만 측정했고 이해 문항이 없다. L2가 '영희는 … 기다리셨다'를 수용할 때 누구를 높이는 문장으로 이해했는지는 알 수 없다. 쌍별 비교 전체(Appendix B)와 문항 목록(Appendix D)은 PDF에 없어 본문에 인용된 p값 외에는 이 카드에서 확인하지 못했다.",
+      "stated_by": "us",
+      "src": "p.5 §4.2; p.7 §5"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P05-H1",
+      "hook_ko": "OSF 공개 40세트 2×2 문항과 7점 Likert 지시문을 상용 LLM에 그대로 주어, 모델의 평정 프로파일이 L1형인지 L2형인지 상호작용 대비로 검정한다.",
+      "basis_ko": "이 논문에서 ChatGPT는 생성(Study 1)만, 인간은 판단(Study 2)만 했다. 초록의 'L2 judgments closely mirrored ChatGPT's patterns'는 산출 분포와 평정 차이를 같은 'sensitivity'라는 말로 묶은 유비이고 Table 5도 범주 라벨 병치에 그친다. Table 3 평균으로 계산한 주어 × 서술어 상호작용 대비는 L1 4.66점, L2 1.23점(재계산)이라 모델을 이 축 위에 놓을 기준선이 이미 있다.",
+      "kind": "method_gap",
+      "src": "p.6 Table 3; p.8 Table 5"
+    },
+    {
+      "id": "P05-H2",
+      "hook_ko": "'지시체의 존대 가능성(어머니·엄마 대 영희) × 주어 어휘의 높임 형태'를 교차한 2×2에서 -시- 문장의 수용성을 재어, 표면 공기 학습과 허가 조건 학습을 가른다.",
+      "basis_ko": "말뭉치 NHsubj-Hverb(24.71 %)의 다수는 엄마·아빠·삼촌·이모 주어이고 저자는 '엄마가 고기를 안 좋아하시거든'을 'pragmatically appropriate'로 본다. 그런데 Study 2의 NHsubj-Hverb는 '영희는 … 기다리셨다'뿐이어서 같은 라벨 아래 다른 현상이 묶였다. 표면 공기(-님/-께서 ↔ -시-)를 배운 모델은 '엄마가 …하시-'를 깎고 '영희+시'와 비슷하게 볼 것이고, 허가 조건을 배운 모델은 전자를 수용하고 후자만 거부할 것이다. 친족어 주어 문장은 인간에게도 평정시킨 적이 없다.",
+      "kind": "unresolved_confound",
+      "src": "p.7 §5; p.8 §6"
+    },
+    {
+      "id": "P05-H3",
+      "hook_ko": "주어 조사(-께서 대 -이/가·은/는) × 서술어 -시-의 2×2로 -께서의 독립 효과를 인간과 모델에서 잰다.",
+      "basis_ko": "ChatGPT 산출문은 1453개 전부에 -께서가 붙었고(Table 2: 27 + 1426) 말뭉치는 -께서 주어가 281건(19.34 %, 재계산)에 그쳤다. 그러나 원문에 실린 Study 2 예시 세트는 네 조건 모두 -은/-는이어서 'ChatGPT가 실제로 내놓는 형태(-께서 + 님 + -시-)'와 '인간이 주로 쓰는 형태(님 + -이/가 + -시-)'의 수용성 차이는 측정되지 않았다. 말뭉치에서 -께서 주어의 최대 17.08 %(48/281 상한, 재계산)가 -시- 없이 쓰였다는 점도 -께서와 -시-의 공기가 필수적이지 않음을 시사한다.",
+      "kind": "untested_condition",
+      "src": "p.5 Table 2; p.5 §4.2"
+    },
+    {
+      "id": "P05-H4",
+      "hook_ko": "프롬프트의 메타언어 용어('주체 높임') 유무 × 대화 장면·관계 맥락 제공 유무를 조작해 모델 산출·평정의 -시-/-께서 분포가 달라지는지 본다(프롬프트 메타언어 통제 실험).",
+      "basis_ko": "프롬프트는 '대화 중에 발화할 법한 주체 높임의 예문 50개'를 요구했다. 문법 용어로 예시를 달라고 하면 교과서형 정형이 나오기 쉽고, 지시 대상과 화자의 관계가 없으니 친족어 주어 같은 변이가 나올 맥락도 없다. 저자도 ChatGPT 예문이 격식적 실현형을 대표한다는 결론에 'unless prompted otherwise by users'라는 단서를 달았지만 다른 프롬프트는 시도하지 않았다.",
+      "kind": "method_gap",
+      "src": "p.4 §3.2; p.6 §5"
+    },
+    {
+      "id": "P05-H5",
+      "hook_ko": "2026년 상용 API 모델(글로벌 프런티어, 한국어 특화, 호스팅 공개 가중치)에서 날짜 스냅샷·temperature·반복 표집을 고정해 생성 분포와 판단을 재검증한다.",
+      "basis_ko": "실험 모델은 ChatGPT 4.0(OpenAI, 2023) 하나이며 스냅샷, 접속 경로, 표집 설정, 생성 일자, 요청 횟수가 보고되지 않았다. 1453이라는 수가 50의 배수가 아닌데도 제외 기준이 없다. 구세대 단일 모델·단일 프롬프트의 결과를 'GenAI' 일반으로 확장한 셈이다.",
+      "kind": "model_generation",
+      "src": "p.4 §3.2"
+    },
+    {
+      "id": "P05-H6",
+      "hook_ko": "화자-지시체 관계(친밀도 × 위계)를 문맥으로 조작한 2×2에서 '비높임 호칭 + -시-'의 수용성·공손성을 잰다.",
+      "basis_ko": "저자는 친족어 주어 + -시-를 '나이 위계 + 낮은 사회적 거리'의 결합으로 설명하지만('a sense of elderliness and perceived closeness combined might drive …') 가능성 표현에 그쳤고, Study 2는 문맥 없는 단문이라 이 설명을 검증할 조작이 없다. 허가 조건이 관계 맥락에 달려 있다면 맥락 조작에서 상호작용이 나와야 한다.",
+      "kind": "untested_condition",
+      "src": "p.7 §5"
+    },
+    {
+      "id": "P05-H7",
+      "hook_ko": "수용성 평정에 이해 문항('이 문장에서 화자가 높이는 사람은 누구인가')을 짝지어, 불일치 문장을 수용하는 판단이 높임 대상 이해를 동반하는지 본다.",
+      "basis_ko": "측정은 7점 수용성 하나뿐이다. L2가 '영희는 … 기다리셨다'를 5.01로 수용한 것이 -시-를 기본형으로 여겨서인지(저자 가설) 높임 대상을 잘못 파악해서인지 구분할 자료가 없다. 저자는 수용성 결과를 'natural', 'ungrammatical', 'pragmatic inappropriateness'로 번갈아 해석하는데 이를 가를 두 번째 측정이 필요하다.",
+      "kind": "method_gap",
+      "src": "p.5 §4.2; p.7 §5"
+    },
+    {
+      "id": "P05-H8",
+      "hook_ko": "가설 검정을 주어 × 서술어 상호작용항에 걸고(합 대비 코딩), 서열 혼합모형을 주 분석으로 삼으며, 집단(인간 L1 대 모델) × 주어 × 서술어 3원 상호작용으로 인간-모델 정렬을 정량화한다.",
+      "basis_ko": "설계는 2×2인데 모형은 Condition을 4수준 더미 요인으로 넣어 Language × Condition만 검정했고, 그 결과 본문이 상호작용 계수 3.07을 단순 집단 차로 잘못 풀이했다(실제 평균 차 2.18, 재계산). 7점 평정을 가우시안 선형모형으로 분석하고 베이지안 서열 모형은 각주 수준의 강건성 확인으로만 썼다. 판단과 말뭉치의 '정렬'을 재는 지표도 없다.",
+      "kind": "method_gap",
+      "src": "p.6 §4.4-4.5; p.6 Table 4"
+    },
+    {
+      "id": "P05-H9",
+      "hook_ko": "산출 과제를 쓸 때는 '높일 수 있는 지시체가 주어인 발화'를 분모로 네 칸(NHsubj-NHverb 포함)을 모두 코딩하고, -시-의 이형태(셨·신·세요 등)를 포함한다.",
+      "basis_ko": "말뭉치 검색이 -께서 또는 기본형 -(으)시-에 한정돼 두 표지가 모두 없는 발화는 표본에 들어오지 않았다. 그래서 Study 1은 세 범주뿐이고 백분율은 '표지가 하나라도 있을 때'의 조건부 비율이다. 저자도 기본형 한정과 어휘 전용 Hsubj-NHverb 과소 표집을 한계로 인정하고 더 망라적인 목록을 후속 과제로 제시했다.",
+      "kind": "author_future_work",
+      "src": "p.8 §5; p.9 §7"
+    },
+    {
+      "id": "P05-H10",
+      "hook_ko": "모델의 판단 프로파일을 L1–계승어–L2 연속체 위에 놓아 해석한다(인간 기준 집단을 L1 하나로 두지 않는다).",
+      "basis_ko": "저자는 원어민 개념의 고정성 비판과 계승어 화자·숙달도에 따른 (불)일치 수용 차이를 후속 과제로 명시했다. Shin et al. (2025) 계열 자료(P04가 쓴 것으로 보이는 L1·L2·계승어 세 집단 자료)와 P05의 L1·L2 자료를 함께 쓰면 모델이 어느 집단의 프로파일에 가까운지 비교할 수 있다.",
+      "kind": "author_future_work",
+      "src": "p.9 §7"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "OSF 저장소 — 원문 표현 'All study materials, R scripts, and analysis outputs'(Study 2 자극·R 스크립트·분석 출력)",
+      "url": "https://osf.io/3y6mq"
+    },
+    {
+      "what": "온라인 보충자료 — Appendix A(말뭉치 코딩 프로토콜), B(쌍별 비교), C(배경 설문), D(문항 전체 목록). PDF 본문에는 없음",
+      "url": "https://doi.org/10.1016/j.acorp.2025.100171"
+    },
+    {
+      "what": "국립국어원 NIKL Korean Dialogue Summarization Corpus 2023 (Version 1) — 참고문헌에 적힌 배포처(신청 후 이용)",
+      "url": "https://kli.korean.go.kr"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md — §0 전체 지형도 P5 행, '## P5. Jung & Kim (2026)' 절, 참고문헌 목록",
+    "agreements": [
+      "서지: Applied Corpus Linguistics 6, 100171, DOI 10.1016/j.acorp.2025.100171 (p.1)",
+      "Table 1 세 범주 빈도·비율: ChatGPT 1452 (99.93 %) / 1 (0.07 %) / 0 (0.00 %), 말뭉치 1046 (71.99 %) / 48 (3.30 %) / 359 (24.71 %), 자료원별 합계 1453 (p.4 Table 1)",
+      "Table 2 주어 위치 표지 유형 비율: ChatGPT 어휘만 0.00 % / -께서만 1.86 % / 병용 98.14 % / 무표지 0.00 %, 말뭉치 55.95 % / 1.72 % / 17.62 % / 24.71 % (p.5 Table 2)",
+      "Study 2 설계: 7점 Likert, L1 34명·L2 16명, 핵심 40세트, 라틴 방격, 채움 20문항 (p.5 §4.2-4.3)",
+      "Table 3 셀 평균 8개: L1 6.28 / 5.32 / 2.83 / 6.53, L2 5.39 / 4.36 / 5.01 / 5.21 (Hsubj-Hverb / Hsubj-NHverb / NHsubj-Hverb / NHsubj-NHverb 순, p.6 Table 3)",
+      "Language × NHsubj-Hverb 상호작용 b = 3.07, z = 8.59, p < .001 (p.6 Table 4)",
+      "실험 모델은 ChatGPT 4.0 하나, 측정은 빈도 분포와 7점 수용성 평정 (p.4 §3.2; p.5 §4.2)",
+      "NHsubj-Hverb 용례의 다수가 엄마·아빠·삼촌·이모 같은 비높임 친족어 주어라는 원문 서술과, '엄마가 고기를 안 좋아하시거든'을 'pragmatically appropriate'로 본 서술의 인용 (p.7 §5; p.8 §6)",
+      "NHsubj 라벨 아래 '높일 수 없는 지시체(영희)'와 '높일 수 있는 지시체의 친밀 지칭(엄마·아빠)'이 섞여 있어 Study 2와 말뭉치의 NHsubj-Hverb가 같은 조건이 아니라는 판단 — 카드 limitations(us)·P05-H2와 같은 결론 (p.5 §4.2; p.7 §5)",
+      "저자가 인정한 방법론 한계: -께서/-(으)시- 검색어 때문에 '교수님이 말했어'형 어휘 전용 Hsubj-NHverb가 과소 대표됨 (p.8 §5)"
+    ],
+    "discrepancies": [
+      {
+        "item": "24.71 %의 의미(분모·분자)",
+        "old": "코퍼스에서는 (ii) '지시대상은 높임 대상이지만 지칭어가 친밀형(엄마, 아빠)'인 경우가 24.71 %를 차지했다 — 즉 '친밀 지칭어 주어 + -시-가 코퍼스의 24.71 %'로 읽힘",
+        "new": "24.71 % = 359 / 1453. 분모는 말뭉치 전체가 아니라 -께서 또는 기본형 -(으)시-로 검색·정제한 주체 높임 용례 1453개이고, 분자는 주어 위치에 높임 표지가 없는 NHsubj-Hverb 전체(Table 2 'No honorifics' 359건과 같음)다. 친족어 주어는 그 가운데 'a majority'라고만 적혀 있고 수치가 없으며, 원문이 든 NHsubj-Hverb 예문 (7)의 주어도 친족어가 아닌 '사람들'이다. 따라서 친밀 지칭어 주어 + -시-의 비율은 24.71 %보다 작고 원문에서 산출할 수 없다.",
+        "basis_src": "p.4 Table 1; p.5 Table 2 및 예문 (7); p.7 §5"
+      },
+      {
+        "item": "Language × NHsubj-Hverb 계수 3.07의 해석",
+        "old": "b=3.07, z=8.59, p<.001 (L2가 L1보다 3점 이상 높게 평정)",
+        "new": "3.07은 더미 코딩 상호작용 계수, 곧 차이의 차이다(NHsubj-Hverb에서의 L2 − L1 차가 기준 조건 Hsubj-Hverb에서의 L2 − L1 차보다 3.07 크다). NHsubj-Hverb 조건의 실제 집단 차는 기술 평균으로 5.01 − 2.83 = 2.18점(재계산), 모형으로 −0.90 + 3.07 = 2.17점(재계산)이다. '3점 이상'은 원문 본문의 오독('3.07 points higher', 'nearly three points')을 더 과장한 서술이다.",
+        "basis_src": "p.6 Table 3-4; p.6 §4.5"
+      },
+      {
+        "item": "Study 2 NHsubj-Hverb 평균 2.83의 원인 귀속",
+        "old": "수용성 실험(Study 2)에서는 '영희'를 썼기 때문에 2.83이 나왔다",
+        "new": "Study 2의 NHsubj가 '높일 수 없는 지시체(영희)'이고 말뭉치의 NHsubj-Hverb는 주로 친족어라는 차이는 원문으로 확인된다. 그러나 Study 2에는 친족어 주어 조건이 없어 '영희라서 2.83'이라는 인과는 검증되지 않은 우리 해석이며, 저자는 산출-지각 괴리의 원인으로 이 차이를 들지 않았다(저자가 든 원인은 상호작용 중 순간적 조정과 검색어 설계). 또 PDF에는 예시 세트 하나만 실려 있어(40세트 전체는 Appendix D) 모든 NHsubj가 고유명인지는 확인되지 않는다.",
+        "basis_src": "p.5 §4.2 예문 (10); p.7 §5; p.8 §5"
+      }
+    ]
+  },
+  "verification": {
+    "status": "draft",
+    "by": null,
+    "notes": []
+  }
+}
