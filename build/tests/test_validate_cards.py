@@ -391,6 +391,13 @@ class TestWarnings(CardTestCase):
         self.assertNoErrors(res)
         self.assertEqual(res["warnings"], [], res["warnings"])
 
+    def test_figure_read_value_is_skipped(self):
+        card = _valid_card()
+        card["key_numbers"][0]["value"] = "0.98 / 0.98 (그림 판독)"
+        res = self.run_validator(card)
+        self.assertNoErrors(res)
+        self.assertEqual(res["warnings"], [], res["warnings"])
+
     def test_number_found_on_neighbouring_page(self):
         card = _valid_card()
         # 0.66 lives on p.2; cite p.3 and the ±1 window must still find it.

@@ -64,7 +64,9 @@ SRC_RE = re.compile(r"^p\.(\d+)(-(\d+))?( .*)?$")
 HOOK_ID_RE = re.compile(r"^P\d{2}-H\d+$")
 CARD_ID_RE = re.compile(r"^P\d{2}$")
 QUOTE_MAX_TOKENS = 15
-RECALC_MARK = "(재계산)"
+# values that cannot be found verbatim in the text layer: recomputed by us,
+# or read off a figure image. Their numbers are exempt from the page lookup.
+SKIP_MARKS = ("(재계산)", "(그림 판독)")
 
 NUM_RE = re.compile(r"\d+(?:,\d{3})*(?:\.\d+)?")
 
@@ -445,7 +447,7 @@ def validate_card(path: Path, root: Path, manifest: dict, index: TextIndex) -> R
     def check_numbers(where: str, value, pages: list[int]) -> None:
         if not isinstance(value, str) or not pages:
             return
-        if RECALC_MARK in value:
+        if any(m in value for m in SKIP_MARKS):
             return
         tokens = numeric_tokens(value)
         if not tokens:
