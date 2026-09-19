@@ -1,0 +1,1409 @@
+{
+  "id": "P06",
+  "role": "adjacent",
+  "short": "Cihlar et al. (2026)",
+  "title": "Investigating the Automatic Translation of Korean Honorifics",
+  "title_ko": "한국어 경어(상대높임 화계)의 자동 번역에 대한 조사",
+  "citation": {
+    "apa": "Cihlar, L., Bui, M. D., Park, K. E., Mager, M., Bisang, W., & von der Wense, K. (2026). Investigating the automatic translation of Korean honorifics. In A. Pranav, V. Basile, N. Falk, D. Jurgens, G. Lapesa, A. Lauscher, & S. M. Lo (Eds.), Proceedings of the Second Workshop of Identity Aware AI (pp. 20–31). European Language Resources Association. https://doi.org/10.63317/5g3ca2zi2jf6",
+    "year": 2026,
+    "venue": "Proceedings of Identity-Aware AI (IAAI) @ LREC 2026 (ELRA), pp. 20–31, 16 May 2026 — 원문 꼬리말 표기. ACL Anthology 정식 자료집명은 'Proceedings of the Second Workshop of Identity Aware AI' (Palma de Mallorca, Spain)",
+    "status": "proceedings",
+    "doi": "10.63317/5g3ca2zi2jf6",
+    "url": "https://aclanthology.org/2026.iaai-1.3/",
+    "bib_notes": "① 원문 확인: 발표처·연도는 PDF 1쪽 꼬리말에 'Proceedings of Identity-Aware AI (IAAI) @ LREC 2026, pages 20–31' / '16 May 2026. ©ELRA Language Resources Association (ELRA), 2026'으로 적혀 있다(자료집 쪽 20–31 = PDF 1–12쪽). 이전 초안의 'IAAI@LREC 2026'은 이 꼬리말을 줄인 것으로 원문과 맞다. 다만 워크숍의 정식 자료집명은 꼬리말과 다르다(②). ② 웹 확인(2026-09-19): ACL Anthology BibTeX https://aclanthology.org/2026.iaai-1.3.bib — booktitle 'Proceedings of the Second Workshop of Identity Aware {AI}', month may, year 2026, address 'Palma de Mallorca, Spain', publisher 'European Language Resources Association', pages 20--31, doi 10.63317/5g3ca2zi2jf6, 편자 A Pranav·Valerio Basile·Neele Falk·David Jurgens·Gabriella Lapesa·Anne Lauscher·Soda Marem Lo. LREC 2026 자료집 페이지 https://lrec.elra.info/lrec2026-ws-iaai-03 도 같은 자료집명, pp. 20-31, '11 - 16 May 2026', 'Palma, Mallorca, Spain', ELRA, 같은 DOI를 적는다. 워크숍 앞부분(front matter) PDF의 제목은 꼬리말과 같은 'Proceedings of Identity-Aware AI (IAAI) @ LREC 2026'이다(http://lrec-conf.org/proceedings/lrec2026/workshops/iaai/2026.iaai-1.0.pdf, 검색 결과 제목으로 확인). APA에는 Anthology 정식명을, venue에는 원문 꼬리말 표기를 먼저 적었다. DOI는 원문에 없고 웹에서만 확인된다. ③ 저자: 원문 표기는 'Kyung eun Park'(소문자 e, 띄어 씀)이며 Anthology도 같다. APA 머리글자는 K. E.로 적었다. Cihlar와 Bui는 공동 1저자(원문 각주 '*'), 교신 이메일은 Bui(minhducbui@uni-mainz.de). ④ 공개 저장소 README(https://github.com/MinhDucBui/KoreanHonorifics, 2026-09-19 확인)의 인용 항목은 'tba', 논문 링크 배지는 'coming soon' 상태다."
+  },
+  "one_line": "영→한 번역에서 모델 12개가 고르는 상대높임 화계(해·해요·합쇼)를 암시/명시 맥락으로 비교해, 번역 특화 LLM이 인간보다 공손형을 과잉 사용한다고 보고했다.",
+  "w5h1": {
+    "who": {
+      "headline": "마인츠대 중심의 NLP·언어유형론 공동 연구진이 번역 특화 LLM 5종·지시 조정 LLM 5종·seq2seq 2종(합계 12개 모델)과 한국어 화자 23명을 실험했다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "Luis Cihlar*, Minh Duc Bui*(공동 1저자), Kyung eun Park, Manuel Mager, Walter Bisang, Katharina von der Wense. Johannes Gutenberg University Mainz(독일)가 중심이고 Park은 University of Mannheim, von der Wense는 University of Colorado Boulder를 겸한다. Bisang은 정형성(finiteness)·경어 의무 표시 논의의 인용 원천이기도 하다.",
+          "src": "p.1 저자란"
+        },
+        {
+          "label": "번역 특화 LLM (MTLMs) 5종",
+          "text": "GemmaX2 9B, Tower+ 72B(표에서는 Tower-Plus-72B), Tower+ 9B(Tower-Plus-9B), Hunyuan MT 7B(본문 'Hunyuan 7B MT'), Seed-X(본문 'SeedX', 그림·표 'Seed X PPO 7B'). 앞의 4종은 각각 Gemma 2 9B, Qwen 72B, Gemma 2 9B, Hunyuan 7B에서 파생됐고 같은 기반의 지시 조정 모델과 짝지어 비교된다. Seed-X만 대응 모델이 없다. 저자는 MTLM을 '주로 병렬 문장으로 번역용 미세조정을 한 LLM'으로 정의한다.",
+          "src": "p.3 Models"
+        },
+        {
+          "label": "지시 조정 LLM (ITLMs) 5종",
+          "text": "gemma-2-9b-it, Qwen2.5 72B Chat, Hunyuan-7B-Instruct(이상 3종이 MTLM 4종의 대응 모델 — gemma-2-9b-it는 Tower+ 9B와 GemmaX2 9B 양쪽의 대응), Llama 3.3 70B Instruct, Aya Expanse 32B.",
+          "src": "p.3 Models; Table 1"
+        },
+        {
+          "label": "seq2seq 2종과 모델 총수",
+          "text": "NLLB-200 Distilled 600M, NLLB-200 3.3B. 직접 세면 MTLM 5 + ITLM 5 + seq2seq 2 = 12개이고, Table 8도 시나리오마다 12행이다. Figure 2의 막대가 13개인 것은 검은 표지의 'Humans' 막대가 하나 끼어 있기 때문이다(PDF 300dpi 확대로 확인; 암시 38.30, 명시 43.67). gemma-2-9b-it가 Table 1·2·4에 두 번 나오는 것도 Tower+ 9B와 GemmaX2 9B 두 MTLM의 공통 대응 모델이어서이며, 별개 모델이 아니다. (카드 작성자 웹 확인, 원문 근거 아님: GitHub README의 모델 표는 Google Translate를 'API Baseline'으로 더해 13행이지만 논문 본문·그림·표에는 Google Translate 결과가 없다. README는 또 GemmaX2-28-9B-v0.1을 'General LLM'으로, Qwen을 'Qwen2.5-72B-Instruct'로 적어 논문의 MTLM 분류·'Qwen2.5 72B Chat' 표기와 다르다.)",
+          "src": "p.3 Figure 2; p.10 Table 8"
+        },
+        {
+          "label": "보조 모델(실험 대상 아님)",
+          "text": "GPT-5(gpt-5-2025-08-07)는 영어 원천 문장 생성에만, GPT-OSS 120B는 산출 번역문의 화계 자동 분류(평가기)에만 쓰였다. 상용 프런티어 모델이 번역기로 평가되지는 않았다.",
+          "src": "p.2 §3; p.7 B.1, B.3"
+        },
+        {
+          "label": "인간 참여자",
+          "text": "본 조사 24명 중 1명 무효 처리 → 23명. 여성 78.3%·남성 21.7%, 최연소 18–24세 집단~최고령 39–45세 집단, 학력은 고졸 이상 39.1%·학사 52.2%·석사 이상 8.7%. 친구·가족·지인을 통해 모집했고 보수는 없었다. 이와 별도로 파일럿 4명(번역식 2, 선다식 2), 분류기 검증용 라벨을 단 전문가 1인이 있다.",
+          "src": "p.4 §4.1; p.5 §7; p.9-10 C.3–C.4"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2026년 5월 16일 LREC 2026 워크숍에서 발표됐고, 실험 모델은 2022년 NLLB를 빼면 2024–2025년 세대의 공개 가중치 모델이다.",
+      "items": [
+        {
+          "label": "발표 시점·게재 상태",
+          "text": "PDF 1쪽 꼬리말에 '16 May 2026', 자료집 20–31쪽으로 표기된 워크숍 proceedings 논문(출판 완료).",
+          "src": "p.1 꼬리말"
+        },
+        {
+          "label": "실험 모델의 세대",
+          "text": "참고문헌 연도 기준으로 NLLB(2022), Gemma 2·Llama 3 계열·Aya Expanse(2024), Qwen2.5 기술보고서·GemmaX2·Tower+·Hunyuan-MT·Seed-X(2025). 규모는 600M~72B. 각 모델의 정확한 출시일은 원문 미표기.",
+          "src": "p.3 Models; p.5-7 참고문헌"
+        },
+        {
+          "label": "실험 시점의 단서",
+          "text": "문장 생성 모델 스냅샷이 gpt-5-2025-08-07이고 WALS 접속일이 2025-10-06으로 적혀 있다. 실험 수행 일자 자체는 원문 미표기.",
+          "src": "p.6 Helmbrecht 항목; p.7 B.1"
+        },
+        {
+          "label": "결과의 유효 기간",
+          "text": "번역기로 평가된 것은 전부 7B–72B급 공개 가중치 모델과 NLLB이며, 상용 API 모델(GPT·Claude·Gemini 등)의 화계 선택은 측정되지 않았다. '번역 특화 미세조정이 공손형 쏠림을 키운다'는 결론은 이 세대·이 규모에 한정된 관찰이다.",
+          "src": "p.3 Models"
+        }
+      ]
+    },
+    "where": {
+      "headline": "LREC 2026의 Identity-Aware AI 워크숍 자료집(ELRA)에 실렸고, 데이터·코드·인간 주석은 GitHub에 공개됐다(논문 표기 CC BY 4.0).",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "Proceedings of Identity-Aware AI (IAAI) @ LREC 2026, ELRA. 기계번역·언어자원 공동체가 1차 독자다(키워드: machine translation, honorifics, Korean).",
+          "src": "p.1 꼬리말·Keywords"
+        },
+        {
+          "label": "데이터 출처",
+          "text": "코퍼스가 아니라 합성 데이터다. GPT-5가 청자 시나리오 30종(화계 3수준 × 10종) 각각에 대해 '그 청자에게 할 법한' 영어 문장 25개씩을 생성해 750문장을 만들었다.",
+          "src": "p.2 §3 Data Generation; p.7 B.1–B.2"
+        },
+        {
+          "label": "공개 자료 위치",
+          "text": "코드, 데이터셋, 인간 주석 하위 집합을 https://github.com/MinhDucBui/KoreanHonorifics 에 공개했다고 적는다(각주 2). 데이터셋과 인간 주석의 라이선스는 CC BY 4.0이라고 하며, 근거로 GPT-5 산출물의 소유권이 이용자에게 있다는 OpenAI 이용약관을 든다(C.5). (카드 작성자 웹 확인 2026-09-19, 원문 근거 아님: 저장소 README는 라이선스를 'CC BY-NC-ND 4.0'으로, 데이터를 '1,500 English sentences across 30 real-world social scenarios'로 적어 논문의 CC BY 4.0·750문장과 다르다. 재사용 전에 라이선스와 문장 수를 원자료로 다시 확인해야 한다.)",
+          "src": "p.2 각주 2; p.12 C.5"
+        },
+        {
+          "label": "실험 환경",
+          "text": "H100 GPU 3장. 가장 큰 모델의 추론이 배치 64로 약 15분, GPT-OSS 120B 평가가 배치 16으로 약 1시간 30분. 모든 생성은 greedy decoding, 최대 128토큰(평가기만 512토큰).",
+          "src": "p.7 B.4"
+        }
+      ]
+    },
+    "what": {
+      "headline": "모델 부류에 따라 영→한 번역의 상대높임 화계 선택이 어떻게 다르고 인간 선호와 얼마나 맞는지를 물어, 번역 특화 LLM의 체계적 공손형 과잉을 보고했다.",
+      "items": [
+        {
+          "label": "RQ1 (암시적 맥락)",
+          "text": "화자–청자 관계를 추론해야 할 때 모델 부류별로 어떤 화계를 산출하는가. → MTLM이 지시 조정 대응 모델보다 공손형을 더 자주 쓴다(politeness score 부류 평균 MTLM 64, ITLM 45). seq2seq는 48로 ITLM에 가깝다. 네 쌍 모두에서 MTLM이 더 높다(Δ +1.8~+11.8).",
+          "src": "p.2 RQ1; p.3 §3.1"
+        },
+        {
+          "label": "RQ2 (명시적 맥락)",
+          "text": "청자를 명시하면 행동이 어떻게 바뀌는가. → MTLM·ITLM은 더 casual 쪽으로, seq2seq는 더 공손한 쪽으로(+12.79) 움직인다. 평균은 MTLM 55, ITLM 42, seq2seq 61이며 MTLM이 ITLM보다 공손하다는 패턴은 유지된다.",
+          "src": "p.2 RQ2; p.3-4 §3.2"
+        },
+        {
+          "label": "RQ3 (인간 선호와의 정렬)",
+          "text": "MTLM의 높은 공손 수준은 인간 선호에서 벗어나 정확도가 낮다(암시 60.67%, 명시 66.67%). ITLM은 71.78% → 81.11%로 가장 잘 맞고, seq2seq는 암시 72.78%로 최고였다가 명시에서 60.55%로 떨어진다.",
+          "src": "p.2 RQ3; p.4 Table 3"
+        },
+        {
+          "label": "핵심 주장",
+          "text": "공손형을 많이 쓴다고 인간과 더 잘 맞는 것이 아니며, 과도한 공손은 사회적 맥락에 적응하는 능력의 한계를 반영한다. 지시 조정이 적절한 경어 사용에 필요한 사회적 뉘앙스를 더 잘 포착한다.",
+          "src": "p.4 §4.2·§5"
+        },
+        {
+          "label": "다루는 현상의 범위",
+          "text": "상대높임(addressee honorifics = speech styles)만, 그것도 6개 화계 중 Casual(해)·Polite(해요)·Deferential(합니다/하십시오) 셋만 평가한다. 주체높임 '-시-'를 포함한 지시 대상 높임과 어휘적 높임은 제외했다.",
+          "src": "p.2 §2 Speech Styles; p.7 A.2"
+        }
+      ]
+    },
+    "how": {
+      "headline": "GPT-5로 만든 영어 750문장을 12개 모델이 암시/명시 두 조건에서 한국어로 옮기게 하고, 산출문의 종결어미 화계를 LLM 분류기로 뽑아 공손 점수와 인간 3지선다 주석 대비 일치율로 비교했다.",
+      "items": [
+        {
+          "label": "자극 설계",
+          "text": "목표 화계 3수준(Deferential/Polite/Casual)마다 청자 시나리오 10종을 정하고, 청자별로 GPT-5에 '그 청자에게 할 수 있고, 한국어로 옮기면 해당 화계가 자연스럽게 드러나며, 청자를 문장 안에서 언급하지 않는' 영어 한 문장짜리 발화 25개를 쓰게 했다(3 × 10 × 25 = 750).",
+          "src": "p.7 B.1–B.2; p.9 Table 7"
+        },
+        {
+          "label": "맥락 조작(2수준)",
+          "text": "암시적: 번역할 문장만 제시. 명시적: 입력 문장 앞에 'I was talking to {addressee}, and I said: {sentence}' 접두를 붙인다. 접두는 지시문이 아니라 번역 대상 텍스트의 일부여서 한국어로 함께 번역된다(분류기 프롬프트가 '한국어 접두를 제거하라'고 지시하는 이유).",
+          "src": "p.2 §3 Experimental Setup; p.7 B.3"
+        },
+        {
+          "label": "번역 프롬프트",
+          "text": "ITLM에는 공통 프롬프트('Translate the following {src_lang} source segment into {tgt_lang}. Return only the translation …')를, MTLM에는 각 개발자가 권장한 프롬프트를 썼다. 번역 방향은 영→한(en–ko) 한 방향뿐이다.",
+          "src": "p.8 B.5; p.1 §1"
+        },
+        {
+          "label": "화계 자동 분류",
+          "text": "GPT-OSS 120B에 산출 한국어를 주고 '동사 어미만 보고' Casual(해)/Polite(해요)/Deferential(합니다/하십시오)/Others 중 하나를 고르게 한 뒤 'Honorific: <라벨>' 형식으로 답하게 했다. 모델마다 암시 5문장·명시 5문장을 뽑아 만든 130문장을 전문가 1인이 수동 라벨링해 대조한 정확도가 95%. Others는 평균 약 5%였고 분석에서 뺐다.",
+          "src": "p.2 §3 Automatic Honorific Extraction; p.7 B.3"
+        },
+        {
+          "label": "측정 지표",
+          "text": "① 세 화계의 정규화 분포(Figure 2), ② politeness score = (0.5·pPol + pDef) × 100 — Casual 0, Polite 0.5, Deferential 1의 서열 가중, ③ MTLM–ITLM 쌍별 점수 차 Δ, ④ 인간 정렬 정확도.",
+          "src": "p.3 Politeness Score; Table 1–2"
+        },
+        {
+          "label": "인간 조사 설계",
+          "text": "750문장 중 90문장을 암시형·명시형 두 가지로 제시(90문장의 표집 방식은 원문 미표기). 설문지 4종(명시 2·암시 2, 각 45문항)이 90문장 × 2형태 = 180문항을 나눠 덮는다. 참여자는 암시 또는 명시 세트에 무선 배정되고, 문장마다 5명이 3지선다(Deferential: 합니다/하십시오 / Polite: 해요 / Casual: 해)로 답했다. 안내문의 질문은 '주어진 문장에 가장 적절한 한국어 화계는 무엇인가, 이 문장을 한국어로 옮긴다면 어떤 화계를 고르겠는가'(의역)이다. 곧 모델 번역문을 평가하는 과제가 아니라, 영어 문장을 보고 자신이 쓸 화계를 고르는 과제다. 명시형 문항에는 'Addressee: One's Teacher, at school', 'Addressee: A Classmate, in school – unknown age', 'Addressee: Chatting with ChatGPT, at home'처럼 청자에 장소·나이 같은 부가 정보가 붙는다. 암시형 안내문은 '정보가 없어 불분명해 보일 수 있으니 가장 자연스러운 것을 고르라'고 적는다. 두 안내문 모두 같은 예문 세 개와 정답(Deferential / Polite / Casual)을 보여 주고, 명시형만 각 예문에 청자(대학 교수 / 청자 나이를 모르는 같은 수업 학생 / 집에 있는 동생)를 붙인다. Papago·ChatGPT 등 언어모델을 쓰지 말라고 요청했고, 응답에 약 10분이 걸렸다.",
+          "src": "p.4 §4.1; p.8 C.2·Figure 3; p.9 Figure 4–5; p.10 Figure 6"
+        },
+        {
+          "label": "정답 기준과 품질 관리",
+          "text": "5명 중 2명 이상이 고른 화계를 모두 '정답'으로 인정(다중 정답). 정해진 정답 화계가 없다는 이유로 Cohen's kappa를 쓰지 않았고, 대신 개인의 화계 선택 비율이 전체 평균 분포에서 25% 벗어나면 실격시켰다(24명 중 1명).",
+          "src": "p.4 §4.1; p.9-10 C.3"
+        },
+        {
+          "label": "통계 분석",
+          "text": "비율·평균·차이의 기술통계뿐이다. 유의성 검정, 신뢰구간, 혼합효과모형, 반복 표집이 없다. 인간 정렬 정확도는 90문장 기준이라 한 문장이 약 1.11%p에 해당한다.",
+          "src": "p.3-4 §3.1–§4.2; p.10 Table 8"
+        }
+      ]
+    },
+    "why": {
+      "headline": "경어 표지가 없는 영어에서 경어 표시가 의무인 한국어로 옮길 때 빠진 사회적 정보를 모델 부류별로 어떻게 메우는지가 알려지지 않았다는 문제의식에서 출발했다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "한국어는 정형절의 모든 동사에 경어 정보를 의무적으로 표시하므로 영→한 번역은 원문에 없는 정보를 목표 언어에서 보충해야 한다. 기존 모델이 이런 문화 내재적 현상을 잘 못 다룬다는 것은 알려져 있으나(Lee & Wang 2023 = P01 등 인용) 모델 '부류'에 따라 다른지는 불분명했다.",
+          "src": "p.1 §1"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "번역 특화 미세조정이 공손형 쏠림을 낳고 인간 선호와의 정렬을 떨어뜨린다는 점, 지시 조정이 맥락 단서에 대한 민감성을 준다는 점을 모델 부류 비교로 처음 보였다. 코드·데이터·인간 주석을 공개했다.",
+          "src": "p.4 §5; p.2 각주 2"
+        },
+        {
+          "label": "저자가 밝힌 한계",
+          "text": "한국어 한 언어뿐이라 일반화 불가, 언어 변화·화자 집단 차이 미반영, politeness score가 확립된 지표가 아님, 모델 간 훈련 데이터 미통제, 설문 참여자가 한국 인구의 특정 하위 집단. 부록에서는 지시 대상 높임과 어휘 교체를 다루지 못했음을 인정한다.",
+          "src": "p.5 §6; p.7 A.2"
+        },
+        {
+          "label": "우리 후속 연구가 이어받을 것 ①: 자유 산출 채점법",
+          "text": "상용 API 모델의 자유 산출을 채점할 때 이 논문의 분류 절차(닫힌 라벨 집합 + Others, '어미만 보라'는 지시, 고정 출력 형식, 인간 라벨 표본으로 정확도 보고)를 뼈대로 삼되, 규칙 기반 어미 판정과 2인 이상 주석·클래스별 혼동행렬을 더한다.",
+          "src": "p.7 B.3"
+        },
+        {
+          "label": "우리 후속 연구가 이어받을 것 ②: 맥락 제시 × 청자 지위",
+          "text": "암시/명시 맥락 조작은 '허가 조건이 문장 밖에 있는' 상대높임을 2×2로 끌어오는 직접적 틀이다(맥락 제시[무/유] × 청자 지위[상위/하위]). 다만 접두를 번역 대상 안에 넣은 교란은 피하고, 3지선다 대신 7점 Likert 적절성 평정을 인간과 모델에 똑같이 준다.",
+          "src": "p.2 §3 Experimental Setup; p.4 §4.1"
+        },
+        {
+          "label": "우리 후속 연구가 이어받을 것 ③: 주체높임과의 교차",
+          "text": "P02–P05의 주체높임 '-시-' 결과와 이 논문의 상대높임 결과는 현상이 달라 직접 비교되지 않는다. 저자도 지시 대상 높임을 미탐구 영역으로 남겼으므로, 한 문장 안에서 상대높임 화계와 주체높임 '-시-'를 교차하는 설계가 두 계보를 잇는 지점이 된다.",
+          "src": "p.7 A.2"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "addressee honorifics (= speech styles)",
+        "gloss_ko": "상대높임법(청자 대우) · 화계",
+        "definition": "화자와 청자 사이의 위계 관계를 알리는 동사 형태소. 저자는 'speech styles'와 같은 말로 쓰며, 정형절의 모든 동사에 의무적으로 표시되는 정보라고 규정한다.",
+        "note": "이 논문의 유일한 분석 대상. P02–P05가 다루는 주체높임 '-시-'와는 높임의 대상(청자 대 주어 지시 대상)도, 실현 위치(종결어미 대 선어말어미)도 다르다. P01의 '제/저희–요' 의존성은 같은 상대높임 축에 걸치지만 거기서는 문장 내부 의존 관계로, 여기서는 산출된 종결어미의 분포로 측정된다.",
+        "src": "p.2 §2 Korean Honorific Typology"
+      },
+      {
+        "term": "referent honorifics",
+        "gloss_ko": "지시 대상 높임(주체·객체높임)",
+        "definition": "말해지는 인물에 대한 존대를 나타내는 동사 형태소. 어휘 교체(lexical substitutions)와 함께 한국어 경어의 나머지 두 축으로 소개되지만 본 연구의 데이터·평가에서는 제외된다.",
+        "note": "부록 A.2에서 '거의 같은 빈도로 쓰이고 똑같이 중요하다'고 인정하면서도 다루지 않았다. P02–P05의 '-시-'가 바로 이 범주에 든다. 즉 이 논문의 'honorifics'는 제목과 달리 한국어 경어 전체가 아니라 상대높임 화계만을 가리킨다.",
+        "src": "p.2 §2; p.7 A.2"
+      },
+      {
+        "term": "Casual (해) / Polite (해요) / Deferential (합니다/하십시오)",
+        "gloss_ko": "해체(반말) / 해요체 / 합쇼체",
+        "definition": "6개 화계 중 '가장 중요한' 셋이라며 평가 대상으로 삼은 세 범주. 분류기 프롬프트, 인간 설문 선택지, politeness score의 세 수준이 모두 이 라벨을 쓴다.",
+        "note": "'Casual'은 본문 고유의 라벨로, 부록 Table 5에서는 같은 화계를 '반말체(Banmal-che; Intimate)', Table 6에서는 '\"intimate\" style (hay-chey)'라 부른다. 해라체(Plain)·하오체·하게체가 산출되면 분류 설계상 'Others'로 떨어진다(실제 내역은 미보고). 'Deferential'은 P02 제목의 'deference'와 어형이 같지만 P02는 주어에 대한 존대, 여기서는 청자에 대한 최고 화계를 가리킨다.",
+        "src": "p.2 §2 Speech Styles; p.8 Table 5–6"
+      },
+      {
+        "term": "implicit scenario / explicit scenario",
+        "gloss_ko": "암시적 시나리오 / 명시적 시나리오",
+        "definition": "암시적 = 모델이 번역할 문장만 받는다(청자 관계를 추론해야 함). 명시적 = 입력 문장 앞에 'I was talking to {addressee}, and I said:' 접두를 붙여 청자를 알려 준다.",
+        "note": "Figure 1에서는 'Implicit context / Explicit context', 'Relationship unknown / provided'로도 부른다. 맥락이 시스템 지시가 아니라 번역 대상 문장 안에 들어간다는 점이 조작의 실체다.",
+        "src": "p.1 Figure 1; p.2 §3 Experimental Setup"
+      },
+      {
+        "term": "MTLMs / ITLMs / seq2seq",
+        "gloss_ko": "번역 특화 LLM / 지시 조정 LLM / 시퀀스-투-시퀀스 모델",
+        "definition": "MTLM = 주로 병렬 문장으로 번역용 미세조정을 한 LLM, ITLM = instruction-tuned LLM, seq2seq = 병렬 데이터로 학습한 모델(여기서는 NLLB-200). 'counterpart'는 같은 기반 모델에서 나온 지시 조정판을 뜻한다.",
+        "note": "약어는 저자 고유. 부류 구분이 곧 독립 변수인데, 부류 간에는 훈련 목적뿐 아니라 훈련 데이터·프롬프트 형식·규모도 함께 달라진다(저자도 훈련 데이터 미통제를 한계로 든다).",
+        "src": "p.1 §1; p.3 Models"
+      },
+      {
+        "term": "politeness score",
+        "gloss_ko": "공손 점수",
+        "definition": "Casual·Polite·Deferential에 서열 가중치 [0, 0.5, 1]을 주어 (0.5·pPol + pDef) × 100으로 계산한 0–100 지표. 모델이 더 공손한 번역을 내는 경향을 한 숫자로 요약한다.",
+        "note": "저자 스스로 확립된 지표가 아니라 모호성을 낳을 수 있다고 한계에 적었다. 가중치 0.5의 근거는 제시되지 않았고, 같은 점수가 전혀 다른 분포(예: 전부 Polite 대 Casual·Deferential 반반)에서 나올 수 있다.",
+        "src": "p.3 Politeness Score; p.5 §6"
+      },
+      {
+        "term": "polite / formality / casual (평가 어휘의 혼용)",
+        "gloss_ko": "공손성 / 격식성 / 비격식",
+        "definition": "RQ1 서술에서 'polite forms'를 더 많이 쓰는 것을 'higher levels of formality', 'formality level'로 바꿔 부른다. 공손성과 격식성을 구별하지 않고 한 축의 높낮이로 쓴다.",
+        "note": "부록 Table 5(Hwang et al. 2021 인용)는 Politeness와 Formality를 별개 축으로 제시하므로 본문 용법과 어긋난다. 더구나 Table 5와 Table 6은 반말체(High 대 Informal)·해라체(Low 대 Formal)·하게체(Low 대 Formal)의 격식성 분류가 서로 다르다. P01의 'politeness'('-요' 표지), P02의 'deference'와 함께 용어 대조표에 올릴 것.",
+        "src": "p.2 RQ1; p.8 Table 5–6"
+      },
+      {
+        "term": "human alignment / Acc. (honorific accuracy)",
+        "gloss_ko": "인간 정렬도 / 정확도",
+        "definition": "모델이 산출한 화계가 그 문장에 대해 인간 주석자 5명 중 2명 이상이 고른 화계와 일치하는 문장의 비율(%). Figure 1은 이를 'honorific accuracy'라 부른다.",
+        "note": "단일 정답이 아닌 다중 정답 허용 지표다. 인간은 모델 번역문을 평가한 것이 아니라 영어 문장을 보고 자신이 쓸 화계를 골랐다 — '선호 조사'라기보다 '인간 산출 선택의 분포'다.",
+        "src": "p.4 §4.1; p.10 Table 8"
+      },
+      {
+        "term": "correct (speech style)",
+        "gloss_ko": "정답 화계",
+        "definition": "'selected by at least two participants' — 5명 중 2명 이상이 고르면 정답으로 친다. 한 문장에 정답이 둘까지 나올 수 있다.",
+        "note": "근거로 Kwon & Sturt (2024)의 '자연스러운 변이'를 든다. 같은 문헌을 P03은 '-시- 위반이 P600을 일으킨다'(통사적 처리)는 근거로, P05는 '주어–서술어 높임 일치가 통사 규칙이 아니라 수의적'이라는 근거로(동시에 L2 논의에서는 '대체로 구조적 처리'의 근거로도) 인용한다. 한 문헌이 세 논문에서 서로 다른 방향으로 끌려 쓰인다.",
+        "src": "p.4 §4.1"
+      },
+      {
+        "term": "overuse / excessive politeness / overly polite",
+        "gloss_ko": "공손형 과잉 사용",
+        "definition": "인간 선택 분포보다 공손·격식 화계를 더 많이 산출하는 경향에 붙인 저자의 평가 어휘. 기준점은 인간 23명의 선택 분포다.",
+        "note": "인간이 모델 산출문을 '지나치게 공손해서 부적절하다'고 평정한 자료는 없다. 과잉은 분포 차이와 일치율 저하로만 정의된다 — 과공손이 실제로 감점되는지는 검증되지 않았다.",
+        "src": "p.1 Abstract; p.4 §4.2·§5"
+      },
+      {
+        "term": "Honorific Extractor / evaluator",
+        "gloss_ko": "경어(화계) 추출기 · 평가기",
+        "definition": "GPT-OSS 120B에 프롬프트를 주어 산출 한국어의 화계를 Casual/Polite/Deferential/Others로 분류하게 한 자동 분류기. '동사 어미만 보라'고 지시하고 최종 답을 'Honorific: <라벨>' 형식으로 받는다.",
+        "note": "LLM-as-a-judge의 한 형태. 검증은 전문가 1인이 라벨링한 130문장 대비 정확도 95% 한 숫자뿐이며 클래스별 오류·주석자 간 일치도는 없다.",
+        "src": "p.2 §3; p.7 B.3"
+      },
+      {
+        "term": "Others",
+        "gloss_ko": "기타(세 화계에 맞지 않음)",
+        "definition": "분류기의 네 번째 선택지. 평균 약 5%의 사례에서만 선택됐다며 분석에서 제외했다.",
+        "note": "해라체('-다') 산출, 명사 종결, 번역 실패, 문장 안 화계 혼용이 모두 여기로 들어갈 수 있으나 내역은 보고되지 않았다. 모델별 Others 비율도 미보고.",
+        "src": "p.7 B.3"
+      },
+      {
+        "term": "'typical' utterances / addressee scenarios",
+        "gloss_ko": "'전형적' 발화 / 청자 시나리오",
+        "definition": "세 화계 수준마다 청자 시나리오 10종을 정의하고, GPT-5가 그 청자에게 자연스럽게 할 법한 'typical' 발화를 25개씩 생성했다.",
+        "note": "청자→화계 대응은 저자의 규정이다(예: a stranger → Deferential, one's mother → Polite, chatting with Chat-GPT·one's pet·talking with oneself → Casual). 이 설계 라벨은 결과 분석에서 정답으로 쓰이지 않는다.",
+        "src": "p.7 B.1; p.9 Table 7"
+      },
+      {
+        "term": "enriched (in the target language)",
+        "gloss_ko": "(목표 언어 쪽에서의) 정보 보충",
+        "definition": "경어 표지가 없는 언어에서 경어 표시가 의무인 언어로 번역할 때 관련 정보를 목표 언어에서 보충해야 한다는 개념(Feely et al. 2019 인용).",
+        "note": "번역을 '정보 비대칭 아래의 화용 추론' 과제로 틀 짓는 말. 암시적 조건은 이 보충을 문장 내부 단서에만 맡기는 경우로 정의된다.",
+        "src": "p.1 §1"
+      },
+      {
+        "term": "헤지 표현: 'indicative evidence', 'may have learned', 'suggests', 'tend to'",
+        "gloss_ko": "결론의 세기를 낮추는 표현",
+        "definition": "결과 해석은 거의 'This suggests that …', 'tend to …'로 쓰이고, 한계 절에서는 발견을 'indicative evidence'라 부른다. seq2seq가 암시 조건에서 인간과 잘 맞는 이유는 'may have learned effective structural patterns'로만 추측한다.",
+        "note": "추론 통계가 없다는 사실과 짝을 이룬다. 반면 'consistently', 'systematically'는 MTLM 결과에 헤지 없이 쓰인다.",
+        "src": "p.4 §4.2; p.5 §6"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "grammatical marking of honorific information is obligatory on every verb of a finite clause",
+        "paraphrase_ko": "한국어에서는 정형절의 모든 동사에 경어 정보가 의무적으로 표시된다(Sohn 1994; Bisang 2007). 그래서 영→한 번역은 원문에 없는 정보를 채워 넣어야 한다는 논증의 전제.",
+        "numbers": [],
+        "src": "p.1 §1"
+      },
+      {
+        "kind": "claim",
+        "quote": "it remains unclear whether different model types handle honorifics differently",
+        "paraphrase_ko": "기존 모델이 문화 내재적 현상을 잘 못 다룬다는 것은 확립돼 있으나(Fernandes et al. 2023; Tenzer et al. 2025; Lee & Wang 2023) 모델 부류에 따라 경어 처리가 다른지는 불분명하다 — 이 논문이 메우려는 공백.",
+        "numbers": [],
+        "src": "p.1 §1"
+      },
+      {
+        "kind": "claim",
+        "quote": "exhibiting a systematic overuse of polite forms relative to human judgments",
+        "paraphrase_ko": "초록의 결론: 인간 선호와 비교하면 MTLM이 더 크게 벗어나며, 인간 판단에 비해 공손형을 체계적으로 과잉 사용한다.",
+        "numbers": [],
+        "src": "p.1 Abstract"
+      },
+      {
+        "kind": "method",
+        "quote": "we only assess the three most critical",
+        "paraphrase_ko": "한국어에서 흔히 쓰이는 6개 화계 중 Casual(해)·Polite(해요)·Deferential(합니다/하십시오) 셋만 평가한다. 각주는 나머지 화계가 구어에서 사라지는 중이거나 매우 특수한 상황에 한정된다고 정당화한다.",
+        "numbers": [],
+        "src": "p.2 §2 Speech Styles"
+      },
+      {
+        "kind": "method",
+        "quote": "In the implicit scenario, the model receives only the sentence to translate",
+        "paraphrase_ko": "암시적 시나리오에서는 맥락 정보 없이 번역할 문장만 준다.",
+        "numbers": [],
+        "src": "p.2 §3 Experimental Setup"
+      },
+      {
+        "kind": "method",
+        "quote": "I was talking to {addressee}, and I said: {sentence}",
+        "paraphrase_ko": "명시적 시나리오에서는 번역 입력 문장 앞에 이 접두를 붙여 청자를 밝힌다. 접두 자체도 번역 대상이다.",
+        "numbers": [],
+        "src": "p.2 §3 Experimental Setup"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "ITLMs are expected to adapt more effectively than there counterparts",
+        "paraphrase_ko": "청자를 명시하면 경어를 추론할 더 분명한 단서가 생기므로 ITLM이 대응 모델(MTLM)보다 더 잘 적응할 것이라는, 논문에서 유일하게 명시된 예측('there'는 원문 오기).",
+        "numbers": [],
+        "src": "p.2 §3 Experimental Setup"
+      },
+      {
+        "kind": "method",
+        "quote": "We define ten addressee scenarios for each of the three Korean honorific levels",
+        "paraphrase_ko": "세 화계 수준마다 청자 시나리오 10종을 정의하고, 시나리오마다 GPT-5(gpt-5-2025-08-07)로 그 청자에게 자연스럽게 할 법한 발화 25개를 생성해 기본 문장 750개를 만들었다.",
+        "numbers": [
+          "25",
+          "750"
+        ],
+        "src": "p.7 B.1"
+      },
+      {
+        "kind": "method",
+        "quote": "using ordinal weights [0, 0.5, 1] for Casual, Polite, and Deferential",
+        "paraphrase_ko": "politeness score는 서열 가중치를 써서 (0.5·pPol + pDef) × 100으로 계산한다. pPol, pDef는 Polite, Deferential 산출의 비율.",
+        "numbers": [
+          "0.5",
+          "100"
+        ],
+        "src": "p.3 Politeness Score"
+      },
+      {
+        "kind": "method",
+        "quote": "by ONLY looking at the verb endings",
+        "paraphrase_ko": "분류기 프롬프트는 (명시 조건이면 먼저 'I was talking to …'의 한국어 접두를 떼어 낸 뒤) 동사 어미만 보고 Casual(해)/Polite(해요)/Deferential(합니다/하십시오)/Others 중 화계를 판정하라고 지시한다. 암시 조건에서는 접두 제거 지시를 뺀다.",
+        "numbers": [],
+        "src": "p.7 B.3"
+      },
+      {
+        "kind": "method",
+        "quote": "resulting in a total of 130 labeled sentences",
+        "paraphrase_ko": "분류기 검증: 각 모델에서 암시 5문장·명시 5문장을 표집해 전문가 1인이 화계를 수동 판정했고, 분류기와의 일치(정확도)는 95%로 '목적에 충분하다'고 판단했다. 본문의 모델 12개 × 10문장은 120이므로 130이라는 수와 맞지 않는다(원문 설명 없음).",
+        "numbers": [
+          "130",
+          "95%"
+        ],
+        "src": "p.7 B.3"
+      },
+      {
+        "kind": "method",
+        "quote": "since it was selected in only about 5% of cases on average, we exclude it",
+        "paraphrase_ko": "분류 선택지에 'Other'를 넣었지만 평균 약 5%에서만 선택돼 분석에서 제외했다.",
+        "numbers": [
+          "5%"
+        ],
+        "src": "p.7 B.3"
+      },
+      {
+        "kind": "result",
+        "quote": "MTLMs achieve a politeness score of 64, compared to 45 for ITLMs",
+        "paraphrase_ko": "암시적 시나리오의 부류 평균: MTLM 64, ITLM 45, seq2seq 48. MTLM이 체계적으로 더 공손한 형태를 낸다.",
+        "numbers": [
+          "64",
+          "45",
+          "48"
+        ],
+        "src": "p.3 §3.1 Overall Results"
+      },
+      {
+        "kind": "result",
+        "quote": "Across all pairs, the MTLMs exhibit higher politeness scores",
+        "paraphrase_ko": "같은 기반에서 나온 MTLM–ITLM 네 쌍 모두에서 MTLM의 공손 점수가 높다. 암시 조건 Δ(MTLM − ITLM)는 Tower-Plus-72B +1.8, Tower-Plus-9B +10.7, GemmaX2 9B +11.8, Hunyuan MT 7B +11.7.",
+        "numbers": [
+          "+1.8",
+          "+10.7",
+          "+11.8",
+          "+11.7"
+        ],
+        "src": "p.3 Table 1"
+      },
+      {
+        "kind": "result",
+        "quote": "their politeness scores decrease by 3.07 and 9.13",
+        "paraphrase_ko": "청자를 명시하면 MTLM과 ITLM 모두 더 casual한 형태를 내고(감소폭 3.07과 9.13), seq2seq는 반대로 12.79 올라간다. Figure 2의 모델별 점수로 재계산하면 9.13이 MTLM, 3.07이 ITLM의 감소폭이어서 본문의 나열 순서와 반대다.",
+        "numbers": [
+          "3.07",
+          "9.13",
+          "12.79"
+        ],
+        "src": "p.3-4 §3.2"
+      },
+      {
+        "kind": "result",
+        "quote": "on average, MTLMs continue to produce more polite outputs",
+        "paraphrase_ko": "명시적 시나리오에서도 MTLM이 ITLM보다 공손하다는 패턴이 유지된다(부류 평균 MTLM 55, ITLM 42, seq2seq 61). 쌍별 Δ는 +2.1, +19.3, +11.1, +6.8.",
+        "numbers": [
+          "55",
+          "42",
+          "61",
+          "+2.1",
+          "+19.3",
+          "+11.1",
+          "+6.8"
+        ],
+        "src": "p.3-4 Figure 2b·Table 2"
+      },
+      {
+        "kind": "method",
+        "quote": "annotated in a multiple-choice format by five participants, with a total of 23 participants",
+        "paraphrase_ko": "인간 판단은 90문장에 대해 암시형·명시형 각각 수집했다. 주석자는 암시 또는 명시 세트에 무선 배정되어 서로 겹치지 않고, 문장마다 5명이 세 화계 중 하나를 고르는 선다형으로 답했다. 참여자는 모두 23명.",
+        "numbers": [
+          "90",
+          "23"
+        ],
+        "src": "p.4 §4.1"
+      },
+      {
+        "kind": "method",
+        "quote": "A speech style is considered correct if selected by at least two participants",
+        "paraphrase_ko": "두 명 이상이 고른 화계를 정답으로 친다. 이 문턱이 한국어 경어 사용의 자연스러운 변이(Kwon & Sturt 2024)를 담으면서 잡음 라벨을 피한다고 설명한다.",
+        "numbers": [],
+        "src": "p.4 §4.1"
+      },
+      {
+        "kind": "method",
+        "quote": "there is no prescribed speech style for any sentence",
+        "paraphrase_ko": "어떤 문장에도 규정된 정답 화계가 없고 문화적·개인적 차이가 반영돼야 하므로 Cohen's kappa로 불성실 응답자를 가리는 것은 문제가 있다고 보고, 개인의 화계 선택 비율이 평균 분포에서 25% 벗어나면 실격시키는 방식을 썼다.",
+        "numbers": [
+          "24",
+          "25%"
+        ],
+        "src": "p.9-10 C.3"
+      },
+      {
+        "kind": "result",
+        "quote": "MTLMs perform the worst in this scenario (61% acc.)",
+        "paraphrase_ko": "암시적 시나리오의 인간 정렬 정확도: seq2seq 72.78%로 최고, ITLM 71.78%, MTLM 60.67%로 최저. seq2seq가 병렬 데이터와 구조에서 효과적인 패턴을 배웠을 수 있다고 추측한다.",
+        "numbers": [
+          "61%",
+          "72.78",
+          "71.78",
+          "60.67"
+        ],
+        "src": "p.4 §4.2·Table 3"
+      },
+      {
+        "kind": "result",
+        "quote": "the alignment of Seq2Seq models with human judgments drops sharply",
+        "paraphrase_ko": "청자를 명시하면 seq2seq의 정렬이 60.55%로 급락한다 — 명시적 맥락 단서를 활용하지 못한다는 해석.",
+        "numbers": [
+          "60.55"
+        ],
+        "src": "p.4 §4.2·Table 3"
+      },
+      {
+        "kind": "result",
+        "quote": "ITLMs achieve the highest overall alignment with human annotations",
+        "paraphrase_ko": "명시 조건에서 ITLM 81.11%, MTLM 66.67%. 둘 다 암시 조건보다 올라가지만 ITLM이 전체 최고다.",
+        "numbers": [
+          "81.11",
+          "66.67"
+        ],
+        "src": "p.4 §4.2·Table 3"
+      },
+      {
+        "kind": "result",
+        "quote": "gemma-2-9b-it achieves a +22.2 acc. improvement over GemmaX2 9B",
+        "paraphrase_ko": "거의 모든 쌍에서 지시 조정 모델이 번역 특화판보다 인간과 잘 맞는다. gemma-2-9b-it 대 GemmaX2 9B의 차이는 암시 +22.2, 명시 +30.0점. 예외는 명시 조건의 Hunyuan 쌍(−11.11, MTLM이 더 높음).",
+        "numbers": [
+          "+22.2",
+          "+30.0",
+          "11.11"
+        ],
+        "src": "p.4 §4.2·Table 4"
+      },
+      {
+        "kind": "claim",
+        "quote": "excessive politeness reflects a limited ability to adapt to social context",
+        "paraphrase_ko": "MTLM이 더 공손한 번역을 낸다고 정렬이 높아지지 않는다. 과도한 공손은 사회적 맥락에 적응하는 능력의 한계를 반영하며 경어 표현을 덜 적절하게 다루게 만든다.",
+        "numbers": [],
+        "src": "p.4 §4.2"
+      },
+      {
+        "kind": "claim",
+        "quote": "instruction-tuning more effectively captures the social nuance necessary for appropriate honorific usage",
+        "paraphrase_ko": "결론: ITLM은 맥락 단서에 더 민감하며, 지시 조정이 적절한 경어 사용에 필요한 사회적 뉘앙스를 더 효과적으로 포착한다. seq2seq는 암시 조건에서는 덜 공손하고 인간에 가깝지만 청자가 주어지면 지나치게 공손해진다.",
+        "numbers": [],
+        "src": "p.4 §5"
+      },
+      {
+        "kind": "limitation",
+        "quote": "they should not be generalized to all languages that employ honorific systems",
+        "paraphrase_ko": "한국어만 다뤘으므로 발견은 '시사적 증거'일 뿐 경어 체계를 가진 모든 언어로 일반화해서는 안 된다.",
+        "numbers": [],
+        "src": "p.5 §6"
+      },
+      {
+        "kind": "limitation",
+        "quote": "it is not an established measure and may therefore introduce potential ambiguity",
+        "paraphrase_ko": "politeness score는 Deferential과 Polite의 행동 차이를 집계해 비교를 쉽게 하려고 설계했지만 확립된 지표가 아니어서 모호성을 낳을 수 있다.",
+        "numbers": [],
+        "src": "p.5 §6"
+      },
+      {
+        "kind": "limitation",
+        "quote": "we do not control for the training datasets used",
+        "paraphrase_ko": "모델 간 차이를 보지만 각 모델의 훈련 데이터는 통제하지 않았다 — 부류 효과와 데이터 효과가 분리되지 않는다.",
+        "numbers": [],
+        "src": "p.5 §6"
+      },
+      {
+        "kind": "limitation",
+        "quote": "Referent honorifics and lexical substitutions are almost as common and definitely as important",
+        "paraphrase_ko": "한국어 경어 체계는 이 논문이 시사하는 것보다 훨씬 복잡하다. 지시 대상 높임과 어휘 교체도 화계만큼 흔하고 중요하며, 화계 선택이 사회적 역학만으로 정해지는 것도 아니고 실제 대화에서는 격식체와 비격식체가 섞인다.",
+        "numbers": [],
+        "src": "p.7 A.2"
+      },
+      {
+        "kind": "future_work",
+        "quote": "models are fine-tuned from the same base LLM and dataset using different objectives",
+        "paraphrase_ko": "후속 과제: 같은 기반 LLM과 같은 데이터에서 목적만 달리해 미세조정하는 통제된 설정으로, 훈련 방식이 경어 번역에 미치는 영향을 더 정밀하게 분석할 것.",
+        "numbers": [],
+        "src": "p.5 §6"
+      },
+      {
+        "kind": "future_work",
+        "quote": "Future studies should include more expansive and sophisticated human surveys",
+        "paraphrase_ko": "설문 참여자가 한국 인구의 특정 하위 집단이었으므로 더 넓고 정교한 인간 조사가 필요하다. 또 모델 행동이 시간에 따라 어떻게 바뀌고 실제 언어 사용 변화를 얼마나 반영하는지도 조사할 수 있다고 적는다.",
+        "numbers": [],
+        "src": "p.5 §6"
+      },
+      {
+        "kind": "result",
+        "quote": "Less educated people were more likely to use the deferential speech style",
+        "paraphrase_ko": "설문 결과에서 가장 영향이 큰 인구통계 변인은 학력이었고 학력이 낮을수록 합쇼체를 더 골랐다. 성별 차이는 없었고 연령은 표본이 작아 상관을 말할 수 없다고 한다(검정 없이 원그래프 비교).",
+        "numbers": [
+          "39.1%",
+          "52.2%",
+          "8.7%"
+        ],
+        "src": "p.10 C.4"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "Abstract",
+        "move": "claim",
+        "summary_ko": "경어가 사회적 위계를 부호화해 번역에서 문화적으로 민감한 문제라는 전제 → 암시/명시 두 시나리오에서 모델 부류를 비교 → 세 발견((i) MTLM이 두 시나리오 모두에서 대응 ITLM보다 공손형 선호, (ii) seq2seq는 암시에서 덜 공손하다가 청자가 주어지면 공손 쪽으로 이동, (iii) LM 기반 두 부류는 청자를 알면 더 casual) → 인간 선호와 견주면 MTLM이 공손형을 체계적으로 과잉 사용.",
+        "src": "p.1 Abstract"
+      },
+      {
+        "section": "§1 Introduction (1–2문단)",
+        "move": "background",
+        "summary_ko": "경어는 범언어적이지만 부호화하는 사회적 구별은 언어마다 다르고, 한국어 등에서는 거의 모든 발화에 위계가 새겨지며 오용의 사회적 비용이 크다. 한국어는 정형절의 모든 동사에 경어 정보를 의무 표시하므로, 경어 표지가 없는 영어에서 옮길 때 목표 언어에서 정보를 보충해야 한다. 추가 정보가 없으면 텍스트 내부 단서로부터의 암시적 추론에 전적으로 기대고, 사회적 지위·위계 정보를 주면 번역이 나아질 수 있다.",
+        "src": "p.1 §1"
+      },
+      {
+        "section": "§1 Introduction (공백과 접근)",
+        "move": "gap",
+        "summary_ko": "기존 모델이 문화 내재적 현상을 잘 못 다룬다는 것은 확립돼 있지만(P01 포함 인용) 모델 '부류'에 따라 경어 처리가 다른지는 불분명하다. 그래서 MTLM·ITLM·seq2seq를 영→한 번역의 경어 산출이라는 한 과제에서 비교한다(Figure 1: 원천 문장 → 암시/명시 맥락 → 세 부류 → 산출문을 honorific accuracy로 평가).",
+        "src": "p.1 §1·Figure 1"
+      },
+      {
+        "section": "§1 RQ1–RQ3",
+        "move": "claim",
+        "summary_ko": "연구 질문 셋을 제시하면서 곧바로 답을 요약한다. RQ1: 관계를 추론해야 할 때 MTLM이 더 공손, seq2seq는 ITLM만큼 낮다. RQ2: 청자를 명시하면 MTLM·ITLM은 약간 casual 쪽으로, seq2seq는 더 공손하게. RQ3: MTLM의 높은 공손 수준은 인간 선호에서 벗어나 정확도가 낮고, ITLM이 더 잘 맞으며, seq2seq는 암시에서는 맞지만 명시에서 적응하지 못한다.",
+        "src": "p.2 RQ1–RQ3"
+      },
+      {
+        "section": "§2 Korean Honorifics (유형론·화계)",
+        "move": "background",
+        "summary_ko": "한국 사회가 평등해지고 있지만 경어 체계는 여전히 영향력이 있다는 전제(Brown 2015) 아래 경어를 세 축으로 나눈다: 청자와의 위계를 알리는 상대높임(화계), 말해지는 인물을 높이는 지시 대상 높임, 어휘 교체. 데이터셋은 상대높임에만 집중하고 6개 화계 중 Casual·Polite·Deferential 셋만 평가한다(나머지는 구어에서 사라지는 중이거나 특수 상황 한정이라는 각주).",
+        "src": "p.2 §2"
+      },
+      {
+        "section": "§2 Related Work: Honorifics in NLP",
+        "move": "background",
+        "summary_ko": "자바어·일본어 연구는 라벨 데이터로 경어 이해·번역을 개선하려 했고, 기계번역에서 경어 문체 분포의 불균형과 언어 특화 데이터의 우위를 보고했다. 한국어에서는 Hwang et al. (2021)의 자막 병렬 코퍼스, 문맥 인지 프롬프트(Lee et al. 2025), 이전 문장 분석, 격식성 분류기 훈련(Kim et al. 2023), 사용자가 말투를 고르는 Papago가 있다. 모델 부류 비교와 인간 선호 대조는 선행 연구에 없다는 것이 암묵적 공백.",
+        "src": "p.2 §2 Related Work"
+      },
+      {
+        "section": "§3 Experiments (데이터·설정·추출)",
+        "move": "method",
+        "summary_ko": "GPT-5로 원천 문장 750개를 생성. 암시 조건은 문장만, 명시 조건은 'I was talking to {addressee}, and I said:' 접두를 붙인다. 명시 조건이 더 분명한 단서를 주므로 ITLM이 더 잘 적응하리라 예측한다. 산출 한국어의 경어 형태는 GPT-OSS 120B 평가기로 자동 식별하며 정확도는 95%.",
+        "src": "p.2 §3"
+      },
+      {
+        "section": "§3 Experiments (Politeness Score·Models)",
+        "move": "method",
+        "summary_ko": "공손 경향을 (0.5·pPol + pDef) × 100으로 수량화한다. 모델은 MTLM 4종과 그 지시 조정 대응 모델, 대응 모델이 없는 SeedX, 추가 ITLM 2종(Llama-3.3 70B, Aya Expanse 32B), seq2seq로 NLLB-200 600M·3.3B. 프롬프트는 부록 B.5.",
+        "src": "p.3 Politeness Score·Models"
+      },
+      {
+        "section": "§3.1 Results for RQ1",
+        "move": "evidence",
+        "summary_ko": "암시 조건의 화계 분포(Figure 2a)와 부류 평균(MTLM 64, ITLM 45, seq2seq 48), 네 쌍 모두에서 MTLM이 더 높다는 쌍별 비교(Table 1)를 제시하고 'MTLM이 체계적으로 더 공손한 형태를 낸다'고 결론짓는다. Figure 2a에는 Humans 막대(38.30)가 함께 그려져 있으나 본문은 언급하지 않는다.",
+        "src": "p.3 §3.1·Figure 2a·Table 1"
+      },
+      {
+        "section": "§3.2 Results for RQ2",
+        "move": "evidence",
+        "summary_ko": "청자를 명시하면 MTLM·ITLM의 점수가 내려가고(3.07, 9.13) seq2seq는 12.79 오른다. 저자는 LM 계열의 하락을 '맥락 단서가 사회적 관계를 분명히 하면 어조를 조정한다'고 해석한다. 그래도 평균적으로 MTLM이 더 공손하다는 패턴은 유지된다(Figure 2b, Table 2). 같은 그림에서 Humans는 38.30 → 43.67로 오히려 올라가지만 이 방향 차이는 논의되지 않는다.",
+        "src": "p.3-4 §3.2·Figure 2b·Table 2"
+      },
+      {
+        "section": "§4.1 Annotation and Evaluation",
+        "move": "method",
+        "summary_ko": "하위 집합 90문장을 암시형·명시형으로 제시하고, 무선 배정된 주석자 5명이 문장마다 3지선다로 화계를 고른다(총 23명). 2명 이상이 고른 화계를 정답으로 인정해 변이를 담는다.",
+        "src": "p.4 §4.1"
+      },
+      {
+        "section": "§4.2 Model Alignment with Humans",
+        "move": "interpretation",
+        "summary_ko": "부류별 정확도(Table 3)와 쌍별 차이(Table 4)를 제시. 암시에서는 seq2seq가 최고·MTLM이 최저, 명시에서는 seq2seq가 급락하고 ITLM이 최고. 거의 모든 쌍에서 ITLM이 MTLM보다 낫다는 점으로부터 '더 공손한 번역이 더 높은 정렬을 뜻하지 않으며, 과도한 공손은 사회적 맥락 적응 능력의 한계'라는 해석을 끌어낸다. Table 3 캡션은 상세 결과를 'Figure 8'이라 가리키지만 실제로는 Table 8이다.",
+        "src": "p.4 §4.2·Table 3–4"
+      },
+      {
+        "section": "§5 Conclusion",
+        "move": "claim",
+        "summary_ko": "MTLM은 두 시나리오 모두에서 더 공손하고 인간 판단과 덜 맞는다. ITLM은 맥락 단서에 더 민감하다 — 지시 조정이 사회적 뉘앙스를 더 잘 포착한다는 뜻. seq2seq는 암시에서 덜 공손하고 인간에 가깝지만 청자가 주어지면 지나치게 공손해진다.",
+        "src": "p.4 §5"
+      },
+      {
+        "section": "§6 Limitations",
+        "move": "limitation",
+        "summary_ko": "(1) 한국어 한 언어 — 일반화 불가, (2) 언어 변화와 화자 집단별 차이 미반영, (3) politeness score는 확립된 지표가 아님, (4) 훈련 데이터 미통제, (5) 설문 참여자가 특정 하위 집단. 각 한계에 후속 과제(시간에 따른 모델 행동 변화, 같은 기반·같은 데이터·다른 목적의 통제 미세조정, 더 정교한 인간 조사)를 붙인다.",
+        "src": "p.5 §6"
+      },
+      {
+        "section": "§7 Ethics Statement · §8 Acknowledgment",
+        "move": "method",
+        "summary_ko": "참여자는 자발적으로 참여했고 친구·가족·지인 등 개인 연결망으로 모집됐으며 보수는 없었다. 개인 식별 정보는 수집하지 않았다. 논문 문장 편집에 GPT-5를 썼다고 밝힌다. Carl Zeiss 재단 TOPML 과제 지원.",
+        "src": "p.5 §7–§8"
+      },
+      {
+        "section": "Appendix A Korean Honorific Details",
+        "move": "limitation",
+        "summary_ko": "Table 5(격식성·공손성별 6화계와 '날씨가 춥-' 예문, Hwang et al. 2021)와 Table 6(honorific/authoritative/non-honorific 범주별 6화계)을 제시. A.2 'Unexplored Honorifics'에서 지시 대상 높임·어휘 교체를 다루지 못했고 화계가 사회적 역학만으로 정해지지 않으며 격식·비격식이 섞여 쓰인다고 인정한다.",
+        "src": "p.7-8 App. A·Table 5–6"
+      },
+      {
+        "section": "Appendix B.1–B.2 Data Generation",
+        "move": "method",
+        "summary_ko": "화계 수준별 청자 시나리오 10종(전체 목록은 Table 7) × GPT-5 생성 25문장 = 750. 생성 프롬프트는 정확히 25개의 서로 다른 영어 문장, 한국어로 옮길 때 {honorific} 수준이 자연스럽게 반영될 것, 한 문장일 것, {target}을 문장 안에서 명시하지 말 것을 요구한다.",
+        "src": "p.7 B.1–B.2; p.9 Table 7"
+      },
+      {
+        "section": "Appendix B.3–B.5 Extractor·Hardware·Prompts",
+        "move": "method",
+        "summary_ko": "분류기 프롬프트 전문과 검증 절차(130문장, 전문가 1인, 95%), Others 약 5% 제외, H100 3장·greedy·128토큰, ITLM 공통 번역 프롬프트와 'MTLM은 개발자 권장 프롬프트'라는 한 줄.",
+        "src": "p.7-8 B.3–B.5"
+      },
+      {
+        "section": "Appendix C.1–C.3 Pilot·Survey Design·Evaluation",
+        "move": "method",
+        "summary_ko": "파일럿에서 번역식(2명)과 선다식(2명, 4지: 세 화계 + unclear)을 18문장으로 비교했고, 세 화계 밖 번역이 드물고 unclear 응답이 없었으며 번역식이 시간·영어 실력을 더 요구한다는 이유로 3지선다를 택했다. 두 번째 선다식 파일럿으로 시간을 재어 설문지당 45문항으로 조정. 설문지 4종이 90문장을 덮고, 나이·성별·학력을 물었다. 24명 중 1명을 분포 이탈 기준(25%)으로 제외.",
+        "src": "p.8-10 C.1–C.3"
+      },
+      {
+        "section": "Appendix C.4–C.5 Demographics·License",
+        "move": "evidence",
+        "summary_ko": "여성 78.3%·남성 21.7%로 성별에 따른 화계 선택 차이는 없었고, 연령은 표본이 작아 상관을 말할 수 없으며, 학력이 가장 영향이 커서 저학력일수록 합쇼체를 더 골랐다(Figure 8–11의 원그래프). 데이터셋과 인간 주석은 CC BY 4.0으로 공개.",
+        "src": "p.10-12 C.4–C.5"
+      }
+    ],
+    "context": [
+      {
+        "axis": "lineage",
+        "text_ko": "두 계보 위에 서 있다. ① 경어 기계번역 계보: 일본어 경어 제어(Feely et al. 2019), 한국어 자막 병렬 코퍼스와 문맥 인지 NMT(Hwang et al. 2021), 격식성 분류기(Kim et al. 2023), 문맥 인지 LLM 번역 테스트셋(Lee et al. 2025), Papago의 말투 선택. ② 한국어 경어의 사회언어학·유형론 기술: Brown (2010, 2015), Sohn (1994), Yoon (2004), Bisang (2007). '기존 모델이 문화 내재적 현상을 제대로 못 잡는다'는 출발 전제의 근거로 P01(Lee & Wang 2023)을 직접 인용한다 — 이 프로젝트 10편 가운데 P06이 명시적으로 잇는 유일한 논문이다.",
+        "related": [
+          "P01"
+        ],
+        "src": "p.1-2 §1–§2"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "경어를 통사적 일치가 아니라 사회적 관계에 따른 화용적 선택으로 본다. 표시의 의무성(모든 정형 동사)은 문법 사실로 받아들이지만(Sohn 1994; Bisang 2007), 어느 화계를 고를지는 '어떤 문장에도 규정된 정답 화계가 없다'고 보아 다중 정답(5명 중 2명)을 채택하고 Cohen's kappa를 의도적으로 쓰지 않는다. P02–P04가 주체높임을 주어–서술어 '일치'로 놓고 맞음/어긋남 최소대립쌍을 만드는 입장과 대비된다. 변이의 근거로 든 Kwon & Sturt (2024)는 P03에서는 '-시- 위반이 P600을 일으킨다'는 통사 처리의 근거로, P05에서는 일치가 수의적이라는 근거로 쓰인다.",
+        "related": [
+          "P02",
+          "P03",
+          "P04",
+          "P05"
+        ],
+        "src": "p.4 §4.1; p.9 C.3"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "다루는 현상이 다르다. P06은 상대높임(청자 대우) — 문장 종결어미로 실현되는 화계 선택 — 만 다루고, P02–P05는 주체높임 선어말어미 '-시-'(주어 지시 대상에 대한 존대)를 다룬다. 상대높임의 허가 조건은 문장 밖의 화자–청자 관계여서 문장만으로는 답이 정해지지 않고(그래서 암시/명시 맥락 조작과 다중 정답이 필요하다), 주체높임의 허가 조건은 문장 안의 주어 명사구여서 최소대립쌍과 확률 기반 지표로 잴 수 있다. P01은 '제/저희'와 종결 '-요'의 의존성을 다뤄 상대높임 축에 걸치지만 측정 방식은 문장 내부 의존성이다. 따라서 P06의 '공손형 과잉'과 P02–P05의 '-시- 일치' 결과는 같은 '경어 능력'의 증거로 합산할 수 없고, 두 축을 한 설계 안에서 교차해야 비교가 가능해진다. P06 스스로도 지시 대상 높임을 미탐구 영역으로 남겼다.",
+        "related": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05"
+        ],
+        "src": "p.2 §2; p.7 A.2"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "측정 방식이 다르다. P06은 모델이 자유롭게 산출한 번역문을 사후에 화계로 분류해 분포를 본다(산출 과제). 주체높임 계열 논문들은 고정된 최소대립쌍에 대한 모델의 확률·판정을 본다(각 카드 참조). 로그확률을 주지 않는 상용 API를 전제로 하는 우리 후속 연구에는 P06식 산출 채점이 직접 적용 가능하지만, P06은 같은 자극을 인간과 모델에 '문자 그대로 같은 과제'로 주지 않았다(모델은 번역, 인간은 3지선다).",
+        "related": [
+          "P01",
+          "P02",
+          "P03",
+          "P04"
+        ],
+        "src": "p.2 §3; p.4 §4.1"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "번역기로 평가된 12개는 2024–2025년 공개 가중치 LLM(7B–72B)과 2022년 NLLB-200이다. P01이 다룬 GPT-2·BERT 계열보다 두 세대쯤 뒤지만, 상용 프런티어 모델은 문장 생성(GPT-5)과 채점(GPT-OSS 120B)에만 쓰였다. greedy decoding 1회, 최대 128토큰이라는 설정도 대화형 상용 서비스의 기본 동작과 다르다. 상용 API 모델이 번역·대화 상황에서 어떤 화계를 고르는지는 이 논문으로 알 수 없다.",
+        "related": [
+          "P01"
+        ],
+        "src": "p.3 Models; p.7 B.4"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "'모델 산출이 인간의 변이보다 높임·공손 쪽으로 쏠린다'는 관찰은 주체높임 쪽의 P02·P05와 같은 방향이다. P02는 모델이 비높임 주어에도 '께서+시' 완전 표지를 선호한다고, P05는 ChatGPT 4.0이 주어·서술어를 모두 높인 정형만(99.93 %) 생성한 반면 말뭉치에는 불일치형이 28.01 % 있었다고 보고한다. P06에서는 암시 조건의 인간 공손 점수가 38.30인데 Aya Expanse 32B(25.65)를 뺀 11개 모델이 모두 그보다 높다(그림 판독). 세 논문을 합치면 '안전한 높임 쪽으로의 쏠림'이 상대높임과 주체높임 양쪽에서 관찰된 셈이나, 같은 모델·같은 과제에서 두 축을 함께 확인한 연구는 없다.",
+        "related": [
+          "P02",
+          "P05"
+        ],
+        "src": "p.3 Figure 2a"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "상대높임을 '종결어미'로 조작화한다는 점에서 P09(KITE)의 Honorifics 지시문(문장 종결을 바꿔 높임말/반말을 전환)과 같고, 방향은 P10(KoBALT)의 대인 관계 항목(언어 형식에서 사회적 관계를 추론)과 반대다 — P06은 관계 → 형식(산출), KoBALT는 형식 → 관계(이해). P07은 주체·객체·상대 높임이 결합된 오류 판단을 다룬다. 우리 후속 연구의 이해 문항('누가 더 윗사람인가')은 KoBALT 방향이고, 자유 산출 채점은 P06 방향이다.",
+        "related": [
+          "P07",
+          "P09",
+          "P10"
+        ],
+        "src": "p.7 B.3"
+      },
+      {
+        "axis": "field",
+        "text_ko": "기계번역·언어자원 공동체(LREC의 Identity-Aware AI 워크숍)를 향한 논문이다. 기여는 모델 부류 비교와 공개 데이터이고, 증거는 기술통계와 막대그래프다. 통제된 자극·요인설계·추론통계를 쓰는 심리언어학 계열(P02–P04)과 방법론 문화가 다르며, 자극도 언어학자가 만든 최소대립쌍이 아니라 GPT-5가 생성한 '전형적 발화'다. 저자진에 유형론자(Bisang)가 있어 경어의 의무 표시를 정형성 논의와 잇는 점은 NLP 논문으로서는 드물다.",
+        "related": [
+          "P02",
+          "P03",
+          "P04"
+        ],
+        "src": "p.1 §1; p.5 §6"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "상대높임(청자 대우, addressee honorifics = speech styles)의 화계 선택. 영→한 번역문의 종결어미에 실현되는 해체(Casual)·해요체(Polite)·합쇼체(Deferential) 3화계만 평가한다. 주체높임 '-시-'를 포함한 지시 대상 높임과 어휘적 높임은 다루지 않는다.",
+    "stimuli": "GPT-5(gpt-5-2025-08-07)가 생성한 영어 한 문장짜리 발화 750개 = 목표 화계 3수준 × 화계당 청자 시나리오 10종 × 청자당 25문장. 생성 프롬프트는 그 청자에게 할 수 있는 말일 것, 한국어로 옮기면 목표 화계가 자연스럽게 반영될 것, 한 문장일 것, 청자를 문장 안에서 명시하지 말 것을 요구한다. 청자 목록(Table 7) — Deferential: professor, stranger, clerk in a store, boss, in-laws(first meeting), police officer, government official, a group of students when giving a presentation, job interviewer, customer at one's company / Polite: waiter, taxi driver, classmate, teacher, nurse, mother, in-laws(already acquainted), member of one's church, co-worker, writing on an online forum / Casual: younger sibling, best friend, romantic partner, younger cousin, roommate, classmate(well acquainted), a strange child, one's pet, chatting with Chat-GPT, talking with oneself. 인간 주석용 90문장의 표집 방식(화계·청자별 균형 여부)은 원문 미표기. (카드 작성자 웹 확인: 공개 저장소 README는 1,500문장·30시나리오로 적어 원문의 750과 다르다.)",
+    "conditions": [
+      "맥락 — Implicit scenario: 번역할 영어 문장만 제시(청자 정보 없음, 관계는 추론해야 함)",
+      "맥락 — Explicit scenario: 입력 문장 앞에 'I was talking to {addressee}, and I said: {sentence}' 접두를 붙여 청자를 명시(접두도 번역 대상에 포함)",
+      "모델 부류(관찰 변인, 3수준) — MTLM 5종 / ITLM 5종 / seq2seq 2종; 이 중 MTLM 4종은 같은 기반의 ITLM과 쌍별 비교",
+      "목표 화계(자극 생성용 설계 라벨, 3수준 × 청자 10종) — Deferential / Polite / Casual; 결과 분석의 정답이나 요인으로는 쓰이지 않음"
+    ],
+    "n_items": "영어 원천 문장 750개(3 화계 × 10 청자 × 25문장) × 2 시나리오. 인간 주석 하위 집합 90문장 × 2 시나리오(설문지 4종, 각 45문항, 문장당 5명). 분류기 검증 표본 130문장.",
+    "measures": [
+      "산출 번역문의 화계 분포: Casual / Polite / Deferential의 정규화 비율(Others 약 5%는 제외)",
+      "Politeness score = (0.5·pPol + pDef) × 100 (서열 가중치 [0, 0.5, 1]); 모델별 값과 부류 평균",
+      "쌍별 차이 Δ = MTLM − ITLM (politeness score), Δ = ITLM − MTLM (인간 정렬 정확도)",
+      "시나리오 간 변화량(암시 → 명시의 politeness score 증감)",
+      "Human alignment accuracy(%): 모델 산출 화계가 5명 중 2명 이상이 고른 화계와 일치하는 문장 비율(90문장 기준)",
+      "분류기 타당도: 전문가 1인 라벨 130문장 대비 정확도 95%"
+    ],
+    "models": [
+      "MTLM: GemmaX2 9B (기반 Gemma 2 9B; Cui et al. 2025)",
+      "MTLM: Tower+ 72B = Tower-Plus-72B (기반 Qwen 72B; Rei et al. 2025)",
+      "MTLM: Tower+ 9B = Tower-Plus-9B (기반 Gemma 2 9B; Rei et al. 2025)",
+      "MTLM: Hunyuan MT 7B (기반 Hunyuan 7B; Zheng et al. 2025)",
+      "MTLM: Seed-X = Seed X PPO 7B (대응 ITLM 없음; Cheng et al. 2025)",
+      "ITLM: gemma-2-9b-it (Tower+ 9B와 GemmaX2 9B의 대응 모델)",
+      "ITLM: Qwen2.5 72B Chat (Tower+ 72B의 대응 모델)",
+      "ITLM: Hunyuan-7B-Instruct (Hunyuan MT 7B의 대응 모델)",
+      "ITLM: Llama 3.3 70B Instruct (짝 없음)",
+      "ITLM: Aya Expanse 32B (짝 없음)",
+      "seq2seq: NLLB-200 Distilled 600M",
+      "seq2seq: NLLB-200 3.3B",
+      "(보조) GPT-5 gpt-5-2025-08-07 — 영어 원천 문장 생성",
+      "(보조) GPT-OSS 120B — 화계 자동 분류기"
+    ],
+    "humans": "본 조사 24명 참여, 1명 무효 → 23명(여성 78.3%, 남성 21.7%; 18–24세 집단부터 39–45세 집단까지; 고졸 이상 39.1%, 학사 52.2%, 석사 이상 8.7%). 암시 또는 명시 세트에 무선 배정, 문장당 5명이 3지선다(Casual 해 / Polite 해요 / Deferential 합니다·하십시오)로 '이 문장을 한국어로 옮길 때 고를 화계'를 응답. 설문지 4종(명시 2, 암시 2) × 45문항, 약 10분, 나이·성별·학력 문항 포함, Papago·ChatGPT 등 사용 자제 안내. 지인 연결망 모집·무보수. 제외 기준: 개인의 화계 선택 비율이 평균 분포에서 25% 벗어나면 실격. 설문 전체 응답 수 1033(Figure 8, 그림 판독) — '문장당 5명'이면 900이어야 해 설문지별 인원이 고르지 않았던 것으로 보인다. 파일럿: 번역식 2명 + 선다식 2명, 18문장. 분류기 검증용 수동 라벨은 전문가 1인.",
+    "stats": "기술통계만 — 비율, 부류 평균, 차이(Δ). 유의성 검정·신뢰구간·혼합효과모형·반복 표집 없음(greedy decoding 1회). Cohen's kappa는 '정답 화계가 정해져 있지 않다'는 이유로 의도적으로 쓰지 않았고 주석자 간 일치도 지표는 보고되지 않는다.",
+    "is_factorial": "아님(저자는 요인설계로 명명·분석하지 않음) — 사실상 맥락[암시/명시] × 모델 부류[MTLM/ITLM/seq2seq]의 2×3 관찰 비교이나 상호작용 검정이 없다. 자극 쪽의 목표 화계 3수준 × 청자 10종(내포)은 생성에만 쓰이고 분석 요인이 아니다. 청자 목록도 지위·친밀도를 교차한 요인 구조가 아니라 30개 시나리오의 나열이다."
+  },
+  "stimulus_examples": [
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Sorry to bother you, but have you seen a black wallet?",
+      "condition": "Figure 1의 예시 원천 문장. Implicit context = 'Relationship unknown'(stranger, friend, boss? 추론), Explicit context = 'talking to a stranger' / 'talking to a professor'",
+      "src": "p.1 Figure 1"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Hey, do you need a hand with that?",
+      "condition": "목표 화계 Deferential / 청자 A stranger",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Excuse me, do you know where I can find the phone chargers?",
+      "condition": "목표 화계 Deferential / 청자 A clerk, in a store",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Hi, could I get a menu, please?",
+      "condition": "목표 화계 Polite / 청자 A waiter",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Is it okay if I roll the window down a bit?",
+      "condition": "목표 화계 Polite / 청자 A taxi driver",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Hey, did you understand the homework for today's class?",
+      "condition": "목표 화계 Polite / 청자 A classmate",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Don't forget to clean your room before Mom gets back.",
+      "condition": "목표 화계 Casual / 청자 One's younger sibling",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 원천 문장)",
+      "gloss": "Come here, I need a proper hug.",
+      "condition": "목표 화계 Casual / 청자 One's romantic partner",
+      "src": "p.9 Table 7"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 설문 문항)",
+      "gloss": "Do you know if there's any extra credit available for this course? — Example Addressee: A Classmate, in school – unknown age — Example Answer: Polite: 해요",
+      "condition": "명시형 설문 안내문의 예시 2(청자와 부가 정보를 함께 제시). 예시 1은 A Professor, at university → Deferential: 합니다/하십시오, 예시 3은 One's Younger Sibling, at home → Casual: 해",
+      "src": "p.8 Figure 3"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 설문 문항)",
+      "gloss": "I've completed the assignment and would appreciate any feedback you have. — Addressee: One's Teacher, at school — 선택지: Deferential: 합니다/하십시오 / Polite: 해요 / Casual: 해",
+      "condition": "명시형 설문의 실제 문항(암시형 설문은 같은 형식에서 Addressee 줄만 없음)",
+      "src": "p.9 Figure 5"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 설문 문항)",
+      "gloss": "I'm meal prepping for the week — can you suggest some easy recipes that don't take forever? — Addressee: Chatting with ChatGPT, at home",
+      "condition": "명시형 설문 문항. 청자 시나리오 'chatting with Chat-GPT'는 Table 7에서 Casual 수준으로 규정된 청자다(설계 라벨이 인간 정답으로 쓰이지는 않음)",
+      "src": "p.9 Figure 5"
+    },
+    {
+      "ko": "(원문에 한국어 번역 없음 — 영어 설문 문항)",
+      "gloss": "Could you tell me more about the team I would be working with? — 선택지: Deferential: 합니다/하십시오 / Polite: 해요 / Casual: 해",
+      "condition": "암시형 설문 문항(청자 줄 없음). 청자는 문장 내용으로만 추론해야 한다(설계상 job interviewer 계열로 보이나 원문은 청자를 밝히지 않음)",
+      "src": "p.10 Figure 6"
+    },
+    {
+      "ko": "날씨가 춥습니다.",
+      "gloss": "nal-ssi-ga chub-seub-ni-da 'the weather is cold' — 합쇼체(Hapsio-che; Deferential), Politeness High / Formality High",
+      "condition": "Deferential (합니다/하십시오) — 평가 대상 화계",
+      "src": "p.8 Table 5"
+    },
+    {
+      "ko": "날씨가 추워요.",
+      "gloss": "nal-ssi-ga chu-wo-yo — 해요체(Haeyo-che; Polite), Politeness High / Formality Low",
+      "condition": "Polite (해요) — 평가 대상 화계",
+      "src": "p.8 Table 5"
+    },
+    {
+      "ko": "날씨가 추워.",
+      "gloss": "nal-ssi-ga chu-wo — 반말체(Banmal-che; Intimate), Politeness Low / Formality High(Table 5 표기 그대로; Table 6은 Informal)",
+      "condition": "Casual (해) — 평가 대상 화계. 본문 라벨 'Casual'이 표에서는 'Intimate'",
+      "src": "p.8 Table 5"
+    },
+    {
+      "ko": "날씨가 춥소. / 날씨가 춥네. / 날씨가 춥다.",
+      "gloss": "nal-ssi-ga chub-so(하오체; Semiformal) / chub-ne(하게체; Familiar) / chub-da(해라체; Plain)",
+      "condition": "평가에서 제외된 세 화계 — 산출되면 분류기의 'Others'로 처리됨",
+      "src": "p.8 Table 5"
+    }
+  ],
+  "key_numbers": [
+    {
+      "what": "영어 원천 문장 수(GPT-5 생성)",
+      "value": "750",
+      "src": "p.2 §3 Data Generation"
+    },
+    {
+      "what": "자극 구성: 화계 수준당 청자 시나리오 수 / 시나리오당 문장 수",
+      "value": "ten / 25",
+      "src": "p.7 B.1"
+    },
+    {
+      "what": "번역기로 평가된 모델 수 — 본문 Models 단락과 Table 8의 행을 직접 센 값(MTLM 5 + ITLM 5 + seq2seq 2). Figure 2의 막대 13개 중 1개는 Humans",
+      "value": "12개 (재계산)",
+      "src": "p.3 Models; p.10 Table 8"
+    },
+    {
+      "what": "화계 자동 분류기(GPT-OSS 120B)의 정확도 — 전문가 1인 수동 라벨 대비",
+      "value": "95%",
+      "src": "p.7 B.3"
+    },
+    {
+      "what": "분류기 검증 표본: '모델마다 암시 5문장 + 명시 5문장'이라는 설명과 함께 제시된 총수(12개 모델이면 120이어야 하므로 불일치, 원문 설명 없음)",
+      "value": "130 labeled sentences",
+      "src": "p.7 B.3"
+    },
+    {
+      "what": "분류기가 'Others'를 고른 비율(평균) — 분석에서 제외",
+      "value": "about 5%",
+      "src": "p.7 B.3"
+    },
+    {
+      "what": "Politeness score 부류 평균, 암시적 시나리오 (MTLMs / ITLMs / seq2seq) — 본문 §3.1에 명시",
+      "value": "64 / 45 / 48",
+      "src": "p.3 §3.1 Overall Results"
+    },
+    {
+      "what": "Politeness score 부류 평균, 명시적 시나리오 (MTLMs / ITLMs / seq2seq) — 본문에는 없고 Figure 2b 아래 범례에만 있음",
+      "value": "55 / 42 / 61 (그림 판독)",
+      "src": "p.3 Figure 2b"
+    },
+    {
+      "what": "인간(Humans 막대, 검은 마름모)의 politeness score, 암시 / 명시 — 본문에서는 언급되지 않고 Figure 2에만 있음",
+      "value": "38.30 / 43.67 (그림 판독)",
+      "src": "p.3 Figure 2"
+    },
+    {
+      "what": "모델별 politeness score, 암시 — 순서: Seed X PPO 7B, Hunyuan MT 7B, GemmaX2 9B, Tower-Plus-9B, Tower-Plus-72B, Qwen2.5 72B Chat, Hunyuan-7B-Instruct, gemma-2-9b-it, NLLB-200 Distilled 600M, NLLB-200 3.3B, Llama 3.3 70B Instruct, (Humans 38.30), Aya Expanse 32B",
+      "value": "72.78 / 65.31 / 63.32 / 62.18 / 59.06 / 57.23 / 53.57 / 51.51 / 50.07 / 47.04 / 39.79 / 25.65 (그림 판독)",
+      "src": "p.3 Figure 2a"
+    },
+    {
+      "what": "모델별 politeness score, 명시 — 순서: Seed X PPO 7B, NLLB-200 3.3B, NLLB-200 Distilled 600M, Tower-Plus-9B, Hunyuan MT 7B, GemmaX2 9B, Tower-Plus-72B, Qwen2.5 72B Chat, Hunyuan-7B-Instruct, (Humans 43.67), Aya Expanse 32B, gemma-2-9b-it, Llama 3.3 70B Instruct",
+      "value": "66.13 / 62.52 / 60.17 / 59.10 / 51.85 / 50.82 / 49.09 / 46.95 / 45.06 / 41.33 / 39.76 / 39.32 (그림 판독)",
+      "src": "p.3 Figure 2b"
+    },
+    {
+      "what": "'공손형 과잉'의 크기: 부류 평균 공손 점수(Figure 2의 모델별 값 평균) − 인간 공손 점수. 암시 MTLM 64.53−38.30, ITLM 45.55−38.30, seq2seq 48.56−38.30 / 명시 MTLM 55.40−43.67, ITLM 42.48−43.67, seq2seq 61.35−43.67. 인간 막대의 문장 기준(90문장 설문으로 보임)과 모델 막대의 기준(750문장 전체로 보임)은 원문에 명시돼 있지 않아 직접 비교에 주의",
+      "value": "암시 +26.23 / +7.25 / +10.26, 명시 +11.73 / −1.19 / +17.68 (재계산)",
+      "src": "p.3 Figure 2"
+    },
+    {
+      "what": "인간 공손 점수보다 낮은 모델 수 — 암시는 Aya Expanse 32B(25.65) 1개뿐, 명시는 ITLM 3개(Aya Expanse 32B 41.33, gemma-2-9b-it 39.76, Llama 3.3 70B Instruct 39.32). MTLM 5종은 두 시나리오 모두 인간보다 높다",
+      "value": "암시 1/12, 명시 3/12 (재계산)",
+      "src": "p.3 Figure 2"
+    },
+    {
+      "what": "쌍별 Δ(MTLM − ITLM) politeness score, 암시 — Tower-Plus-72B/Qwen2.5 72B Chat, Tower-Plus-9B/gemma-2-9b-it, GemmaX2 9B/gemma-2-9b-it, Hunyuan MT 7B/Hunyuan-7B-Instruct",
+      "value": "+1.8 / +10.7 / +11.8 / +11.7",
+      "src": "p.3 Table 1"
+    },
+    {
+      "what": "쌍별 Δ(MTLM − ITLM) politeness score, 명시 — 같은 순서",
+      "value": "+2.1 / +19.3 / +11.1 / +6.8",
+      "src": "p.3 Table 2"
+    },
+    {
+      "what": "암시 → 명시 전환 시 politeness score 변화(본문 표기): 'MTLMs and ITLMs … decrease by' 두 값, seq2seq 증가",
+      "value": "3.07 and 9.13 (감소) / 12.79 (증가)",
+      "src": "p.3-4 §3.2"
+    },
+    {
+      "what": "같은 변화량을 Figure 2의 모델별 점수 평균으로 재계산: MTLM 64.53 → 55.40 = −9.13, ITLM 45.55 → 42.48 = −3.07, seq2seq 48.56 → 61.35 = +12.79. 본문의 '3.07 and 9.13' 나열 순서(MTLMs, ITLMs)와 반대로 대응한다",
+      "value": "MTLM −9.13 / ITLM −3.07 / seq2seq +12.79 (재계산)",
+      "src": "p.3 Figure 2"
+    },
+    {
+      "what": "인간 정렬 정확도(%), 암시 (ITLMs / MTLMs / Seq2Seq)",
+      "value": "71.78 / 60.67 / 72.78",
+      "src": "p.4 Table 3"
+    },
+    {
+      "what": "인간 정렬 정확도(%), 명시 (ITLMs / MTLMs / Seq2Seq)",
+      "value": "81.11 / 66.67 / 60.55",
+      "src": "p.4 Table 3"
+    },
+    {
+      "what": "Table 8의 NLLB 두 모델 암시 정확도(74.44, 70.00)의 평균 — Table 3의 Seq2Seq 72.78과 0.56 차이(다른 다섯 칸은 Table 8 평균과 소수 둘째 자리까지 일치). 72.78은 공교롭게 Figure 2a의 Seed X PPO 7B 공손 점수와 같은 숫자다. 어느 쪽이든 암시 조건 1위는 seq2seq이지만, 72.22라면 ITLM 71.78과의 차이가 0.44%p로 90문장 중 한 문장(1.11%p)에도 못 미친다",
+      "value": "72.22 (재계산)",
+      "src": "p.10 Table 8"
+    },
+    {
+      "what": "본문이 든 MTLM의 암시 조건 정확도(반올림)",
+      "value": "61% acc.",
+      "src": "p.4 §4.2"
+    },
+    {
+      "what": "쌍별 Δ(ITLM − MTLM) 인간 정렬 정확도, 암시 — Qwen2.5 72B Chat/Tower-Plus-72B, gemma-2-9b-it/Tower-Plus-9B, gemma-2-9b-it/GemmaX2 9B, Hunyuan-7B-Instruct/Hunyuan MT 7B",
+      "value": "+4.44 / +7.77 / +22.22 / +10.00",
+      "src": "p.4 Table 4"
+    },
+    {
+      "what": "쌍별 Δ(ITLM − MTLM) 인간 정렬 정확도, 명시 — 같은 순서. 마지막 쌍만 MTLM이 높다",
+      "value": "+6.66 / +23.33 / +30.00 / -11.11",
+      "src": "p.4 Table 4"
+    },
+    {
+      "what": "모델별 인간 정렬 정확도(%), 암시 — 순서: gemma-2-9b-it, Qwen2.5 72B Chat, NLLB-200 3.3B, Tower-Plus-72B, Tower-Plus-9B, Aya Expanse 32B, NLLB-200 Distilled 600M, Hunyuan-7B-Instruct, Llama 3.3 70B Instruct, GemmaX2 9B, Hunyuan MT 7B, Seed X PPO 7B",
+      "value": "80.00 / 77.78 / 74.44 / 73.33 / 72.22 / 70.00 / 70.00 / 66.67 / 64.44 / 57.78 / 56.67 / 43.33",
+      "src": "p.10 Table 8"
+    },
+    {
+      "what": "모델별 인간 정렬 정확도(%), 명시 — 순서: Aya Expanse 32B, gemma-2-9b-it, Qwen2.5 72B Chat, Hunyuan MT 7B, Tower-Plus-72B, Llama 3.3 70B Instruct, Hunyuan-7B-Instruct, Tower-Plus-9B, NLLB-200 Distilled 600M, GemmaX2 9B, NLLB-200 3.3B, Seed X PPO 7B",
+      "value": "90.00 / 88.89 / 86.67 / 80.00 / 80.00 / 71.11 / 68.89 / 65.56 / 62.22 / 58.89 / 58.89 / 48.89",
+      "src": "p.10 Table 8"
+    },
+    {
+      "what": "인간 주석 규모: 문장 수 / 문장당 주석자 수 / 유효 참여자 수",
+      "value": "90 sentences / five participants / 23 participants",
+      "src": "p.4 §4.1"
+    },
+    {
+      "what": "'정답' 화계의 문턱: 5명 중 이 수 이상이 선택",
+      "value": "at least two participants",
+      "src": "p.4 §4.1"
+    },
+    {
+      "what": "설문 구성: 설문지 수 / 설문지당 문항 수 / 소요 시간(분)",
+      "value": "4 questionnaires / 45 questions / approximately 10 minutes",
+      "src": "p.8 C.1–C.2"
+    },
+    {
+      "what": "참여자 제외: 전체 참여자 수(그중 한 명 무효) / 실격 기준(개인의 화계 선택 비율이 평균 분포에서 벗어난 정도)",
+      "value": "24 participants / 25%",
+      "src": "p.9-10 C.3"
+    },
+    {
+      "what": "참여자 성별(여성 / 남성)",
+      "value": "78.3% / 21.7%",
+      "src": "p.10 C.4"
+    },
+    {
+      "what": "참여자 학력(고졸 이상 / 학사 / 석사 이상)",
+      "value": "39.1% / 52.2% / 8.7%",
+      "src": "p.10 C.4"
+    },
+    {
+      "what": "인간 설문 전체의 화계 선택 분포(Polite 해요 / Casual 해 / Deferential 합니다·하십시오)와 총 응답 수 — 원그래프 이미지에만 있는 값",
+      "value": "41.6% / 38.0% / 20.3%, Number of Responses: 1033 (그림 판독)",
+      "src": "p.11 Figure 8"
+    },
+    {
+      "what": "응답 수 대조: '문장당 5명'이면 90문장 × 2형태 × 5 = 900이어야 하나 Figure 8의 응답은 1033이다. 23명 × 45문항 = 1035에 가까워, 설문지 4종에 참여자가 5명씩 고르게 배정되지 않았음을 시사한다(원문 설명 없음)",
+      "value": "900 대 1033 (재계산)",
+      "src": "p.4 §4.1; p.11 Figure 8"
+    },
+    {
+      "what": "성별 응답 수(여성 / 남성) — 45문항으로 나누면 18명 / 5명으로 C.4의 78.3% / 21.7%와 맞는다",
+      "value": "809 / 224 (그림 판독)",
+      "src": "p.11 Figure 9"
+    },
+    {
+      "what": "연령 집단별 응답 수(18–24 / 25–31 / 32–38 / 39–45) — 45문항으로 나누면 4 / 약 15 / 약 3 / 1명",
+      "value": "180 / 674 / 134 / 45 (그림 판독)",
+      "src": "p.11 Figure 10"
+    },
+    {
+      "what": "학력별 Deferential 선택 비율(고졸 / 학사 / 석사 이상)과 응답 수 — '저학력일수록 합쇼체'라는 서술의 근거. 응답 수를 45로 나누면 9 / 약 12 / 2명이어서 C.4의 39.1% / 52.2% / 8.7%와 맞고, 석사 이상 집단은 2명뿐이다",
+      "value": "27.5% / 16.1% / 13.3%; 응답 404 / 539 / 90 (그림 판독)",
+      "src": "p.11 Figure 11"
+    },
+    {
+      "what": "파일럿: 방식별 참여자 수(번역식 / 선다식)와 문장 수. 같은 단락이 세 화계 밖 번역을 'one out of twenty sentences'라 적어 18문장과 어긋난다",
+      "value": "Two / two participants, 18 sentences",
+      "src": "p.8 C.1"
+    },
+    {
+      "what": "추론 설정: GPU / 생성 최대 토큰 / 평가기 최대 토큰 / 디코딩",
+      "value": "three H100 / 128 tokens / 512 tokens / greedy",
+      "src": "p.7 B.4"
+    }
+  ],
+  "limitations": [
+    {
+      "text_ko": "한국어 한 언어만 다뤘으므로 발견은 시사적 증거에 그치고 경어 체계를 가진 다른 언어로 일반화할 수 없다.",
+      "stated_by": "author",
+      "src": "p.5 §6"
+    },
+    {
+      "text_ko": "언어는 사회문화적 변화와 화자 집단에 따라 달라지는데 이 연구는 그 역학을 담지 못했다.",
+      "stated_by": "author",
+      "src": "p.5 §6"
+    },
+    {
+      "text_ko": "politeness score는 Deferential과 Polite의 차이를 집계하려고 만든 지표로, 확립된 측정이 아니어서 모호성을 낳을 수 있다.",
+      "stated_by": "author",
+      "src": "p.5 §6"
+    },
+    {
+      "text_ko": "모델 간 훈련 데이터를 통제하지 않아 부류(훈련 목적) 효과와 데이터 효과가 분리되지 않는다.",
+      "stated_by": "author",
+      "src": "p.5 §6"
+    },
+    {
+      "text_ko": "설문 참여자가 한국 인구의 특정 하위 집단이다(23명, 여성 78.3%, 45세 이하, 지인 모집). 연령과 화계 선택의 상관을 말하기에는 참여자 수가 너무 적다고 부록에서도 인정한다.",
+      "stated_by": "author",
+      "src": "p.5 §6; p.10 C.4"
+    },
+    {
+      "text_ko": "지시 대상 높임(주체·객체높임)과 어휘 교체를 다루지 않았고, 6개 화계 중 3개만 평가했으며, 실제 대화의 격식·비격식 혼용도 반영하지 않았다.",
+      "stated_by": "author",
+      "src": "p.7 A.2; p.2 §2"
+    },
+    {
+      "text_ko": "추론 통계가 전혀 없다. 인간 정렬 정확도는 90문장 기준이라 한 문장이 1.11%p이고(암시 조건 seq2seq 72.78 대 ITLM 71.78은 한 문장 차이), 부류 평균은 5·5·2개 모델의 단순 평균이며, 생성은 greedy 1회다. '체계적', '일관되게'라는 표현을 뒷받침할 검정이 없다.",
+      "stated_by": "us",
+      "src": "p.4 Table 3; p.10 Table 8"
+    },
+    {
+      "text_ko": "내부 수치 불일치가 여럿 있다: ① 본문 '3.07 and 9.13'의 나열 순서(MTLMs, ITLMs)가 Figure 2 재계산(MTLM −9.13, ITLM −3.07)과 반대, ② Table 3의 암시 Seq2Seq 72.78이 Table 8의 NLLB 두 모델 평균 72.22와 다름(다른 다섯 칸은 일치), ③ 분류기 검증 130문장은 '모델마다 5+5문장' × 12개 모델 = 120과 맞지 않음(원문 설명 없음; 저장소 README 모델 표가 Google Translate를 더한 13행이라 13 × 10 = 130일 가능성이 있으나 원문으로는 확인 불가), ④ Table 3 캡션이 Table 8을 'Figure 8'이라 가리킴, ⑤ 파일럿 18문장과 'one out of twenty sentences'의 불일치, ⑥ '문장당 5명'이면 응답이 900건이어야 하나 Figure 8은 1033건(23명 × 45문항 = 1035에 근접)으로, 설문지별 참여자 수가 5명으로 고르지 않았을 가능성.",
+      "stated_by": "us",
+      "src": "p.3-4 §3.2; p.7 B.3; p.8 C.1; p.10 Table 8; p.11 Figure 8"
+    },
+    {
+      "text_ko": "인구통계 해석의 근거가 매우 얇다. 부록 원그래프의 응답 수를 설문 문항 수(45)로 나누면 '가장 영향이 큰 변인'이라는 학력의 최상위 집단(석사 이상)은 2명, 최고령 집단(39–45세)은 1명, 남성은 5명이다. 저학력일수록 합쇼체를 더 고른다는 서술은 검정 없이 이 원그래프의 비율(27.5% / 16.1% / 13.3%) 비교에 기댄다.",
+      "stated_by": "us",
+      "src": "p.10 C.4; p.11 Figure 9–11"
+    },
+    {
+      "text_ko": "인간 기준이 모델 산출문에 대한 평가가 아니다. 참여자는 영어 문장을 보고 자신이 고를 화계를 3지선다로 답했을 뿐이고, 5명 중 2명이라는 관대한 다중 정답을 쓴다. 따라서 '과공손'은 분포 불일치일 뿐 '부적절하다고 지각된다'는 증거가 아니며, 과공손과 과소공손의 비용 비대칭(반말 오류가 더 치명적일 수 있음)도 고려되지 않는다.",
+      "stated_by": "us",
+      "src": "p.4 §4.1; p.9 Figure 5"
+    },
+    {
+      "text_ko": "암시적 조건이 '무단서' 조건이 아니다. 원천 문장 자체가 목표 화계를 '자연스럽게 반영'하도록 GPT-5에 주문해 만든 것이어서 'Hey', 'Man', 'Excuse me' 같은 어휘·문체 단서가 실려 있다. 그런데 목표 화계·청자별 결과는 보고되지 않아 모델이 무엇을 단서로 삼았는지 알 수 없다.",
+      "stated_by": "us",
+      "src": "p.7 B.2; p.9 Table 7"
+    },
+    {
+      "text_ko": "명시적 조건의 맥락이 번역 대상 텍스트 안에 들어 있다. 'I was talking to …, and I said:'가 함께 번역되면서 서술부(독자를 향한 보고)의 화계와 인용된 발화의 화계가 한 출력 안에 공존하고, 모델이 둘을 맞추려 할 수 있다. 분류기가 한국어 접두를 먼저 떼어 내야 하는 부담도 생긴다. 또 MTLM에는 개발자 권장 프롬프트, ITLM에는 공통 프롬프트를 써서 프롬프트 형식이 모델 부류와 교란된다.",
+      "stated_by": "us",
+      "src": "p.2 §3; p.7 B.3; p.8 B.5"
+    },
+    {
+      "text_ko": "분류기 타당도의 근거가 얇다. 전문가 1인이 라벨링한 130문장 대비 정확도 95% 한 값뿐이고, 클래스별 혼동·모델별 Others 비율·여러 문장이나 혼합 어미가 나온 출력의 처리 규칙이 없다. 해라체('-다') 산출은 Others로 빠져 분석에서 사라진다.",
+      "stated_by": "us",
+      "src": "p.7 B.3"
+    },
+    {
+      "text_ko": "'MTLM의 과공손'이라는 틀이 그림과 완전히 맞지는 않는다. 암시 조건에서 인간 점수(38.30)보다 낮은 모델은 Aya Expanse 32B(25.65) 하나뿐이어서 과공손은 거의 모든 모델의 경향이다(부류 평균과 인간의 차이는 MTLM +26.23, seq2seq +10.26, ITLM +7.25, 재계산). 또 인간은 청자가 주어지면 더 공손해지는데(38.30 → 43.67) MTLM·ITLM은 더 casual해져 방향이 반대인데도, 저자는 LM의 변화를 '맥락에 맞춘 어조 조정'으로만 해석한다. 인간 막대가 어느 문장 집합에서 계산됐는지(90문장 설문으로 보임)와 모델 막대가 750문장 전체인지는 원문에 명시되지 않아 직접 비교에는 주의가 필요하다.",
+      "stated_by": "us",
+      "src": "p.3 Figure 2"
+    },
+    {
+      "text_ko": "용어 'formality'가 불안정하다. 본문은 공손성과 격식성을 한 축으로 섞어 쓰고, 부록 Table 5와 Table 6은 반말체·해라체·하게체의 격식성 분류가 서로 어긋난다. politeness score는 이 두 축을 하나의 서열로 접는다.",
+      "stated_by": "us",
+      "src": "p.8 Table 5–6"
+    },
+    {
+      "text_ko": "공개 자료의 규모·라이선스가 논문과 어긋난다(카드 작성자 웹 확인): 논문은 750문장·CC BY 4.0이라 적지만 저장소 README는 1,500문장·CC BY-NC-ND 4.0이라 적는다. 재현·재사용 시 어느 쪽이 실험에 쓰인 자료인지 원자료로 확인해야 한다.",
+      "stated_by": "us",
+      "src": "p.2 각주 2; p.12 C.5"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P06-H1",
+      "hook_ko": "훈련 목적의 효과를 통제해서 본다: 같은 기반·같은 데이터에서 목적만 바꾼 미세조정 비교. API 전제의 우리 연구에서는 같은 상용 모델에 '번역 과제' 대 '대화 응답 과제'를 주어 과제 틀이 화계 선택을 바꾸는지로 옮겨 검증한다.",
+      "basis_ko": "저자가 한계 절에서 직접 제안했다. 현 설계는 MTLM과 ITLM 사이에 훈련 데이터·프롬프트 형식이 함께 달라 '번역 특화 미세조정 때문에 공손해진다'는 인과 해석이 성립하지 않는다.",
+      "kind": "author_future_work",
+      "src": "p.5 §6"
+    },
+    {
+      "id": "P06-H2",
+      "hook_ko": "더 넓고 정교한 인간 조사: 표본을 키우고 연령·학력·성별을 설계에 넣으며, 3지선다 대신 7점 Likert 적절성 평정으로 화계별 허용 범위를 연속적으로 잰다.",
+      "basis_ko": "저자가 후속 과제로 명시했다. 23명·여성 78.3%·45세 이하·지인 모집 표본이고, 부록은 학력이 화계 선택에 가장 큰 영향을 준다고 보고하면서도 검정은 하지 못했다.",
+      "kind": "author_future_work",
+      "src": "p.5 §6; p.10 C.4"
+    },
+    {
+      "id": "P06-H3",
+      "hook_ko": "상대높임 화계와 주체높임 '-시-'를 한 설계 안에서 교차한다(예: 화계[해요체/해체] × '-시-'[유/무], 또는 청자 지위 × 주어 지위). P02–P05의 주체높임 계보와 P06의 상대높임 계보를 잇는 2×2가 된다.",
+      "basis_ko": "부록 A.2가 지시 대상 높임과 어휘 교체를 '미탐구'로 남기며 화계만큼 흔하고 중요하다고 인정한다. 두 높임은 허가 조건의 위치(문장 밖 청자 대 문장 안 주어)가 달라, 모델이 표면 공기를 배웠는지 허가 조건을 배웠는지를 가르는 데 교차 설계가 유리하다.",
+      "kind": "author_future_work",
+      "src": "p.7 A.2"
+    },
+    {
+      "id": "P06-H4",
+      "hook_ko": "자유 산출의 화계 채점 절차를 표준화한다: 닫힌 라벨 집합(해체/해요체/합쇼체/해라체/기타), '종결어미만 보라'는 지시, 고정 출력 형식, 인간 라벨 표본 대조는 이 논문에서 물려받고, 규칙 기반 어미 판정기와의 교차 확인, 2인 이상 주석과 일치도, 클래스별 혼동행렬, 여러 문장·혼합 어미 출력의 처리 규칙을 더한다.",
+      "basis_ko": "이 논문의 분류기 검증은 전문가 1인·130문장·정확도 95% 한 값이고 Others(약 5%)의 내역과 모델별 비율이 없다. 해라체 산출이 Others로 사라지는 구조라, '-다'체를 기본으로 쓰는 모델이 있으면 분포가 왜곡된다.",
+      "kind": "method_gap",
+      "src": "p.7 B.3"
+    },
+    {
+      "id": "P06-H5",
+      "hook_ko": "politeness score를 대체하거나 보완한다: 세 화계의 분포 자체를 인간 분포와 비교하고(문항별 다항 분포 간 거리 등), 목표 화계 대비 혼동행렬을 보고하며, 공손성과 격식성을 별개 축으로 평정받는다.",
+      "basis_ko": "저자 스스로 확립된 지표가 아니라고 한계에 적었다. 가중치 [0, 0.5, 1]의 근거가 없고, 같은 점수가 서로 다른 분포에서 나올 수 있으며, 부록 Table 5가 구별한 Politeness·Formality 두 축을 하나로 접는다.",
+      "kind": "method_gap",
+      "src": "p.3 Politeness Score; p.5 §6"
+    },
+    {
+      "id": "P06-H6",
+      "hook_ko": "청자 맥락을 번역 대상 문장 밖(시스템 지시 또는 별도 맥락 단락)에 두는 조건과 이 논문처럼 문장 안 접두로 두는 조건을 비교해, 맥락 제시 '방식'의 효과를 분리한다.",
+      "basis_ko": "명시 조건의 접두 'I was talking to {addressee}, and I said:'가 함께 번역되어 서술부의 화계와 인용 발화의 화계가 한 출력에 공존한다. seq2seq가 명시 조건에서 12.79 더 공손해진 것이 청자 정보의 효과인지 서술 틀의 문체 효과인지 가릴 수 없다.",
+      "kind": "unresolved_confound",
+      "src": "p.2 §3 Experimental Setup; p.7 B.3"
+    },
+    {
+      "id": "P06-H7",
+      "hook_ko": "모든 모델에 같은 프롬프트를 주고(또는 프롬프트를 요인으로 넣고) 비교한다. 상용 API 실험에서는 시스템 프롬프트·번역 지시 문구를 고정하고 프롬프트 변형을 통제 실험으로 분리한다.",
+      "basis_ko": "ITLM은 공통 번역 프롬프트, MTLM은 '개발자 권장 프롬프트'를 썼다고만 밝혀 프롬프트 형식이 모델 부류와 완전히 교란된다. 권장 프롬프트의 실제 문구는 논문에 없다.",
+      "kind": "unresolved_confound",
+      "src": "p.8 B.5"
+    },
+    {
+      "id": "P06-H8",
+      "hook_ko": "원천 문장의 문체 단서를 통제한다: 같은 명제 내용의 영어 문장을 문체 중립형으로 만들어 두고 청자만 바꾸는 최소대립 자극을 쓰고, 설계 라벨(목표 화계)·청자별로 결과를 분해한다.",
+      "basis_ko": "원천 문장은 목표 화계를 '자연스럽게 반영'하도록 생성돼 'Hey', 'Man', 'Excuse me' 같은 단서를 이미 담고 있어 암시 조건이 무단서 조건이 아니다. 청자 → 화계 대응도 저자의 규정(a stranger → Deferential, one's mother → Polite, chatting with Chat-GPT → Casual)인데, 설계 라벨 기준 결과와 청자별 결과가 전혀 보고되지 않는다.",
+      "kind": "unresolved_confound",
+      "src": "p.7 B.2; p.9 Table 7"
+    },
+    {
+      "id": "P06-H9",
+      "hook_ko": "청자를 요인 구조로 재설계한다: 청자 지위[상위/하위] × 친밀도[친/소], 또는 맥락 제시[무/유] × 청자 지위[상위/하위]의 2×2로 만들어 화계 선택의 상호작용을 검정한다.",
+      "basis_ko": "이 논문의 청자 30종은 지위·친밀도·장면(온라인 포럼, 혼잣말, 반려동물, ChatGPT)이 뒤섞인 목록이라 어떤 사회적 변인이 화계를 움직이는지 분리할 수 없고, 맥락 × 모델 부류의 상호작용도 검정되지 않았다.",
+      "kind": "untested_condition",
+      "src": "p.9 Table 7"
+    },
+    {
+      "id": "P06-H10",
+      "hook_ko": "인간과 모델의 '맥락 효과 방향'을 같은 문항에서 비교한다. 청자 명시가 인간에게는 공손 쪽, LM에게는 casual 쪽으로 작용하는지를 청자 지위별로 나눠 확인한다.",
+      "basis_ko": "Figure 2에서 Humans의 점수는 38.30 → 43.67로 오르는데 MTLM·ITLM은 내려간다. 저자는 이 방향 차이를 논의하지 않고 LM의 하락을 '적응'으로 해석한다. 인간 점수는 90문장, 모델 점수는 750문장 기준이어서 같은 문항 집합으로 다시 재야 한다.",
+      "kind": "untested_condition",
+      "src": "p.3 Figure 2"
+    },
+    {
+      "id": "P06-H11",
+      "hook_ko": "과공손이 실제로 감점되는지를 잰다: L1 화자가 청자 정보와 함께 모델의 실제 산출문을 7점 Likert로 평정하게 하고, 과공손(합쇼체 ← 해요체 기대)과 과소공손(해체 ← 해요체 기대)의 비용 비대칭을 추정한다. 같은 평정 과제를 모델에도 준다.",
+      "basis_ko": "이 논문의 인간 자료는 영어 문장에 대한 3지선다 화계 선택이지 산출문 평가가 아니고, 5명 중 2명이라는 다중 정답 기준으로 일치율만 계산한다. '과도한 공손 = 부적절'이라는 결론을 직접 뒷받침하는 평정 자료가 없다.",
+      "kind": "method_gap",
+      "src": "p.4 §4.1–§4.2"
+    },
+    {
+      "id": "P06-H12",
+      "hook_ko": "추론 통계를 갖춘 재분석·재현: 문항과 모델을 임의효과로 둔 혼합효과(순서형/다항) 모형으로 맥락 × 모델 부류 상호작용을 검정하고, 온도 표집을 반복해 산출 변동을 추정한다. 공개 데이터로 설계 라벨 기준 재분석도 가능하다.",
+      "basis_ko": "기술통계뿐이고 90문장 기준 정확도에서 한 문장이 1.11%p다. 본문 수치와 그림·부록 표 사이의 불일치(3.07/9.13의 순서, 72.78 대 72.22, 130문장)도 있어 공개 저장소의 원자료로 확인할 필요가 있다.",
+      "kind": "method_gap",
+      "src": "p.4 Table 3; p.10 Table 8"
+    },
+    {
+      "id": "P06-H13",
+      "hook_ko": "상용 API 모델(글로벌 프런티어, 한국어 특화 상용 모델)을 같은 750문장·두 맥락 조건으로 재검증한다. 번역 과제뿐 아니라 한국어 대화 응답에서의 기본 화계도 함께 잰다.",
+      "basis_ko": "번역기로 평가된 것은 7B–72B 공개 가중치 LLM 10종과 2022년 NLLB-200 2종뿐이다. GPT-5는 원천 문장 생성에만, GPT-OSS 120B는 채점에만 쓰였다. 원천 문장·코드·인간 주석이 공개돼 있어 재현 비용이 낮지만, 논문(750문장, CC BY 4.0)과 저장소 README(1,500문장, CC BY-NC-ND 4.0)의 규모·라이선스가 달라 재사용 조건을 먼저 확인해야 한다.",
+      "kind": "model_generation",
+      "src": "p.3 Models; p.7 B.1"
+    },
+    {
+      "id": "P06-H14",
+      "hook_ko": "번역 방향과 화계 범위를 넓힌다: 한→영(화계 정보의 손실·보상), 한→한 문체 변환, 글말의 해라체, 한 발화 안의 화계 혼용.",
+      "basis_ko": "영→한 한 방향과 세 화계만 다뤘다. 'writing on an online forum', 'talking with oneself' 같은 청자는 해라체나 명사 종결이 자연스러울 수 있는데 선택지에 없고, 저자도 실제 대화에서 격식·비격식이 섞인다고 인정한다.",
+      "kind": "untested_condition",
+      "src": "p.2 §2; p.7 A.2; p.9 Table 7"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "코드, 원천 문장 데이터셋, 인간 주석 하위 집합(90문장 × 암시/명시). 원문은 데이터셋과 인간 주석을 CC BY 4.0으로 공개한다고 적는다(p.2 각주 2, p.12 C.5). 2026-09-19 확인한 README는 1,500문장·30시나리오, 라이선스 CC BY-NC-ND 4.0, 모델 표 13행(Google Translate API 기준선 포함)으로 적어 논문과 다르다.",
+      "url": "https://github.com/MinhDucBui/KoreanHonorifics"
+    },
+    {
+      "what": "논문 PDF·서지 레코드(ACL Anthology 2026.iaai-1.3; BibTeX는 같은 주소 .bib)",
+      "url": "https://aclanthology.org/2026.iaai-1.3/"
+    },
+    {
+      "what": "LREC 2026 자료집 논문 페이지(Proceedings of the Second Workshop of Identity Aware AI, pp. 20-31)",
+      "url": "https://lrec.elra.info/lrec2026-ws-iaai-03"
+    },
+    {
+      "what": "DOI",
+      "url": "https://doi.org/10.63317/5g3ca2zi2jf6"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md — §0 전체 지형도의 P6 행(18행)과 'P6. Cihlar, Bui, Park et al. (2026)' 절(216–239행). 보조로 02_횡단분석-쟁점과-공백.md의 P6 언급(16·47·69·122·132행)",
+    "agreements": [
+      "발표처 표기 'IAAI@LREC 2026', 자료집 20–31쪽 — 원문 p.1 꼬리말 'Proceedings of Identity-Aware AI (IAAI) @ LREC 2026, pages 20–31'과 일치 (p.1)",
+      "GPT-5로 영어 원천 문장 750개 생성, 번역 방향 en–ko (p.2 §3; p.7 B.1)",
+      "암시 조건 = 문장만, 명시 조건 = 'I was talking to {addressee}, and I said: {sentence}' 접두 (p.2 §3)",
+      "평가 화계는 해체(Casual)·해요체(Polite)·합쇼체(Deferential) 셋뿐 (p.2 §2)",
+      "공손도 점수 = (0.5·pPol + pDef) × 100 (p.3)",
+      "화계 자동 추출기 GPT-OSS 120B, 정확도 95% (p.2 §3; p.7 B.3)",
+      "인간 23명, 90문장, 문장당 5명 3지선다, 2명 이상 선택 시 정답 — 근거로 Kwon & Sturt (2024) 인용 (p.4 §4.1)",
+      "부류별 공손도 암시 64/45/48, 명시 55/42/61 (MTLM/ITLM/seq2seq; 명시 값은 Figure 2b 범례) (p.3 §3.1·Figure 2)",
+      "부류별 인간 정렬 정확도 암시 60.67/71.78/72.78 %, 명시 66.67/81.11/60.55 % (p.4 Table 3)",
+      "MTLM이 대응 ITLM보다 네 쌍 모두·두 시나리오 모두에서 더 공손, Tower-Plus-9B 대 gemma-2-9b-it Δ +10.7 / +19.3 (p.3 Table 1–2)",
+      "평가 모델 수 12개 (MTLM 5 + ITLM 5 + seq2seq 2) (p.3 Models; p.10 Table 8)",
+      "seq2seq는 청자를 명시하면 오히려 공손도가 오르고(+12.79) 인간 정렬이 60.55 %로 떨어진다 (p.4 §3.2·§4.2)",
+      "P01(Lee & Wang 2023)을 직접 인용한다(02 문서 16행) (p.1 §1)"
+    ],
+    "discrepancies": [
+      {
+        "item": "모델 수 12의 근거 표기",
+        "old": "'MTLM/ITLM/seq2seq 12종(부록 그림 8 기준)'",
+        "new": "12종이라는 수는 맞지만 근거는 부록 Table 8(모델별 정렬 정확도, 시나리오당 12행)이다. Figure 8은 인간 설문의 화계 분포 원그래프다. 혼동의 출처는 원문 Table 3 캡션이 Table 8을 'Figure 8'이라 잘못 가리킨 것이다. Figure 2의 막대가 13개인 것은 'Humans' 막대(암시 38.30, 명시 43.67)가 끼어 있기 때문이며 13번째 모델이 아니다. 저장소 README의 13행 모델 표(Google Translate 포함)도 논문 결과에는 나오지 않는다.",
+        "basis_src": "p.4 Table 3 캡션; p.10 Table 8; p.3 Figure 2; p.11 Figure 8"
+      },
+      {
+        "item": "청자 명시 시 LM 공손도 감소폭의 대응",
+        "old": "02 문서 69행: 'MTLM·ITLM은 청자 명시 시 더 격식을 낮춤(공손도 −3.07, −9.13)' — 나열 순서상 MTLM −3.07, ITLM −9.13으로 읽힌다.",
+        "new": "원문 본문도 'MTLMs and ITLMs … decrease by 3.07 and 9.13' 순서로 적지만, Figure 2의 모델별 점수로 부류 평균을 재계산하면 MTLM 64.53 → 55.40(−9.13), ITLM 45.55 → 42.48(−3.07)이다. 부류 평균 범례(64→55, 45→42)와도 이쪽이 맞는다. 인용할 때는 'MTLM −9.13, ITLM −3.07(재계산; 본문 나열 순서와 반대)'로 적는다.",
+        "basis_src": "p.3 §3.2·Figure 2"
+      },
+      {
+        "item": "쌍별 정렬 격차의 부호",
+        "old": "'GemmaX2 9B vs gemma-2-9b-it 정렬 격차 −22.2(암묵), −30.0(명시)'",
+        "new": "원문 Table 4는 Δ = ITLM − MTLM으로 +22.22 / +30.00이라 적는다(본문 '+22.2 acc. improvement', '+30.0 points'). 기존 초안의 음수는 MTLM 기준으로 부호를 뒤집은 것이어서, 원문 표기와 섞어 쓰면 방향이 혼동된다. 또 명시 조건 Hunyuan 쌍은 −11.11로 MTLM이 더 높은 예외다('거의 모든 쌍').",
+        "basis_src": "p.4 Table 4·§4.2"
+      },
+      {
+        "item": "암시 조건 seq2seq 정렬 72.78 %",
+        "old": "seq2seq 암묵 정렬 72.78 %를 최고값으로 굵게 표시.",
+        "new": "Table 3 값은 72.78이지만 Table 8의 NLLB 두 모델(74.44, 70.00) 평균은 72.22(재계산)이고 나머지 다섯 칸은 Table 8 평균과 일치한다. 어느 값이든 1위는 seq2seq이나, 72.22라면 ITLM 71.78과의 차이는 0.44 %p로 90문장 중 한 문장(1.11 %p)에도 못 미친다. 추론 통계가 없으므로 '최고'라는 순위는 약한 근거다.",
+        "basis_src": "p.4 Table 3; p.10 Table 8"
+      },
+      {
+        "item": "'과공손 = 사회적 맥락 적응 실패'의 수용",
+        "old": "저자 해석('과공손 = 사회적 맥락 적응 실패')을 결과로 그대로 옮겼다.",
+        "new": "원문 그림으로 보면 과공손은 MTLM만의 현상이 아니다. 암시 조건 인간 공손 점수 38.30보다 낮은 모델은 Aya Expanse 32B(25.65) 하나뿐이고, 부류 평균과 인간의 차이는 MTLM +26.2, seq2seq +10.3, ITLM +7.3(재계산)이다. 또 청자를 명시하면 인간은 더 공손해지는데(38.30 → 43.67) MTLM·ITLM은 더 casual해져 방향이 반대다. 인간 자료는 모델 산출문 평정이 아니라 영어 문장을 보고 고른 3지선다라서 '부적절하다'는 직접 증거도 아니다. 인간 막대와 모델 막대의 문장 집합(90 대 750)이 원문에 명시되지 않은 점도 주의.",
+        "basis_src": "p.3 Figure 2; p.4 §4.1–§4.2; p.8 Figure 3"
+      },
+      {
+        "item": "명시 조건을 '인과 개입 설계의 선례'로 보는 활용점",
+        "old": "'맥락 정보를 명시하면 개선되는가'라는 인과 개입 설계의 선례로, 본 연구 실험 2(청자 정보 명시)의 방법론적 근거로 삼았다.",
+        "new": "선례로 쓸 수는 있으나 조작이 깨끗하지 않다. 청자 정보가 시스템 지시가 아니라 번역 대상 문장 안의 접두로 들어가 함께 번역되므로 서술부 화계와 인용 발화 화계가 한 출력에 섞이고(분류기가 한국어 접두를 먼저 떼어 내야 함), MTLM에는 개발자 권장 프롬프트, ITLM에는 공통 프롬프트를 써서 프롬프트가 모델 부류와 교란된다. 원천 문장 자체도 목표 화계를 반영하도록 생성돼 암시 조건이 '무단서'가 아니다. 우리 설계는 맥락을 번역 대상 밖에 두고 같은 프롬프트를 쓰는 방식으로 이 교란을 피해야 한다.",
+        "basis_src": "p.2 §3; p.7 B.2–B.3; p.8 B.5"
+      },
+      {
+        "item": "APA 서지(02 문서 132행)",
+        "old": "'Park, K.', 자료집명 'Proceedings of Identity-Aware AI (IAAI) @ LREC 2026', DOI 없음.",
+        "new": "원문 표기 'Kyung eun Park'에 따라 머리글자는 K. E.로 적었다. 자료집명은 원문 꼬리말과 Anthology 정식명('Proceedings of the Second Workshop of Identity Aware AI', ELRA, Palma de Mallorca)이 다르므로 둘 다 기록했고, DOI 10.63317/5g3ca2zi2jf6과 편자는 웹에서 확인해 bib_notes에 출처 URL을 남겼다.",
+        "basis_src": "p.1 저자란·꼬리말"
+      },
+      {
+        "item": "기존 분석에 빠진 설계 정보",
+        "old": "인간 조사 설계는 '23명, 90문장, 5명씩 다지선다'까지만 기록. 분류기 검증 표본, 설문 문항 형식, 참여자 제외 기준, 인구통계, 공개 자료 위치는 없음.",
+        "new": "분류기 검증은 전문가 1인이 라벨링한 130문장(모델 12개 × 10문장이면 120이라 불일치), Others 약 5 % 제외. 설문은 4종 × 45문항, '이 문장을 한국어로 옮길 때 고를 화계' 3지선다, 24명 중 1명을 분포 이탈 25 % 기준으로 제외, 여성 78.3 %·18–45세·지인 모집·무보수. 총 응답 1033(그림 판독)은 '문장당 5명'(900)과 맞지 않는다. 공개 자료는 GitHub MinhDucBui/KoreanHonorifics.",
+        "basis_src": "p.7 B.3; p.8 C.1–C.2; p.9-10 C.3–C.4; p.11 Figure 8"
+      }
+    ]
+  },
+  "verification": {
+    "status": "draft",
+    "by": null,
+    "notes": []
+  }
+}
