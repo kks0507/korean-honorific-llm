@@ -1,0 +1,244 @@
+{
+  "meta": {
+    "task": "P6-01 모델 추천·비용 추정",
+    "written_by": "메인 세션(Opus 5)",
+    "date": "2026-09-19",
+    "source": "content/_research/models_raw.md (공식 문서 확인일 2026-09-19, URL은 각 항목 docs와 원자료 참조)",
+    "caution_ko": "모델 사양·가격·폐기 일정은 시점 의존이다(R-02). 실행 직전에 docs URL을 다시 열어 확인하고, 호출 로그에 요청 ID·응답 model 필드·제공자·일시를 남긴다."
+  },
+  "selection_rationale_ko": "① 글로벌 프런티어 3사에서 추론을 끌 수 있는 대표 모델 하나씩(Gemini는 끌 수 없어 low로), ② 개인이 실제로 쓸 수 있는 한국어 특화 상용 API 두 계열(NAVER·Upstage), ③ surprisal 확장이 가능한 호스팅 공개 가중치 하나. 이렇게 6개를 핵심으로 두면 '글로벌 대 한국어 특화', '추론 켬 대 끔', '상용 대 공개 가중치'라는 세 비교축을 모두 확보하면서 비용을 억제할 수 있다. 한국 회사의 공개 가중치 모델(EXAONE·Kanana·Mi:dm·A.X)은 종량제 호스팅이 없어 GPU 임대가 필요하므로 선택 확장으로 둔다.",
+  "design_constraints_ko": [
+    "대부분의 프런티어 모델은 temperature를 고정할 수 없다 → 모든 모델을 기본 샘플링으로 두고 문항×조건당 10회 반복 표집(evaluation.json)",
+    "추론 켬/끔이 모델 간 교란이 된다 → 주 조건은 '끌 수 있으면 끔', Gemini·Astra·Fable은 추론 강제 모델로 기록. 끌 수 있는 모델(Opus 5·GPT-5.6·HCX-007·Solar)만 추론 켬 조건을 추가해 모델 안에서 비교",
+    "구조화 출력의 공통 분모는 enum으로 선택지를 고정한 JSON 한 줄(Anthropic은 minimum/maximum 미지원, CLOVA는 추론과 동시 사용 불가)",
+    "assistant prefill은 쓰지 않는다(Opus 5·Sonnet 5 400 오류, Gemini 제거 지시)",
+    "자극문은 유료 API로만 보낸다(Gemini 무료 등급·Upstage Playground는 입력을 모델 개선에 쓸 수 있음)",
+    "한도가 비용보다 먼저 병목이 된다: OpenAI Tier 1 월 $100, Google Tier 1 10분당 $10, CLOVA 60 QPM → 배치 API와 호출 간격 조절"
+  ],
+  "call_budget": {
+    "main_calls_per_model": 4000,
+    "main_breakdown_ko": "E1–E3 목표 288 + 채움 48 + E4 64(32문항 × 판정어 2) = 400 프롬프트 × 10회",
+    "extension_calls_per_model": 3840,
+    "extension_breakdown_ko": "E1-X: E1 96 프롬프트 × 프롬프트 판 4 × 10회 — 핵심 모델 중 3개(Opus 5, GPT-5.6, HCX-007)에만",
+    "token_assumption_ko": "입력 550토큰(지시문·맥락·문장·선택지 3문항), 출력 30토큰(추론 끔) 또는 330토큰(추론 low). 측정값이 아니므로 자극 확정 후 각 사 토큰 계산기로 다시 잰다."
+  },
+  "models": [
+    {
+      "key": "claude-opus-5",
+      "provider": "Anthropic",
+      "tier": "T1 글로벌 프런티어",
+      "model_id": "claude-opus-5",
+      "pin": 5.0,
+      "pout": 25.0,
+      "cur": "USD",
+      "role_ko": "핵심 비교 모델. 추론을 끌 수 있어(effort high 이하에서 disabled) 추론 켬/끔을 같은 모델에서 비교할 수 있다.",
+      "reasoning": "기본 켜짐, effort high 이하에서 끌 수 있음",
+      "temperature": "기본값(1.0)만 허용 — 반복 표집으로 분포 추정",
+      "seed": "없음",
+      "json": "구조화 출력 GA(enum으로 1–7 표현)",
+      "logprobs": "없음",
+      "snapshot": "날짜 없는 ID지만 고정 스냅샷으로 명시, 폐기는 2027-07-24 이전 아님",
+      "korean_evidence": "모델별 한국어 수치 미공개",
+      "docs": [
+        "https://platform.claude.com/docs/en/docs/about-claude/models/overview",
+        "https://platform.claude.com/docs/en/models/opus-5/whats-new-opus-5"
+      ],
+      "include": "핵심",
+      "cost_main": 14.0,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 30토큰(추론 끔), 표준 단가, USD"
+    },
+    {
+      "key": "gpt-5.6-sol",
+      "provider": "OpenAI",
+      "tier": "T1 글로벌 프런티어",
+      "model_id": "gpt-5.6-sol",
+      "pin": 4.0,
+      "pout": 20.0,
+      "cur": "USD",
+      "role_ko": "핵심 비교 모델. reasoning.effort none으로 추론을 끌 수 있다. 최상위 gpt-6-astra는 추론을 끌 수 없고 비용이 커 선택 모델로 둔다.",
+      "reasoning": "effort none~max, 기본 medium",
+      "temperature": "공식 문서로 확정 못 함(effort none에서만 허용될 가능성, 미검증) — 기본값으로 반복 표집",
+      "seed": "Chat Completions에만 있고 Deprecated",
+      "json": "Structured Outputs 지원",
+      "logprobs": "GPT-5.6 기준 미확인",
+      "snapshot": "날짜 없는 단일 스냅샷, GA 폐기 6개월 전 통지",
+      "korean_evidence": "개발자 문서에 언어별 수치 없음",
+      "docs": [
+        "https://developers.openai.com/api/docs/models/gpt-5.6-sol.md",
+        "https://developers.openai.com/api/docs/guides/reasoning"
+      ],
+      "include": "핵심",
+      "cost_main": 11.2,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 30토큰(추론 끔), 표준 단가, USD"
+    },
+    {
+      "key": "gemini-3.8-flash",
+      "provider": "Google",
+      "tier": "T1 글로벌 프런티어",
+      "model_id": "gemini-3.8-flash",
+      "pin": 0.75,
+      "pout": 3.75,
+      "cur": "USD",
+      "role_ko": "핵심 비교 모델(Google 대표 stable). 추론을 끌 수 없으므로 thinking_level low로 두고 '추론 강제 모델'로 기록한다.",
+      "reasoning": "항상 켜짐, low/medium(기본)/high",
+      "temperature": "이관 가이드가 sampling 파라미터 제거 지시 — 기본값",
+      "seed": "필드는 있으나 동작 미확인",
+      "json": "Structured outputs(enum·minimum/maximum 지원)",
+      "logprobs": "미확인(최신 모델 미지원 사용자 보고)",
+      "snapshot": "stable ID 하나, 날짜 스냅샷 없음, 도입가 2026-12-31까지",
+      "korean_evidence": "모델 카드에 다국어 수치 없음",
+      "docs": [
+        "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+        "https://ai.google.dev/gemini-api/docs/pricing"
+      ],
+      "include": "핵심",
+      "cost_main": 6.6,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 330토큰(추론 low 가정), 표준 단가, USD"
+    },
+    {
+      "key": "HCX-007",
+      "provider": "NAVER Cloud (CLOVA Studio)",
+      "tier": "T2 한국어 특화 상용",
+      "model_id": "HCX-007",
+      "pin": 1250.0,
+      "pout": 5000.0,
+      "cur": "KRW(VAT 별도)",
+      "role_ko": "한국어 특화 상용 대표. temperature와 seed를 모두 고정할 수 있는 유일한 상용 후보라 결정적 실행(민감도 분석)이 가능하다. JSON 구조화 출력을 쓰려면 추론을 꺼야 한다(effort none).",
+      "reasoning": "none/low(기본)/medium/high",
+      "temperature": "0.00–1.00 설정 가능(기본 0.50)",
+      "seed": "있음",
+      "json": "Structured Outputs(추론 none일 때만)",
+      "logprobs": "미지원(OpenAI 호환 API에 명시)",
+      "snapshot": "모델명 고정, 날짜 스냅샷·폐기 정책 문서 없음",
+      "korean_evidence": "HyperCLOVA X THINK 기술 보고서(arXiv 2506.22403): KMMLU 69.7, KoBALT-700 48.9 — 단 THINK = HCX-007 명시 문구는 없음",
+      "docs": [
+        "https://api.ncloud-docs.com/docs/clovastudio-chatcompletionsv3-thinking",
+        "https://www.ncloud.com/product/aiService/clovaStudio"
+      ],
+      "include": "핵심",
+      "cost_main": 3350.0,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 30토큰(추론 끔), 표준 단가, KRW(VAT 별도)"
+    },
+    {
+      "key": "solar-pro4",
+      "provider": "Upstage",
+      "tier": "T2 한국어 특화 상용",
+      "model_id": "solar-pro4-260806",
+      "pin": 0.3,
+      "pout": 1.2,
+      "cur": "USD(VAT 별도, 정가)",
+      "role_ko": "한국어 특화 상용 두 번째 계열. 날짜 스냅샷 ID로 고정할 수 있고 개인이 신용카드로 바로 쓸 수 있다. frequency_penalty 기본값이 1.1이라 0으로 명시해야 한다.",
+      "reasoning": "기본 꺼짐, low~max로 켬",
+      "temperature": "0–2 설정 가능(기본 1.0)",
+      "seed": "없음",
+      "json": "json_schema strict",
+      "logprobs": "없음(응답 필드 null)",
+      "snapshot": "날짜 스냅샷(solar-pro4-260806) 지정 가능, 단 선례상 약 3개월 만에 폐기된 스냅샷 있음",
+      "korean_evidence": "공식 블로그: KMMLU-Pro 79.2(기술 보고서 없음)",
+      "docs": [
+        "https://console.upstage.ai/docs/models/solar-pro-4",
+        "https://www.upstage.ai/pricing"
+      ],
+      "include": "핵심",
+      "cost_main": 0.8,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 30토큰(추론 끔), 표준 단가, USD(VAT 별도, 정가)"
+    },
+    {
+      "key": "deepseek-v4-flash",
+      "provider": "Together AI (직접 호출)",
+      "tier": "T3 호스팅 공개 가중치",
+      "model_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "pin": 0.14,
+      "pout": 0.28,
+      "cur": "USD",
+      "role_ko": "공개 가중치 대표이자 surprisal 선택적 확장 경로. Together는 echo + logprobs로 입력 문장의 토큰 로그확률을 준다. 날짜 박힌 ID로 고정한다.",
+      "reasoning": "모델 설정에 따름(끄고 실행)",
+      "temperature": "0–1 설정 가능",
+      "seed": "있음",
+      "json": "JSON 지시 + 파서(스키마 강제는 모델별 확인)",
+      "logprobs": "출력·프롬프트(echo) 모두 제공",
+      "snapshot": "날짜 박힌 ID, FP4 양자화 표기. 폐기 통지 정책 미확인",
+      "korean_evidence": "A.X K2 모델 카드 비교표(경쟁사 평가): KMMLU-Pro 78.8, KoBALT 75.3",
+      "docs": [
+        "https://docs.together.ai/docs/serverless/models.md",
+        "https://docs.together.ai/reference/completions.md"
+      ],
+      "include": "핵심(확장 겸용)",
+      "cost_main": 0.34,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 30토큰(추론 끔), 표준 단가, USD"
+    },
+    {
+      "key": "gpt-6-astra",
+      "provider": "OpenAI",
+      "tier": "T1 글로벌 프런티어",
+      "model_id": "gpt-6-astra",
+      "pin": 10.0,
+      "pout": 50.0,
+      "cur": "USD",
+      "role_ko": "선택. 최상위 모델에서 결론이 유지되는지 보는 상한 점검용. 추론을 끌 수 없고 Tier 1 월 한도($100)를 넘을 수 있어 배치 API로 돌린다.",
+      "reasoning": "항상 켜짐(effort 최저 low)",
+      "temperature": "지정 불가",
+      "seed": "없음(Responses API)",
+      "json": "지원",
+      "logprobs": "미지원",
+      "snapshot": "날짜 없는 단일 스냅샷",
+      "korean_evidence": "미확인",
+      "docs": [
+        "https://developers.openai.com/api/docs/models/gpt-6-astra.md"
+      ],
+      "include": "선택",
+      "cost_main": 88.0,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 330토큰(추론 low 가정), 표준 단가, USD"
+    },
+    {
+      "key": "claude-fable-5-1",
+      "provider": "Anthropic",
+      "tier": "T1 글로벌 프런티어",
+      "model_id": "claude-fable-5-1",
+      "pin": 10.0,
+      "pout": 50.0,
+      "cur": "USD",
+      "role_ko": "선택. Anthropic 최상위. 추론이 항상 켜져 있어 추론 강제 조건의 비교군으로만 쓴다.",
+      "reasoning": "항상 켜짐",
+      "temperature": "기본값만",
+      "seed": "없음",
+      "json": "GA",
+      "logprobs": "없음",
+      "snapshot": "고정 스냅샷, 폐기 2027-09-01 이전 아님",
+      "korean_evidence": "모델별 수치 미공개",
+      "docs": [
+        "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide"
+      ],
+      "include": "선택",
+      "cost_main": 88.0,
+      "cost_main_note": "4,000회 호출 × 입력 550토큰 × 출력 330토큰(추론 low 가정), 표준 단가, USD"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "LG EXAONE(K-EXAONE 2.0 등)",
+      "reason_ko": "개인용 종량제 API 없음(Showroom 기업 전용, FriendliAI 종량제 카탈로그에서 빠짐). 공개 가중치라 GPU 임대 시 가능"
+    },
+    {
+      "name": "Kakao Kanana-2",
+      "reason_ko": "상용 API 없음(베타 종료). 공개 가중치만"
+    },
+    {
+      "name": "KT 믿:음 Mi:dm",
+      "reason_ko": "셀프서비스 API 없음(기업 상담). Mi:dm 2.0은 MIT 공개 가중치"
+    },
+    {
+      "name": "SKT A.X K2",
+      "reason_ko": "공개 API 없음(경진대회·선정 스타트업 한정). Apache-2.0 공개 가중치 — 한국어 벤치마크는 가장 높게 보고됨(KoBALT 73.0)"
+    },
+    {
+      "name": "claude-haiku-4-5-20251001",
+      "reason_ko": "temperature를 고정할 수 있는 저가 모델이지만 '2026-10-15 이전은 아님'이라는 폐기 약속일이 실험 기간과 겹쳐 제외"
+    },
+    {
+      "name": "채팅 구독 UI(ChatGPT·Claude·Gemini 앱)",
+      "reason_ko": "버전 고정·새 컨텍스트·반복 표집·응답 기록을 통제할 수 없어 본실험에서 제외(D-02). 연구자가 자극을 눈으로 점검하는 예비 확인에는 쓸 수 있다"
+    }
+  ],
+  "total_estimate_ko": "핵심 6개 모델 본실험: 약 $32.94 + 3,350원(VAT 별도). 선택 2개(Astra·Fable) 추가 시 약 $176.00(배치 API로 절반). 추론 켬 조건·E1-X 확장·재시도를 넣어도 핵심 구성은 수십 달러 규모로 추정."
+}

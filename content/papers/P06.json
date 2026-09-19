@@ -70,7 +70,7 @@
         },
         {
           "label": "결과의 유효 기간",
-          "text": "번역기로 평가된 것은 전부 7B–72B급 공개 가중치 모델과 NLLB이며, 상용 API 모델(GPT·Claude·Gemini 등)의 화계 선택은 측정되지 않았다. '번역 특화 미세조정이 공손형 쏠림을 키운다'는 결론은 이 세대·이 규모에 한정된 관찰이다.",
+          "text": "번역기로 평가된 것은 전부 7B–72B급 공개 가중치 모델과 NLLB이며, 상용 API 모델(GPT·Claude·Gemini 등)의 화계 선택은 측정되지 않았다. '번역 특화 LLM(MTLM)이 대응 지시 조정 모델보다 공손형을 더 많이 쓴다'는 결론은 이 세대·이 규모에 한정된 관찰이다(저자도 훈련 데이터를 통제하지 않았다고 밝혀 미세조정의 인과 효과로 단정하지 않는다).",
           "src": "p.3 Models"
         }
       ]
@@ -90,7 +90,7 @@
         },
         {
           "label": "공개 자료 위치",
-          "text": "코드, 데이터셋, 인간 주석 하위 집합을 https://github.com/MinhDucBui/KoreanHonorifics 에 공개했다고 적는다(각주 2). 데이터셋과 인간 주석의 라이선스는 CC BY 4.0이라고 하며, 근거로 GPT-5 산출물의 소유권이 이용자에게 있다는 OpenAI 이용약관을 든다(C.5). (카드 작성자 웹 확인 2026-09-19, 원문 근거 아님: 저장소 README는 라이선스를 'CC BY-NC-ND 4.0'으로, 데이터를 '1,500 English sentences across 30 real-world social scenarios'로 적어 논문의 CC BY 4.0·750문장과 다르다. 재사용 전에 라이선스와 문장 수를 원자료로 다시 확인해야 한다.)",
+          "text": "코드, 데이터셋, 인간 주석 하위 집합을 https://github.com/MinhDucBui/KoreanHonorifics 에 공개했다고 적는다(각주 2). 데이터셋과 인간 주석의 라이선스는 CC BY 4.0이라고 하며, 근거로 GPT-5 산출물의 소유권이 이용자에게 있다는 OpenAI 이용약관을 든다(C.5). (카드 작성자 웹 확인 2026-09-19, 원문 근거 아님: 저장소 README는 라이선스를 'CC BY-NC-ND 4.0'으로, 데이터를 '1,500 English sentences paired with addressee context', '30 real-world social scenarios'로 적어 논문의 CC BY 4.0·750문장과 다르다. 저장소의 data/processed.csv도 실제로 1,500행(청자 30종 × 50문장, 서로 다른 문장 1,499개)이어서 README 오기가 아니라 공개 자료 자체가 논문의 청자당 25문장보다 두 배 많다. 인간 주석이 달린 행은 90개(청자마다 3문장)이고 주석 총수는 1,033으로 Figure 8의 응답 수와 같다. 재사용 전에 라이선스와 문장 수를 원자료로 다시 확인해야 한다.)",
           "src": "p.2 각주 2; p.12 C.5"
         },
         {
@@ -185,7 +185,7 @@
         },
         {
           "label": "저자가 밝힌 의의",
-          "text": "번역 특화 미세조정이 공손형 쏠림을 낳고 인간 선호와의 정렬을 떨어뜨린다는 점, 지시 조정이 맥락 단서에 대한 민감성을 준다는 점을 모델 부류 비교로 처음 보였다. 코드·데이터·인간 주석을 공개했다.",
+          "text": "MTLM이 두 시나리오 모두에서 더 공손한 형태를 내면서 인간 판단과는 덜 맞고, ITLM은 맥락 단서에 더 민감하다는 점을 모델 부류 비교로 보였다('지시 조정이 적절한 경어 사용에 필요한 사회적 뉘앙스를 더 효과적으로 포착한다'는 해석은 'indicating'으로 제시). 코드·데이터·인간 주석을 공개했다.",
           "src": "p.4 §5; p.2 각주 2"
         },
         {
@@ -231,7 +231,7 @@
         "term": "Casual (해) / Polite (해요) / Deferential (합니다/하십시오)",
         "gloss_ko": "해체(반말) / 해요체 / 합쇼체",
         "definition": "6개 화계 중 '가장 중요한' 셋이라며 평가 대상으로 삼은 세 범주. 분류기 프롬프트, 인간 설문 선택지, politeness score의 세 수준이 모두 이 라벨을 쓴다.",
-        "note": "'Casual'은 본문 고유의 라벨로, 부록 Table 5에서는 같은 화계를 '반말체(Banmal-che; Intimate)', Table 6에서는 '\"intimate\" style (hay-chey)'라 부른다. 해라체(Plain)·하오체·하게체가 산출되면 분류 설계상 'Others'로 떨어진다(실제 내역은 미보고). 'Deferential'은 P02 제목의 'deference'와 어형이 같지만 P02는 주어에 대한 존대, 여기서는 청자에 대한 최고 화계를 가리킨다.",
+        "note": "'Casual'은 본문 고유의 라벨로, 부록 Table 5에서는 같은 화계를 '반말체(Banmal-che; Intimate)', Table 6에서는 '\"intimate\" style (hay-chey)'라 부른다. 해라체(Plain)·하오체·하게체가 산출됐을 때 'Others'로 가는지 가까운 라벨(특히 해라체 → Casual)로 흡수되는지는 원문이 밝히지 않는다(Others 내역도 미보고). 'Deferential'은 P02 제목의 'deference'와 어형이 같지만 P02는 주어에 대한 존대, 여기서는 청자에 대한 최고 화계를 가리킨다.",
         "src": "p.2 §2 Speech Styles; p.8 Table 5–6"
       },
       {
@@ -937,7 +937,7 @@
     {
       "ko": "날씨가 춥소. / 날씨가 춥네. / 날씨가 춥다.",
       "gloss": "nal-ssi-ga chub-so(하오체; Semiformal) / chub-ne(하게체; Familiar) / chub-da(해라체; Plain)",
-      "condition": "평가에서 제외된 세 화계 — 산출되면 분류기의 'Others'로 처리됨",
+      "condition": "평가에서 제외된 세 화계 — 산출 시 분류기가 'Others'로 보내는지 가까운 라벨로 흡수하는지는 원문 미표기",
       "src": "p.8 Table 5"
     }
   ],
@@ -1165,7 +1165,7 @@
       "src": "p.7 A.2; p.2 §2"
     },
     {
-      "text_ko": "추론 통계가 전혀 없다. 인간 정렬 정확도는 90문장 기준이라 한 문장이 1.11%p이고(암시 조건 seq2seq 72.78 대 ITLM 71.78은 한 문장 차이), 부류 평균은 5·5·2개 모델의 단순 평균이며, 생성은 greedy 1회다. '체계적', '일관되게'라는 표현을 뒷받침할 검정이 없다.",
+      "text_ko": "추론 통계가 전혀 없다. 인간 정렬 정확도는 90문장 기준이라 한 문장이 1.11%p이고(암시 조건 seq2seq 72.78 대 ITLM 71.78의 차이 1.00%p는 한 문장에도 못 미친다), 부류 평균은 5·5·2개 모델의 단순 평균이며, 생성은 greedy 1회다. '체계적', '일관되게'라는 표현을 뒷받침할 검정이 없다.",
       "stated_by": "us",
       "src": "p.4 Table 3; p.10 Table 8"
     },
@@ -1195,7 +1195,7 @@
       "src": "p.2 §3; p.7 B.3; p.8 B.5"
     },
     {
-      "text_ko": "분류기 타당도의 근거가 얇다. 전문가 1인이 라벨링한 130문장 대비 정확도 95% 한 값뿐이고, 클래스별 혼동·모델별 Others 비율·여러 문장이나 혼합 어미가 나온 출력의 처리 규칙이 없다. 해라체('-다') 산출은 Others로 빠져 분석에서 사라진다.",
+      "text_ko": "분류기 타당도의 근거가 얇다. 전문가 1인이 라벨링한 130문장 대비 정확도 95% 한 값뿐이고, 클래스별 혼동·모델별 Others 비율·여러 문장이나 혼합 어미가 나온 출력의 처리 규칙이 없다. 해라체('-다') 산출이 Others로 빠져 분석에서 사라지는지 Casual로 흡수되는지도 알 수 없다.",
       "stated_by": "us",
       "src": "p.7 B.3"
     },
@@ -1234,13 +1234,13 @@
       "id": "P06-H3",
       "hook_ko": "상대높임 화계와 주체높임 '-시-'를 한 설계 안에서 교차한다(예: 화계[해요체/해체] × '-시-'[유/무], 또는 청자 지위 × 주어 지위). P02–P05의 주체높임 계보와 P06의 상대높임 계보를 잇는 2×2가 된다.",
       "basis_ko": "부록 A.2가 지시 대상 높임과 어휘 교체를 '미탐구'로 남기며 화계만큼 흔하고 중요하다고 인정한다. 두 높임은 허가 조건의 위치(문장 밖 청자 대 문장 안 주어)가 달라, 모델이 표면 공기를 배웠는지 허가 조건을 배웠는지를 가르는 데 교차 설계가 유리하다.",
-      "kind": "author_future_work",
+      "kind": "untested_condition",
       "src": "p.7 A.2"
     },
     {
       "id": "P06-H4",
       "hook_ko": "자유 산출의 화계 채점 절차를 표준화한다: 닫힌 라벨 집합(해체/해요체/합쇼체/해라체/기타), '종결어미만 보라'는 지시, 고정 출력 형식, 인간 라벨 표본 대조는 이 논문에서 물려받고, 규칙 기반 어미 판정기와의 교차 확인, 2인 이상 주석과 일치도, 클래스별 혼동행렬, 여러 문장·혼합 어미 출력의 처리 규칙을 더한다.",
-      "basis_ko": "이 논문의 분류기 검증은 전문가 1인·130문장·정확도 95% 한 값이고 Others(약 5%)의 내역과 모델별 비율이 없다. 해라체 산출이 Others로 사라지는 구조라, '-다'체를 기본으로 쓰는 모델이 있으면 분포가 왜곡된다.",
+      "basis_ko": "이 논문의 분류기 검증은 전문가 1인·130문장·정확도 95% 한 값이고 Others(약 5%)의 내역과 모델별 비율이 없다. 분류기 선택지에 해라체가 없어 '-다'체 산출이 Others로 빠지는지 Casual(해)로 흡수되는지 원문이 밝히지 않으므로, '-다'체를 기본으로 쓰는 모델이 있으면 분포가 어느 쪽으로든 왜곡될 수 있다.",
       "kind": "method_gap",
       "src": "p.7 B.3"
     },
@@ -1282,7 +1282,7 @@
     {
       "id": "P06-H10",
       "hook_ko": "인간과 모델의 '맥락 효과 방향'을 같은 문항에서 비교한다. 청자 명시가 인간에게는 공손 쪽, LM에게는 casual 쪽으로 작용하는지를 청자 지위별로 나눠 확인한다.",
-      "basis_ko": "Figure 2에서 Humans의 점수는 38.30 → 43.67로 오르는데 MTLM·ITLM은 내려간다. 저자는 이 방향 차이를 논의하지 않고 LM의 하락을 '적응'으로 해석한다. 인간 점수는 90문장, 모델 점수는 750문장 기준이어서 같은 문항 집합으로 다시 재야 한다.",
+      "basis_ko": "Figure 2에서 Humans의 점수는 38.30 → 43.67로 오르는데 MTLM·ITLM은 내려간다. 저자는 이 방향 차이를 논의하지 않고 LM의 하락을 '적응'으로 해석한다. 인간 점수는 90문장 설문, 모델 점수는 750문장 전체 기준으로 보이나 원문이 밝히지 않으므로 같은 문항 집합으로 다시 재야 한다.",
       "kind": "untested_condition",
       "src": "p.3 Figure 2"
     },
@@ -1317,7 +1317,7 @@
   ],
   "open_materials": [
     {
-      "what": "코드, 원천 문장 데이터셋, 인간 주석 하위 집합(90문장 × 암시/명시). 원문은 데이터셋과 인간 주석을 CC BY 4.0으로 공개한다고 적는다(p.2 각주 2, p.12 C.5). 2026-09-19 확인한 README는 1,500문장·30시나리오, 라이선스 CC BY-NC-ND 4.0, 모델 표 13행(Google Translate API 기준선 포함)으로 적어 논문과 다르다.",
+      "what": "코드, 원천 문장 데이터셋, 인간 주석 하위 집합(90문장 × 암시/명시). 원문은 데이터셋과 인간 주석을 CC BY 4.0으로 공개한다고 적는다(p.2 각주 2, p.12 C.5). 2026-09-19 확인한 README는 1,500문장·30시나리오, 라이선스 CC BY-NC-ND 4.0, 모델 표 13행(Google Translate API 기준선 포함)으로 적어 논문과 다르다. 저장소 data/processed.csv는 1,500행(청자 30종 × 50문장)이고 인간 주석 행은 90개(청자마다 3문장), 주석 총수 1,033(Figure 8과 같음)이다. output/ 폴더에는 모델 12종 외에 google_translation.csv가 있다.",
       "url": "https://github.com/MinhDucBui/KoreanHonorifics"
     },
     {
@@ -1402,8 +1402,22 @@
     ]
   },
   "verification": {
-    "status": "draft",
-    "by": null,
-    "notes": []
+    "status": "corrected",
+    "by": "P1-11 Opus 검증",
+    "notes": [
+      "w5h1.when.items[결과의 유효 기간]: \"'번역 특화 미세조정이 공손형 쏠림을 키운다'는 결론\" → \"'MTLM이 대응 지시 조정 모델보다 공손형을 더 많이 쓴다'는 결론(훈련 데이터 미통제로 인과 단정 불가)\" — 저자 결론은 'MTLMs tend to produce more polite forms'이고 인과 표현이 없으며 훈련 데이터 미통제를 한계로 적음 (근거 p.4 §5; p.5 §6)",
+      "w5h1.why.items[저자가 밝힌 의의]: \"번역 특화 미세조정이 공손형 쏠림을 낳고 … 모델 부류 비교로 처음 보였다\" → \"MTLM이 더 공손하면서 인간 판단과 덜 맞고 ITLM이 맥락에 더 민감하다는 점을 모델 부류 비교로 보였다\" — 원문에 '처음(first)'이라는 주장과 미세조정 인과 표현이 없음 (근거 p.4 §5)",
+      "w5h1.where.items[공개 자료 위치]: README 인용 \"'1,500 English sentences across 30 real-world social scenarios'\"(두 구절을 이어 붙인 비원문 인용) → \"'1,500 English sentences paired with addressee context', '30 real-world social scenarios'\" + 저장소 data/processed.csv 확인 결과(1,500행 = 청자 30 × 50, 주석 행 90 = 청자당 3, 주석 총수 1,033 = Figure 8) 추가 (근거 README 2026-09-19 재확인; p.11 Figure 8)",
+      "successor_hooks[P06-H3].kind: author_future_work → untested_condition — 부록 A.2 'Unexplored Honorifics'는 지시 대상 높임·어휘 교체를 다루지 못했다고 인정할 뿐 후속 과제 문장('future work/studies …')이 없음. §6의 후속 과제 문장은 시간에 따른 변화·통제 미세조정·인간 조사 셋뿐 (근거 p.7 A.2; p.5 §6)",
+      "successor_hooks[P06-H4].basis_ko: \"해라체 산출이 Others로 사라지는 구조라\" → \"해라체 산출이 Others로 빠지는지 Casual로 흡수되는지 원문이 밝히지 않으므로\" — 분류기 프롬프트는 Casual(해)/Polite/Deferential/Others('If nothing fits')만 제시하고 해라체 처리 규칙이 없음 (근거 p.7 B.3)",
+      "successor_hooks[P06-H10].basis_ko: \"인간 점수는 90문장, 모델 점수는 750문장 기준이어서\" → \"…기준으로 보이나 원문이 밝히지 않으므로\" — Figure 2 캡션·본문 어디에도 막대별 문장 집합이 명시되지 않음(카드의 key_numbers·limitations도 '보임'으로 적음) (근거 p.3 Figure 2)",
+      "layers.word[Casual/Polite/Deferential].note: \"해라체·하오체·하게체가 산출되면 분류 설계상 'Others'로 떨어진다\" → \"'Others'로 가는지 가까운 라벨로 흡수되는지 원문 미표기\" — 분류기 프롬프트에 제외 화계의 처리 규칙이 없음 (근거 p.7 B.3)",
+      "stimulus_examples[하오체·하게체·해라체].condition: \"산출되면 분류기의 'Others'로 처리됨\" → \"'Others'로 보내는지 가까운 라벨로 흡수하는지 원문 미표기\" (근거 p.7 B.3)",
+      "limitations[추론 통계 부재].text_ko: \"seq2seq 72.78 대 ITLM 71.78은 한 문장 차이\" → \"차이 1.00%p는 한 문장(1.11%p)에도 못 미친다\" (재계산; 근거 p.4 Table 3)",
+      "limitations[분류기 타당도].text_ko: \"해라체('-다') 산출은 Others로 빠져 분석에서 사라진다\" → \"Others로 빠지는지 Casual로 흡수되는지도 알 수 없다\" (근거 p.7 B.3)",
+      "open_materials[GitHub].what: 저장소 파일 재확인 결과 추가(data/processed.csv 1,500행 = 청자 30 × 50, 주석 행 90·주석 총수 1,033, output/에 google_translation.csv 포함) — README의 1,500이 오기가 아니라 공개 데이터 규모임을 확인 (근거 저장소 2026-09-19 재확인; p.2 §3; p.11 Figure 8)",
+      "확인(정정 없음): DOI 10.63317/5g3ca2zi2jf6 → 302로 https://lrec.elra.info/lrec2026-ws-iaai-03 (같은 제목·저자 6인·Proceedings of the Second Workshop of Identity Aware AI·pp. 20-31·ELRA·11-16 May 2026) 연결. Anthology BibTeX(2026.iaai-1.3.bib)의 booktitle·편자 7인·Palma de Mallorca·pages 20--31·doi가 citation.apa·bib_notes와 일치. Figure 2(500dpi 확대) 막대 13개 중 12개 모델 + 검은 표지 Humans(암시 38.30, 명시 43.67), 모델별 점수 24개와 순서, 범례 평균 64/45/48·55/42/61 모두 카드와 일치. 재계산: 부류 평균 MTLM 64.53→55.40(−9.13), ITLM 45.55→42.48(−3.07), seq2seq 48.56→61.35(+12.79) — 본문 'MTLMs and ITLMs … decrease by 3.07 and 9.13' 나열 순서와 반대라는 카드 기록이 맞음. Table 1·2 Δ는 Figure 2 값의 차와 일치, Table 3의 다섯 칸은 Table 8 평균과 일치하고 암시 Seq2Seq만 72.78 대 72.22(재계산). Table 4의 +4.44/+7.77/+6.66은 Table 8 차(4.45/7.78/6.67)와 0.01 어긋나나 원문 표기대로 둠. 분류기 절차(GPT-OSS 120B, 모델마다 암시 5+명시 5, 130문장, 전문가 1인, 95%, Others 약 5% 제외), 인간 조사(24명 중 1명 무효→23명, 여성 78.3%, 문장당 5명, 2명 이상 선택 시 정답, 설문지 4종×45문항), Figure 8–11 원그래프 값(1033; 809/224; 180/674/134/45; 27.5/16.1/13.3%, 404/539/90) 모두 원문과 일치. 저장소 README 재확인: CC BY-NC-ND 4.0, 1,500문장·30시나리오, 모델 표 13행(Google Translate 'API Baseline', GemmaX2 'General LLM', Qwen2.5-72B-Instruct), 인용 'tba', 배지 'coming soon' — 카드 기록과 일치. 저장소 주석 자료의 문장별 주석 수는 44문장 13건·44문장 10건·1문장 12건·1문장 9건이어서 '문장당 5명씩 고르게'가 아니었다는 카드의 추정(900 대 1033)과 부합.",
+      "대조 범위: key_numbers 38건, sentence 15건(result 9·claim 5·hypothesis 1, 인용 전체 원문 문자열 대조 포함), design, hooks 14건, citation, w5h1 사실 항목(who 6·when 4·where 4) — 추가로 stimulus_examples·limitations·word 층의 같은 사실 주장도 대조"
+    ]
   }
 }
