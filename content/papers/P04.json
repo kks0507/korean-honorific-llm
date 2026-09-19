@@ -1,0 +1,1667 @@
+{
+  "id": "P04",
+  "role": "core",
+  "short": "Shin, Kwon & Mun (2026)",
+  "title": "To what extent do GPT language models capture human sentence processing dynamics? Evidence from Korean subject honorification",
+  "title_ko": "GPT 언어모델은 인간의 문장 처리 역학을 어디까지 포착하는가? 한국어 주체 높임에서 얻은 증거",
+  "citation": {
+    "apa": "Shin, G.-H., Kwon, N., & Mun, S. (2026). To what extent do GPT language models capture human sentence processing dynamics? Evidence from Korean subject honorification. Humanities and Social Sciences Communications. Advance online publication (unedited manuscript, Article in Press). https://doi.org/10.1057/s41599-026-08299-1",
+    "year": 2026,
+    "venue": "Humanities and Social Sciences Communications (Springer Nature, Nature 포트폴리오의 오픈액세스 인문사회 학술지)",
+    "status": "in_press",
+    "doi": "10.1057/s41599-026-08299-1",
+    "url": "https://www.nature.com/articles/s41599-026-08299-1",
+    "bib_notes": "p.1 표지 기준: 'Article in Press', 접수 2025-11-29, 게재 확정 2026-07-06, CC BY-NC-ND 4.0. 표지에 'unedited version … there may be errors present which affect the content'라는 면책 문구가 있어 최종 출판본에서 수치·표기·그림이 바뀔 수 있다. 인용 전 최종본과 대조가 필요하다. 권·논문번호·쪽수와 저자 소속·교신저자는 원문 미표기. 'Nature 논문'이 아니라 Springer Nature가 내는 Nature 포트폴리오 계열 인문사회 학술지(HSSC)다. DOI는 https://www.nature.com/articles/s41599-026-08299-1 로 연결되는 것만 확인했고(2026-09-19, 로그인 리디렉션으로 본문 페이지는 미확인), 제2저자 누리집(https://sites.google.com/site/nayoungkwon1/home, 2026-09-19 확인)도 권·번호 없이 학술지명만 적는다. 원고 곳곳에 심사용 익명 처리 'Authors (xxxx)'가 남아 있어 네 기준 데이터의 원 논문을 원고만으로는 특정할 수 없다. 본문이 인용한 Christensen (2023), Lenth (2025), R Core Team (2025), Nakagawa & Schielzeth (2013), Barr et al. (2013), Kim-Renaud (2001)은 참고문헌 목록(p.35-42)에 없고, 참고문헌의 Kuribayashi et al. (2026)은 본문에서 인용되지 않는다. 부록 A·B(영역별 전체 패턴)는 본문이 가리키지만 원고에 실려 있지 않다."
+  },
+  "one_line": "선행 인간 실험 4종(수용성·공손성·자기조절읽기·안구추적)과 KoGPT-2·Ko-GPT-Trinity·mGPT의 surprisal을 대조해, 모델은 명백한 높임 불일치는 잡지만 -시- 생략의 중간 수용성·무생물 주어의 공손성·읽기의 지연 효과는 놓친다고 보고한다.",
+  "w5h1": {
+    "who": {
+      "headline": "신규호·권나영·문성민이 한국어 가능 GPT 3종(125M~1.3B)의 surprisal을, 저자들 자신의 선행 실험에서 나온 성인 원어민 자료 4종(n = 40·20·40·44)과 맞대었다.",
+      "items": [
+        {
+          "label": "저자·소속",
+          "text": "Gyu-Ho Shin, Nayoung Kwon, Seongmin Mun. 편집 전 원고 표지에는 이름만 있고 소속·교신저자는 원문 미표기. 권나영·문성민은 P03(Kwon & Mun 2025)의 저자이기도 해 같은 연구실 계보로 읽어야 한다.",
+          "src": "p.1"
+        },
+        {
+          "label": "실험 대상 — 한국어 전용 모델 2종",
+          "text": "KoGPT-2(각주 2: skt/kogpt2-base-v2; 125M, 학습 데이터 5B 토큰, 12층·12헤드·은닉 768·FFN 3,072)와 Ko-GPT-Trinity(각주 3: skt/ko-gpt-trinity-1.2B-v0.5; 1.2B, 35B 토큰, 24층·16헤드·은닉 2,048·FFN 8,192). 저자는 각각 'Korean GPT-2 model', 'Korean GPT-3 model'이라 부르지만 OpenAI GPT-3가 아니라 GPT-3형 구조의 한국어 모델이다.",
+          "src": "p.14 §2.2; p.43 notes 2-3; p.45 Table 2"
+        },
+        {
+          "label": "실험 대상 — 다국어 기준선 1종",
+          "text": "mGPT(각주 4: ai-forever/mGPT; 1.3B, 한국어 포함 61개 언어 488B 토큰, 24층·16헤드·은닉 2,048·FFN 8,192). 층·헤드·차원이 Ko-GPT-Trinity와 같아 사실상 '같은 구조, 다른 학습 데이터' 대비가 된다. 한국어 비중은 원문 미표기.",
+          "src": "p.14 §2.2; p.43 note 4; p.45 Table 2"
+        },
+        {
+          "label": "인간 참여자",
+          "text": "모두 성인 한국어 원어민 하위 집단. 수용성 판단 n = 40(원 연구는 원어민·L1 영어 L2 한국어 학습자·계승어 화자 세 집단), 공손성 평정 n = 20(원 연구는 L2 학습자와 원어민 비교), 자기조절읽기 n = 40(공손성과 같은 원 연구), 안구추적 n = 44(유인 효과 연구의 실험 2). 나이·성별·지역·학력 등 속성은 원문 미표기. 이번 논문에서 새로 모집한 참여자는 없다.",
+          "src": "p.10-13 §2.1; p.51"
+        },
+        {
+          "label": "기준 데이터의 출처(익명 처리)",
+          "text": "네 자료 모두 'Authors (xxxx)'로 가려진 저자들의 선행 연구다. 원문 설명과 맞는 공개 논문 후보는(논문 밖 추정, 단정 불가) 수용성 = Shin et al. (2025, Languages 10(8), 180; P05 카드가 인용), 공손성·자기조절읽기 = Kwon & Shin (2025, Bilingualism: Language and Cognition, 영어권 학습자의 주체 높임 과잉일반화), 안구추적 = Kwon & Sturt (2016, Frontiers in Psychology 7, 높임 일치의 유인 효과)다. 서론의 'Author (xxxx)'(GPT-2가 BERT보다 분류 정확도가 높지만 둘 다 표면 단서에 민감)는 P03의 결과와 부합한다.",
+          "src": "p.8-13 §1.1-2.1"
+        }
+      ]
+    },
+    "when": {
+      "headline": "2026년 7월 게재가 확정된 편집 전 원고이며, 실험 모델은 2021~2022년 무렵 공개된 1.3B 이하 기반 모델이다.",
+      "items": [
+        {
+          "label": "발표 시점·게재 상태",
+          "text": "접수 2025-11-29, 게재 확정 2026-07-06, 편집 전 원고를 조기 공개한 Article in Press. 권·논문번호는 원문 미표기이며 최종 편집에서 내용이 바뀔 수 있다고 명시한다.",
+          "src": "p.1"
+        },
+        {
+          "label": "실험 모델의 세대",
+          "text": "원문은 모델 출시 연도·개발사를 적지 않고 참고문헌에도 모델 문헌이 없다(각주에 허깅페이스 주소만). 논문 밖 정보로는 KoGPT-2 v2와 Ko-GPT-Trinity 1.2B v0.5가 2021년 SK텔레콤 공개(P02·P03 카드의 참고문헌 연도와 일치), mGPT가 2022년 공개(Shliazhko et al., arXiv)다. 세 모델 모두 지시 조정·선호 학습을 거치지 않은 기반 모델이다.",
+          "src": "p.14 §2.2; p.43 notes 2-4"
+        },
+        {
+          "label": "결과의 유효 기간",
+          "text": "대화형 상용 모델은 한 종도 없고, 저자도 'latest proprietary or prompt-based models (e.g., Llama 4, ChatGPT)'를 넣지 않았다고 한계로 적는다. 결론은 '맥락 없이 제시된 문장에 대한 소형 기반 모델의 다음 토큰 확률'에 한정된 증거다.",
+          "src": "p.32 §4.3"
+        },
+        {
+          "label": "선행 연구의 시간축",
+          "text": "영어권 LM-인간 정렬 연구(Hawkins et al. 2020의 GPT-2 → Dentella et al. 2023 → Oh & Schuler 2023 → Huang et al. 2024 → Cuneo et al. 2025의 GPT-4) 위에, 한국어 모델 연구(Author xxxx로 가려진 GPT-2·BERT 주체 높임 분류 = P03 추정, Lee & Wang 2023 = P01)를 거쳐, 인간 처리 자료와의 대조로 넘어가는 위치다.",
+          "src": "p.4-9 §1"
+        }
+      ]
+    },
+    "where": {
+      "headline": "Nature 포트폴리오의 인문사회 학술지 HSSC에 실린 편집 전 원고이고(Nature 본지 아님), 인간 자료는 저자들의 선행 실험 공개 자료, 모델은 허깅페이스 체크포인트, 자료·코드는 OSF에 있다.",
+      "items": [
+        {
+          "label": "발표처",
+          "text": "Humanities and Social Sciences Communications(Springer Nature). CC BY-NC-ND 4.0 오픈액세스. 'Transparent Peer Review' 방식이면 심사 보고서가 최종본과 함께 공개된다는 문구가 있다.",
+          "src": "p.1"
+        },
+        {
+          "label": "인간 데이터 출처",
+          "text": "선행 심리언어학 실험 네 편의 공개 자료(open-access datasets)를 재분석했다. 세부 설계는 지면 관계상 원 논문을 보라고 하지만 원 논문이 익명 처리돼 편집 전 원고만으로는 추적할 수 없다.",
+          "src": "p.9 §1.2"
+        },
+        {
+          "label": "모델 출처",
+          "text": "Hugging Face에서 불러온 공개 체크포인트 3종(skt/kogpt2-base-v2, skt/ko-gpt-trinity-1.2B-v0.5, ai-forever/mGPT).",
+          "src": "p.15 §2.3.1; p.43 notes 2-4"
+        },
+        {
+          "label": "공개 자료 위치",
+          "text": "자료와 코드는 OSF(osf.io/eam63, 심사용 view_only 매개변수가 붙은 주소). 부록 A·B는 원고에 없다.",
+          "src": "p.51"
+        },
+        {
+          "label": "그림·표 위치",
+          "text": "편집 전 원고라 표 1–10은 p.45-49, 그림 설명은 p.44, 그림 1–8은 텍스트 층이 없는 스캔으로 p.52-59에 따로 붙어 있고 p.50은 빈 쪽이다.",
+          "src": "p.44-59"
+        }
+      ]
+    },
+    "what": {
+      "headline": "GPT surprisal이 한국어 주체 높임에 관한 원어민의 판단·읽기 패턴을 얼마나 충실히 모사하는지 묻고, '명백한 불일치는 잡지만 등급적·맥락 의존적 측면은 놓친다'고 답한다.",
+      "items": [
+        {
+          "label": "연구 질문",
+          "text": "GPT 언어모델은 주체 높임에 관한 성인 한국어 원어민의 문장 처리 패턴을 어느 정도 충실히 모사하는가. 두 차원으로 평가: ① surprisal이 평정 자료의 문법성·적절성을 추적하는가, ② 영역별 읽기 시간 패턴을 추적하는가.",
+          "src": "p.9 §1.2"
+        },
+        {
+          "label": "핵심 주장",
+          "text": "GPT는 유용하지만 제한된 대리지표다. 입력이 대체로 적형인지는 추적하지만 한국어 처리를 형성하는 사회화용·담화 층위 제약은 과소표상한다. surprisal은 인간에게 무엇이 어려운지와는 맞지만 왜 어려운지와는 맞지 않는다.",
+          "src": "p.2 Abstract; p.30 §4.2"
+        },
+        {
+          "label": "결과 ① 수렴 지점",
+          "text": "비높임 주어 + -시-(NHsubj + Hpred)에 세 모델 모두 가장 높은 surprisal을 주었고, 인간은 이 조건을 가장 낮게 평정했다(M = 2.20, 그림 판독).",
+          "src": "p.17 §3.1; p.52 Figure 1"
+        },
+        {
+          "label": "결과 ② 높임 생략",
+          "text": "인간은 높임 주어 + -시- 없음(Hsubj + NHpred)을 중간 수용성(M = 4.02)으로 평정했지만, 모델은 이를 완전 일치 조건과 구별하지 못했다(Hsubj + NHpred 대 Hsubj + Hpred: KoGPT-2 p = 1.000, Ko-GPT-Trinity p = 0.712, mGPT p = 1.000).",
+          "src": "p.18 §3.1"
+        },
+        {
+          "label": "결과 ③ 공손성과 생물성",
+          "text": "인간은 무생물 주어 문장을 가장 덜 공손하다고 평정했으나(1.63·2.00, 그림 판독), 모델은 대응하는 사람 주어 조건과 무생물 조건의 surprisal을 유의하게 구별하지 못했다(p = 0.073~1.000). 공손성과 surprisal의 상관은 하나도 유의하지 않았다.",
+          "src": "p.19-20 §3.2"
+        },
+        {
+          "label": "결과 ④ 자기조절읽기",
+          "text": "인간의 R4(주어) 최대 지연은 '들어가시며 … 그림이'(Inanimate_NHsubj + Hpred), 모델의 최대 surprisal은 서술어 표지와 무관하게 비높임 사람 주어('미아가') 조건이었다. 상관은 하나도 유의하지 않았다.",
+          "src": "p.21-23 §3.3"
+        },
+        {
+          "label": "결과 ⑤ 안구추적",
+          "text": "인간은 내포 서술어 R5에서 유의하지 않고 파급 영역 R6에서만 유의한 지연을 보였으나, 모델은 R5에서 즉시 큰 차이를 냈고 R6에서는 KoGPT-2 무차이, Ko-GPT-Trinity·mGPT는 반대 방향이었다. 상관은 R5에서만 유의(r = 0.12~0.191).",
+          "src": "p.24-25 §3.4"
+        }
+      ]
+    },
+    "how": {
+      "headline": "공개된 인간 자료 4종의 문장을 모델에 맥락·프롬프트 없이 넣어 어절·문장 surprisal(비트)을 구하고, 인간과 모델에 같은 고정효과 구조의 혼합모형을 따로 적합해 유의성 패턴과 조건별 상관을 비교했다.",
+      "items": [
+        {
+          "label": "자극 설계",
+          "text": "수용성: 2×2(주어 높임 가능성 × 서술어 -시- 유무) 128문장. 공손성: 같은 2×2에 무생물 주어 2조건을 더한 6조건 216문장. 자기조절읽기: 공손성과 같은 문항·조건이되 서술어(R3)가 주어(R4)보다 앞서는 어순. 안구추적: 유인 효과 연구의 실험 2에서 주절·내포절 주어의 높임 자질이 같은 두 조건 40문장.",
+          "src": "p.10-13 §2.1"
+        },
+        {
+          "label": "surprisal 산출",
+          "text": "Hugging Face로 모델 로드, 왼쪽 패딩, <start>·<end> 토큰으로 문장 경계 통일, 공백 기준 어절(ejel) 분절 뒤 모델 기본 부분어 토큰화(구두점 유지), 선행 맥락 조건부 확률의 −log2(비트). 어절 surprisal = 어절 내 부분어 합(읽기 과제의 대리지표), 문장 surprisal = 어절 surprisal 합(평정 과제의 대리지표).",
+          "src": "p.15-16 §2.3.1"
+        },
+        {
+          "label": "제로샷 '닫힌 루프'",
+          "text": "과제별 미세조정과 surprisal을 인위적으로 바꿀 수 있는 프롬프트 공학을 모두 배제했다. 따라서 모델에는 화자·청자·상황 맥락이 전혀 주어지지 않았다.",
+          "src": "p.14 §2.2"
+        },
+        {
+          "label": "통계 ① 인간 평정",
+          "text": "누적 로짓 혼합모형(CLMM, R ordinal 패키지), 고정효과 평균 중심화·편차 부호화, Nagelkerke 유사 R², emmeans 사후 쌍비교(Wald z, Bonferroni 보정).",
+          "src": "p.16 §2.3.2; p.46-47 Tables 3, 5"
+        },
+        {
+          "label": "통계 ② 읽기 시간",
+          "text": "결정·파급 영역별 선형혼합모형(lmerTest), Nakagawa 조건부 R². 자기조절읽기는 잔차 읽기 시간, 안구추적은 로그 응시 시간. 안구추적 R6은 수렴 문제로 참가자 기준(F1) 분석.",
+          "src": "p.16-17 §2.3.2; p.49 Table 9"
+        },
+        {
+          "label": "통계 ③ 모델",
+          "text": "GPT 모델별로 따로 선형혼합모형을 적합하고 무선효과는 문항(Item) 절편 하나만 두었다. 인간-모델 대응은 두 쪽 모형의 유의성 패턴 비교와 조건별 Pearson r로 판단했다(평정은 문장 단위, 읽기는 그림 설명상 '단어' 단위).",
+          "src": "p.17 §2.3.2; p.18 §3.1; p.44"
+        },
+        {
+          "label": "하지 않은 것",
+          "text": "모델에게 프롬프트로 판단을 묻지 않았고, 인간 반응을 surprisal로 예측하는 회귀(설명력 증가)나 인간·모델을 한 모형에 넣은 '행위자 × 조건' 검정을 하지 않았다. 문장 surprisal은 길이·토큰 수로 정규화하지 않았다.",
+          "src": "p.14-18 §2.2-3.1"
+        }
+      ]
+    },
+    "why": {
+      "headline": "영어 편중 연구가 부풀렸을 수 있는 모델-인간 호환성을 유형론적으로 먼 한국어로 시험하려는 문제의식에서 출발했고, 우리에게는 수용성·공손성 평정이라는 직접 선행 설계와 함께 '맥락·프롬프트·최신 모델'이 비어 있는 자리를 준다.",
+      "items": [
+        {
+          "label": "문제의식",
+          "text": "언어과학의 계산 연구가 영어에 쏠려 있고(Blasi et al. 2022; Chang & Bergen 2024) 영어 중심 LLM이 이를 가속해 설명가능 AI(XAI)로의 진전을 막는다. 한국어 높임에 대한 선행 모델 연구(Author xxxx; Lee & Wang 2023)는 모델 행동을 인간 처리 자료와 대조하지 않았다.",
+          "src": "p.3 §1; p.9 §1.1"
+        },
+        {
+          "label": "저자가 밝힌 의의",
+          "text": "과소대표 언어는 문법 예측과 언어 외적 지식을 조화시키도록 강제해 분포 학습의 한계를 드러내는 스트레스 테스트다. 피상적 일치가 기제상 불일치를 가릴 수 있으므로 GPT surprisal의 무비판적 XAI 사용을 경고한다.",
+          "src": "p.30-32 §4.2"
+        },
+        {
+          "label": "저자가 밝힌 한계·후속 과제",
+          "text": "범위(한국어 주체 높임·특정 자료), 모델(최신 상용·프롬프트 기반 모델, MoE·인코더-디코더 구조), 인과 개입(통제된 프롬프트 조작, 표적 미세조정), 지표(주의 패턴·활성 발산·담화 지표), 해석 도구, 사회화용 정보를 짝지은 학습 신호, 문장·담화 수준 지표, 내부 표상·층별 역학, 토큰화(형태소 인식·문자 단위), 개인차와 사용 맥락 조작, 자원 합리적 인지 모델·BabyLM.",
+          "src": "p.31-34 §4.2-4.3"
+        },
+        {
+          "label": "우리가 이어받을 것 ① 평정 과제 설계",
+          "text": "수용성 2×2(주어 높임 가능성 × -시-)와 공손성 3×2(높임 사람·비높임 사람·무생물 × -시-)가 우리 7점 Likert 설계의 직접 선행이다. 인간 셀 평균(수용성 4.88/2.20/4.02/4.81, 공손성 2.67~4.59)은 모델 판단을 놓을 기준선이 된다.",
+          "src": "p.10-11 §2.1.1-2.1.2; p.52 Figure 1; p.54 Figure 3"
+        },
+        {
+          "label": "우리가 이어받을 것 ② 측정 교체",
+          "text": "이 논문은 모델의 '예상'(surprisal)만 보았다. 같은 문장에 대해 상용 LLM의 '판단'을 인간과 같은 척도로 받아 셀 평균을 직접 비교하면, 저자가 후속 과제로 남긴 프롬프트 기반 모델 검증이 된다.",
+          "src": "p.32 §4.3"
+        },
+        {
+          "label": "우리가 이어받을 것 ③ 맥락 조작",
+          "text": "저자는 높임 생략의 수용성이 화자-청자 관계와 맥락에 달려 있다고 말하면서도 맥락 없는 문장만 모델에 주었다. 관계 맥락(격식·친밀)을 요인으로 넣은 2×2는 저자가 제안한 '사용 맥락의 명시적 조작'을 그대로 잇는다.",
+          "src": "p.17 §3.1; p.33 §4.3"
+        },
+        {
+          "label": "우리가 이어받을 것 ④ 비교 통계",
+          "text": "유의성 패턴 비교 대신 인간·모델 자료를 한 모형에 넣고 '행위자 × 조건' 상호작용으로 수렴·괴리를 검정하며, 모델 값은 문항 단위로 집계해 시행 단위 복제를 피한다.",
+          "src": "p.17 §2.3.2; p.57 Figure 6"
+        }
+      ]
+    }
+  },
+  "layers": {
+    "word": [
+      {
+        "term": "honorifiable / non-honorifiable subject (Hsubj / NHsubj)",
+        "gloss_ko": "높임 가능 주어 / 높임 불가 주어",
+        "definition": "주어 지시체가 높임 대상이 될 수 있는가. 조작상으로는 명사 선택만으로 나눈다: 수용성 할아버지 대 영수(고유명), 자기조절읽기 선생님께서 대 미아가, 안구추적 회장님께서 대 인호가. 화자와의 관계 맥락은 주어지지 않는다.",
+        "note": "비높임 주어가 P02(아이·꼬마 등)와 달리 성인일 수 있는 고유명사다. 고유명사는 화자보다 손아래라는 전제가 암묵적이며, 높임 가능 주어는 거의 -님 또는 친족 높임어라 지위와 표면 형태(-님, -께서)가 겹친다. 'honorifiable'은 자질(가능성)이지 실제 높임 여부가 아니다.",
+        "src": "p.10 §2.1.1; p.12 (5); p.13 (6)"
+      },
+      {
+        "term": "Hpred / NHpred (honorific / non-honorific predicate)",
+        "gloss_ko": "높임 서술어 / 비높임 서술어",
+        "definition": "서술어 어간에 주체 높임 선어말어미 -(u)si-가 붙었는가. 수용성·공손성은 단문 서술어, 자기조절읽기는 앞선 연결형(들어가(시)며, R3), 안구추적은 내포 서술어(시작하시게, R5)다.",
+        "note": "과제마다 'pred'가 가리키는 위치가 다르다. 자기조절읽기 예문의 주절 서술어(냈어요)와 안구추적의 주절 서술어(닫으셨다)는 조건과 무관하게 고정돼 있다.",
+        "src": "p.10 §2.1.1; p.12 (5); p.13 §2.1.4"
+      },
+      {
+        "term": "feature-matching / feature-mismatching conditions",
+        "gloss_ko": "(높임) 자질 일치 / 불일치 조건",
+        "definition": "주어의 높임 가능성과 서술어 -시-의 유무가 맞는가. Hsubj + NHpred(생략)도 불일치로 분류한다.",
+        "note": "불일치 ≠ 비문. 저자는 Hsubj + NHpred를 불일치로 묶으면서 '범주적 비문이 아니다'라고 따로 말하고, 가설 3에서 두 불일치의 크기가 달라야 한다고 예측한다. 자기조절읽기에서는 Inanimate_NHsubj + NHpred를 '일치'로 분류해 무생물 주어도 '높임 불가 주어'의 한 종류로 취급한다.",
+        "src": "p.17 §3.1; p.21 §3.3"
+      },
+      {
+        "term": "honorific (feature) agreement",
+        "gloss_ko": "높임 (자질) 일치",
+        "definition": "주어와 서술어 사이의 높임 자질 대응. 위반 시 읽기 지연과 P600이 나타나 수·인칭 일치 위반과 닮았다는 선행 증거로 '일치'라 부른다.",
+        "note": "저자는 같은 관계를 'context-dependent'라고도 해 순수한 통사 일치로 보지 않는다. P02가 영어식 agreement라는 말을 피하고 '허가(licensing)'로 쓰는 것과 대비된다. 비교 시 과잉 높임은 일치 위반(비문), 생략은 화용적 선택으로 두는 이원 구도로 읽어야 한다.",
+        "src": "p.7 §1.1"
+      },
+      {
+        "term": "optionality of the subject honorific suffix",
+        "gloss_ko": "주체 높임 선어말어미의 수의성(선택성)",
+        "definition": "높임 가능 주어가 있어도 -시-를 생략할 수 있는 성질. 격식·위계가 느슨하거나 화자-청자 관계가 가까울 때 나타난다(Choo & Kwak 2008; Sohn 1999).",
+        "note": "근거로 Kim et al. (2005)와 Song et al. (2019)의 'high optionality'를 인용하지만 빈도 자료는 제시하지 않는다. 모델 결과의 해석('생략이 나타나는 코퍼스 통계를 반영')도 이 전제에 기댄다.",
+        "src": "p.8 §1.1; p.26 §4.1.1"
+      },
+      {
+        "term": "inanimate honorification",
+        "gloss_ko": "무생물(사물) 높임",
+        "definition": "본래 높임 대상이 아닌 무생물 주어에 -시-를 붙이는 현상. 예: 손님, 커피 나오셨습니다. 고객 응대에서 권력을 가진 청자에게 존중을 표시한다(Eom 2019).",
+        "note": "문법 오류로 보는 견해(Kim-Renaud 2001)와 공손 전략으로 보는 견해(Authors, xxxx)를 함께 소개하지만, 공손성 실험은 서비스 맥락 없이 중립 문장으로 진행돼 인간은 무생물 주어를 가장 덜 공손하게 평정했다. 예문 (4)는 청자 지향 맥락이 있는데 실험 자극은 그렇지 않다.",
+        "src": "p.8 §1.1; p.27 §4.1.2"
+      },
+      {
+        "term": "acceptability (judgement / rating)",
+        "gloss_ko": "수용성 (판단·평정)",
+        "definition": "원어민이 문장을 0(very unacceptable)~5(very acceptable)로 평정한 값. 연구 목적 서술에서는 이를 'grammaticality/appropriateness'를 추적하는 자료로 부른다.",
+        "note": "수용성·문법성·적절성을 뚜렷이 구분하지 않는다. 기존 초안은 척도를 '부적격/적격'으로 옮겼는데 원문은 unacceptable/acceptable이다. P03은 acceptability를 인간 평정이 아닌 규범 라벨로 써서 같은 낱말이 다른 대상을 가리킨다.",
+        "src": "p.9 §1.2; p.10 §2.1.1"
+      },
+      {
+        "term": "politeness rating",
+        "gloss_ko": "공손성 평정",
+        "definition": "문장을 0(very impolite)~5(very polite)로 평정. 누구에 대한 공손인지(주어 지시체, 청자)는 지시문이 원고에 없어 원문 미표기.",
+        "note": "모델 쪽은 공손성이 아니라 '형태의 기대 정도'(surprisal)로 대응시켜 구성 개념이 비대칭이다. 인간 평균은 완전 높임(4.59)만 뚜렷하고 나머지 사람 주어 조건은 2.67~2.89로 비슷해 등급보다 문턱에 가깝다(그림 판독). P06·P09가 쓰는 politeness(화계·격식)와도 다르다.",
+        "src": "p.11 §2.1.2; p.16 §2.3.1"
+      },
+      {
+        "term": "surprisal (ejel-level / sentence-level)",
+        "gloss_ko": "놀라움 값(어절 수준 / 문장 수준)",
+        "definition": "선행 맥락이 주어졌을 때 토큰 확률의 음의 로그(밑 2, 비트). 어절 surprisal은 어절을 이루는 부분어 surprisal의 합, 문장 surprisal은 어절 surprisal의 합.",
+        "note": "P02는 동사 영역의 하위 토큰 '평균'을 쓰지만 여기는 '합'이다. 문장 합은 길이·토큰 수·명사 빈도가 그대로 들어가 모델 간 절대값(예: 수용성 약 53 대 67 대 91비트, 그림 판독)을 비교할 수 없다. 저자도 문장 수준에서 '재균형'이 위반 효과를 가릴 수 있다고 경고한다.",
+        "src": "p.15-16 §2.3.1; p.31-32 §4.2"
+      },
+      {
+        "term": "ejel",
+        "gloss_ko": "어절",
+        "definition": "하나 이상의 형태소로 이루어진, 띄어쓰기로 구분되는 한국어 쓰기 단위(각주 5). surprisal 집계와 읽기 영역의 단위.",
+        "note": "-시-는 어절 안의 형태소라 어절 합산에서는 따로 분리되지 않는다. 저자는 이를 한계로 들고 형태소 인식·문자 단위 토큰화 비교를 제안한다.",
+        "src": "p.15 §2.3.1; p.43 note 5"
+      },
+      {
+        "term": "critical / spillover region",
+        "gloss_ko": "결정 영역 / 파급 영역",
+        "definition": "조작 효과가 예상되는 영역(자기조절읽기 R4 주어, 안구추적 R5 내포 서술어)과 그 다음 영역(자기조절읽기 R5, 안구추적 R6).",
+        "note": "모델 surprisal은 토큰 단위의 즉시 값이라 파급 효과를 원리상 '지연'시킬 수 없다. 인간 R6 효과와 모델 R5 효과를 영역별로 대조한 것이 '인간은 지연, 모델은 즉시'라는 결론의 근거다.",
+        "src": "p.12 §2.1.3; p.14 §2.1.4; p.29 §4.1.4"
+      },
+      {
+        "term": "strict zero-shot / 'closed-loop' environment",
+        "gloss_ko": "엄격한 제로샷 / 닫힌 루프",
+        "definition": "과제별 미세조정과 surprisal에 인위적 영향을 줄 수 있는 프롬프트 공학을 모두 배제한 처리 환경.",
+        "note": "'프롬프트 없음'은 곧 화자·청자·상황 맥락 없음이다. 저자는 맥락 의존적 현상을 맥락 없이 평가한 셈이고, 한계 절에서 통제된 프롬프트 조작을 후속 과제로 되돌려 놓는다.",
+        "src": "p.14 §2.2; p.32 §4.3"
+      },
+      {
+        "term": "explainable AI (XAI)",
+        "gloss_ko": "설명가능 AI",
+        "definition": "계산 모델의 수행이 인간 언어 행동을 합리적이고 해석 가능한 방식으로 설명하는 정도에 대한 평가.",
+        "note": "모델 내부의 결정 과정을 설명하는 통상적 XAI보다 넓게, 모델 출력과 인간 행동의 대응 자체를 설명가능성으로 정의한다. 결론에서는 출력 대응만으로 기제를 알 수 없다(that 대 why)고 스스로 경고한다.",
+        "src": "p.3 §1; p.30 §4.2"
+      },
+      {
+        "term": "coarse vs graded, context-dependent; 'letter of the rule' vs 'calibration'",
+        "gloss_ko": "거친 구분 대 등급적·맥락 의존적 측면; 규칙의 글자 대 보정",
+        "definition": "결론의 핵심 대비 어휘. 모델은 거친 형태통사 위반(규칙의 글자)은 잡지만 등급적 수용성·생물성 민감 공손성·지연 효과(미묘한 의미·화용적 보정)는 놓친다.",
+        "note": "Kauf et al. (2023, 2024)의 '가능/불가능 대 미세한 개연성' 대비를 한국어 높임으로 옮긴 틀이다. 다만 자기조절읽기에서는 비높임 주어 앞 -시-(명백한 위반)에 대한 모델의 동일 주어 내 차이가 작아(재계산) '글자'도 과제에 따라 부분적이다.",
+        "src": "p.2 Abstract; p.30 §4.2"
+      },
+      {
+        "term": "hedges: 'may', 'appear', 'suggest', 'speculative', 'do not take the strongest position'",
+        "gloss_ko": "결론의 세기를 낮추는 표현",
+        "definition": "해석 문장 대부분이 may·appear·suggest로 수위를 낮춘다. R5 무생물 효과는 'speculative', mGPT 수렴의 두 해석은 'equally viable'로 판단을 유보한다.",
+        "note": "반면 초록의 'reliably detected', 'failed to capture'와 4.1절의 'failed to encode'는 단정적이다. 특히 '구별하지 못함'은 사후검정의 비유의(p = 0.073~1.000)에서 나온 것이라 부재의 증거가 아니라 증거 부재로 읽어야 한다.",
+        "src": "p.23 §3.3; p.31 §4.2"
+      },
+      {
+        "term": "Human_ / Inanimate_ (animate/human)",
+        "gloss_ko": "사람 주어 / 무생물 주어 조건 접두어",
+        "definition": "공손성·자기조절읽기 조건 라벨의 접두어. 본문은 'animate/human'을 섞어 쓴다.",
+        "note": "동물 주어는 없으므로 실제 대비는 '사람 대 무생물'이다. 생물성(animacy) 효과라고 부르지만 사람 주어는 고유명(미아), 무생물 주어는 일반명사(그림, 김치)라 명사 종류·빈도가 생물성과 함께 바뀐다.",
+        "src": "p.11 §2.1.2; p.19 §3.2"
+      },
+      {
+        "term": "latest proprietary or prompt-based models (e.g., Llama 4, ChatGPT)",
+        "gloss_ko": "최신 독점·프롬프트 기반 모델",
+        "definition": "저자가 이번 연구에서 제외했다고 밝힌 모델군.",
+        "note": "Llama 4는 가중치가 공개된 모델이어서 'proprietary'라는 분류와 맞지 않는다. 저자가 말하는 핵심은 지시 조정되어 프롬프트로 쓰는 대화형 모델이라는 점으로 읽는 것이 안전하다.",
+        "src": "p.32 §4.3"
+      }
+    ],
+    "sentence": [
+      {
+        "kind": "claim",
+        "quote": "the models reliably detected coarse morphosyntactic violations",
+        "paraphrase_ko": "세 모델은 인간이 낮게 평정하고 느리게 읽은 명백한 높임 일치 위반에 높은 surprisal을 주어, 거친 형태통사 위반은 믿을 만하게 탐지했다.",
+        "numbers": [],
+        "src": "p.2 Abstract"
+      },
+      {
+        "kind": "result",
+        "quote": "Correlations between human measures and model surprisal were consistently weak and highly condition-specific",
+        "paraphrase_ko": "과제 전반에서 인간 측정치와 모델 surprisal의 상관은 일관되게 약하고 조건마다 달랐다.",
+        "numbers": [],
+        "src": "p.2 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "GPT models provide a useful but limited proxy for human sentence processing",
+        "paraphrase_ko": "GPT는 입력이 대체로 적형인지는 추적하지만 한국어 처리를 형성하는 사회화용·담화 제약은 과소표상하는, 유용하지만 제한된 대리지표다.",
+        "numbers": [],
+        "src": "p.2 Abstract"
+      },
+      {
+        "kind": "claim",
+        "quote": "this agreement relation is context-dependent, unlike the number or person agreement in English",
+        "paraphrase_ko": "높임 일치는 영어의 수·인칭 일치와 달리 맥락 의존적이다. 높임 가능 주어가 있을 때 -시-를 생략해도 반드시 비문이 되지는 않는다(예문 3).",
+        "numbers": [],
+        "src": "p.7 §1.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "others have proposed that it functions as a politeness strategy",
+        "paraphrase_ko": "무생물 높임을 문법 오류로 보는 견해(Kim-Renaud 2001)와 달리, 사회적 뉘앙스에 대한 민감성을 반영한 공손 전략으로 보는 견해(익명 처리된 저자 자신의 연구)가 있다.",
+        "numbers": [],
+        "src": "p.8 §1.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "neither study benchmarked model behaviour against human processing data",
+        "paraphrase_ko": "한국어 높임을 다룬 두 선행 모델 연구(GPT-2·BERT 주체 높임 분류, Lee & Wang 2023의 상대 높임)는 모델 행동을 인간 처리 자료와 대조하지 않았다. 이것이 이 연구가 메우는 공백이다.",
+        "numbers": [],
+        "src": "p.9 §1.1"
+      },
+      {
+        "kind": "method",
+        "quote": "To what extent do GPT language models faithfully simulate the sentence-processing patterns",
+        "paraphrase_ko": "연구 질문: GPT 언어모델은 주체 높임에 관한 성인 한국어 원어민의 문장 처리 패턴을 어느 정도 충실히 모사하는가.",
+        "numbers": [],
+        "src": "p.9 §1.2"
+      },
+      {
+        "kind": "method",
+        "quote": "all stimuli were processed in a 'closed-loop' environment",
+        "paraphrase_ko": "엄격한 제로샷 평가를 위해 과제별 미세조정과 surprisal에 인위적 영향을 줄 수 있는 프롬프트 공학을 배제했다.",
+        "numbers": [],
+        "src": "p.14 §2.2"
+      },
+      {
+        "kind": "method",
+        "quote": "surprisal was computed as the negative logarithm (base 2) of token probabilities",
+        "paraphrase_ko": "각 토큰의 선행 맥락 조건부 확률의 음의 로그(밑 2)로 surprisal을 비트 단위로 구하고, 어절 안의 부분어 값을 더해 어절 surprisal을, 어절 값을 더해 문장 surprisal을 만들었다.",
+        "numbers": [
+          "base 2"
+        ],
+        "src": "p.15 §2.3.1"
+      },
+      {
+        "kind": "method",
+        "quote": "surprisal was utilised not as a direct measure of politeness itself",
+        "paraphrase_ko": "공손성 평정에 대해 surprisal은 공손성 자체의 척도가 아니라 학습된 분포에서 한 형태가 얼마나 기대되는지의 지표로 쓰였다. 사회화용 제약을 내재화했다면 위반에 더 높은 surprisal이 나와 낮은 공손성과 대응하리라 예측한다.",
+        "numbers": [],
+        "src": "p.16 §2.3.1"
+      },
+      {
+        "kind": "method",
+        "quote": "Item was the sole random effect",
+        "paraphrase_ko": "GPT surprisal은 모델별로 따로 선형혼합모형을 적합했고, 인간 분석과 같은 설정이되 무선효과는 문항 하나뿐이다.",
+        "numbers": [],
+        "src": "p.17 §2.3.2"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "Hsubj + NHpred is expected to yield lower surprisal than NHsubj + Hpred",
+        "paraphrase_ko": "수용성 예측 3: 두 불일치 조건은 크기가 달라야 한다. 실제 사용에서 -시-가 수의적이므로 생략(Hsubj + NHpred)이 과잉 높임(NHsubj + Hpred)보다 surprisal이 낮아야 한다.",
+        "numbers": [],
+        "src": "p.17 §3.1"
+      },
+      {
+        "kind": "result",
+        "quote": "the GPT models showed little variation across conditions",
+        "paraphrase_ko": "인간은 Hsubj + NHpred를 두 일치 조건보다 낮게 평정했지만 GPT 모델은 조건 간 변동이 작았다.",
+        "numbers": [],
+        "src": "p.17 §3.1"
+      },
+      {
+        "kind": "result",
+        "quote": "failed to distinguish Hsubj + NHpred from Hsubj + Hpred",
+        "paraphrase_ko": "KoGPT-2 사후검정은 생략 조건과 완전 일치 조건을 구별하지 못했다. Ko-GPT-Trinity와 mGPT도 같은 비교에서 유의하지 않았고, mGPT는 NHsubj + NHpred 대 Hsubj + NHpred도 구별하지 못했다. 인간은 두 일치 조건만 차이가 없었다(p = 0.153).",
+        "numbers": [
+          "p = 1.000 (KoGPT-2)",
+          "p = 0.712 (Ko-GPT-Trinity)",
+          "p = 1.000 (mGPT)",
+          "p = 0.798 (mGPT, NHsubj + NHpred 대 Hsubj + NHpred)",
+          "p = 0.153 (인간, 두 일치 조건)"
+        ],
+        "src": "p.18 §3.1"
+      },
+      {
+        "kind": "result",
+        "quote": "modest but significant correlations emerged only for Ko-GPT-Trinity in NHsubj + NHpred",
+        "paraphrase_ko": "문장을 자료점으로 한 조건별 상관은 12셀 중 두 셀만 유의했다: Ko-GPT-Trinity의 NHsubj + NHpred와 mGPT의 Hsubj + Hpred. 조건당 32문장이면 이 r 값의 p는 약 0.46이어서(재계산) 보고된 p와 맞지 않는다.",
+        "numbers": [
+          "r = −0.136, p = 0.037",
+          "r = −0.137, p = 0.037"
+        ],
+        "src": "p.18 §3.1"
+      },
+      {
+        "kind": "result",
+        "quote": "humans and GPT models converged only on the clearly ungrammatical condition",
+        "paraphrase_ko": "수용성에서 인간과 모델이 수렴한 곳은 명백한 비문(NHsubj + Hpred) 하나뿐이었다. 인간은 가장 낮게, 모델은 가장 높은 surprisal을 주었다.",
+        "numbers": [],
+        "src": "p.19 §3.1"
+      },
+      {
+        "kind": "hypothesis",
+        "quote": "sentences containing inanimate subjects should elicit higher surprisal",
+        "paraphrase_ko": "공손성 예측: 높임 표지가 완전히 실현된 조건에서 surprisal이 가장 낮고, 단서 불일치 정도(특히 주어 높임 가능성)에 따라 등급적으로 변해 무생물 주어 문장이 더 높은 surprisal을 보여야 한다.",
+        "numbers": [],
+        "src": "p.19 §3.2"
+      },
+      {
+        "kind": "result",
+        "quote": "these models did not differentiate comparable animate/human and inanimate conditions",
+        "paraphrase_ko": "세 모델 모두 주어·서술어 주효과와 상호작용은 있었지만, 대응하는 사람-무생물 조건 쌍을 사후검정에서 구별하지 못했다.",
+        "numbers": [
+          "Human_NHsubj + NHpred 대 Inanimate_NHsubj + NHpred: p = 0.139 (KoGPT-2), p = 0.775 (Ko-GPT-Trinity), p = 0.073 (mGPT)",
+          "Human_NHsubj + Hpred 대 Inanimate_NHsubj + Hpred: p = 0.106 (KoGPT-2), p = 1.000 (Ko-GPT-Trinity), p = 0.162 (mGPT)"
+        ],
+        "src": "p.20 §3.2"
+      },
+      {
+        "kind": "result",
+        "quote": "although some trends emerged, none reached significance",
+        "paraphrase_ko": "인간 공손성 평정과 모델 surprisal의 조건별 상관은 어느 것도 유의하지 않았다.",
+        "numbers": [],
+        "src": "p.20 §3.2"
+      },
+      {
+        "kind": "claim",
+        "quote": "a strong centralised tendency driven by surface-level distributional regularities",
+        "paraphrase_ko": "자기조절읽기 그림에서 모델 surprisal의 오차막대가 인간보다 훨씬 좁은 것을 문항 간 변동이 작고 표면 분포 규칙성이 이끄는 강한 중심 경향으로 해석한다. 그러나 그림 6의 가로줄 패턴은 문항당 값이 시행 행마다 복제된 계산의 결과일 가능성을 보여 준다(그림 판독).",
+        "numbers": [],
+        "src": "p.21 §3.3"
+      },
+      {
+        "kind": "result",
+        "quote": "showed no significant effects in the conditions where human readers displayed substantial reading-time differences",
+        "paraphrase_ko": "R4에서 인간은 Inanimate_NHsubj + Hpred가 Human_Hsubj + Hpred·Human_Hsubj + NHpred보다 느렸고(각 p = 0.008) 무생물 주어 안에서 높임 서술어가 더 느렸지만(p = 0.012), 모델은 이 비교들에서 모두 유의하지 않았다.",
+        "numbers": [
+          "p = 0.008",
+          "p = 0.012",
+          "all ps > 0.1"
+        ],
+        "src": "p.22 §3.3"
+      },
+      {
+        "kind": "result",
+        "quote": "Only mGPT showed a significant difference—introducing a distinction not present in the human data",
+        "paraphrase_ko": "비높임 서술어 조건 안에서 주어 높임 가능성 비교(Human_NHsubj + NHpred 대 Human_Hsubj + NHpred)는 mGPT만 유의했고, 이는 인간 자료에 없는 구분이다. 세 모델 모두 Human_Hsubj + NHpred > Human_Hsubj + Hpred(p < 0.001)로, 인간에게 없는 '-시- 없는 앞 서술어 뒤 높임 주어' 벌점을 주었다.",
+        "numbers": [
+          "p = 0.016"
+        ],
+        "src": "p.22 §3.3"
+      },
+      {
+        "kind": "limitation",
+        "quote": "this interpretation remains speculative and warrants further investigation",
+        "paraphrase_ko": "R5(파급 영역)에서 세 모델 모두 무생물 주어 조건의 surprisal이 높았던 것을 의미적 비개연성에 대한 반응으로 볼 수 있지만, 결정 영역의 행동과 다른 불일치 조건에 비슷한 흔적이 없는 점을 고려하면 추측에 머문다.",
+        "numbers": [],
+        "src": "p.23 §3.3"
+      },
+      {
+        "kind": "result",
+        "quote": "a significant negative effect, indicating higher surprisal for Hsubj + Hpred than NHsubj + Hpred",
+        "paraphrase_ko": "안구추적 R6에서 KoGPT-2는 차이가 없었고, Ko-GPT-Trinity와 mGPT는 문법 조건에 더 높은 surprisal을 주는 음의 효과를 보였다. 그림상 차이는 0.52비트·0.03비트다(그림 판독).",
+        "numbers": [],
+        "src": "p.24 §3.4"
+      },
+      {
+        "kind": "result",
+        "quote": "all three models exhibited small but significant correlations in both conditions at R5",
+        "paraphrase_ko": "응시 시간과 surprisal의 상관은 R5에서만 두 조건 모두 작지만 유의했고 R6에서는 어느 모델도 유의하지 않았다. 문항당 값이 시행 행에 복제된 자료(그림 8 가로줄)로 계산돼 p가 과소추정됐을 수 있다.",
+        "numbers": [
+          "KoGPT-2: r = 0.161 (Hsubj + Hpred), r = 0.191 (NHsubj + Hpred), p < 0.001",
+          "Ko-GPT-Trinity: r = 0.12, p = 0.002; r = 0.164, p < 0.001",
+          "mGPT: r = 0.161, r = 0.186, p < 0.001",
+          "R6: all ps > 0.2"
+        ],
+        "src": "p.25 §3.4"
+      },
+      {
+        "kind": "claim",
+        "quote": "GPT models offer a useful baseline for simulating human language behaviour",
+        "paraphrase_ko": "GPT는 인간 언어 행동 시뮬레이션의 유용한 기준선이지만 예측이 인간 수행과 부분적으로만 겹치므로 신중히 해석해야 한다.",
+        "numbers": [],
+        "src": "p.26 §4"
+      },
+      {
+        "kind": "claim",
+        "quote": "instead reflecting corpus statistics in which such omissions occur",
+        "paraphrase_ko": "GPT는 높임 생략을 덜 수용 가능하게 만드는 사회화용적 기대를 부호화하지 않고, 대신 그런 생략이 나타나는(예: 비격식 맥락) 코퍼스 통계를 반영하는 듯하다. 코퍼스 빈도로 이를 확인하지는 않았다.",
+        "numbers": [],
+        "src": "p.26 §4.1.1"
+      },
+      {
+        "kind": "claim",
+        "quote": "they respond to overt honorific form violations but do not appear to represent",
+        "paraphrase_ko": "다음 토큰 예측 모델은 명시적 높임 형태 위반에는 반응하지만 대상이 높임에 사회적으로 적절한지는 표상하지 않는 듯하다. 프롬프트 공학이나 미세조정으로 개선될 수 있다는 선행 연구도 함께 인용한다.",
+        "numbers": [],
+        "src": "p.27 §4.1.2"
+      },
+      {
+        "kind": "claim",
+        "quote": "suggesting an over-generalised preference for honorifiable subjects rather than context-sensitive agreement computation",
+        "paraphrase_ko": "자기조절읽기에서 모델은 문법적인 맥락에서도 높임 불가 주어의 등장 자체를 놀라워해, 맥락 민감한 일치 계산이 아니라 높임 가능 주어에 대한 과잉일반화된 선호를 보인다.",
+        "numbers": [],
+        "src": "p.28 §4.1.3"
+      },
+      {
+        "kind": "result",
+        "quote": "all three models showed larger surprisal increases for animate mismatches than for inanimate ones",
+        "paraphrase_ko": "생물성 효과도 인간의 주된 경향과 반대였다. 인간은 무생물 불일치에서 가장 느렸지만 모델은 사람 불일치에서 surprisal이 더 컸다.",
+        "numbers": [],
+        "src": "p.28 §4.1.3"
+      },
+      {
+        "kind": "result",
+        "quote": "humans displayed a lagged effect, while models registered an immediate effect",
+        "paraphrase_ko": "안구추적에서 인간은 한 영역 늦은 효과를, 모델은 즉시 반응하되 하류 동역학이 일관되지 않은 효과를 보여 어느 모델도 인간의 시간 경과를 재현하지 못했다.",
+        "numbers": [],
+        "src": "p.29 §4.1.4"
+      },
+      {
+        "kind": "claim",
+        "quote": "surprisal often aligns with that something is challenging but not with why",
+        "paraphrase_ko": "한국어에서는 영어 연구가 경고한 한계가 더 날카로워진다. surprisal은 인간에게 무엇이 어려운지와는 자주 맞지만 왜 어려운지와는 맞지 않는다.",
+        "numbers": [],
+        "src": "p.30 §4.2"
+      },
+      {
+        "kind": "claim",
+        "quote": "mostly encoded the letter of the rule",
+        "paraphrase_ko": "GPT 모델은 대체로 규칙의 글자(명백한 불일치에 벌점)는 부호화했지만 미묘한 의미·화용적 보정은 부호화하지 않았다. 인간은 느슨한 맥락의 생략을 수용하고 무생물 높임을 거부한다.",
+        "numbers": [],
+        "src": "p.30 §4.2"
+      },
+      {
+        "kind": "claim",
+        "quote": "they balance the two possible interpretations as equally viable accounts of the data",
+        "paraphrase_ko": "다국어 mGPT와 한국어 전용 모델의 수렴은 교차언어 표상 공유일 수도, 텍스트 전용 분포 학습의 공통 구조적 천장일 수도 있으며 저자는 둘을 똑같이 가능한 설명으로 둔다.",
+        "numbers": [],
+        "src": "p.31 §4.2"
+      },
+      {
+        "kind": "limitation",
+        "quote": "potentially masking the impact of the initial violation",
+        "paraphrase_ko": "Kauf et al. (2024)이 지적한 대로 모델은 높은 surprisal 단어 뒤에 후속 단어 확률을 높여 로그 우도를 '재균형'할 수 있어, 문장 수준 점수에서는 초기 위반의 영향이 가려질 수 있다. 이 연구의 평정 과제 대리지표가 바로 문장 합이다.",
+        "numbers": [],
+        "src": "p.32 §4.2"
+      },
+      {
+        "kind": "limitation",
+        "quote": "we did not include the latest proprietary or prompt-based models",
+        "paraphrase_ko": "한국어 가능 GPT 변형 여럿을 평가했지만 최신 독점·프롬프트 기반 모델(예: Llama 4, ChatGPT)은 넣지 않았다. MoE·인코더-디코더 등 다양한 구조로 모델 풀을 넓히는 것이 다음 단계다.",
+        "numbers": [],
+        "src": "p.32 §4.3"
+      },
+      {
+        "kind": "future_work",
+        "quote": "causally oriented interventions, such as controlled prompt manipulations or targeted fine-tuning",
+        "paraphrase_ko": "통제된 프롬프트 조작이나 표적 미세조정 같은 인과 지향 개입으로 모델 내부 표상을 더 인간다운 맥락 민감 처리 쪽으로 옮길 수 있는지 볼 수 있다. 다만 규모 증가가 읽기 시간 적합을 본질적으로 개선하지는 않는다는 기존 증거도 함께 든다.",
+        "numbers": [],
+        "src": "p.32 §4.3"
+      },
+      {
+        "kind": "limitation",
+        "quote": "surprisal captures only a fraction of processing difficulty",
+        "paraphrase_ko": "surprisal은 이론적 동기가 있지만 처리 곤란의 일부만 포착한다. 주의 패턴, 활성 발산, 담화 수준 지표 같은 보완 신호가 필요하고, 약한 문항 수준 상관은 집계 추세가 문장별 결과를 가릴 수 있음을 시사하므로 해석 도구가 필요하다.",
+        "numbers": [],
+        "src": "p.32 §4.3"
+      },
+      {
+        "kind": "future_work",
+        "quote": "pairing text with socio-pragmatic information (e.g., formality, participant roles, register)",
+        "paraphrase_ko": "방법론 개선 ①: 텍스트에 격식·참여자 역할·레지스터 같은 사회화용 정보를 짝지어 학습 신호를 풍부하게 하거나 다른 높임 풍부 언어에서 교차언어 전이를 활용한다. ②는 토큰 수준을 넘는 문장·담화 지표, ③은 행동 적합과 내부 표상 분석의 결합이다.",
+        "numbers": [],
+        "src": "p.33 §4.3"
+      },
+      {
+        "kind": "future_work",
+        "quote": "compare diverse tokenisation strategies (e.g., morpheme-aware or character-level models)",
+        "paraphrase_ko": "부분어 토큰을 어절로 합산하는 방식은 한국어의 풍부한 교착 형태론을 다 포착하지 못할 수 있으므로, 형태소 인식·문자 단위 모델 등 토큰화 전략을 비교해 -시- 같은 형태 단서에 대한 인간 민감성과 더 잘 맞는지 확인해야 한다.",
+        "numbers": [],
+        "src": "p.33 §4.3"
+      },
+      {
+        "kind": "future_work",
+        "quote": "explicitly manipulating usage contexts for both humans and models",
+        "paraphrase_ko": "이번 연구는 원어민을 대표 집단, GPT를 범용 행위자로 보는 집단 수준 분석이었다. 인간과 모델 모두에 대해 사용 맥락을 명시적으로 조작하면 다른 통찰을 얻을 수 있다(Škrjanec & Demberg 2026).",
+        "numbers": [],
+        "src": "p.33 §4.3"
+      }
+    ],
+    "paragraph": [
+      {
+        "section": "Abstract",
+        "move": "claim",
+        "summary_ko": "목적(GPT가 한국어 주체 높임의 인간 처리 역학을 얼마나 근사하나) → 재료(선행 실험 공개 자료 4종, 한국어 가능 GPT 3종의 surprisal) → 결과(거친 위반 탐지는 성공, 생략의 수의성·생물성 민감 공손성·지연 파급 효과는 실패, 상관은 약함) → 결론(유용하지만 제한된 대리지표, 인지적·문화적으로 적절한 지표 필요).",
+        "src": "p.2 Abstract"
+      },
+      {
+        "section": "1 Introduction (첫 단락)",
+        "move": "gap",
+        "summary_ko": "계산 방법으로 인간 언어 행동을 설명하려는 흐름 → 분야가 영어에 편중(Blasi et al. 2022; Chang & Bergen 2024)되고 영어 중심 LLM이 이를 가속 → 유형론적으로 다른 언어로의 일반화와 XAI(모델 수행이 인간 언어 행동을 해석 가능하게 설명하는 정도의 평가)의 진전이 막혔다는 공백 제기.",
+        "src": "p.3 §1"
+      },
+      {
+        "section": "1 Introduction (둘째·셋째 단락)",
+        "move": "background",
+        "summary_ko": "트랜스포머·GPT의 구조와 다음 토큰 예측 학습을 설명하고 GPT를 디코더 전용 모델의 대표로 채택한다. GPT 기반 평가의 주제를 정리: GPT-2는 영어 교체 구문 선호를 추적, GPT-3 계열·ChatGPT 판단은 프롬프트 의존·긍정 편향, surprisal은 읽기 곤란을 로그적으로 예측하나 작은 GPT-2가 더 잘 맞고 문장 경로 곤란은 과소평가한다(Oh & Schuler 2023; Huang et al. 2024).",
+        "src": "p.3-5 §1"
+      },
+      {
+        "section": "1 Introduction (넷째 단락)",
+        "move": "background",
+        "summary_ko": "사회화용·맥락 접면에서 LLM 역량은 애매하다: 프롬프트된 GPT-4는 정보구조 민감성(Cuneo et al. 2025), 의미 개연성 처리는 지표에 따라 비대칭(Cong & Rayz 2024), 거친 구분은 잡지만 미세한 등급은 못 가림(Kauf et al. 2023, 2024), 최소대립쌍 활성은 맥락 의존적(Zhou et al. 2025). 모델 크기·학습 사양이 정렬의 결정 요인이라는 결론으로 닫는다.",
+        "src": "p.5 §1"
+      },
+      {
+        "section": "1 Introduction (마지막 단락)",
+        "move": "claim",
+        "summary_ko": "영어와 먼 한국어의 주체 높임을 고른다: 원어민은 높임 자질 일치 위반에 민감하지만 실제 사용은 영어 수·인칭 일치와 크게 다르다. 모델 확률 기대를 확립된 행동 증거와 비교해 유형론적으로 다른 환경에서 정렬을 검정하겠다고 선언한다.",
+        "src": "p.5-6 §1"
+      },
+      {
+        "section": "1.1 Subject honorification in Korean",
+        "move": "background",
+        "summary_ko": "한국어는 교착어·SOV·맥락 의존 언어이고 높임은 문법·사회문화 지식의 통합을 요구한다. 주체 높임 = 높임 가능 주어 + -(u)si-, 상대 높임은 6등급 종결형으로 구분(예문 1). 높임 불가 주어 + -시-는 읽기 지연·P600을 낳고(예문 2), 높임 가능 주어의 -시- 생략은 반드시 비문이 아니다(예문 3). 생략은 격식이 느슨하거나 관계가 가까울 때 나타나며, 서비스 현장의 무생물 높임(예문 4)은 오류 대 공손 전략으로 견해가 갈린다.",
+        "src": "p.6-8 §1.1"
+      },
+      {
+        "section": "1.1 (마지막 단락)",
+        "move": "gap",
+        "summary_ko": "주체 높임은 LLM의 인간다운 언어 능력을 시험할 좋은 무대인데 시뮬레이션 연구가 적다. 간접 증거 두 편(GPT-2가 BERT보다 분류 정확도가 높지만 둘 다 표면 단서에 민감 — 익명 처리, P03과 부합; Lee & Wang 2023의 상대 높임 우연 수준 성능)은 인간 처리 자료와 대조하지 않았다.",
+        "src": "p.8-9 §1.1"
+      },
+      {
+        "section": "1.2 Current study",
+        "move": "claim",
+        "summary_ko": "연구 질문 제시 → 네 과제의 공개 자료와 GPT 3종 → 두 평가 차원(평정 자료로 문법성·적절성 추적, 읽기 자료로 영역별 처리 추적) → 오프라인 평정도 실시간 처리 제약을 반영한다는 근거(Hofmeister et al. 2014; Langsford et al. 2019; Schütze & Sprouse 2013)로 포함을 정당화.",
+        "src": "p.9-10 §1.2"
+      },
+      {
+        "section": "2.1.1-2.1.2 Acceptability judgement / Politeness rating",
+        "move": "method",
+        "summary_ko": "수용성: L2 습득 연구의 원어민 하위 집단 n = 40, 128문장(조건당 32), 주어 높임 가능성(할아버지/영수) × -시- 유무, 0–5의 6점 척도, 반응시간 기준 약 4% 제외. 공손성: L2 학습자 비교 연구의 원어민 n = 20, 216문장(조건당 36), 같은 2×2 + 무생물 주어(김치) 2조건, 0(매우 무례)–5(매우 공손), 약 10% 제외.",
+        "src": "p.10-11 §2.1.1-2.1.2"
+      },
+      {
+        "section": "2.1.3 Self-paced reading",
+        "move": "method",
+        "summary_ko": "공손성과 같은 연구·같은 문항 수·조건, n = 40. 핵심 차이는 어순: 서술어(R3, 들어가(시)며)가 절 경계를 넘어 주어(R4)보다 앞선다(예문 5). 150–4000 ms 절단, ±3 SD 제거(약 2%), 로그 변환 후 음절 수로 잔차화(Trueswell et al. 1994 방식). 결정 영역은 R4.",
+        "src": "p.11-12 §2.1.3"
+      },
+      {
+        "section": "2.1.4 Eye-tracking reading",
+        "move": "method",
+        "summary_ko": "유인 효과 연구의 실험 2(n = 44) 응시 시간. 내포절 주어(R2)의 높임 가능성 효과만 떼어 내려고 주절 주어(R1)가 내포절 주어와 높임 자질이 같은 문항만 사용, 40문장(조건당 20), 내포 서술어 R5는 항상 높임형(예문 6). 80 ms 병합·1,200 ms 제거. 결정 영역 R5, 파급 영역 R6(원 연구에서 큰 효과).",
+        "src": "p.12-14 §2.1.4"
+      },
+      {
+        "section": "2.2 Model specification",
+        "move": "method",
+        "summary_ko": "KoGPT-2(한국어 GPT-2), Ko-GPT-Trinity(한국어 GPT-3형), mGPT(61개 언어 다국어 GPT-3형). 두 한국어 모델은 규모·학습량이 크게 다르고 mGPT는 다국어 기준선이어서 모델 크기와 언어 범위(단일어/다국어)에 따른 정렬을 볼 수 있다고 설명. 엄격한 제로샷 '닫힌 루프'로 미세조정·프롬프트 공학을 배제.",
+        "src": "p.14 §2.2"
+      },
+      {
+        "section": "2.3.1 Surprisal by model",
+        "move": "method",
+        "summary_ko": "Hugging Face 로드, 왼쪽 패딩, <start>/<end> 경계 → 공백 기준 어절 분절 후 부분어 토큰화(구두점 유지, 예: 문장 끝 '잡혔다.'는 한 단위) → −log2 조건부 확률(비트) → 어절 합(읽기 대리지표), 문장 합(평정 대리지표). 공손성에 대해서는 surprisal이 공손성 자체가 아니라 형태의 기대 정도라는 단서를 단다.",
+        "src": "p.15-16 §2.3.1"
+      },
+      {
+        "section": "2.3.2 Statistical analysis",
+        "move": "method",
+        "summary_ko": "인간 평정은 CLMM(ordinal), 누적 로짓, 모형 진단, Nagelkerke R², emmeans 사후비교(Wald z). 읽기는 영역별 LMM(lmerTest), Nakagawa 조건부 R². GPT surprisal은 모델별 LMM, 무선효과는 문항만, 나머지 설정은 인간과 같게.",
+        "src": "p.16-17 §2.3.2"
+      },
+      {
+        "section": "3.1 Acceptability judgement",
+        "move": "evidence",
+        "summary_ko": "세 예측(일치 조건 낮음, 불일치 높음, 생략 < 과잉) → 인간은 NHsubj + Hpred 최저, 모델도 여기서 최고 surprisal로 일치 → Hsubj + NHpred에서 갈림(인간은 두 일치 조건보다 낮게, 모델은 변동 작음) → 인간 CLMM 주효과 둘 + 상호작용, 두 일치 조건만 무차이(p = 0.153) → 모델별 사후검정에서 생략과 완전 일치를 구별 못함 → 상관은 12셀 중 2셀만 유의(r ≈ −0.14).",
+        "src": "p.17-19 §3.1"
+      },
+      {
+        "section": "3.2 Politeness rating",
+        "move": "evidence",
+        "summary_ko": "두 예측(완전 높임에서 최저, 무생물 주어에서 더 높음) → 인간은 높임 사람+-시- 최고, 높임 불가 사람 중간, 무생물 최저이고 무생물-사람 대응 쌍이 모두 유의(p < 0.001) → 모델은 사람 범주 안에서 Human_NHsubj + Hpred가 최고였으나 무생물 조건이 대응 사람 조건과 비슷하고 사후검정 비유의(p = 0.073~1.000) → 상관 모두 비유의 → 모델은 생물성을 믿을 만하게 반영하지 않는다.",
+        "src": "p.19-20 §3.2"
+      },
+      {
+        "section": "3.3 Self-paced reading",
+        "move": "evidence",
+        "summary_ko": "세 예측(불일치에서 높음, 생략은 덜 높음, 높임 불가 주어 안에서 생물성 무관) → 인간 R4는 Inanimate_NHsubj + Hpred 최대, Human_NHsubj + Hpred 다음 → 모델은 Human_Hsubj + Hpred 최저, 서술어와 무관하게 비높임 사람 주어 최고, 오차막대가 좁음 → 인간 사후비교 유의 쌍(p = 0.008, 0.008, 0.012)을 모델은 모두 비유의, 대신 인간에 없는 차이(사람 > 무생물, 생략 > 완전 일치, mGPT만 p = 0.016) → R5에서 무생물 조건 surprisal 상승은 추측 → 상관 모두 비유의.",
+        "src": "p.21-23 §3.3"
+      },
+      {
+        "section": "3.4 Eye-tracking reading",
+        "move": "evidence",
+        "summary_ko": "예측(비문 조건 surprisal > 문법 조건; 파급 효과 반영 여부는 경험적 질문) → 인간은 R5 수치상 증가·비유의, R6 유의 → 모델은 R5에서 세 모델 모두 유의, R6에서 KoGPT-2 무차이·Ko-GPT-Trinity와 mGPT 음의 효과 → 상관은 R5에서만 작지만 유의(r = 0.12~0.191), R6 전부 비유의.",
+        "src": "p.23-25 §3.4"
+      },
+      {
+        "section": "4 Discussion and Conclusion (도입)",
+        "move": "interpretation",
+        "summary_ko": "부분적 정렬과 두드러진 괴리 → 명백한 위반은 인간 민감성과 대체로 일관되게 표시 → 그러나 인간이 중간 정도로 나쁘다고 본 조건을 구별 못하고 생물성·화용 맥락의 미세 효과를 대부분 놓침 → GPT는 유용한 기준선이되 신중히 해석해야.",
+        "src": "p.25-26 §4"
+      },
+      {
+        "section": "4.1.1 Acceptability judgement",
+        "move": "interpretation",
+        "summary_ko": "비문 조건에서는 정렬, 문법적으로 가능하지만 화용적으로 유표적인 생략 조건에서 괴리 → 모델은 생략을 덜 수용 가능하게 만드는 사회화용적 기대 대신 생략이 나타나는 코퍼스 통계를 반영하는 듯 → 영어 선행 결과(범주적 비문은 잡고 중간 수용성은 등급화 못함)와 공명, 원시 surprisal과 다음 단어 예측의 한계.",
+        "src": "p.26-27 §4.1.1"
+      },
+      {
+        "section": "4.1.2 Politeness rating",
+        "move": "interpretation",
+        "summary_ko": "인간의 뚜렷한 화용 위계(높임 사람+-시- > 사람 불일치 > 무생물)는 형태 장치와 주어 생물성 모두에 민감 → 모델 surprisal은 주로 명시적 통사 이상이 이끌어 사람·무생물 모두에서 높임 불가 주어+-시-가 최고 → 생물성 기반 공손성 차이를 부호화 못함 → 다음 토큰 예측 모델의 제한된 사회화용 통합, 단 프롬프트·미세조정으로 개선 가능하다는 선행 연구 인용.",
+        "src": "p.27 §4.1.2"
+      },
+      {
+        "section": "4.1.3 Self-paced reading",
+        "move": "interpretation",
+        "summary_ko": "인간 감속은 '앞선 높임 단서 + 높임 불가 주어' 조합이 촉발 → 모델은 거친 수준에서 닮아 보이나 높임 불가 주어의 존재 자체에 놀라 과잉일반화된 선호를 보이고, 생물성 효과는 인간과 반대 → 일부 인지 효과는 근사하나 맥락 민감한 파싱의 기제상 충실한 모델은 아니다.",
+        "src": "p.28 §4.1.3"
+      },
+      {
+        "section": "4.1.4 Eye-tracking reading",
+        "move": "interpretation",
+        "summary_ko": "인간은 R5의 작은 증가가 R6에서야 유의해지는 지연 효과, 모델은 R5에서 큰 surprisal 급등 후 R6에서 불일치한 반응 → 다음 토큰 surprisal은 저수준 어휘·형태통사 위반의 탐지기일 수 있으나 시간적으로 분산된 맥락 통합의 불완전한 대리지표 → 원시 surprisal을 실시간 처리의 직접 대체물로 쓰지 말 것.",
+        "src": "p.28-29 §4.1.4"
+      },
+      {
+        "section": "4.2 Broad implications (첫 두 단락)",
+        "move": "interpretation",
+        "summary_ko": "영어 연구와 수렴(명백한 위반에 벌점, 예측가능성-비용 이론)과 이탈(등급적 수용성·생물성·사회적 적절성 무시) → 'that은 맞고 why는 아니다' → 영어 과의존이 모델-인간 호환성을 부풀릴 수 있고 한국어 같은 언어가 결함을 드러냄 → XAI에 경고, 담화·화용 신호 같은 풍부한 목표 필요 → 모델은 규칙의 글자는 부호화했지만 미묘한 보정은 아니다.",
+        "src": "p.29-30 §4.2"
+      },
+      {
+        "section": "4.2 (셋째·넷째 단락)",
+        "move": "interpretation",
+        "summary_ko": "mGPT와 한국어 전용 모델의 수렴은 교차언어 표상 공유 또는 공통 구조적 천장이라는 두 해석을 똑같이 가능하게 남기고 내부 표상 탐침·층별 역학을 후속으로 제안 → 인간 처리는 사회·맥락 표상과 언어 표상을 통합하는 다차원 체계인데 다음 토큰 우도 최적화 구조에는 이 결합이 없을 수 있음 → 문장 수준 재균형이 위반을 가릴 수 있어 GPT surprisal의 무비판적 XAI 사용을 경고.",
+        "src": "p.31-32 §4.2"
+      },
+      {
+        "section": "4.3 Limitations and future study (첫 단락)",
+        "move": "limitation",
+        "summary_ko": "한계 넷: ① 범위(특정 자료의 한국어 주체 높임) → 다른 과소대표 언어·구문, ② 모델(최신 독점·프롬프트 기반 모델 미포함) → MoE·인코더-디코더, 통제된 프롬프트 조작·표적 미세조정 같은 인과 개입(단 규모가 읽기 시간 적합을 본질적으로 개선하지는 않는다는 증거 병기), ③ 지표(surprisal은 처리 곤란의 일부) → 주의·활성·담화 지표, ④ 약한 문항 수준 상관 → 해석 도구로 모델이 쓰는 단서 식별.",
+        "src": "p.32 §4.3"
+      },
+      {
+        "section": "4.3 (둘째 단락)",
+        "move": "future_work",
+        "summary_ko": "방법론 개선 셋(사회화용 정보를 짝지은 학습 신호, 문장·담화 수준 지표, 행동 적합 + 내부 표상 분석으로 올바른 결과와 올바른 기제 구분)과 Kuribayashi et al. (2025)의 층별 적합 → 부분어를 어절로 합산하는 토큰화의 한계와 형태소 인식·문자 단위 전략 비교 제안.",
+        "src": "p.33 §4.3"
+      },
+      {
+        "section": "4.3 (셋째 단락)",
+        "move": "future_work",
+        "summary_ko": "XAI 틀의 넓은 후속: 개별 독자와 특정 LLM 구조 사이의 변이 탐구, 집단 수준 분석을 넘어 인간·모델 모두의 사용 맥락을 명시적으로 조작(Škrjanec & Demberg 2026), 자원 합리적 제약과 기억 한계를 넣은 인지 모델(Wilcox et al. 2025), BabyLM 챌린지(Charpentier et al. 2025).",
+        "src": "p.33-34 §4.3"
+      },
+      {
+        "section": "Notes, Figure legends, Tables 1-10, Data availability, Figures 1-8",
+        "move": "evidence",
+        "summary_ko": "각주(글로스 약어, 모델 허깅페이스 주소, 어절 정의), 그림 설명(평정 상관은 문장, 읽기 상관은 단어가 자료점), 표 1(네 기준 연구 요약 — 안구추적 R5·R6 모두 더 긴 고정으로 적어 본문 표 9의 R5 비유의와 어긋남), 표 2(모델 사양), 표 3-10(통계 출력), OSF 자료, 그림 1-8(조건 평균·SD와 산점도; 텍스트 층 없음).",
+        "src": "p.43-59"
+      }
+    ],
+    "context": [
+      {
+        "axis": "lineage",
+        "text_ko": "네 기준 자료가 모두 저자들 자신의 심리언어학 실험이다. 원고는 익명 처리돼 있지만 설명이 맞는 공개 논문 후보는 Shin et al. (2025, Languages; L1·L2·계승어 수용성), Kwon & Shin (2025, Bilingualism: Language and Cognition; L2 과잉일반화·공손성·자기조절읽기), Kwon & Sturt (2016, Frontiers in Psychology; 높임 일치 유인 효과 안구추적)이며, 읽기 지연과 P600 근거로 든 'Author (xxxx)'는 Kwon & Sturt 계열(2024, Cognition)로 보인다(논문 밖 추정). 모델 쪽 선행 'Author (xxxx)'는 P03(같은 저자군의 KoGPT-2·KoBERT 분류)과 부합하고, Lee & Wang (2023)은 P01이다. 곧 인간 처리 연구 → 모델 분류(P03) → 인간-모델 대조(P04)로 이어지는 한 연구실의 계보다.",
+        "related": [
+          "P03",
+          "P01",
+          "P05",
+          "Kwon & Sturt (2016)",
+          "Kwon & Shin (2025)",
+          "Shin et al. (2025)"
+        ],
+        "src": "p.7-13 §1.1-2.1"
+      },
+      {
+        "axis": "lineage",
+        "text_ko": "LM-인간 정렬 문헌 가운데 surprisal 회의론 쪽(Oh & Schuler 2023: 큰 트랜스포머일수록 읽기 시간 적합이 나쁨; Huang et al. 2024: surprisal이 통사 중의성 곤란을 설명 못함; Kauf et al. 2023, 2024: 거친 구분 대 미세한 개연성)을 주된 틀로 삼는다. surprisal 이론의 원전(Hale 2001; Levy 2008)은 인용하지 않고 Schrimpf et al. (2021)의 예측가능성-비용 연결로 대신한다. 결론의 '그럴듯한 인지 모델'은 Wilcox et al. (2025)·BabyLM 계열로 향한다.",
+        "related": [
+          "Oh & Schuler (2023)",
+          "Huang et al. (2024)",
+          "Kauf et al. (2023, 2024)"
+        ],
+        "src": "p.4-5 §1; p.30 §4.2; p.34 §4.3"
+      },
+      {
+        "axis": "theory",
+        "text_ko": "높임을 '높임 (자질) 일치'라고 부르며 과잉 높임(높임 불가 주어 + -시-)을 수·인칭 일치 위반처럼 비문(ungrammatical)으로 본다(P600 근거). 동시에 높임 가능 주어의 -시- 생략은 맥락 의존적 선택, 무생물 높임은 공손 전략일 수 있다고 본다. 곧 '과잉은 통사 위반, 과소는 화용 선택'이라는 이원 입장이다. P03(통사적 일치, 생략의 수의성은 한 단어로만 인정)보다 화용 쪽으로, P02(통사 일치라는 말을 피하고 화용적 허가로 규정)보다 통사 쪽으로 서 있다.",
+        "related": [
+          "P02",
+          "P03"
+        ],
+        "src": "p.7-8 §1.1; p.30 §4.2"
+      },
+      {
+        "axis": "model_generation",
+        "text_ko": "모델은 2021~2022년 무렵 공개된 125M~1.3B 기반 모델이다(출시 연도는 원문 미표기, 논문 밖 정보). 지시 조정·선호 학습이 없고 프롬프트 판단을 묻지 않았으므로 '모델이 사회적 적절성을 표상하지 않는다'는 결론은 이 세대·이 측정(맥락 없는 다음 토큰 확률)에 묶인다. 저자는 규모 증가가 읽기 시간 적합을 개선하지 않는다는 증거를 들어 결론을 방어하지만, 그 증거는 읽기 과제에 대한 것이고 공손성·수용성 같은 판단 과제에서는 서론이 인용한 프롬프트된 GPT-4(Cuneo et al. 2025)처럼 결과가 달라질 여지가 남는다.",
+        "related": [
+          "P02",
+          "P03",
+          "P07",
+          "Cuneo et al. (2025)"
+        ],
+        "src": "p.14 §2.2; p.32 §4.3"
+      },
+      {
+        "axis": "agreement",
+        "text_ko": "모델이 명백한 형태 위반은 잡지만 등급적·화용적 측면은 놓친다는 결론은 P02(불일치 탐지는 되지만 비높임 주어에도 완전 표지를 선호하는 표면 공기 휴리스틱)와 P03(표면 단서·유인자 간섭)과 같은 방향이다. P01(상대 높임에서 우연 수준 성능)과도 '소형 한국어 모델은 높임의 사회적 조건을 표상하지 못한다'는 점에서 합의한다. 다만 P02·P03는 인간 자료가 없고 P04는 인간 자료가 있다는 점에서 증거의 층위가 다르다.",
+        "related": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "src": "p.25-26 §4; p.30 §4.2"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "P04는 모델이 생략을 벌하지 않는 이유를 '생략이 나타나는 코퍼스 통계'로 해석하지만 빈도 자료는 없다. P05(Jung & Kim 2026)의 말뭉치 분석은 NHsubj-Hverb(24.71%)가 Hsubj-NHverb(3.3%)보다 많았다고 보고해(P05 카드 기준), 생략이 흔하다는 전제(P04가 인용한 Song et al. 2019 등)와 어긋날 수 있다. 다만 P05의 NHsubj-Hverb는 주어 명사구에 높임 표지가 없을 뿐 지시체는 높일 만한 용례(다수가 엄마·아빠 같은 비높임 친족어)이고, P05는 높일 수 없는 주어 + -시-는 말뭉치에서도 관찰되지 않았다고 적는다. 또 검색어가 -께서·-시-여서 어휘로만 높인 Hsubj-NHverb가 과소 표집됐다고 스스로 밝힌다. 따라서 24.71%를 P04의 과잉 높임(영수·미아 같은 고유명 + -시-)의 빈도로 읽으면 안 되며, 두 논문의 '비높임 주어'는 같은 범주가 아니다. 두 논문을 함께 인용할 때는 '지시체의 높임 가능성'과 '주어 어휘의 높임 형태'를 나눠 적어야 한다.",
+        "related": [
+          "P05"
+        ],
+        "src": "p.8 §1.1; p.26 §4.1.1"
+      },
+      {
+        "axis": "conflict",
+        "text_ko": "용어 충돌: P04의 acceptability는 0–5 인간 평정인데 P03은 규범 라벨의 뜻으로 쓰고, P04의 politeness는 문장의 공손성 평정(주체 높임 조작)인데 P06·P09는 화계·격식(상대 높임)을 politeness로 부른다. 또 P10(KoBALT)이 조건 통제를 버리고 대규모 문항으로 간 것과 달리 P04는 소수의 통제된 조건으로 '왜'를 추론한다. 카드 간 수치를 나란히 놓을 때 척도(6점 0–5 대 P05의 7점)와 구성 개념을 먼저 맞춰야 한다.",
+        "related": [
+          "P03",
+          "P05",
+          "P06",
+          "P09",
+          "P10"
+        ],
+        "src": "p.10-11 §2.1.1-2.1.2"
+      },
+      {
+        "axis": "field",
+        "text_ko": "NLP 학회가 아니라 Nature 포트폴리오의 인문사회 학술지에 실렸고, 틀은 심리언어학과 '언어과학의 XAI'다. 독자는 언어학·인지과학·디지털 인문학 연구자이며 모델 성능 순위보다 인간-모델 대응의 해석을 앞세운다. 언어 교육, 한국어 서비스(고객 응대 높임) 같은 응용 함의는 예문 (4)의 소개에 그치고 결론에서 따로 다루지 않는다.",
+        "related": [],
+        "src": "p.1 표지; p.3 §1; p.34 §4.3"
+      }
+    ]
+  },
+  "design": {
+    "phenomenon": "한국어 주체 높임: 주어의 높임 가능성(honorifiability)과 서술어 어간에 붙는 주체 높임 선어말어미 -(으)시-의 일치(저자 용어로 honorific feature agreement). 보조 차원으로 주어의 생물성(무생물 주어에 -시-를 붙이는 '무생물 높임'). 상대 높임(문장 종결형)은 조작하지 않았고 과제마다 종결형이 다르다(예문상 해요체 -어요, 안구추적은 -다).",
+    "stimuli": "새 자극을 만들지 않고 저자들의 선행 실험 네 편에서 쓴 문장을 그대로 모델에 넣었다. ① 수용성 판단: 주어 명사 예시는 할아버지(halapeci, 높임 가능)와 영수(Yengswu, 고유명·높임 불가)뿐이고 격조사(-께서/-이/가), 서술어, 문장 틀은 원문 미표기. ② 공손성 평정: 같은 2×2에 무생물 주어(예: 김치 kimchi) 2조건 추가. 예시는 영어 글로스 'teacher-NOM classroom-DIR enter-SH-PST-DECL'뿐이며 주어가 서술어 앞에 오는 단문. ③ 자기조절읽기: 공손성과 같은 문항·조건이되 어순이 달라 절 경계를 넘어 서술어(R3)가 주어(R4)보다 먼저 온다. 틀은 [교실로]R1 [급히]R2 [들어가(시)며]R3 [선생님께서/미아가/그림이]R4 [큰]R5 [소리를]R6 [냈어요]R7이며, 예문상 주절 서술어 R7(냈어요)은 모든 조건에서 -시-가 없다. ④ 안구추적: 유인 효과 연구의 실험 2 가운데 주절 주어(R1)와 내포절 주어(R2)의 높임 자질이 같은 문항만 추렸다. 틀은 [의장님께서는/진수는]R1 [회장님께서/인호가]R2 [정시에]R3 [회의를]R4 [시작하시게]R5 [회의장]R6 [앞문을 닫으셨다]R7이며, 내포 서술어 R5와 주절 서술어 R7은 항상 높임형이다. 그래서 비문 조건(진수는 인호가 … 닫으셨다)은 내포절과 주절 모두에서 불일치이고 R1도 조건 간에 다르다. 네 자료 모두 전체 문항 목록·채움 문장·목록 배정은 원고에 없고 OSF와 익명 처리된 원 논문에 미룬다.",
+    "conditions": [
+      {
+        "experiment": "수용성 판단",
+        "label": "NHsubj + NHpred",
+        "desc_ko": "높임 불가 주어(예: 영수) + -시- 없는 서술어",
+        "acceptability": "자질 일치(적형). 인간 M = 4.88, SD = 0.37 (그림 판독)"
+      },
+      {
+        "experiment": "수용성 판단",
+        "label": "NHsubj + Hpred",
+        "desc_ko": "높임 불가 주어 + -시- 서술어(과잉 높임)",
+        "acceptability": "자질 불일치, 저자 표현으로 clearly ungrammatical. 인간 M = 2.20, SD = 1.48 (그림 판독)"
+      },
+      {
+        "experiment": "수용성 판단",
+        "label": "Hsubj + NHpred",
+        "desc_ko": "높임 가능 주어(예: 할아버지) + -시- 없는 서술어(생략)",
+        "acceptability": "자질 불일치로 분류하되 범주적 비문은 아님, 화자-청자 관계·맥락에 따라 수용성이 달라짐. 인간 M = 4.02, SD = 1.23 (그림 판독)"
+      },
+      {
+        "experiment": "수용성 판단",
+        "label": "Hsubj + Hpred",
+        "desc_ko": "높임 가능 주어 + -시- 서술어",
+        "acceptability": "자질 일치. 인간 M = 4.81, SD = 0.50 (그림 판독)"
+      },
+      {
+        "experiment": "공손성 평정",
+        "label": "Human_NHsubj + NHpred",
+        "desc_ko": "높임 불가 사람 주어 + -시- 없음",
+        "acceptability": "인간 공손성 M = 2.67, SD = 0.87 (그림 판독)"
+      },
+      {
+        "experiment": "공손성 평정",
+        "label": "Human_NHsubj + Hpred",
+        "desc_ko": "높임 불가 사람 주어 + -시-",
+        "acceptability": "인간 M = 2.76, SD = 1.26 (그림 판독) — 문법 위반인데 비높임 짝보다 덜 공손하지 않음"
+      },
+      {
+        "experiment": "공손성 평정",
+        "label": "Human_Hsubj + NHpred",
+        "desc_ko": "높임 가능 사람 주어 + -시- 없음",
+        "acceptability": "인간 M = 2.89, SD = 1.09 (그림 판독)"
+      },
+      {
+        "experiment": "공손성 평정",
+        "label": "Human_Hsubj + Hpred",
+        "desc_ko": "높임 가능 사람 주어 + -시-",
+        "acceptability": "인간 M = 4.59, SD = 0.59 (그림 판독) — 유일하게 뚜렷이 공손"
+      },
+      {
+        "experiment": "공손성 평정",
+        "label": "Inanimate_NHsubj + NHpred",
+        "desc_ko": "무생물 주어(예: 김치) + -시- 없음",
+        "acceptability": "인간 M = 1.63, SD = 1.06 (그림 판독) — 최저"
+      },
+      {
+        "experiment": "공손성 평정",
+        "label": "Inanimate_NHsubj + Hpred",
+        "desc_ko": "무생물 주어 + -시-(무생물 높임)",
+        "acceptability": "인간 M = 2.00, SD = 1.51 (그림 판독)"
+      },
+      {
+        "experiment": "자기조절읽기 (R4)",
+        "label": "Human_Hsubj + Hpred / Human_Hsubj + NHpred",
+        "desc_ko": "들어가시며/들어가며 + 선생님께서",
+        "acceptability": "잔차 읽기 시간 M = 0.02 / 0.02 (그림 판독)"
+      },
+      {
+        "experiment": "자기조절읽기 (R4)",
+        "label": "Human_NHsubj + Hpred / Human_NHsubj + NHpred",
+        "desc_ko": "들어가시며/들어가며 + 미아가",
+        "acceptability": "M = 0.08 / 0.05 (그림 판독). 저자 분류로 앞쪽은 자질 불일치, 뒤쪽은 일치"
+      },
+      {
+        "experiment": "자기조절읽기 (R4)",
+        "label": "Inanimate_NHsubj + Hpred / Inanimate_NHsubj + NHpred",
+        "desc_ko": "들어가시며/들어가며 + 그림이",
+        "acceptability": "M = 0.12 / 0.02 (그림 판독). 앞쪽이 최대 지연"
+      },
+      {
+        "experiment": "안구추적 (R5·R6)",
+        "label": "Hsubj + Hpred (Grammatical)",
+        "desc_ko": "의장님께서는 회장님께서 정시에 회의를 시작하시게 …",
+        "acceptability": "로그 응시 시간 R5 = 5.59, R6 = 5.46 (그림 판독)"
+      },
+      {
+        "experiment": "안구추적 (R5·R6)",
+        "label": "NHsubj + Hpred (Ungrammatical)",
+        "desc_ko": "진수는 인호가 정시에 회의를 시작하시게 …",
+        "acceptability": "R5 = 5.63(유의하지 않음), R6 = 5.53(유의) (그림 판독)"
+      }
+    ],
+    "n_items": "수용성 128문장(4조건 × 조건당 32), 공손성 216문장(6조건 × 36), 자기조절읽기 216문장(6조건 × 36, 공손성과 같은 문항 수·조건이되 어순이 다름), 안구추적 40문장(2조건 × 20, 원 자료의 부분집합). 문항 세트 구성(같은 어휘 틀에서 조건만 바꾼 묶음인지), 참여자별 목록 배정(라틴 방진 여부), 채움 문장 수는 네 자료 모두 원문 미표기.",
+    "measures": [
+      "인간 수용성: 6점 척도(0 = very unacceptable ~ 5 = very acceptable). 반응시간 1,000 ms 미만·10,000 ms 초과 응답 제외(약 4% 손실)",
+      "인간 공손성: 6점 척도(0 = very impolite ~ 5 = very polite). 같은 반응시간 기준으로 약 10% 제외",
+      "인간 자기조절읽기: R4(주어) 잔차 읽기 시간. 150 ms 미만·4000 ms 초과 제외, 조건 평균 ±3 SD 밖 제거(약 2%), 로그 변환 뒤 음절 수 고정효과·참가자 무선효과 모형의 예측값을 뺀 값",
+      "인간 안구추적: 응시 시간(gaze duration, 로그 변환), R5(내포 서술어, 결정 영역)·R6(파급 영역). 80 ms 미만 고정은 0.05° 이내 인접 고정과 병합하거나 제외, 1,200 ms 초과 고정 제거",
+      "모델: 어절 surprisal(비트) = 어절 내 부분어 −log2 P(token|선행 맥락)의 합 — 읽기 과제의 대리지표",
+      "모델: 문장 surprisal = 어절 surprisal의 합 — 평정 과제의 대리지표. 길이·토큰 수 정규화 없음. 저자는 공손성에 대해 surprisal이 공손성 자체가 아니라 형태의 기대 정도라고 밝힘",
+      "대응 지표: 조건별 Pearson r(평정은 문장이 자료점, 읽기는 그림 설명상 '단어'가 자료점이나 그림은 시행 단위 복제를 보임)",
+      "측정하지 않은 것: 모델의 프롬프트 판단(Likert형 평정), 생성 출력, 이해 문항 정확도"
+    ],
+    "models": [
+      {
+        "name": "KoGPT-2",
+        "type": "디코더(인과 LM), 한국어 전용",
+        "params": "125M",
+        "korean_training": "5B 토큰(학습 데이터 전체 규모, 한국어 전용)",
+        "note": "skt/kogpt2-base-v2. 12층·12헤드·은닉 768·FFN 3,072. 출시 연도 원문 미표기(논문 밖 정보: 2021)"
+      },
+      {
+        "name": "Ko-GPT-Trinity",
+        "type": "디코더(인과 LM), 한국어 전용, 저자 표현 'Korean GPT-3 model'",
+        "params": "1.2B",
+        "korean_training": "35B 토큰",
+        "note": "skt/ko-gpt-trinity-1.2B-v0.5. 24층·16헤드·은닉 2,048·FFN 8,192. 출시 연도 원문 미표기(논문 밖 정보: 2021)"
+      },
+      {
+        "name": "mGPT",
+        "type": "디코더(인과 LM), 다국어 기준선, 저자 표현 'multilingual GPT-3 model'",
+        "params": "1.3B",
+        "korean_training": "61개 언어 합계 488B 토큰(한국어 비중 원문 미표기)",
+        "note": "ai-forever/mGPT. 구조가 Ko-GPT-Trinity와 같음(24층·16헤드·2,048·8,192). 출시 연도 원문 미표기(논문 밖 정보: 2022)"
+      }
+    ],
+    "humans": "새 참여자 없음. 선행 연구 네 편의 성인 한국어 원어민 하위 집단을 재분석: 수용성 n = 40, 공손성 n = 20, 자기조절읽기 n = 40, 안구추적 n = 44. 공손성과 자기조절읽기는 같은 원 연구의 서로 다른 참여자 집단이다. 나이·성별·지역 등 인구학적 속성, 모집 방법, 보상은 원문 미표기(원 논문으로 미룸).",
+    "stats": "인간 평정: CLMM(ordinal, logit 링크). 수용성은 rating ~ Subject * Predicate + (1|participant) + (1|item)으로 무선 절편만(표 주석은 '허용되는 최대 무선효과 구조'라 적음), Nagelkerke 유사 R² = 0.276. 공손성은 참가자·문항 모두 Subject*Predicate 무선 기울기를 넣은 최대 구조, 유사 R² = 0.532. 사후 비교는 emmeans, Wald z, Bonferroni. 공손성의 주어 요인은 3수준(높임 사람·비높임 사람·무생물)인데 표에는 Subject 계수 하나만 있어 부호화 방식이 불분명하다. 읽기: lmerTest LMM. 자기조절읽기 residRT ~ Subject*Predicate + (1|participant) + (1|word), 조건부 R² = 0.050. 안구추적 logRT ~ Condition + (1|participant) + (1|word), R6은 수렴 문제로 F1 분석, 조건부 R² = 0.217(R5)·0.139(R6). 모델: 모델별 lmer(surprisal ~ 요인 + (1|item) 또는 (1|word), REML), 편차 부호화. 인간-모델 대응은 한 모형에서 검정하지 않고 따로 적합한 결과의 유의성 패턴과 조건별 Pearson r로 비교했다. 그림 6·8에서 모델 surprisal이 가로줄로 반복돼(그림 판독) 문항당 값 하나가 여러 시행 행에 복제된 자료로 상관·모형을 적합한 것으로 보이며, 안구추적 R5의 t = 96.770~180.600은 그 영향이 의심된다. 효과크기는 R²만 보고되고 조건 대비의 효과크기·신뢰구간은 없다.",
+    "is_factorial": "과제마다 다르다. 수용성은 2×2(주어 높임 가능성[높임/비높임] × 서술어 -시-[유/무]). 공손성·자기조절읽기는 사실상 3×2(주어 유형[높임 사람/비높임 사람/무생물] × -시-[유/무])이지만 저자는 '2×2 + 무생물 2조건'으로 기술하고 Subject 계수 하나만 보고한다(무생물의 높임 가능 조건은 존재하지 않아 불완전 교차로 볼 수도 있다). 안구추적은 단일 요인 2수준(Hsubj + Hpred 대 NHsubj + Hpred)으로, 원 연구의 주절 주어 × 내포절 주어 설계에서 대각선 두 셀만 쓴 것이다. 모델 3종은 인간과 한 모형에 들어가지 않아 '행위자(인간/모델) × 조건' 상호작용은 어느 과제에서도 검정되지 않았다."
+  },
+  "stimulus_examples": [
+    {
+      "ko": "선생님, 선생님께서 우승을 하셨어요.",
+      "gloss": "Sensayngnim, sensayngnim-kkeyse wusung-ul ha-si-ess-eyo. Teacher, teacher-NOM.HON championship-ACC do-SH-PST-DCL.POL 'Teacher, you won the championship.'",
+      "condition": "§1.1 예시 (1) — 주체 높임(-께서 + -시-)과 상대 높임(해요체 -어요)이 함께 실현된 유형. 수용성 과제의 Hsubj + Hpred에 해당하는 모양. 실험 자극 아님",
+      "src": "p.6-7 (1)"
+    },
+    {
+      "ko": "*꼬마가 우승을 하셨어요.",
+      "gloss": "kkoma-ka wusung-ul ha-si-ess-eyo. kid-NOM championship-ACC do-SH-PST-DCL.POL 'The kid won the championship.'",
+      "condition": "§1.1 예시 (2) — 높임 불가 주어 + -시- = NHsubj + Hpred 유형, * 비문(선행 연구에서 읽기 지연·P600). 실험 자극 아님",
+      "src": "p.7 (2)"
+    },
+    {
+      "ko": "선생님께서 우승을 했어요.",
+      "gloss": "sensayngnim-kkeyse wusung-ul hay-ess-eyo. teacher-NOM.HON championship-ACC do-PST-DCL.POL 'The teacher won the championship.'",
+      "condition": "§1.1 예시 (3) — 높임 가능 주어 + -시- 없음 = Hsubj + NHpred 유형, 반드시 비문은 아님. 주어에 -께서가 붙어 있어 '께서는 있고 -시-는 없는' 표지 불일치이기도 하다. 실험 자극 아님",
+      "src": "p.7 (3)"
+    },
+    {
+      "ko": "손님, 커피 나오셨습니다.",
+      "gloss": "Sonnim, khephi nao-si-ess-supnita. Customer.HON, coffee come.out-SH-PST-DCL.DFR 'Customer, your coffee is ready.'",
+      "condition": "§1.1 예시 (4) — 무생물 높임(inanimate honorification). 청자(손님)를 향한 서비스 맥락이 문장 안에 있다. 실험 자극 아님(공손성 과제의 무생물 자극에는 이런 청자 맥락이 없다)",
+      "src": "p.8 (4)"
+    },
+    {
+      "ko": "할아버지 … / 영수 … (주어 명사만 제시, 전체 문장 원문 미표기)",
+      "gloss": "halapeci 'grandfather' (honorifiable) vs Yengswu 'Yengswu' (non-honorifiable, a proper name)",
+      "condition": "수용성 판단 2×2(주어 높임 가능성 × 서술어 -시- 유무)의 주어 예시. 격조사(-께서/-이·가), 서술어, 문장 틀, 종결형은 원고에 없다. 조건 라벨: NHsubj + NHpred / NHsubj + Hpred / Hsubj + NHpred / Hsubj + Hpred",
+      "src": "p.10 §2.1.1"
+    },
+    {
+      "ko": "선생님이 교실로 들어가셨다.",
+      "gloss": "teacher-NOM classroom-DIR enter-SH-PST-DECL (원문은 영어 글로스만 제시, 한글은 글로스대로 복원. 글로스가 NOM이라 '-이'로 적었으나 자기조절읽기 자극처럼 '-께서'였을 수도 있다)",
+      "condition": "공손성 평정 · Human_Hsubj + Hpred 모양의 단문(주어가 서술어 앞). 자기조절읽기와의 어순 차이를 보이려고 든 예",
+      "src": "p.11 §2.1.3"
+    },
+    {
+      "ko": "김치 … (무생물 주어 명사만 제시, 전체 문장 원문 미표기)",
+      "gloss": "kimchi (inanimate subject)",
+      "condition": "공손성 평정 · Inanimate_NHsubj + NHpred / Inanimate_NHsubj + Hpred — 의미적 이상(semantic anomaly)을 유도하려고 추가한 두 조건",
+      "src": "p.11 §2.1.2"
+    },
+    {
+      "ko": "교실로 급히 들어가시며 선생님께서 큰 소리를 냈어요.",
+      "gloss": "[kyosil-lo]R1 [kuphi]R2 [tuleka-si-mye]R3 [sensayngnim-kkeyse]R4 [khun]R5 [soli-lul]R6 [nay-ss-eyo]R7 classroom-DIR hastily enter-SH-while teacher-NOM.HON big sound-ACC make-PST-DCL 'Hastily entering the classroom, the teacher made a loud noise.'",
+      "condition": "자기조절읽기 (5a) · Human_Hsubj + Hpred — 자질 일치. 주절 서술어 R7(냈어요)에는 -시-가 없다",
+      "src": "p.11-12 (5a)"
+    },
+    {
+      "ko": "교실로 급히 들어가시며 미아가 큰 소리를 냈어요.",
+      "gloss": "classroom-DIR hastily enter-SH-while Mia-NOM big sound-ACC make-PST-DCL",
+      "condition": "자기조절읽기 (5a) · Human_NHsubj + Hpred — 자질 불일치(인간 R4 지연 두 번째)",
+      "src": "p.11-12 (5a)"
+    },
+    {
+      "ko": "교실로 급히 들어가시며 그림이 큰 소리를 냈어요.",
+      "gloss": "classroom-DIR hastily enter-SH-while picture-NOM big sound-ACC make-PST-DCL",
+      "condition": "자기조절읽기 (5a) · Inanimate_NHsubj + Hpred — 자질 불일치 + 무생물(인간 R4 지연 최대)",
+      "src": "p.11-12 (5a)"
+    },
+    {
+      "ko": "교실로 급히 들어가며 선생님께서 큰 소리를 냈어요.",
+      "gloss": "classroom-DIR hastily enter-while teacher-NOM.HON big sound-ACC make-PST-DCL",
+      "condition": "자기조절읽기 (5b) · Human_Hsubj + NHpred — 저자 분류상 자질 불일치(생략)",
+      "src": "p.12 (5b)"
+    },
+    {
+      "ko": "교실로 급히 들어가며 미아가 큰 소리를 냈어요.",
+      "gloss": "classroom-DIR hastily enter-while Mia-NOM big sound-ACC make-PST-DCL",
+      "condition": "자기조절읽기 (5b) · Human_NHsubj + NHpred — 자질 일치(모델 R4 surprisal은 여기서 최고 수준)",
+      "src": "p.12 (5b)"
+    },
+    {
+      "ko": "교실로 급히 들어가며 그림이 큰 소리를 냈어요.",
+      "gloss": "classroom-DIR hastily enter-while picture-NOM big sound-ACC make-PST-DCL",
+      "condition": "자기조절읽기 (5b) · Inanimate_NHsubj + NHpred — 저자 분류상 자질 일치(무생물 주어의 의미적 이상은 남음)",
+      "src": "p.12 (5b)"
+    },
+    {
+      "ko": "의장님께서는 회장님께서 정시에 회의를 시작하시게 회의장 앞문을 닫으셨다.",
+      "gloss": "[Uycangnim-kkeyse-nun]R1 [hoycangnim-kkeyse]R2 [cengsi-ey]R3 [hoyuy-lul]R4 [sicakha-si-key]R5 [hoyuycang]R6 [aphmwun-ul tat-usi-ess-ta.]R7 chair-HON-TOP president-HON.NOM on.time-at meeting-ACC start-hon-comp conference.room front.door-ACC close-HON-PST-DCL 'The chair closed the front door of the conference room so that the president could start the meeting on time.'",
+      "condition": "안구추적 (6a) · Grammatical (Hsubj + Hpred) — 주절·내포절 주어 모두 높임",
+      "src": "p.13 (6a)"
+    },
+    {
+      "ko": "*진수는 인호가 정시에 회의를 시작하시게 회의장 앞문을 닫으셨다.",
+      "gloss": "[Jinswu-nun]R1 [Inho-ka]R2 [cengsi-ey]R3 [hoyuy-lul]R4 [sicakha-si-key]R5 [hoyuycang]R6 [aphmwun-ul tat-usi-ess-ta.]R7 Jinswu-TOP Inho-NOM on.time-at meeting-ACC start-hon-comp conference.room front.door-ACC close-HON-PST-DCL",
+      "condition": "안구추적 (6b) · Ungrammatical (NHsubj + Hpred) — 내포 서술어 R5와 주절 서술어 R7이 모두 높임형이라 두 절 모두 불일치이고, R1(진수는)도 (6a)와 다르다",
+      "src": "p.13-14 (6b)"
+    }
+  ],
+  "key_numbers": [
+    {
+      "what": "수용성 판단 자료: 참여자(원 L2 습득 연구의 원어민 하위 집단), 문항 수, 척도",
+      "value": "n = 40; 128 sentences (32 per condition); 6-point Likert (0 = very unacceptable, 5 = very acceptable)",
+      "src": "p.10 §2.1.1"
+    },
+    {
+      "what": "수용성 판단: 반응시간 기준 제외(원 연구 기준을 따름)와 자료 손실",
+      "value": "RT < 1,000 ms or > 10,000 ms excluded (≈4% data loss)",
+      "src": "p.10 §2.1.1"
+    },
+    {
+      "what": "공손성 평정 자료: 참여자(L2 학습자 비교 연구의 원어민 하위 집단), 문항 수(2×2 + 무생물 2조건 = 6조건), 척도, 제외율",
+      "value": "n = 20; 216 sentences (36 per condition); 6-point Likert (0 = very impolite, 5 = very polite); ≈10% loss",
+      "src": "p.11 §2.1.2"
+    },
+    {
+      "what": "자기조절읽기 자료: 공손성과 같은 원 연구·같은 문항 수·조건, 참여자, 결정 영역, 절단 기준",
+      "value": "n = 40; 216 sentences; critical region R4; < 150 ms or > 4000 ms trimmed, ±3 SD removed (≈2% loss)",
+      "src": "p.11-12 §2.1.3"
+    },
+    {
+      "what": "안구추적 자료: 유인 효과 연구의 실험 2 부분집합, 참여자, 문항 수, 분석 영역, 고정 처리 기준",
+      "value": "n = 44 (Experiment 2); 40 sentences (20 per condition); R5 (critical) and R6 (spillover); fixations < 80 ms merged or excluded, > 1,200 ms removed",
+      "src": "p.13-14 §2.1.4"
+    },
+    {
+      "what": "모델 규모와 학습 데이터(표 2). KoGPT-2 / Ko-GPT-Trinity / mGPT",
+      "value": "Parameters 125M / 1.2B / 1.3B; training data 5B / 35B / 488B tokens (mGPT multilingual)",
+      "src": "p.45 Table 2"
+    },
+    {
+      "what": "모델 구조(표 2). KoGPT-2 / Ko-GPT-Trinity / mGPT — Ko-GPT-Trinity와 mGPT는 구조가 같다",
+      "value": "Layers 12 / 24 / 24; heads 12 / 16 / 16; hidden 768 / 2,048 / 2,048; FFN 3,072 / 8,192 / 8,192",
+      "src": "p.45 Table 2"
+    },
+    {
+      "what": "mGPT의 학습 언어 수(한국어 포함, 한국어 비중은 원문 미표기)",
+      "value": "61 languages",
+      "src": "p.14 §2.2"
+    },
+    {
+      "what": "[갈림 ① 높임 생략] 인간 수용성 셀 평균(0–5). Figure 1a 막대 라벨. 생략(Hsubj + NHpred)이 일치 조건과 과잉 높임 사이의 중간",
+      "value": "NHsubj + NHpred M = 4.88 (SD = 0.37); NHsubj + Hpred M = 2.20 (SD = 1.48); Hsubj + NHpred M = 4.02 (SD = 1.23); Hsubj + Hpred M = 4.81 (SD = 0.50) (그림 판독)",
+      "src": "p.52 Figure 1a"
+    },
+    {
+      "what": "[갈림 ① 높임 생략] 모델 문장 surprisal 셀 평균(비트), 조건 순서 NHsubj + NHpred / NHsubj + Hpred / Hsubj + NHpred / Hsubj + Hpred. Figure 1b 막대 라벨",
+      "value": "KoGPT-2 53.16 / 61.96 / 56.87 / 56.98; Ko-GPT-Trinity 66.76 / 75.02 / 69.87 / 68.22; mGPT 91.21 / 99.06 / 92.76 / 93.58 (그림 판독)",
+      "src": "p.52 Figure 1b"
+    },
+    {
+      "what": "[갈림 ① 높임 생략] 사후검정(Bonferroni): 생략 대 완전 일치(Hsubj + NHpred vs Hsubj + Hpred)를 세 모델 모두 구별 못함. 인간은 두 일치 조건만 무차이. mGPT는 NHsubj + NHpred vs Hsubj + NHpred도 무차이",
+      "value": "KoGPT-2 p = 1.000; Ko-GPT-Trinity p = 0.712; mGPT p = 1.000; human NHsubj + NHpred vs Hsubj + Hpred p = 0.153; mGPT NHsubj + NHpred vs Hsubj + NHpred p = 0.798",
+      "src": "p.17-18 §3.1"
+    },
+    {
+      "what": "[갈림 ① 높임 생략] 생략의 상대 비용 = (Hsubj + NHpred − Hsubj + Hpred) ÷ (NHsubj + Hpred − NHsubj + NHpred). Figure 1 셀 평균으로 계산(인간은 점수 변화, 모델은 비트 변화). 인간에게 생략은 과잉 높임 비용의 약 3할, KoGPT-2·mGPT에게는 비용이 없거나 반대, Ko-GPT-Trinity만 인간과 같은 방향",
+      "value": "인간 −0.79 / −2.68 = 29%; KoGPT-2 −0.11 / +8.80 = −1%; Ko-GPT-Trinity +1.65 / +8.26 = 20%; mGPT −0.82 / +7.85 = −10% (재계산)",
+      "src": "p.52 Figure 1"
+    },
+    {
+      "what": "인간 수용성 CLMM(표 3). 평균 중심화·편차 부호화, 무선 절편만",
+      "value": "Subject β = 1.194 (z = 6.077); Predicate β = −1.945 (z = −9.686); Subject × Predicate β = 9.375 (z = 18.447); Nagelkerke pseudo R² = 0.276",
+      "src": "p.45-46 Table 3"
+    },
+    {
+      "what": "모델 수용성 LMM(표 4), KoGPT-2 / Ko-GPT-Trinity / mGPT. surprisal은 클수록 나쁨이라 인간 상호작용(+)과 부호가 반대여도 같은 방향",
+      "value": "Subject × Predicate β = −8.693 / −9.918 / −7.029 (all p < 0.001); Subject β = −0.642 (p = 0.349) / −1.848 (p = 0.015) / −1.965 (p = 0.008); R² 0.808 / 0.774 / 0.736",
+      "src": "p.46 Table 4"
+    },
+    {
+      "what": "[갈림 ② 무생물 주어 공손성] 인간 공손성 셀 평균(0–5), 조건 순서 Human_NHsubj + NHpred / Human_NHsubj + Hpred / Human_Hsubj + NHpred / Human_Hsubj + Hpred / Inanimate_NHsubj + NHpred / Inanimate_NHsubj + Hpred. Figure 3a 막대 라벨",
+      "value": "2.67 (SD 0.87) / 2.76 (SD 1.26) / 2.89 (SD 1.09) / 4.59 (SD 0.59) / 1.63 (SD 1.06) / 2.00 (SD 1.51) (그림 판독)",
+      "src": "p.54 Figure 3a"
+    },
+    {
+      "what": "[갈림 ② 무생물 주어 공손성] 모델 문장 surprisal 셀 평균(비트), 조건 순서는 위와 같음. Figure 3b 막대 라벨",
+      "value": "KoGPT-2 55.07 / 63.70 / 52.41 / 52.43 / 51.80 / 60.47; Ko-GPT-Trinity 69.33 / 77.33 / 63.95 / 62.22 / 70.80 / 78.90; mGPT 90.59 / 98.25 / 87.87 / 88.34 / 87.62 / 95.66 (그림 판독)",
+      "src": "p.54 Figure 3b"
+    },
+    {
+      "what": "[갈림 ② 무생물 주어 공손성] 사후검정: 인간은 각 무생물 조건과 대응 사람 조건이 모두 유의하게 다름. 모델은 대응 쌍을 구별하지 못함(KoGPT-2 / Ko-GPT-Trinity / mGPT)",
+      "value": "human all ps < 0.001; Human_NHsubj + NHpred vs Inanimate_NHsubj + NHpred p = 0.139 / 0.775 / 0.073; Human_NHsubj + Hpred vs Inanimate_NHsubj + Hpred p = 0.106 / 1.000 / 0.162",
+      "src": "p.19-20 §3.2"
+    },
+    {
+      "what": "[갈림 ② 무생물 주어 공손성] 같은 주어 안에서 -시- 유무의 효과(Figure 3 셀 평균 차). 모델은 사람·무생물 주어에서 -시- 추가 비용이 거의 같다(생물성 무관). 인간 공손성은 -시- 추가(과잉 높임)에 거의 반응하지 않고 높임 주어의 -시- 생략에 가장 크게 반응해, 수용성(과잉 높임에 가장 큰 벌점)과 반대 구조다",
+      "value": "-시- 추가(사람 비높임 / 무생물): 인간 +0.09 / +0.37점; KoGPT-2 +8.63 / +8.67; Ko-GPT-Trinity +8.00 / +8.10; mGPT +7.66 / +8.04비트. 높임 주어의 -시- 생략: 인간 −1.70점; KoGPT-2 −0.02, Ko-GPT-Trinity +1.73, mGPT −0.47비트 (재계산)",
+      "src": "p.54 Figure 3"
+    },
+    {
+      "what": "인간 공손성 CLMM(표 5). 참가자·문항 모두 Subject*Predicate 무선 기울기. 3수준 주어 요인에 계수 하나만 보고",
+      "value": "Subject β = −2.865 (z = −7.578); Predicate β = −1.738 (z = −3.239, p = 0.001); Subject × Predicate β = 2.231 (z = 4.002); Nagelkerke pseudo R² = 0.532",
+      "src": "p.46-47 Table 5"
+    },
+    {
+      "what": "[갈림 ③ 읽기] 자기조절읽기 R4 인간 잔차 읽기 시간 평균(로그), 조건 순서 Human_Hsubj + Hpred / Human_Hsubj + NHpred / Human_NHsubj + Hpred / Human_NHsubj + NHpred / Inanimate_NHsubj + Hpred / Inanimate_NHsubj + NHpred. Figure 5a",
+      "value": "0.02 / 0.02 / 0.08 / 0.05 / 0.12 / 0.02 (SD 0.29~0.33) (그림 판독)",
+      "src": "p.56 Figure 5a"
+    },
+    {
+      "what": "[갈림 ③ 읽기] 자기조절읽기 R4 모델 어절 surprisal 평균(비트), 조건 순서는 위와 같음. Figure 5b–d. 최대는 인간과 달리 비높임 사람 주어(미아가) 두 조건",
+      "value": "KoGPT-2 17.49 / 21.06 / 23.81 / 24.22 / 19.29 / 19.11; Ko-GPT-Trinity 16.99 / 20.35 / 23.44 / 22.68 / 19.64 / 19.84; mGPT 19.06 / 20.51 / 25.50 / 25.30 / 19.88 / 19.85 (그림 판독)",
+      "src": "p.56 Figure 5b-d"
+    },
+    {
+      "what": "[갈림 ③ 읽기] 자기조절읽기 R4 사후검정. 인간: Inanimate_NHsubj + Hpred > Human_Hsubj + Hpred, > Human_Hsubj + NHpred, 무생물 주어 안에서 Hpred > NHpred. 모델: 이 비교들 모두 비유의, 대신 mGPT만 인간에 없는 Human_NHsubj + NHpred > Human_Hsubj + NHpred",
+      "value": "human p = 0.008, p = 0.008, p = 0.012; models all ps > 0.1; mGPT p = 0.016",
+      "src": "p.22 §3.3"
+    },
+    {
+      "what": "[갈림 ③ 읽기] 자기조절읽기 R4에서 같은 주어 안 -시- 효과(Figure 5 셀 평균 차). 순서: 선생님께서(-시- 없을 때 증가) / 미아가(-시- 있을 때 증가) / 그림이(-시- 있을 때 증가). 인간 최대 효과(그림이 + -시-)에 모델은 거의 반응하지 않고, 인간에게 없는 생략 벌점을 준다",
+      "value": "인간 0.00 / +0.03 / +0.10; KoGPT-2 +3.57 / −0.41 / +0.18; Ko-GPT-Trinity +3.36 / +0.76 / −0.20; mGPT +1.45 / +0.20 / +0.03 (재계산)",
+      "src": "p.56 Figure 5"
+    },
+    {
+      "what": "자기조절읽기 R4 인간 LMM(표 7)과 모델 LMM(표 8, KoGPT-2 / Ko-GPT-Trinity / mGPT)",
+      "value": "human Subject β = 0.027 (p = 0.013), Predicate β = −0.042 (p = 0.011), Subject × Predicate β = −0.048 (p = 0.018), conditional R² = 0.050; models Predicate β = 1.191 / 0.905 / 0.298, Subject × Predicate β = −1.834 / −1.534 / −0.675, Subject p = 0.686 / 0.740 / 0.707",
+      "src": "p.48 Tables 7-8"
+    },
+    {
+      "what": "[갈림 ③ 읽기의 지연 효과] 안구추적 인간 LMM(표 9): 결정 영역 R5는 비유의, 파급 영역 R6만 유의(R6은 수렴 문제로 F1 분석)",
+      "value": "R5 Condition β = 0.039, SE = 0.023, t = 1.694, p = 0.090; R6 β = 0.071, SE = 0.025, t = 2.845, p = 0.004; conditional R² 0.217 (R5), 0.139 (R6)",
+      "src": "p.49 Table 9"
+    },
+    {
+      "what": "[갈림 ③ 읽기의 지연 효과] 안구추적 모델 LMM(표 10), KoGPT-2 / Ko-GPT-Trinity / mGPT. R5에서 즉시 큰 효과, R6은 무차이 또는 반대 방향",
+      "value": "R5 Condition β = 8.728 (t = 180.600) / 8.507 (t = 128.710) / 5.759 (t = 96.770); R6 β = 0.064 (p = 0.223) / −0.527 (t = −8.358) / −0.148 (t = −2.772, p = 0.006)",
+      "src": "p.49 Table 10"
+    },
+    {
+      "what": "[갈림 ③ 읽기의 지연 효과] 안구추적 셀 평균, Hsubj + Hpred vs NHsubj + Hpred. Figure 7 막대 라벨. 인간 로그 응시 시간 차는 R5 0.04, R6 0.07이고, 모델 R6 차는 0.14 / −0.52 / −0.03비트에 그친다",
+      "value": "human log gaze R5 5.59 vs 5.63, R6 5.46 vs 5.53; KoGPT-2 R5 14.94 vs 23.64, R6 20.65 vs 20.79; Ko-GPT-Trinity R5 13.90 vs 22.38, R6 19.56 vs 19.04; mGPT R5 17.29 vs 22.96, R6 21.40 vs 21.37 (그림 판독)",
+      "src": "p.58 Figure 7"
+    },
+    {
+      "what": "인간–모델 상관 ① 수용성(문장이 자료점, 모델 3 × 조건 4 = 12셀): 유의한 셀은 둘뿐",
+      "value": "Ko-GPT-Trinity NHsubj + NHpred r = −0.136, p = 0.037; mGPT Hsubj + Hpred r = −0.137, p = 0.037; no other correlations significant",
+      "src": "p.18 §3.1"
+    },
+    {
+      "what": "인간–모델 상관 ① 재검토: 조건당 32문장(n = 32)에서 r = −0.136의 양측 p, 그리고 보고된 p = 0.037이 나오려면 필요한 자료점 수",
+      "value": "p ≈ 0.46 (n = 32); p = 0.037에는 n ≈ 236 필요 (재계산)",
+      "src": "p.18 §3.1"
+    },
+    {
+      "what": "인간–모델 상관 ② 공손성(모델 3 × 조건 6)과 ③ 자기조절읽기 R4: 유의한 상관 없음",
+      "value": "none reached significance (politeness); none of the correlations attained statistical significance (self-paced reading)",
+      "src": "p.20 §3.2; p.23 §3.3"
+    },
+    {
+      "what": "인간–모델 상관 ④ 안구추적(그림 설명상 '단어'가 자료점). R5에서만 작지만 유의, R6은 모두 비유의",
+      "value": "R5: KoGPT-2 r = 0.161 (Hsubj + Hpred), r = 0.191 (NHsubj + Hpred), p < 0.001; Ko-GPT-Trinity r = 0.12, p = 0.002; r = 0.164, p < 0.001; mGPT r = 0.161, r = 0.186, p < 0.001; R6: all ps > 0.2",
+      "src": "p.25 §3.4"
+    },
+    {
+      "what": "인간–모델 상관 ④ 재검토: 문항 평균(조건당 20문항)을 자료점으로 두면 보고된 r의 양측 p",
+      "value": "r = 0.191 → p ≈ 0.42; r = 0.12 → p ≈ 0.61 (n = 20) (재계산)",
+      "src": "p.25 §3.4"
+    }
+  ],
+  "limitations": [
+    {
+      "text_ko": "범위가 특정 실험 자료의 한국어 주체 높임에 한정된다. 관찰된 정렬·불일치가 일반적인지 알려면 다른 과소대표 언어와 다양한 문법 구문을 봐야 한다.",
+      "stated_by": "author",
+      "src": "p.32 §4.3"
+    },
+    {
+      "text_ko": "한국어 가능 GPT 변형 여럿을 평가했지만 최신 독점·프롬프트 기반 모델(예: Llama 4, ChatGPT)은 넣지 않았고, MoE·인코더-디코더 같은 다른 구조도 없다. 규모가 커지면 정렬 수준이 달라질 수 있다고 인정하면서, 규모 증가가 읽기 시간 적합을 본질적으로 개선하지는 않는다는 기존 증거(Huang et al. 2024; Oh & Schuler 2023)를 함께 든다.",
+      "stated_by": "author",
+      "src": "p.32 §4.3"
+    },
+    {
+      "text_ko": "모델 쪽 지표가 surprisal 하나다. 이론적 동기는 있지만 처리 곤란의 일부만 포착하므로 주의 패턴·활성 발산·담화 수준 지표 같은 보완 신호가 추가 정렬을 드러낼 수 있다.",
+      "stated_by": "author",
+      "src": "p.32 §4.3"
+    },
+    {
+      "text_ko": "문항 수준 상관이 약하다는 것은 집계 추세가 문장별 결과를 가릴 수 있다는 뜻이다. 모델이 실제로 쓰는 단서는 확인하지 못했고 해석 도구가 필요하다.",
+      "stated_by": "author",
+      "src": "p.32 §4.3"
+    },
+    {
+      "text_ko": "부분어 토큰을 어절 단위로 합산했기 때문에 한국어의 풍부한 교착 형태론, 특히 -시- 같은 개별 형태소에 대한 처리를 세밀하게 포착하지 못했을 수 있다.",
+      "stated_by": "author",
+      "src": "p.33 §4.3"
+    },
+    {
+      "text_ko": "집단 수준 분석이다. 원어민을 대표 집단으로, GPT를 범용 행위자로 취급해 개별 독자와 특정 LLM 구조 사이의 변이, 사용 맥락에 따른 차이를 보지 않았다.",
+      "stated_by": "author",
+      "src": "p.33 §4.3"
+    },
+    {
+      "text_ko": "문장 수준 점수는 모델이 높은 surprisal 단어 뒤에 후속 단어 확률을 높여 로그 우도를 '재균형'하는 경향 때문에 초기 위반의 영향을 가릴 수 있다고 경고한다(Kauf et al. 2024). 이 연구의 평정 과제 대리지표가 바로 어절 합산 문장 surprisal이다.",
+      "stated_by": "author",
+      "src": "p.31-32 §4.2"
+    },
+    {
+      "text_ko": "자기조절읽기 R5에서 세 모델 모두 무생물 주어 조건의 surprisal이 높았던 것을 의미적 비개연성 반응으로 해석할 수 있으나, 결정 영역의 행동과 다른 불일치 조건에 비슷한 흔적이 없는 점 때문에 추측에 머문다고 적는다.",
+      "stated_by": "author",
+      "src": "p.23 §3.3"
+    },
+    {
+      "text_ko": "다국어 mGPT와 한국어 전용 두 모델의 수렴이 교차언어 표상 공유 때문인지 텍스트 전용 분포 학습의 공통 구조적 천장 때문인지 이 자료로는 가를 수 없다고 적는다.",
+      "stated_by": "author",
+      "src": "p.31 §4.2"
+    },
+    {
+      "text_ko": "인간 평정의 천장 효과. 수용성의 두 일치 조건 평균이 4.88(SD 0.37)·4.81(SD 0.50)로 척도 최댓값 5에 붙어 있고(그림 판독), Figure 2 산점도에서 이 두 조건의 점은 가로축 약 3.75~5에 몰려 있다. 범위가 제한된 조건에서는 모델이 정확해도 상관이 커질 수 없으므로, '상관이 약하다'는 결론은 모델의 한계와 측정 범위의 한계가 섞여 있다. 원자료가 L2 습득 연구의 원어민 통제 집단이라 문항이 원어민에게 쉬웠을 가능성도 있다.",
+      "stated_by": "us",
+      "src": "p.52-53 Figures 1-2"
+    },
+    {
+      "text_ko": "모델 값 복제 흔적. Figure 6·8의 산점도에서 모델 surprisal 점들이 같은 높이의 가로줄로 반복돼, 문항당 하나뿐인 surprisal을 참가자 × 문항 시행 행마다 복제한 자료로 상관과 혼합모형을 적합한 것으로 보인다(그림 판독). 그렇다면 독립 관측이 과대 계산되어 안구추적 R5의 t = 96.770~180.600, R6의 유의한 '반전'(mGPT 평균 차 0.03비트인데 p = 0.006), R5 상관의 p < 0.001이 모두 과대평가됐을 수 있다. 조건당 20문항 기준이면 R5 상관 r = 0.191의 p는 약 0.42다(재계산). 모델 막대의 좁은 오차막대를 '강한 중심 경향'으로 읽은 저자 해석(p.21)도 같은 계산 부산물일 수 있다. 복제 배수(참가자당 목록 배정)는 원문에 없어 교정 크기는 OSF code.R로 확인해야 한다.",
+      "stated_by": "us",
+      "src": "p.57 Figure 6; p.59 Figure 8; p.49 Table 10"
+    },
+    {
+      "text_ko": "수용성 상관의 수치가 서로 맞지 않는다. 문장을 자료점으로 했다면 조건당 32개인데 r = −0.136의 양측 p는 약 0.46이고, 보고된 p = 0.037이 나오려면 자료점이 약 236개 필요하다(재계산). Figure 2의 패널당 점 수는 약 30개로 '문장 단위' 서술과 맞으므로 p값 쪽이 다른 단위로 계산됐을 가능성이 있다. 유의하다고 보고된 두 셀은 인용하지 않는 편이 안전하다.",
+      "stated_by": "us",
+      "src": "p.18 §3.1; p.53 Figure 2"
+    },
+    {
+      "text_ko": "'세 모델 모두 생략을 구별하지 못했다'는 결론은 Bonferroni 사후검정의 비유의에서 나온 증거 부재다. Figure 1 셀 평균으로 생략 비용을 과잉 높임 비용에 대한 비율로 보면 인간 29%, Ko-GPT-Trinity 20%, KoGPT-2 −1%, mGPT −10%다(재계산). Ko-GPT-Trinity는 방향이 인간과 같지만 조건당 32문장에서 검정력이 낮아 유의하지 않았을(p = 0.712) 가능성이 있고, 나머지 둘은 방향부터 다르다. 유의성 패턴 비교가 모델 간 차이를 지운다.",
+      "stated_by": "us",
+      "src": "p.18 §3.1; p.52 Figure 1"
+    },
+    {
+      "text_ko": "인간-모델 대응을 따로 적합한 모형의 '유의한 효과 패턴'과 조건별 Pearson r로만 판단했다. 인간·모델 자료를 한 모형에 넣은 '행위자 × 조건' 상호작용 검정도, 인간 반응을 surprisal로 예측하는 회귀(설명력 증가)도 없다. 효과크기는 R²만 있고 조건 대비의 효과크기·신뢰구간은 없다. 인간 R²(자기조절읽기 조건부 R² = 0.050)와 결정론적 모델 값의 R²(0.61~0.82)는 성격이 달라 같은 잣대로 비교하기 어렵다.",
+      "stated_by": "us",
+      "src": "p.17 §2.3.2; p.48 Tables 7-8"
+    },
+    {
+      "text_ko": "맥락 의존적 현상을 맥락 없이 평가했다. 저자는 Hsubj + NHpred의 수용성이 화자-청자 관계와 맥락에 달려 있다고 쓰면서도, '닫힌 루프' 원칙으로 모델에 화자·청자·상황 정보를 전혀 주지 않았고 인간 자료도 맥락 없는 문장 평정이다. 서론이 인용한 프롬프트된 GPT-4의 긍정적 결과(Cuneo et al. 2025)가 가리키는 가능성, 곧 맥락·프롬프트를 주면 결과가 달라지는지를 시험하지 않은 채 사회화용 통합의 한계를 결론짓는다.",
+      "stated_by": "us",
+      "src": "p.14 §2.2; p.17 §3.1"
+    },
+    {
+      "text_ko": "조건 사이에 주어 명사가 바뀐다(수용성 할아버지/영수, 자기조절읽기 선생님께서/미아가/그림이, 안구추적 회장님께서/인호가). 문장 surprisal은 어절 합산이고 길이·토큰 수 정규화가 없어 조건의 절대 수준에 명사 빈도·토큰 수가 섞인다. 자기조절읽기에서 모델이 '미아가'에 서술어와 무관하게 가장 높은 surprisal을 준 것도 높임 계산이 아니라 명사 자체의 기대 정도일 수 있다. 같은 주어 안의 -시- 유무 차이만 해석하는 것이 안전하다.",
+      "stated_by": "us",
+      "src": "p.10-16 §2.1-2.3"
+    },
+    {
+      "text_ko": "'생략' 조건이 순수한 -시- 생략이 아니다. 예문 (3)과 자기조절읽기·안구추적 자극에서 높임 주어는 -께서를 달고 나오므로 Hsubj + NHpred는 '께서는 있고 -시-는 없는' 두 높임 표지 사이의 불일치이기도 하다. 수용성 자극의 격조사는 원문에 없다. 또 자기조절읽기의 주절 서술어 '냈어요'는 모든 조건에서 -시-가 없어, 자질 일치로 분류된 '들어가시며 선생님께서 … 냈어요'에도 주절 차원의 생략이 들어 있다.",
+      "stated_by": "us",
+      "src": "p.7 (3); p.11-12 (5)"
+    },
+    {
+      "text_ko": "생물성 효과가 의미적 이상과 교란된다. 무생물 조건은 '의미적 이상을 유도하려고' 추가됐고(그림이 교실로 급히 들어가며 … 소리를 냈어요), 그래서 무생물 주어 문장의 낮은 공손성·긴 읽기 시간에는 높임 부적절성과 문장 자체의 비개연성이 함께 들어 있다. 인간 공손성에서 무생물 + -시- 없음(1.63)이 가장 낮은 점(그림 판독)은 '높임이 부적절해서'보다 '공손성을 판단할 거리가 없는 문장'이라서일 수 있다. 예문 (4)의 청자 지향 서비스 맥락 무생물 높임은 실험되지 않았다.",
+      "stated_by": "us",
+      "src": "p.11 §2.1.2; p.54 Figure 3"
+    },
+    {
+      "text_ko": "공손성 과제의 예측 자체가 인간 자료와 맞지 않는다. 저자는 '제약 위반 → 높은 surprisal → 낮은 공손성'을 예측했지만, 인간은 Human_NHsubj + Hpred(2.76)를 Human_NHsubj + NHpred(2.67)보다 덜 공손하다고 보지 않았고, 대신 높임 주어의 -시- 생략에 1.70점을 깎았다(그림 판독·재계산). 공손성은 문법성과 다른 차원이므로 surprisal과의 불일치는 모델 실패라기보다 구성 개념 불일치일 수 있다. 공손성 지시문(누구에 대한 공손인지)도 원고에 없다.",
+      "stated_by": "us",
+      "src": "p.16 §2.3.1; p.54 Figure 3"
+    },
+    {
+      "text_ko": "안구추적 자극은 원 설계의 대각선 두 셀만 써서 내포절 주어(R2)뿐 아니라 주절 주어(R1: 의장님께서는/진수는)도 함께 바뀌고, 주절 서술어 '닫으셨다'가 항상 높임형이라 비문 조건은 두 절 모두에서 불일치다. R5·R6 효과를 R2의 높임 가능성만으로 돌릴 수 없다. 인간 쪽 핵심 결과인 R6 효과는 수렴 문제로 참가자 기준(F1) 분석에만 기대어 문항 일반화가 검증되지 않았다.",
+      "stated_by": "us",
+      "src": "p.13-14 (6); p.49 Table 9"
+    },
+    {
+      "text_ko": "원고 안에서 결과 요약이 어긋난다. 표 1은 안구추적 기준 연구가 R5·R6 모두에서 NHsubj + Hpred의 고정 시간이 더 길었다고 적지만 표 9의 R5는 p = 0.090으로 비유의다. 공손성·자기조절읽기의 주어 요인은 3수준인데 표 5–8은 Subject 계수 하나만 보고해 부호화 방식을 알 수 없다. 본문 인용의 참고문헌 누락(Barr et al. 2013, Nakagawa & Schielzeth 2013, Christensen 2023, Lenth 2025, Kim-Renaud 2001 등), 본문이 가리키는 부록 A·B 미수록도 편집 전 원고의 결함이다.",
+      "stated_by": "us",
+      "src": "p.45 Table 1; p.47-49 Tables 5-9"
+    },
+    {
+      "text_ko": "인간 자료가 모두 저자들 자신의 선행 연구이고 원 논문이 'Authors (xxxx)'로 익명 처리돼 있어, 참여자 속성(나이·성별·지역), 목록 배정, 채움 문장, 지시문을 원고만으로는 확인할 수 없다. 윤리 진술은 '저자가 수행한 인간 참여자 연구가 없다'고 하지만 재분석 동의 범위나 원 연구 승인 정보는 적지 않았다.",
+      "stated_by": "us",
+      "src": "p.9 §1.2; p.51"
+    },
+    {
+      "text_ko": "모델이 2021~2022년 무렵 공개된 1.3B 이하 기반 모델뿐이다(출시 연도는 원문 미표기). 초록과 결론의 '다음 토큰 예측 모델은 사회적 적절성을 표상하지 않는다'는 일반화는 이 세대, 이 측정(맥락 없는 문장의 surprisal)에 묶인다. 저자가 방어 근거로 든 '규모가 적합을 개선하지 않는다'는 읽기 시간에 관한 증거이고, 수용성·공손성 같은 판단 과제에 대한 증거는 아니다.",
+      "stated_by": "us",
+      "src": "p.14 §2.2; p.32 §4.3"
+    }
+  ],
+  "successor_hooks": [
+    {
+      "id": "P04-H1",
+      "hook_ko": "최신 독점·프롬프트 기반 모델(저자 예: Llama 4, ChatGPT)과 다른 구조(MoE, 인코더-디코더)로 모델 풀을 넓힌다. 우리 연구에서는 상용 API 대화형 모델 여럿을 같은 문항으로 평가하는 것이 곧 이 과제다.",
+      "basis_ko": "저자는 한계 둘째로 'we did not include the latest proprietary or prompt-based models'를 들고 모델 풀 확장을 'a critical next step'이라 부른다. 실험 모델은 125M~1.3B 기반 모델 세 종뿐이고(표 2), 지시 조정·선호 학습을 거친 모델은 하나도 없다.",
+      "kind": "author_future_work",
+      "src": "p.32 §4.3"
+    },
+    {
+      "id": "P04-H2",
+      "hook_ko": "통제된 프롬프트 조작(과 표적 미세조정) 같은 인과 개입으로 모델의 처리가 맥락에 더 민감해지는지 본다. 우리 2×2의 맥락 요인이 바로 '통제된 프롬프트 조작'이다.",
+      "basis_ko": "저자는 'causally oriented interventions, such as controlled prompt manipulations or targeted fine-tuning'을 후속 과제로 명시한다. 그런데 본 연구는 엄격한 제로샷을 위해 프롬프트 공학을 '닫힌 루프'로 배제했으므로(p.14), 프롬프트가 결과를 바꾸는지는 이 논문 안에서 전혀 시험되지 않았다. 4.1.2절도 화용 성능이 프롬프트 공학·미세조정으로 개선될 수 있다는 선행 연구(Cong 2024; Ruis et al. 2023; Sravanthi et al. 2024)를 인용한다.",
+      "kind": "author_future_work",
+      "src": "p.32 §4.3; p.14 §2.2; p.27 §4.1.2"
+    },
+    {
+      "id": "P04-H3",
+      "hook_ko": "인간과 모델 모두에 대해 사용 맥락(화자-청자 관계·격식)을 명시적으로 조작한다. 우리 설계에서는 [관계 맥락: 격식·거리 / 친밀] × [-시-: 유/무]의 2×2로 높임 주어 문장의 생략 수용성이 맥락에 따라 달라지는지를 인간 기준과 모델에서 함께 잰다.",
+      "basis_ko": "저자는 집단 수준 분석의 대안으로 'explicitly manipulating usage contexts for both humans and models'를 제안한다(Škrjanec & Demberg 2026). 동시에 결과 절에서 Hsubj + NHpred의 수용성이 'depends on speaker–addressee relations and contextual factors'라고 쓰고, 서론에서 생략은 격식·위계가 느슨하거나 관계가 가까울 때 나타난다고 한다(Choo & Kwak 2008; Sohn 1999). 그러나 인간 자료와 모델 입력 모두 맥락 없는 문장이어서, 저자가 핵심 괴리로 든 '생략의 중간 수용성'이 맥락으로 설명되는지 검증된 적이 없다.",
+      "kind": "author_future_work",
+      "src": "p.33 §4.3; p.17 §3.1; p.8 §1.1"
+    },
+    {
+      "id": "P04-H4",
+      "hook_ko": "토큰화 전략(형태소 인식·문자 단위 모델)을 비교해 -시- 같은 형태 단서에 대한 인간 민감성과 더 잘 맞는지 본다.",
+      "basis_ko": "저자는 부분어 토큰을 어절로 합산한 방식이 교착 형태론을 다 포착하지 못할 수 있다며 'compare diverse tokenisation strategies (e.g., morpheme-aware or character-level models)'를 제안한다. 현재 설계에서 -시-는 어절 안에 묻혀 서술어 어절 전체의 surprisal로만 나타나고, 문장 surprisal은 길이·토큰 수 정규화 없이 합산된다. 상용 API로 판단을 받는 우리 설계에서는 토큰화가 직접 변수는 아니지만, 모델 간 차이를 해석할 때 토크나이저 차이를 기록해 둘 근거가 된다.",
+      "kind": "author_future_work",
+      "src": "p.33 §4.3; p.15-16 §2.3.1"
+    },
+    {
+      "id": "P04-H5",
+      "hook_ko": "토큰 수준 surprisal을 넘는 지표를 쓴다: 주의 패턴·활성 발산 같은 보완 신호, 문장·담화 수준 지표.",
+      "basis_ko": "한계 셋째에서 surprisal은 'captures only a fraction of processing difficulty'라며 attention patterns, activation divergences, discourse-level metrics를 들고, 방법론 개선 (2)에서 평가 목표를 'sentence- and discourse-level metrics'로 넓히자고 한다(Sun & Wang 2025). 또 문장 수준 점수는 로그 우도 재균형 때문에 초기 위반이 가려질 수 있다고 경고한다(p.31-32). 우리 설계의 문장 단위 7점 Likert 판단과 이해 문항은 문장·담화 수준에서 모델의 '판단'을 직접 받는 대안 지표다.",
+      "kind": "author_future_work",
+      "src": "p.32-33 §4.3; p.31-32 §4.2"
+    },
+    {
+      "id": "P04-H6",
+      "hook_ko": "해석 도구로 모델이 실제로 쓰는 단서를 식별하고, 행동 적합과 내부 표상 분석(층별 역학 포함)을 결합해 '맞는 결과'와 '맞는 기제'를 가른다. mGPT와 한국어 전용 모델의 수렴이 표상 공유인지 공통 천장인지도 이 방법으로 판정한다.",
+      "basis_ko": "저자는 약한 문항 수준 상관을 근거로 'employ interpretability tools to identify the specific cues models exploit'을, 방법론 개선 (3)으로 행동 적합과 내부 표상 분석의 결합을 제안하며 큰 모델일수록 최종층보다 내부 층이 읽기 시간에 더 잘 맞는다는 Kuribayashi et al. (2025)을 든다. 4.2절은 다국어·단일어 모델의 수렴에 대한 두 해석을 'equally viable'로 남기고 internal representation probing이나 layer-wise dynamics로 가리자고 한다. 상용 API에서는 내부 접근이 막혀 있으므로 우리 연구가 이어받기 어려운 과제이며, 공개 가중치 모델을 병행할 때만 가능하다.",
+      "kind": "author_future_work",
+      "src": "p.32-33 §4.3; p.31 §4.2"
+    },
+    {
+      "id": "P04-H7",
+      "hook_ko": "학습 신호에 사회화용 정보(격식, 참여자 역할, 레지스터)를 짝지우거나 다른 높임 풍부 언어에서 교차언어 전이를 활용한다.",
+      "basis_ko": "방법론 개선 (1)로 'pairing text with socio-pragmatic information (e.g., formality, participant roles, register)'를 제안한다. 모델이 받은 입력이 텍스트뿐이어서 누가 누구에게 말하는지 알 수 없다는 점이 이 연구의 결론(사회화용 과소표상)과 직결된다. 학습 단계 개입은 우리 범위 밖이지만, 같은 정보(격식·참여자 역할)를 추론 단계의 프롬프트 맥락으로 주는 것은 우리 2×2의 맥락 요인이 그대로 구현한다.",
+      "kind": "author_future_work",
+      "src": "p.33 §4.3"
+    },
+    {
+      "id": "P04-H8",
+      "hook_ko": "개별 독자와 특정 LLM 구조 사이의 변이를 탐구하고, 자원 합리적 제약·기억 한계를 넣은 인지적으로 그럴듯한 모델(BabyLM 계열 포함)과 연결한다. 다른 과소대표 언어와 다양한 구문으로 일반화도 확인한다.",
+      "basis_ko": "4.3절 끝에서 XAI 틀의 넓은 후속으로 'nuanced variability between individual human readers and specific LLM architectures', 자원 합리적 제약과 기억 한계를 넣은 인지 모델(Wilcox et al. 2025), BabyLM 챌린지(Charpentier et al. 2025)를 들고, 한계 첫째에서 다른 과소대표 언어·구문으로의 확장을 요구한다. 이번 분석은 원어민을 대표 집단으로 뭉쳐 개인차를 보지 않았다.",
+      "kind": "author_future_work",
+      "src": "p.32-34 §4.3"
+    },
+    {
+      "id": "P04-H9",
+      "hook_ko": "자기조절읽기 파급 영역 R5에서 무생물 주어 조건의 surprisal이 높았던 현상이 의미적 비개연성 반응인지 추가로 검증한다.",
+      "basis_ko": "저자는 이 패턴을 'notable and unexpected'라 부르고 의미적 비개연성 반응일 수 있다고 하면서도 'speculative and warrants further investigation'이라고 남긴다. 인간 R5 자료는 부록 A로 미뤄졌는데 부록이 원고에 없다. 무생물 조건이 의미적 이상을 유도하도록 설계됐다는 점(p.11)과 함께, 생물성과 개연성을 분리해야 풀린다.",
+      "kind": "author_future_work",
+      "src": "p.23 §3.3"
+    },
+    {
+      "id": "P04-H10",
+      "hook_ko": "모델의 '예상'(surprisal) 대신 '판단'을 인간과 같은 형식으로 받는다: 같은 문장에 대해 7점 Likert 수용성·적절성 평정과 이해 문항을 상용 LLM API로 수집해 인간 셀 평균과 직접 비교한다.",
+      "basis_ko": "이 논문은 모델의 판단을 한 번도 묻지 않았고, 공손성에 대해서도 surprisal이 'not as a direct measure of politeness itself'라고 스스로 밝힌다. 그 결과 인간은 공손성을, 모델은 형태의 기대 정도를 재는 비대칭이 생겼다. 서론이 인용한 대로 프롬프트된 GPT-4는 수용성에서 인간과 맞는다는 결과가 있고(Cuneo et al. 2025), 프롬프트 판단이 긍정 편향·프롬프트 의존적이라는 반대 결과도 있다(Dentella et al. 2023; Lee & Wang 2023). 상용 모델은 로그확률을 주지 않는 경우가 많아 판단 과제가 사실상 유일한 비교 경로이며, 그 신뢰도(반복 호출 간 일관성, 프롬프트 민감도)를 설계에 넣어야 한다.",
+      "kind": "method_gap",
+      "src": "p.16 §2.3.1; p.4-5 §1"
+    },
+    {
+      "id": "P04-H11",
+      "hook_ko": "수용성과 공손성(적절성)을 별개의 종속변수로 함께 잰다. 인간 자료에서 두 척도가 정반대 구조를 보이므로, 모델이 그 해리를 재현하는지가 '규칙의 글자'와 '화용적 보정'을 가르는 가장 선명한 시험이 된다.",
+      "basis_ko": "그림 1·3의 셀 평균으로 보면 인간은 수용성에서 과잉 높임에 −2.68점, 생략에 −0.79점을 주었지만, 공손성에서는 과잉 높임(Human_NHsubj + Hpred 2.76 대 2.67)에 거의 반응하지 않고 생략(2.89 대 4.59)에 −1.70점을 주었다(그림 판독·재계산). 반면 모델 surprisal은 두 과제 모두에서 과잉 높임에 약 +8비트, 생략에는 −0.02~+1.73비트로 같은 구조다. 저자는 두 과제를 따로 해석할 뿐 이 교차 해리를 짚지 않았다. 두 척도는 서로 다른 원 연구·참여자(n = 40, 20)에서 왔으므로, 한 참여자 집단에 두 척도를 함께 받는 설계가 필요하다.",
+      "kind": "untested_condition",
+      "src": "p.52 Figure 1; p.54 Figure 3"
+    },
+    {
+      "id": "P04-H12",
+      "hook_ko": "인간·모델 자료를 한 모형에 넣어 '행위자(인간/모델) × 조건' 상호작용으로 수렴과 괴리를 직접 검정하고, 모델 값은 문항 단위로 집계해 시행 단위 복제를 피한다. 효과크기와 신뢰구간을 보고한다.",
+      "basis_ko": "인간-모델 대응을 따로 적합한 모형의 유의성 패턴과 조건별 상관으로만 판단해, '한쪽은 유의, 한쪽은 비유의'가 곧 '다르다'가 되지 않는 문제를 안고 있다. 모델 모형의 무선효과는 문항 하나뿐이다(p.17). Figure 6·8의 가로줄 패턴은 문항당 surprisal이 시행 행마다 복제됐음을 시사하고(그림 판독), 안구추적 모델 t = 96.770~180.600, 0.03비트 차이의 p = 0.006(mGPT R6)이 그 결과로 보인다. 결정론적 모델 값과 잡음이 큰 인간 자료(자기조절읽기 조건부 R² = 0.050)를 같은 유의성 잣대로 비교한 것도 문제다.",
+      "kind": "method_gap",
+      "src": "p.17 §2.3.2; p.49 Table 10; p.57 Figure 6"
+    },
+    {
+      "id": "P04-H13",
+      "hook_ko": "천장 효과를 피하는 척도·문항 설계를 쓴다: 7점 Likert, 채움 문장으로 척도 양끝 사용 유도, 조건별 분산 확인, 문항 수준 신뢰도 보고. 인간-모델 상관은 인간 평정에 분산이 있는 조건에서만 해석한다.",
+      "basis_ko": "수용성 일치 조건의 인간 평균이 4.88·4.81로 최댓값 5에 붙어 있고, Figure 2에서 이 조건들의 점이 가로축 약 3.75~5에 몰려 있어(그림 판독) 범위 제한 때문에 상관이 원천적으로 작다. 원자료가 L2 습득 연구의 원어민 하위 집단이라 원어민에게 쉬운 문항이었을 수 있다. 공손성은 문장당 20명 평정의 평균이라 문장 수준 신뢰도가 낮을 수 있는데 신뢰도가 보고되지 않았다. 또 r = −0.136, n = 32에서 p ≈ 0.46인데 p = 0.037로 보고돼(재계산) 상관 계산 단위부터 명시해야 한다.",
+      "kind": "method_gap",
+      "src": "p.52-53 Figures 1-2; p.10-11 §2.1.1-2.1.2; p.18 §3.1"
+    },
+    {
+      "id": "P04-H14",
+      "hook_ko": "조건 사이에 주어 명사를 고정한 최소대립 자극을 쓰고, 높임 주어의 -께서 유무를 -시- 유무와 분리한다. 판단 과제에서도 명사 빈도·길이가 조건과 겹치지 않게 한다.",
+      "basis_ko": "조건마다 주어 명사가 다르고(할아버지/영수, 선생님께서/미아가/그림이, 회장님께서/인호가), 문장 surprisal은 정규화 없는 합산이라 조건 수준에 명사 빈도·토큰 수가 섞인다. 자기조절읽기에서 모델 최대 surprisal이 서술어와 무관하게 '미아가'였던 것이 그 흔적이다. 또 예문 (3)과 읽기 자극의 높임 주어는 -께서를 달고 있어 Hsubj + NHpred는 '-께서 있고 -시- 없음'이라는 표지 간 불일치를 겸한다(P02가 -께서 × -시-를 따로 조작한 이유). 수용성 자극의 격조사는 원문에 없어 OSF에서 확인해야 한다.",
+      "kind": "unresolved_confound",
+      "src": "p.10-13 §2.1; p.7 (3)"
+    },
+    {
+      "id": "P04-H15",
+      "hook_ko": "생물성과 의미적 개연성을 분리하고, 무생물 높임을 서비스 청자 맥락(예문 4 '손님, 커피 나오셨습니다')과 중립 맥락에서 대비한다. 맥락 요인과 교차하면 '사물 존대가 공손 전략인가, 오류인가'를 직접 가를 수 있다.",
+      "basis_ko": "저자는 무생물 높임을 오류로 보는 견해(Kim-Renaud 2001)와 공손 전략으로 보는 견해(자기 인용)를 함께 소개하며 서비스 현장에서 권력 있는 청자에게 존중을 표한다고 설명하지만(Eom 2019), 실험 자극은 '의미적 이상을 유도하려고' 넣은 중립 문장(김치, '그림이 교실로 급히 들어가며')이다. 인간은 이 문장들을 가장 덜 공손하다고 평정했는데(1.63·2.00, 그림 판독), 4.1.2절은 이를 '중립 맥락에서' 무생물 높임이 부적절하다는 직관으로 해석해 맥락 의존성을 스스로 인정한다. 서비스 맥락 조건은 없다.",
+      "kind": "untested_condition",
+      "src": "p.8 §1.1; p.11 §2.1.2; p.27 §4.1.2"
+    },
+    {
+      "id": "P04-H16",
+      "hook_ko": "이해 문항으로 모델이 -시-에서 사회적 관계를 추론하는지 본다(예: '화자는 주어를 높이고 있는가', '화자와 주어 중 누가 윗사람인가'). 산출 확률이 아니라 해석 능력을 재는 것이다.",
+      "basis_ko": "저자는 모델이 명시적 형태 위반에는 반응하지만 'do not appear to represent whether a target is socially appropriate for honorification'이라고 결론짓는데, 근거는 surprisal뿐이다. surprisal은 형태의 기대 정도이므로 모델이 높임 형태에서 관계를 읽어 내는지(이해)는 이 설계로 알 수 없다. 저자 스스로 surprisal이 무엇이 어려운지는 맞히지만 왜 어려운지는 모른다고 쓴다(p.30).",
+      "kind": "untested_condition",
+      "src": "p.27 §4.1.2; p.30 §4.2"
+    },
+    {
+      "id": "P04-H17",
+      "hook_ko": "'비높임 주어'의 하위 유형을 통제하거나 나눈다: 높일 수 없는 지시체의 고유명(영수·미아·인호)과, 지시체는 높일 만하지만 어휘가 비높임인 친족어(엄마·아빠) 등.",
+      "basis_ko": "P04의 비높임 주어는 모두 성인일 수 있는 고유명이고, 화자와의 관계는 주어지지 않은 채 '고유명 = 손아래'가 암묵적으로 전제된다. P05(Jung & Kim 2026)의 말뭉치에서 NHsubj-Hverb가 24.71%였던 것은 대부분 비높임 친족어 주어 + -시-로 화용적으로 적절한 용례라, 같은 'NHsubj + Hpred' 라벨이 비문과 적절한 용례를 함께 가리킨다. 모델이 과잉 높임에 큰 surprisal을 주는 것이 '높일 수 없는 지시체'를 알아서인지 '고유명 뒤 -시-가 드물어서'인지는 이 하위 유형 대비로만 가려진다.",
+      "kind": "unresolved_confound",
+      "src": "p.10 §2.1.1; p.12 (5); p.13 (6)"
+    },
+    {
+      "id": "P04-H18",
+      "hook_ko": "상대 높임(화계)을 고정하거나 교차한다. 주체 높임 판단이 종결형(해요체/해라체/하십시오체)과 청자 설정에 따라 달라지는지 확인한다.",
+      "basis_ko": "서론은 주체 높임과 6등급 상대 높임을 구분하고 예문 (1)이 둘을 함께 보여 주지만, 실험에서는 상대 높임을 조작하지 않았다. 자극 예시의 종결형은 자기조절읽기 해요체(냈어요), 안구추적 해라체(닫으셨다), 공손성 글로스 DECL로 과제마다 다르다. 공손성 평정이 누구에 대한 공손인지(주어 지시체인지 청자인지)도 원고에 없어, 종결형이 공손성 판단을 좌우했을 가능성이 통제되지 않았다.",
+      "kind": "unresolved_confound",
+      "src": "p.6 §1.1; p.11-14 §2.1.2-2.1.4"
+    },
+    {
+      "id": "P04-H19",
+      "hook_ko": "같은 문항으로 최신 상용 지시 조정 모델을 재검증한다. OSF에 인간 원자료(수용성·공손성 평정, 읽기 시간)와 분석 코드가 공개돼 있으므로 인간 기준선을 새로 모으지 않고도 모델 판단을 기존 인간 분포에 겹쳐 볼 수 있다(원 척도 6점 0–5와 우리 7점의 정렬 필요).",
+      "basis_ko": "실험 모델은 2021~2022년 무렵 공개된 1.3B 이하 기반 모델이며(출시 연도는 원문 미표기, 논문 밖 정보), 결론의 일반화('다음 토큰 예측 모델은 사회적 적절성을 표상하지 않는다')는 이 세대에 묶인다. 저자가 방어 근거로 든 '규모가 적합을 개선하지 않는다'(Huang et al. 2024; Oh & Schuler 2023)는 읽기 시간에 관한 증거여서 판단 과제에는 그대로 옮겨지지 않는다. 자료·코드는 OSF에 있다고 명시한다(p.51).",
+      "kind": "model_generation",
+      "src": "p.14 §2.2; p.32 §4.3; p.51"
+    }
+  ],
+  "open_materials": [
+    {
+      "what": "저자 OSF 프로젝트 '[Nature HSSC] GPT surprisal x Korean subject honorification'(자료·코드, p.51 Data availability). 2026-09-19 OSF API로 확인: 공개(public) 프로젝트이고 osfstorage에 10개 파일 — code.R(R 분석 코드), rating_Sh_orgn.csv, rating_K&Sh_orgn.csv, rating_aggregrated_bysent.csv, spr_K&Sh_combined.csv, spr_K&Sh_combined_rt_log_resid_R4only.csv, et_K&St_combined.csv, et_K&St_combined_rt_log.csv와 R5·R6 분할본. 설명문은 'R and Python' 코드를 싣는다고 하지만 파이썬(surprisal 계산) 파일은 목록에 없다. 파일명의 Sh·K&Sh·K&St는 기준 자료의 원 논문이 Shin et al.·Kwon & Shin·Kwon & Sturt라는 카드의 추정과 맞는다(파일 내용은 내려받지 않음). OSF 라이선스 표기는 CC BY-NC-SA 4.0으로 논문(CC BY-NC-ND 4.0)과 다르다",
+      "url": "https://osf.io/eam63/"
+    },
+    {
+      "what": "원고에 적힌 OSF 주소 그대로(심사용 view_only 매개변수 포함)",
+      "url": "https://osf.io/eam63/overview?view_only=3e6940f41038489f95b412144a38bb30"
+    },
+    {
+      "what": "논문 페이지(Humanities and Social Sciences Communications, Article in Press, CC BY-NC-ND 4.0)",
+      "url": "https://doi.org/10.1057/s41599-026-08299-1"
+    },
+    {
+      "what": "실험 모델 체크포인트 ① KoGPT-2 (각주 2)",
+      "url": "https://huggingface.co/skt/kogpt2-base-v2"
+    },
+    {
+      "what": "실험 모델 체크포인트 ② Ko-GPT-Trinity 1.2B v0.5 (각주 3)",
+      "url": "https://huggingface.co/skt/ko-gpt-trinity-1.2B-v0.5"
+    },
+    {
+      "what": "실험 모델 체크포인트 ③ mGPT (각주 4)",
+      "url": "https://huggingface.co/ai-forever/mGPT"
+    }
+  ],
+  "prior_analysis_check": {
+    "source": "reference/shin-kwon-mun-2026-해설집-src/ann_a.py–ann_f.py (같은 날 만든 쪽별 해설 소스); reference/old-draft-2026-09-18/analysis/01_논문별-정밀분석.md의 'P4. Shin, Kwon & Mun (2026), HSSC in press' 절(과 0절 전체 지형도의 P4 행)",
+    "agreements": [
+      "[기존 초안] 모델 사양 표(학습 데이터 5B / 35B / 488B 토큰, 매개변수 125M / 1.2B / 1.3B, 층·헤드 12/12, 24/16, 24/16)가 표 2와 일치(p.45 Table 2).",
+      "[기존 초안] 인간 자료 4종의 n과 문항: 수용성 40명·128문장(조건당 32), 공손성 20명·216문장(조건당 36, 무생물 2조건 추가), 자기조절읽기 40명·같은 조건·어순 변경(서술어 R3 → 주어 R4), 안구추적 44명·40문장·R5/R6(p.10-14 §2.1).",
+      "[기존 초안] 절단 기준(평정 1,000/10,000 ms, 자기조절읽기 150/4000 ms + 3 SD, 안구추적 80 ms 병합·1,200 ms 제거)(p.10-14 §2.1).",
+      "[기존 초안] 측정과 통계: 어절 surprisal = 부분어 합, 문장 surprisal = 어절 합, 인간 평정 CLMM(ordinal, 누적 로짓)·Nagelkerke R², 읽기 lmerTest·Nakagawa 조건부 R², 모델은 같은 설정에 Item만 무선효과(p.15-17 §2.3).",
+      "[기존 초안] 수용성 결과: 인간은 Hsubj + NHpred를 중간으로 평정, 모델은 생략과 완전 일치를 구별 못함(KoGPT-2 p = 1.000, Ko-GPT-Trinity p = 0.712, mGPT p = 1.000)(p.17-18 §3.1).",
+      "[기존 초안] 자기조절읽기: 인간 최대 지연은 Inanimate_NHsubj + Hpred, 모델은 사람 불일치에서 더 큰 surprisal을 주어 생물성 효과가 인간과 반대라는 서술은 원문과 같다(p.28 §4.1.3). 카드는 여기에 그 차이가 -시- 불일치 효과가 아니라 주어 명사의 기저선 차이라는 판독(재계산)을 key_numbers·limitations에 덧붙였다.",
+      "[기존 초안] 안구추적: 인간은 R6(파급)에서만 유의, 모델은 R5에서 즉각 반응, 상관은 R5에서만 유의(r = 0.12~0.19)하고 R6은 모두 p > 0.2(p.24-25 §3.4).",
+      "[기존 초안] 핵심 인용 두 개('that … but not with why', 'the letter of the rule')와 저자 후속 과제 인용 네 개(최신 독점·프롬프트 기반 모델, 인과 개입, 토큰화 전략, 사회화용 정보 짝짓기)가 원문과 일치(p.30 §4.2; p.32-33 §4.3).",
+      "[기존 초안 P5 절] P2·P3·P4가 공유하는 비높임 주어 정의는 '높일 수 없는 지시체'(P4는 영수·미아·인호·진수·꼬마 같은 고유명·아동 명사)만 포함한다는 지적은 P4 원문과 맞는다(p.7, p.10-13). 카드의 P04-H17로 이어받았다.",
+      "[해설집] 그림 1·3·5·7의 막대 라벨 값(평균·SD)이 PDF p.52·54·56·58을 직접 본 판독과 모두 일치한다(수용성 4.88/2.20/4.02/4.81, 공손성 2.67/2.76/2.89/4.59/1.63/2.00, 자기조절읽기 R4 0.02/0.02/0.08/0.05/0.12/0.02, 안구추적 R5 5.59/5.63·R6 5.46/5.53과 모델별 surprisal).",
+      "[해설집] 생략 비용 ÷ 과잉 높임 비용 = 인간 29%, KoGPT-2 −1%, Ko-GPT-Trinity 20%, mGPT −10%와, 공손성에서 -시- 추가 비용이 사람·무생물 주어에서 거의 같다는 계산(KoGPT-2 +8.63/+8.67 등)을 그림 값으로 다시 계산해 같은 결과를 얻었다(p.52 Figure 1; p.54 Figure 3).",
+      "[해설집] 자기조절읽기 R4의 같은 주어 안 -시- 효과(KoGPT-2 선생님께서 +3.57, 미아가 −0.41, 그림이 +0.18)가 재계산과 일치(p.56 Figure 5).",
+      "[해설집] 수용성 상관 r = −0.136이 조건당 32문장이면 p ≈ 0.46이고 p = 0.037에는 약 236개 자료점이 필요하다는 지적, Figure 2의 패널당 약 30개 점에 비춰 p값의 계산 단위가 서술(문장 단위)과 어긋난다는 지적(p.18 §3.1; p.53 Figure 2).",
+      "[해설집] 수용성 일치 조건의 천장(4.88·4.81)과 Figure 2에서 해당 점들이 오른쪽 끝에 몰린 범위 제한(p.52-53).",
+      "[해설집] Figure 6·8에서 모델 surprisal이 가로줄로 반복되는 패턴, 곧 문항당 값이 시행 행에 복제된 흔적이 PDF에서 그대로 보인다(p.57, p.59). Figure 5·7의 모델 막대 오차막대가 조건당 36·20문항 기준 기대치보다 훨씬 좁다는 지적도 그림과 맞는다.",
+      "[해설집] 표 1이 안구추적 R5·R6 모두 더 긴 고정이라고 요약하지만 표 9의 R5는 p = 0.090으로 비유의라는 내부 불일치(p.45 Table 1; p.49 Table 9).",
+      "[해설집] Ko-GPT-Trinity의 공손성 Subject 계수(5.904, t = 15.775)가 다른 두 모델(1.878, 1.781)보다 크고, 그림 3에서 Trinity만 무생물 조건 surprisal이 대응 사람 조건보다 높다(p.47 Table 6; p.54 Figure 3).",
+      "[해설집] 자료·코드는 OSF(osf.io/eam63)에 있고 저자들은 새 참여자를 모집하지 않았다(p.51). 2026-09-19 OSF API 확인 결과 공개 프로젝트이며 파일명이 기준 자료 출처 추정(Shin, Kwon & Shin, Kwon & Sturt)과 맞는다."
+    ],
+    "discrepancies": [
+      {
+        "item": "수용성 척도의 끝점 명칭",
+        "old": "6점 (0 매우 부적격 – 5 매우 적격)",
+        "new": "원문은 0 = 'very unacceptable', 5 = 'very acceptable'이다. '적격/부적격'은 문법성(grammaticality) 용어라 수용성 평정과 섞인다.",
+        "basis_src": "p.10 §2.1.1"
+      },
+      {
+        "item": "절단·잔차화가 적용된 과제",
+        "old": "RT 트리밍 목록(평정·SPR·아이트래킹) 뒤에 '로그변환 후 어절 길이·개인 읽기속도 잔차화'를 붙여 세 과제 공통처럼 적음",
+        "new": "잔차화는 자기조절읽기에만 적용했고 길이 변수는 영역의 음절 수(syllable count)다(Trueswell et al. 1994 방식). 안구추적은 잔차화 없이 로그 응시 시간(logRT)을 쓴다.",
+        "basis_src": "p.12 §2.1.3; p.49 Table 9"
+      },
+      {
+        "item": "공손성에서 모델의 생물성 구별",
+        "old": "모델은 유정/무정 대응 조건을 전혀 구분 못함 (전 모델 p>0.07).",
+        "new": "원문은 'did not differentiate'이고 근거는 Bonferroni 사후검정의 비유의(p = 0.073~1.000)다. 증거 부재이지 '전혀 구분 못함'의 증거가 아니다. 그림 3에서 Ko-GPT-Trinity는 무생물 조건이 대응 사람 조건보다 surprisal이 높아(70.80 > 69.33, 78.90 > 77.33, 그림 판독) 방향은 인간과 같다. 다만 -시- 추가 비용은 사람·무생물에서 같아(+8.00 / +8.10) 생물성에 따른 높임 적절성 반응이라고 보기는 어렵다.",
+        "basis_src": "p.20 §3.2; p.54 Figure 3"
+      },
+      {
+        "item": "안구추적 R6의 '부호 역전'",
+        "old": "R6에서 Ko-GPT-Trinity·mGPT는 부호 역전.",
+        "new": "원문 표 10의 유의한 음의 효과(β = −0.527, t = −8.358; β = −0.148, t = −2.772, p = 0.006)는 맞다. 그러나 그림 7의 셀 평균 차는 −0.52비트와 −0.03비트로 매우 작고, 그림 8의 가로줄 패턴이 시사하는 시행 단위 복제 때문에 유의성이 부풀었을 수 있다. 카드는 원문 수치를 그대로 두되 '역전'을 실질적 효과로 인용하지 않도록 limitations(us)에 적었다.",
+        "basis_src": "p.49 Table 10; p.58 Figure 7; p.59 Figure 8"
+      },
+      {
+        "item": "안구추적 R5 상관의 해석",
+        "old": "상관은 R5에서만 유의(r=0.12~0.19)",
+        "new": "수치는 원문과 같지만 그림 설명상 자료점이 '단어'(실제로는 시행 행)이고 모델 값은 문항당 하나다. 조건당 20문항을 자료점으로 하면 r = 0.191의 p는 약 0.42다(재계산). 또 두 조건 안에서 각각 상관이 나타나므로 높임 효과가 아니라 일반적 예측가능성 효과일 수 있다.",
+        "basis_src": "p.25 §3.4; p.44 Figure 8 legend"
+      },
+      {
+        "item": "저자가 밝힌 후속 과제의 범위",
+        "old": "후속 과제로 네 인용(최신 독점·프롬프트 모델, 인과 개입, 토큰화, 사회화용 정보 짝짓기)만 제시",
+        "new": "원문은 이 밖에 다른 과소대표 언어·구문으로의 확장, MoE·인코더-디코더 구조, 주의·활성·담화 지표, 해석 도구로 모델 단서 식별, 문장·담화 수준 지표, 행동 적합 + 내부 표상·층별 역학, mGPT 수렴 해석을 위한 내부 표상 탐침, 개인차, 인간·모델 모두의 사용 맥락 명시적 조작(Škrjanec & Demberg 2026), 자원 합리적 인지 모델·BabyLM, R5 무생물 효과의 추가 검증을 든다. 특히 '사용 맥락의 명시적 조작'이 우리 2×2의 맥락 요인에 가장 직접 이어진다(P04-H3).",
+        "basis_src": "p.23 §3.3; p.31-34 §4.2-4.3"
+      },
+      {
+        "item": "해설집의 수용성·공손성 예문",
+        "old": "해설집(ann_c.py p.17, ann_d.py p.26)은 생략 조건을 '선생님이 했어요', 과잉 높임을 '영수께서 하셨다류'(ann_c.py p.17) 또는 '영수가 하셨다'(ann_f.py p.52)로, 높임 주어 생략을 '할아버지께서 했다'로 예시한다.",
+        "new": "원문은 수용성 자극의 주어 명사(할아버지/영수)만 밝히고 격조사·서술어·문장 틀은 적지 않는다. '선생님이 했어요'는 원문 예문이 아니며, 원문 예문 (3)은 '선생님께서 우승을 했어요'(NOM.HON)다. -이/-께서 차이는 생략 조건의 성격(순수 생략인지 -께서/-시- 표지 간 불일치인지)을 바꾸므로, 카드는 원문 예문과 '원문 미표기'만 stimulus_examples에 넣었다.",
+        "basis_src": "p.7 (3); p.10 §2.1.1"
+      },
+      {
+        "item": "해설집의 무생물 공손성 자극 해석",
+        "old": "해설집(ann_c.py p.19, ann_d.py p.27)은 무생물 조건을 '김치가 맛있다'처럼 문법적·분포적으로 흔한 자연스러운 문장으로 보고 surprisal이 낮을 것이라 논한다.",
+        "new": "원문은 무생물 주어 문장의 예로 명사 kimchi만 들고, 두 무생물 조건을 'to induce semantic anomaly'(의미적 이상 유도) 목적으로 추가했다고 적는다. 자기조절읽기의 무생물 자극도 '그림이 교실로 급히 들어가며 … 소리를 냈어요'로 비개연적이다. 따라서 무생물 문장이 자연스러운 문장이라는 전제는 원문과 어긋난다. '공손성을 판단할 거리가 없어서 낮게 평정했을 수 있다'는 해설집의 대안 해석 자체는 유지할 만하지만, 의미적 이상이 함께 섞여 있다는 점을 붙여야 한다.",
+        "basis_src": "p.11 §2.1.2; p.11-12 (5)"
+      },
+      {
+        "item": "해설집의 복제 배수 교정값",
+        "old": "해설집(ann_e.py p.48-49, ann_c.py p.25)은 모델 값이 참가자 40명·44명만큼 복제됐다고 보고 t를 √40 ≈ 6.3, √44 ≈ 6.6으로 나눠 R5 t ≈ 27·19·15, R6 t ≈ −1.3·−0.4로 교정하며, 안구추적 행 수를 '44명 × 20문항 ≈ 880행'으로 본다.",
+        "new": "가로줄 패턴(복제 흔적)은 원문 그림으로 확인되지만, 참가자당 목록 배정·시행 수는 원고에 없어 복제 배수를 알 수 없다(원 설계에서 두 셀만 추렸으므로 문항-조건 조합당 참가자 수는 44보다 작을 수 있다). √40·√44 교정값은 가정에 따른 대략값이라 카드에는 수치로 넣지 않고 'OSF code.R로 확인 필요'로만 적었다.",
+        "basis_src": "p.13 §2.1.4; p.49 Table 10; p.59 Figure 8"
+      }
+    ]
+  },
+  "verification": {
+    "status": "draft",
+    "by": null,
+    "notes": []
+  }
+}
