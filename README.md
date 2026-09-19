@@ -8,7 +8,8 @@
 |---|---|
 | 지금 어디까지 됐고 다음에 무엇을 하나 | [`인수인계서.md`](인수인계서.md) |
 | 연구 설계를 한눈에 (6하원칙 탭) | `dashboard/index.html` (배포: https://korean-honorific-llm.vercel.app/) |
-| A4 2쪽 요약 | `dashboard/summary-2p.html` (배포: https://korean-honorific-llm.vercel.app/summary) |
+| A4 2쪽 요약 ① 6하원칙 순 | `dashboard/summary-2p.html` (배포: https://korean-honorific-llm.vercel.app/summary) |
+| A4 2쪽 요약 ② 의뢰 5개 항목별 | `dashboard/summary-requirements.html` (배포: https://korean-honorific-llm.vercel.app/summary2) |
 | 무엇을 왜 이렇게 만들었나 | [`docs/00_전략서.md`](docs/00_전략서.md) |
 | 작업 절차 | [`docs/01_실행계획.md`](docs/01_실행계획.md) |
 

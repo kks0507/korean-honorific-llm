@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>경어법 LLM 의뢰 항목 요약</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+:root {
+  --ground: #ecece6;
+  --paper: #ffffff;
+  --ink: #1c1c19;
+  --ink-2: #45453f;
+  --ink-3: #61615a;
+  --rule: #dcdcd4;
+  --rule-strong: #bdbdb2;
+  --wash: #f4f4f0;
+  --accent: #2a55b0;
+  --accent-soft: #eaf0fb;
+  --accent-line: #bccbeb;
+  --teal-bg: #d9f0ec;   --teal-fg: #0d5249;
+  --amber-bg: #fbeed2;  --amber-fg: #714604;
+  --violet-bg: #ebe5f9; --violet-fg: #4b3189;
+  --gray-bg: #ebebe6;   --gray-fg: #45453f;
+  --red-bg: #fbe2df;     --red-fg: #922015;
+  --sheet-shadow: 0 1px 3px rgba(20, 20, 10, .08), 0 8px 24px rgba(20, 20, 10, .06);
+  --font: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #121211;
+    --paper: #1b1b19;
+    --ink: #ecece7;
+    --ink-2: #c9c9c1;
+    --ink-3: #a7a79e;
+    --rule: #35352f;
+    --rule-strong: #4f4f47;
+    --wash: #232320;
+    --accent: #8fb0ff;
+    --accent-soft: #1d2842;
+    --accent-line: #364a7a;
+    --teal-bg: #133532;   --teal-fg: #93dccf;
+    --amber-bg: #3a2c0e;  --amber-fg: #f1c979;
+    --violet-bg: #2a2142; --violet-fg: #cbbaf6;
+    --gray-bg: #2b2b27;   --gray-fg: #c9c9c1;
+    --red-bg: #401b17;     --red-fg: #f6aaa0;
+    --sheet-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #121211;
+  --paper: #1b1b19;
+  --ink: #ecece7;
+  --ink-2: #c9c9c1;
+  --ink-3: #a7a79e;
+  --rule: #35352f;
+  --rule-strong: #4f4f47;
+  --wash: #232320;
+  --accent: #8fb0ff;
+  --accent-soft: #1d2842;
+  --accent-line: #364a7a;
+  --teal-bg: #133532;   --teal-fg: #93dccf;
+  --amber-bg: #3a2c0e;  --amber-fg: #f1c979;
+  --violet-bg: #2a2142; --violet-fg: #cbbaf6;
+  --gray-bg: #2b2b27;   --gray-fg: #c9c9c1;
+  --red-bg: #401b17;     --red-fg: #f6aaa0;
+  --sheet-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 9pt;
+  line-height: 1.5;
+  padding-inline: 16px;
+  padding-block: 24px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheets { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.sheet {
+  width: 210mm;
+  max-width: 100%;
+  min-height: 297mm;
+  background: var(--paper);
+  box-shadow: var(--sheet-shadow);
+  padding: 13mm 14mm 11mm;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2mm;
+}
+.sheet-foot {
+  margin-top: auto;
+  padding-top: 2mm;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--ink-3);
+  font-size: 7.4pt;
+}
+.masthead { display: grid; gap: 1.2mm; }
+.eyebrow { font-size: 7.4pt; letter-spacing: .08em; color: var(--accent); font-weight: 700; }
+h1 { margin: 0; font-size: 16pt; line-height: 1.3; font-weight: 800; letter-spacing: -.01em; text-wrap: balance; }
+.byline { margin: 0; color: var(--ink-3); font-size: 7.6pt; }
+.question {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 6px;
+  padding: 3mm 4mm;
+  display: grid;
+  gap: 1.6mm;
+}
+.question .label { font-size: 7.4pt; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+.question .q { margin: 0; font-size: 11pt; font-weight: 700; line-height: 1.45; text-wrap: balance; }
+.question .claim { margin: 0; color: var(--ink-2); font-size: 8.4pt; }
+section { display: grid; gap: 1.6mm; }
+.sec-head { display: flex; align-items: baseline; gap: 2.4mm; border-bottom: 1.5px solid var(--ink); padding-bottom: 1mm; }
+.sec-tag {
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .06em;
+  color: var(--paper); background: var(--ink);
+  padding: .2mm 1.8mm; border-radius: 3px; white-space: nowrap;
+}
+h2 { margin: 0; font-size: 10.5pt; font-weight: 800; }
+.items { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.2mm; }
+.items li { display: grid; grid-template-columns: 24mm 1fr; gap: 2.4mm; }
+.items .k { font-weight: 700; color: var(--ink); }
+.items .v { color: var(--ink-2); }
+.hyp { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4mm; }
+.hyp div { border: 1px solid var(--rule); border-radius: 5px; padding: 2mm 3mm; background: var(--wash); }
+.hyp b { display: block; margin-bottom: .6mm; }
+.hyp p { margin: 0; color: var(--ink-2); font-size: 8.3pt; }
+.note { margin: 0; color: var(--ink-3); font-size: 7.8pt; }
+.note.strong { color: var(--ink-2); font-size: 8.3pt; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 8.1pt; line-height: 1.42; }
+th, td { text-align: left; vertical-align: top; padding: 1.3mm 1.8mm; border-bottom: 1px solid var(--rule); }
+thead th { font-size: 7.4pt; color: var(--ink-3); font-weight: 700; border-bottom: 1px solid var(--rule-strong); letter-spacing: .02em; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .t { font-weight: 700; color: var(--ink); }
+td .d { color: var(--ink-2); }
+.ex { color: var(--ink-2); }
+.badge {
+  display: inline-block; font-size: 7.4pt; font-weight: 800; padding: 0 1.6mm; border-radius: 3px; white-space: nowrap;
+}
+.badge.teal { background: var(--teal-bg); color: var(--teal-fg); }
+.badge.amber { background: var(--amber-bg); color: var(--amber-fg); }
+.badge.violet { background: var(--violet-bg); color: var(--violet-fg); }
+.badge.gray { background: var(--gray-bg); color: var(--gray-fg); }
+.tier { color: var(--ink-3); white-space: nowrap; }
+.axis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: .6mm 0 .4mm; }
+.axis div {
+  position: relative; padding: 1.6mm 2.6mm 1.6mm 3.6mm; font-size: 8.1pt; font-weight: 700;
+  background: var(--accent-soft); color: var(--ink); border: 1px solid var(--accent-line);
+}
+.axis div + div { border-left: none; }
+.axis div:first-child { border-radius: 5px 0 0 5px; }
+.axis div:last-child { border-radius: 0 5px 5px 0; }
+.axis-cap { margin: 0; font-size: 7.6pt; color: var(--ink-3); }
+.open { border: 1px dashed var(--rule-strong); border-radius: 5px; padding: 2mm 3mm; color: var(--ink-2); font-size: 8pt; margin: 0; }
+@media screen and (max-width: 820px) {
+  body { font-size: 10pt; }
+  .sheet { width: 100%; min-height: 0; padding: 20px 16px; gap: 14px; }
+  .items li { grid-template-columns: 1fr; gap: 2px; }
+  .hyp { grid-template-columns: 1fr; }
+  .axis { grid-template-columns: 1fr; }
+  .axis div, .axis div + div { border: 1px solid var(--accent-line); border-radius: 5px; }
+  .axis { gap: 6px; }
+  table { min-width: 560px; }
+}
+@page { size: A4; margin: 0; }
+@media print {
+  :root, :root:not([data-theme="light"]), :root[data-theme="dark"] {
+    --ground: #ffffff; --paper: #ffffff; --ink: #1c1c19; --ink-2: #45453f; --ink-3: #61615a;
+    --rule: #dcdcd4; --rule-strong: #bdbdb2; --wash: #f4f4f0; --accent: #2a55b0; --accent-soft: #eaf0fb; --accent-line: #bccbeb;
+    --teal-bg: #d9f0ec; --teal-fg: #0d5249; --amber-bg: #fbeed2; --amber-fg: #714604;
+    --violet-bg: #ebe5f9; --violet-fg: #4b3189; --gray-bg: #ebebe6; --gray-fg: #45453f;
+  }
+  body { padding: 0; background: #fff; font-size: 9pt; }
+  .sheets { gap: 0; display: block; }
+  .sheet { width: 210mm; height: 297mm; min-height: 0; box-shadow: none; break-after: page; overflow: hidden; }
+  .sheet:last-child { break-after: auto; }
+}
+
+.req { display: grid; gap: 1.5mm; }
+.req-head { display: flex; align-items: baseline; gap: 2.4mm; border-bottom: 1.5px solid var(--ink); padding-bottom: 1mm; }
+.req-no {
+  font-size: 8pt; font-weight: 800; color: var(--paper); background: var(--ink);
+  border-radius: 3px; padding: .2mm 1.8mm; white-space: nowrap;
+}
+.req-head h2 { font-size: 10.5pt; }
+.ask { margin: 0; font-size: 7.8pt; color: var(--ink-3); }
+.ask b { color: var(--accent); font-weight: 700; }
+.lead { margin: 0; color: var(--ink-2); font-size: 8.4pt; }
+.layers td:first-child { font-weight: 800; white-space: nowrap; }
+.layers td.what { color: var(--ink-3); font-size: 7.6pt; width: 23%; }
+.layers td.find { width: 58%; }
+.layers td.to { color: var(--accent); font-weight: 600; }
+.design {
+  margin: 0; padding: 2mm 3mm; border-radius: 5px; font-size: 8.3pt;
+  background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--ink);
+}
+.exps { display: grid; gap: 1.8mm; }
+.exp { border: 1px solid var(--rule); border-radius: 6px; padding: 2mm 2.6mm; display: grid; gap: 1.2mm; }
+.exp-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1.8mm; }
+.exp-top .t { font-weight: 800; }
+.exp-top .f { color: var(--ink-2); font-size: 8pt; }
+.exp-top .n { margin-left: auto; color: var(--ink-3); font-size: 7.4pt; }
+.ctx { margin: 0; font-size: 7.8pt; color: var(--ink-3); }
+.grid22 { display: grid; grid-template-columns: 17mm 1fr 1fr; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; font-size: 8pt; }
+.grid22 > div { padding: 1.1mm 1.8mm; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.grid22 > .h { background: var(--wash); color: var(--ink-3); font-size: 7.3pt; font-weight: 700; border-top: none; }
+.grid22 > .h:first-child, .grid22 > .rh { border-left: none; }
+.grid22 > .rh { font-weight: 700; font-size: 7.6pt; background: var(--wash); }
+.cell { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.6mm; }
+.cell .s { color: var(--ink); }
+.norm { font-size: 6.9pt; font-weight: 700; padding: 0 1.2mm; border-radius: 3px; white-space: nowrap; }
+.norm.ok { background: var(--teal-bg); color: var(--teal-fg); }
+.norm.mid { background: var(--amber-bg); color: var(--amber-fg); }
+.norm.bad { background: var(--red-bg); color: var(--red-fg); }
+.predict { margin: 0; font-size: 7.8pt; color: var(--ink-2); }
+.predict b { color: var(--ink); }
+.e4 { display: grid; grid-template-columns: auto 1fr; gap: 2mm; align-items: baseline; font-size: 8pt; color: var(--ink-2); border: 1px solid var(--rule); border-radius: 6px; padding: 1.8mm 2.6mm; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.lk { display: grid; gap: 1.2mm; }
+.lk div { border: 1px solid var(--rule); border-radius: 5px; padding: 1.6mm 2.4mm; background: var(--wash); font-size: 8pt; color: var(--ink-2); }
+.lk b { display: block; color: var(--ink); font-size: 8.2pt; }
+.cq td:first-child { white-space: nowrap; font-weight: 700; }
+.cq td.use { color: var(--ink-3); font-size: 7.6pt; width: 38%; }
+.sub { margin: 0; padding: 2mm 3mm; border-left: 3px solid var(--accent); background: var(--wash); font-size: 8pt; color: var(--ink-2); }
+.imp td:first-child { font-weight: 700; white-space: nowrap; }
+.imp th:nth-child(2), .imp th:nth-child(3) { width: 40%; }
+/* 두 쪽에 맞추는 밀도 조정(화면·인쇄 공통, 휴대폰 규칙보다 앞에 둔다) */
+body { font-size: 8.6pt; line-height: 1.45; }
+.sheet { padding: 11mm 13mm 9mm; gap: 2.6mm; }
+table { font-size: 7.8pt; line-height: 1.38; }
+th, td { padding: 1mm 1.6mm; }
+.grid22 { font-size: 7.7pt; }
+.grid22 > div { padding: .9mm 1.6mm; }
+.lead, .design { font-size: 8.1pt; }
+.exp { padding: 1.6mm 2.4mm; gap: 1mm; }
+.req { gap: 1.3mm; }
+h1 { font-size: 15pt; }
+@media screen and (max-width: 820px) {
+  body { font-size: 10pt; }
+  .two { grid-template-columns: 1fr; }
+  .grid22 { grid-template-columns: 64px 1fr 1fr; min-width: 520px; }
+  .exp { overflow-x: auto; }
+  .e4 { grid-template-columns: 1fr; }
+}
+@media print {
+  .norm.bad { background: #fbe2df; color: #922015; }
+}
+</style>
+</head>
+<body>
+<main class="sheets"><article class="sheet" aria-label="1쪽"><header class="masthead"><span class="eyebrow">의뢰 5개 항목별 답 · A4 2쪽</span><h1>한국어 경어법 × LLM 후속 연구 — 의뢰 5개 항목별 답</h1><p class="byline">2026-09-19 · 김경수 · 선행 논문 10편 → 2×2 실험 4개 · 전체 내용: korean-honorific-llm.vercel.app</p></header><section class="req" aria-labelledby="h-req1"><div class="req-head"><span class="req-no">요청 1</span><h2 id="h-req1">논문 4층 분석 → 후속 연구 설계</h2></div><p class="ask"><b>의뢰</b> 첨부 논문을 단어·문장·문단·맥락 단위로 분석해, 논문들을 계승하는 후속 연구를 설계</p><p class="lead">10편을 같은 틀(6하원칙 카드 + 단어·문장·문단·맥락 4층)로 읽고, 작성자와 다른 검증자가 원문과 대조했다(정정 97건).</p><div class="table-wrap"><table class="layers"><thead><tr><th>층</th><th>대표 발견(쪽수)</th><th>설계로 이어진 것</th></tr></thead><tbody><tr><td>단어</td><td class="find">같은 &#x27;NH 주어&#x27;가 지위 기준(P02–P04: 아이·영수)과 형태 기준(P05 말뭉치: 높임 표지 없는 주어)으로 갈린다.</td><td class="to">주어를 빼고 지위는 맥락으로 준다(E1)</td></tr><tr><td>문장</td><td class="find">인간은 -시- 생략 4.02, 과잉 높임 2.20으로 비대칭이다(0–5점, P04 p.17). ChatGPT 산출의 99.93%가 주어·서술어를 모두 높인 정형이다(P05 p.4).</td><td class="to">등급 척도로 비대칭을 재고 판정어를 통제한다(E4)</td></tr><tr><td>문단</td><td class="find">저자 명시 후속 과제: 친밀도에 따른 생략·장난스러운 높임을 조작하라(P02 p.8), 사용 맥락을 인간·모델 모두에 조작하라(P04 p.33). 계승 지점 124개.</td><td class="to">관계 맥락을 요인으로 쓰는 2×2</td></tr><tr><td>맥락</td><td class="find">통사적 일치(P03)·화용적 허가(P02)·이원 입장(P04·P05)이 갈린다. 실험 모델은 대부분 2019–2025년 공개 소형 모델이다.</td><td class="to">두 입장이 갈리는 상호작용항에 검정, 최신 상용 모델로 재검증</td></tr></tbody></table></div><p class="design">도출한 후속 연구: 가장 큰 공백은 지위를 주어 낱말(교수님/아이)로 바꾼 어휘 교란이다(Cho &amp; Kwon 2026, p.4 각주 3). &#x27;표면 공기를 배웠는가, 허가 조건을 배웠는가&#x27;라는 한 가설을 -시-의 허가자가 주어 자신 → 주어가 속한 사람 → 문장 밖 청자로 멀어지는 세 현상에서 검정한다.</p></section><section class="req" aria-labelledby="h-req2"><div class="req-head"><span class="req-no">요청 2</span><h2 id="h-req2">2×2 실험 설계와 실험 문장</h2></div><p class="ask"><b>의뢰</b> 실험 방법과 실험 문장은 2×2 요인설계로</p><p class="lead">모든 실험은 요인 2 × 수준 2다. 가설은 상호작용 대비 (a − b) − (c − d)에 미리 건다. 인간은 라틴 방격 4목록으로 세트마다 한 조건만 보고, 모델은 네 조건을 각각 새 대화로 받는다.</p><div class="exps"><div class="exp"><div class="exp-top"><span class="badge teal">E1</span><span class="t">같은 문장, 다른 관계</span><span class="f">A 지시 대상 지위(맥락) × B -시-</span><span class="n">24세트</span></div><p class="ctx">화자(23세 대학생)가 친구에게 말한다. 이야기 속 인물은 A1 할머니(72세) / A2 여동생(17세). 목표 문장은 두 인물에게 글자까지 같다.</p><div class="grid22" role="table" aria-label="E1 네 조건"><div class="h"></div><div class="h">B1 -시- 있음</div><div class="h">B2 -시- 없음</div><div class="rh">A1 할머니</div><div><span class="cell"><span class="s">요즘 동네 스포츠 센터에서 일주일에 두 번씩 수영을 배우셔.</span><span class="norm ok">적격</span></span></div><div><span class="cell"><span class="s">… 수영을 배워.</span><span class="norm mid">덜 선호</span></span></div><div class="rh">A2 여동생</div><div><span class="cell"><span class="s">… 수영을 배우셔.</span><span class="norm bad">부적격</span></span></div><div><span class="cell"><span class="s">… 수영을 배워.</span><span class="norm ok">적격</span></span></div></div><p class="predict"><b>예측</b> 인간·허가 조건: 교차 상호작용. 표면 공기: 문장에 높임 문자열이 없으니 -시- 선호만 남는다.</p></div><div class="exp"><div class="exp-top"><span class="badge amber">E2</span><span class="t">간접 높임 대 사물 높임</span><span class="f">A 주어의 소속 × B -시-</span><span class="n">24세트</span></div><p class="ctx">정형외과 의사가 70대 여성 환자에게 말한다. A1 환자에게 속한 것(무릎 연골) / A2 무관한 사물(주사 가격).</p><div class="grid22" role="table" aria-label="E2 네 조건"><div class="h"></div><div class="h">B1 -시- 있음</div><div class="h">B2 -시- 없음</div><div class="rh">A1 속함</div><div><span class="cell"><span class="s">할머니, 무릎 연골이 또래보다 많이 닳으셨어요.</span><span class="norm ok">적격</span></span></div><div><span class="cell"><span class="s">… 많이 닳았어요.</span><span class="norm mid">덜 선호</span></span></div><div class="rh">A2 무관</div><div><span class="cell"><span class="s">할머니, 이 주사는 작년보다 가격이 많이 오르셨어요.</span><span class="norm bad">비표준</span></span></div><div><span class="cell"><span class="s">… 가격이 많이 올랐어요.</span><span class="norm ok">적격</span></span></div></div><p class="predict"><b>예측</b> 허가 조건: A1에서만 -시- 허용(『표준 언어 예절』 p.159). 표면 공기: 높임 대상이 곁에 있으면 둘 다 받아들인다.</p></div><div class="exp"><div class="exp-top"><span class="badge violet">E3</span><span class="t">청자 높임의 번짐</span><span class="f">A 청자 × B 동생에 대한 -시-</span><span class="n">24세트</span></div><p class="ctx">대학원생 화자가 자기 동생(고등학생) 이야기를 한다. A1 청자 지도교수(해요체) / A2 동갑 친구(해체).</p><div class="grid22" role="table" aria-label="E3 네 조건"><div class="h"></div><div class="h">B1 -시- 있음</div><div class="h">B2 -시- 없음</div><div class="rh">A1 지도교수</div><div><span class="cell"><span class="s">동생이 이번 방학에 혼자 기타를 배우기 시작하셨어요.</span><span class="norm bad">부적격</span></span></div><div><span class="cell"><span class="s">… 시작했어요.</span><span class="norm ok">적격</span></span></div><div class="rh">A2 친구</div><div><span class="cell"><span class="s">… 시작하셨어.</span><span class="norm bad">부적격</span></span></div><div><span class="cell"><span class="s">… 시작했어.</span><span class="norm ok">적격</span></span></div></div><p class="predict"><b>예측</b> 인간·허가 조건: 청자와 상관없이 -시- 감점(상호작용 없음 → 동등성 검정). 표면 공기: 윗사람 앞에서 감점이 준다.</p></div></div><p class="note">자극 합계 320문장(E1–E3 각 96, E4 32) + 채움 48개. 『표준 언어 예절』(2011, pp.153–159)로 규범 검수, 인간 검수 필요 12세트 표시. 전체는 대시보드 자극 브라우저.</p></section><footer class="sheet-foot"><span>한국어 경어법 × LLM 후속 연구 — 의뢰 항목별 요약</span><span>1 / 2</span></footer></article><article class="sheet" aria-label="2쪽"><section class="req" aria-label="요청 2 이어서"><div class="req-head"><span class="req-no">요청 2</span><h2>이어서 — 통제 실험</h2></div><div class="e4"><span><span class="badge gray">E4</span> <b>통제: 판정어</b> <span class="n">16세트</span></span><span>A 판정어(&#x27;문법적으로 올바른가&#x27; / &#x27;이 상황에서 자연스러운가&#x27;) × B 위반(형태: &quot;여동생이 머리를 짧게 자르셨어.&quot; / 화용: &quot;교수님, 논문 초안은 … 보낼게.&quot;). 적격 짝과의 평정 차를 비교하며, 먼저 실시해 본실험 판정어를 정한다.</span></div></section><section class="req" aria-labelledby="h-req3"><div class="req-head"><span class="req-no">요청 3</span><h2 id="h-req3">평가 — Likert 척도와 이해 문항</h2></div><p class="ask"><b>의뢰</b> 평가는 이해 문항(comprehension question)이나 Likert 척도로</p><div class="lk two"><div><b>수용성 (7점)</b>&quot;이 상황에서 화자가 이 말을 하는 것이 얼마나 자연스럽습니까?&quot; 1 전혀 자연스럽지 않다 · 4 보통이다 · 7 매우 자연스럽다</div><div><b>공손성 (7점)</b>&quot;이 말은 [이야기 속 인물 / 듣는 사람]을 얼마나 높여서 대하고 있습니까?&quot; 1 전혀 높이지 않는다 · 7 매우 높인다</div></div><p class="note strong">두 척도를 따로 받는 이유: 인간은 문법 위반 문장을 덜 공손하다고 보지 않았다(P04: 2.76 대 2.67). 두 척도가 갈라지는지가 시험대다.</p><div class="table-wrap"><table class="cq"><thead><tr><th>이해 문항</th><th>질문과 선택지</th><th>쓰임</th></tr></thead><tbody><tr><td>E1 · 조작 점검</td><td>이야기 속 인물은 화자에게 어떤 사람입니까? ① 할머니 ② 여동생 ③ 할아버지 ④ 친구</td><td class="use">틀린 시행은 뺀다 — 맥락을 못 읽은 실패와 허가 조건 미적용을 가른다</td></tr><tr><td>E2 · 높임 대상</td><td>이 말에서 화자가 &#x27;-시-&#x27;로 높이려는 대상은? ① 듣는 사람(할머니) ② 주사 가격 ③ 화자 자신 ④ 없다</td><td class="use">②를 고르면 사물을 높임 대상으로 오인한 것</td></tr><tr><td>E3 · 두 체계</td><td>화자가 높여서 대하고 있는 사람은? ① 듣는 사람 ② 동생 ③ 둘 다 ④ 아무도 없다</td><td class="use">정답이 조건마다 다름(a 둘 다·b 듣는 사람·c 동생·d 아무도). -시-를 듣는 사람에게 돌리면 두 체계를 섞은 것</td></tr></tbody></table></div><p class="note">인간(한국어 모어 화자 128명, 잠정)과 모델에 같은 문구를 준다. 모델은 매 문항 새 대화·0-shot·JSON·10회 반복. 분석은 누적 링크 혼합 모형의 상호작용 검정, E3은 동등성 검정(TOST).</p></section><section class="req" aria-labelledby="h-req4"><div class="req-head"><span class="req-no">요청 4</span><h2 id="h-req4">추천 언어모델</h2></div><p class="ask"><b>의뢰</b> 실험에 쓸 언어모델 추천 (구독형이 실험에 더 용이한 상황)</p><p class="sub">구독형(ChatGPT·Claude·Gemini 앱)은 같은 회사 모델이지만 버전 고정·매 문항 새 대화·반복·기록을 통제하기 어렵다. 본실험은 같은 모델을 API 종량제로 부르고(모델당 수천 원–2만 원 안팎), 구독 앱은 자극 점검용 예비 확인에 쓴다. 구독 앱만 써야 한다면 매 문항 새 대화·기록 끔·모델명과 날짜 기록을 지키고 E1 일부로 한정한다.</p><div class="table-wrap"><table class=""><thead><tr><th>계층</th><th>모델</th><th>고른 이유</th><th>본실험 비용</th></tr></thead><tbody><tr><td class="tier">글로벌</td><td><span class="t">Claude Opus 5</span></td><td class="d">추론 켬/끔을 같은 모델에서 비교할 수 있다</td><td class="num">$14</td></tr><tr><td class="tier">글로벌</td><td><span class="t">GPT-5.6 Sol</span></td><td class="d">추론을 끌 수 있는 OpenAI 대표</td><td class="num">$11</td></tr><tr><td class="tier">글로벌</td><td><span class="t">Gemini 3.8 Flash</span></td><td class="d">Google 대표(추론을 끌 수 없어 &#x27;추론 강제&#x27;로 기록)</td><td class="num">$7</td></tr><tr><td class="tier">한국어 특화</td><td><span class="t">HyperCLOVA X HCX-007</span></td><td class="d">temperature와 seed를 모두 고정할 수 있는 유일한 후보</td><td class="num">약 3,350원</td></tr><tr><td class="tier">한국어 특화</td><td><span class="t">Solar Pro 4</span></td><td class="d">날짜 스냅샷(solar-pro4-260806)으로 버전 고정</td><td class="num">$1</td></tr><tr><td class="tier">공개 가중치</td><td><span class="t">DeepSeek-V4-Flash (Together)</span></td><td class="d">입력 문장 로그확률(surprisal) 확장 경로</td><td class="num">$0.3</td></tr></tbody></table></div><p class="note">모델당 4,000회 호출 기준 추정, 합계 약 $33 + 3,350원. EXAONE·Kanana·Mi:dm·A.X는 개인 종량제 API가 없어 제외. 2026-09-19 공식 문서 기준.</p></section><section class="req" aria-labelledby="h-req5"><div class="req-head"><span class="req-no">요청 5</span><h2 id="h-req5">국어학적 함의</h2></div><p class="ask"><b>의뢰</b> LLM 실험으로 국어학적 함의를 주는 연구</p><div class="axis" role="list"><div>주어 자신 (E1)</div><div>주어가 속한 사람 (E2)</div><div>문장 밖 청자 (E3)</div></div><p class="axis-cap">-시-를 허가하는 인물이 서술어에서 멀어지는 순서. 인간과 모델이 어디까지 같은 판단을 하는지가 대표 결과다.</p><div class="table-wrap"><table class="imp"><thead><tr><th>쟁점</th><th>인간 결과가 이렇게 나오면</th><th>모델 결과가 이렇게 나오면</th></tr></thead><tbody><tr><td>주체 높임의 성격 (E1)</td><td class="d">같은 문장이 관계만으로 뒤집히면, -시-의 허가는 명사의 자질이 아니라 화자의 대우에 달려 있다.</td><td class="d">교차 상호작용을 재현하면 문장 밖 관계까지 닿는다. -시- 선호만 남으면 문자열에 묶여 있다.</td></tr><tr><td>규범과 사용 (E2)</td><td class="d">사물 높임이 &#x27;어색하지만 공손한 말&#x27;이면 공손 전략으로 퍼진 것, 세대 차가 있으면 변화 진행 중이다.</td><td class="d">인간보다 사물 높임을 더 받아들이면, 모델은 규범보다 사용 빈도를 따른다.</td></tr><tr><td>두 높임 체계 (E3)</td><td class="d">상호작용이 없으면 주체 높임과 상대 높임은 서로 다른 허가자를 가진 독립 체계다.</td><td class="d">윗사람 앞에서만 관대하면 공손함을 하나로 섞는다 — 사물 높임과 같은 기제다.</td></tr><tr><td>판단 자료의 방법 (E4·척도)</td><td class="d">&#x27;문법적&#x27;과 &#x27;자연스러운&#x27;, 수용성과 공손성이 다르게 움직이면 판단 자료를 나눠 받아야 한다.</td><td class="d">판정어에 따라 흔들리면, LLM 판단 연구는 판정어를 통제 변수로 보고해야 한다.</td></tr></tbody></table></div></section><footer class="sheet-foot"><span>원천: content/*.json · 쪽수 근거와 참고문헌은 대시보드에 있다</span><span>2 / 2</span></footer></article></main>
+</body>
+</html>

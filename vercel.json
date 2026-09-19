@@ -3,6 +3,13 @@
   "framework": null,
   "outputDirectory": "dashboard",
   "rewrites": [
-    { "source": "/summary", "destination": "/summary-2p.html" }
+    {
+      "source": "/summary",
+      "destination": "/summary-2p.html"
+    },
+    {
+      "source": "/summary2",
+      "destination": "/summary-requirements.html"
+    }
   ]
 }
