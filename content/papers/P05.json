@@ -5,13 +5,13 @@
   "title": "A comparative analysis of AI-generated texts, corpus data, and speaker judgments: Subject honorification patterns in Korean",
   "title_ko": "AI 생성 텍스트·말뭉치 자료·화자 판단의 비교 분석: 한국어 주체 높임의 양상",
   "citation": {
-    "apa": "Jung, Y., & Kim, K. M. (2026). A comparative analysis of AI-generated texts, corpus data, and speaker judgments: Subject honorification patterns in Korean. Applied Corpus Linguistics, 6, 100171. https://doi.org/10.1016/j.acorp.2025.100171",
+    "apa": "Jung, Y., & Kim, K. M. (2026). A comparative analysis of AI-generated texts, corpus data, and speaker judgments: Subject honorification patterns in Korean. Applied Corpus Linguistics, 6(1), 100171. https://doi.org/10.1016/j.acorp.2025.100171",
     "year": 2026,
-    "venue": "Applied Corpus Linguistics, 6, 100171 (Elsevier)",
+    "venue": "Applied Corpus Linguistics, 6(1), 100171 (Elsevier)",
     "status": "published",
     "doi": "10.1016/j.acorp.2025.100171",
     "url": "https://doi.org/10.1016/j.acorp.2025.100171",
-    "bib_notes": "DOI·권(6)·논문번호(100171)·온라인 공개일(Available online 19 November 2025)·저작권(© 2025 The Authors, CC BY-NC)은 모두 원문 p.1에 표기돼 있어 웹 검색을 하지 않았다. 호(issue) 번호는 원문 미표기. 두 저자는 공동 제1저자(Equal first authorship)이자 공동 교신저자다. 권호 연도는 2026, DOI 접두부·저작권 연도는 2025다."
+    "bib_notes": "DOI·권(6)·논문번호(100171)·온라인 공개일(Available online 19 November 2025)·저작권(© 2025 The Authors, CC BY-NC)은 모두 원문 p.1에 표기돼 있다. 호(issue) 번호는 원문 미표기이나, 검증 단계에서 Crossref 메타데이터(api.crossref.org/works/10.1016/j.acorp.2025.100171)로 6권 1호(2026년 4월 인쇄판)임을 확인해 APA에 반영했다. doi.org는 Elsevier PII S266679912500053X로 연결된다. 두 저자는 공동 제1저자(Equal first authorship)이자 공동 교신저자다. 권호 연도는 2026, DOI 접두부·저작권 연도는 2025다."
   },
   "one_line": "ChatGPT 4.0은 주어·서술어를 모두 높인 정형만(99.93 %) 생성했고 말뭉치는 불일치형이 28.01 %였으며, L1은 '비높임 주어+-시-'를 거부(2.83)했지만 L2는 수용(5.01)했다.",
   "w5h1": {
@@ -20,7 +20,7 @@
       "items": [
         {
           "label": "저자·소속",
-          "text": "Yejin Jung(University of Utah), Kathy MinHye Kim(Boston University). 각주에 'Equal first authorship', 두 사람 모두 교신저자. CRediT에 따르면 Software·Funding acquisition은 Kim 담당.",
+          "text": "Yejin Jung(University of Utah), Kathy MinHye Kim(Boston University). 각주에 'Equal first authorship', 두 사람 모두 교신저자. CRediT에 따르면 Software·Resources·Funding acquisition은 Kim만 담당.",
           "src": "p.1"
         },
         {
@@ -145,7 +145,7 @@
         },
         {
           "label": "Study 2 결과 — 모형(Table 4)",
-          "text": "가장 큰 상호작용은 Language × NHsubj-Hverb(b = 3.07, SE = 0.36, z = 8.59, p < 0.001). Language × Hsubj-NHverb는 유의하지 않아(b = −0.07, p = .840) 이 불일치에 대한 민감도는 두 집단이 비슷하다.",
+          "text": "가장 큰 상호작용은 Language × NHsubj-Hverb(b = 3.07, SE = 0.36, z = 8.59, p < 0.001). Language × Hsubj-NHverb는 유의하지 않아(b = −0.07, p = .840) 저자는 이 불일치에 대한 민감도가 두 집단에서 비슷하다고 해석한다(최대 구조 베이지안 서열 모형에서도 이 항만 신용구간이 0을 포함).",
           "src": "p.6 Table 4"
         },
         {
@@ -210,7 +210,7 @@
         },
         {
           "label": "저자가 본 공백",
-          "text": "한국어 AI 화용 연구는 화행 추론(간접 화행, 함축)에 치우쳐 있고 경어 같은 다른 화용 자원은 다뤄지지 않았다. L2 교육 연구는 주어-서술어 (불)일치의 다양한 실현형에 주목하지 않았다.",
+          "text": "한국어 AI 화용 연구는 근거가 비교적 적고 화행 추론(간접 화행, 함축)에 치우쳐 있어 그 밖의 폭넓은 화용 자원에 대한 연구가 더 필요하다. L2 교육 연구는 주어-서술어 (불)일치의 다양한 실현형에 제한적인 관심만 기울였다('limited attention has been paid').",
           "src": "p.3 §2.2-2.3"
         },
         {
@@ -259,8 +259,8 @@
         "term": "Hsubj-Hverb / Hsubj-NHverb / NHsubj-Hverb / NHsubj-NHverb",
         "gloss_ko": "조건 라벨(주어 높임 여부-서술어 높임 여부)",
         "definition": "H = 문장에 높임 표지 있음, NH = 비높임. 첫 글자는 주어 위치, 둘째 글자는 서술어 위치(Table 1 Note 1). Study 1은 앞의 세 범주만 집계하고, Study 2에서 NHsubj-NHverb를 기준(baseline) 조건으로 추가했다.",
-        "note": "같은 NHsubj 라벨이 Study 1에서는 '주어 명사구에 높임 표지가 없음'(엄마, 사람들)을, Study 2에서는 '높일 수 없는 지시체의 고유명'(영희)을 가리킨다. P02–P04의 honorifiable / non-honorifiable subject 구분과 대조할 때 주의.",
-        "src": "p.4 Table 1 Note; p.5 §4.2"
+        "note": "같은 NHsubj 라벨이 두 연구에서 다른 기준으로 정의된다. Study 1(말뭉치·ChatGPT)은 형태 기준이다 — NH는 '높임 표지의 부재(a null presence of honorifics)'(§3.3, Table 1 Note 1)이고 말뭉치 NHsubj-Hverb 359건은 Table 2의 'No honorifics'(주어에 -께서·높임 어휘 없음)와 같은 수이므로, 지시체가 높임 대상인 엄마·아빠 주어도 지위 미정인 '사람들' 주어도 NHsubj에 든다. Study 2(판단 실험)는 지시체 기준이다 — 원문에 실린 NHsubj 예시는 높일 수 없는 지시체의 고유명(영희)이고, 저자도 판단 과제의 NHsubj-Hverb를 '주어를 높이면 안 되는'('the subject should not be honorified') 유형으로 해석한다(p.8 §6). 원문은 이 기준 차이를 밝히지 않고 같은 라벨을 쓴다. P02–P04의 honorifiable / non-honorifiable subject 구분(지시체 기준)과 대조할 때 주의.",
+        "src": "p.4 §3.3, Table 1 Note; p.5 §4.2; p.8 §6"
       },
       {
         "term": "subject-verb honorific (mis)match / agreement",
@@ -407,7 +407,7 @@
       {
         "kind": "method",
         "quote": "searched for utterances that have either the subject honorific particle -kkeyse",
-        "paraphrase_ko": "말뭉치에서는 조사 -께서 또는 선어말어미 -(으)시-가 있는 발화만 검색했다. 따라서 두 표지가 모두 없는 발화(NHsubj-NHverb, 어휘 전용 Hsubj-NHverb)는 애초에 표본에 들어오지 않는다.",
+        "paraphrase_ko": "말뭉치에서는 조사 -께서 또는 선어말어미 -(으)시-가 있는 발화만 검색했다. 따라서 두 표지가 모두 없는 발화는 애초에 표본에 들어오지 않는다. NHsubj-NHverb는 집계 대상에서 빠지고, -께서 없이 어휘로만 주어를 높이고 서술어에 -시-가 없는 Hsubj-NHverb는 저자 표현대로 과소 대표된다('under-represented', p.8 §5).",
         "numbers": ["2000", "3 million word segments"],
         "src": "p.4 §3.2"
       },
@@ -505,7 +505,7 @@
       {
         "kind": "result",
         "quote": "did not differ significantly between L1 and L2 speakers (p = .84)",
-        "paraphrase_ko": "Hsubj-Hverb 대비 Hsubj-NHverb의 하락 폭은 두 집단이 다르지 않았다. L2도 '높임 주어 + 비높임 서술어'에는 L1만큼 민감하다.",
+        "paraphrase_ko": "Hsubj-Hverb 대비 Hsubj-NHverb의 하락 폭은 두 집단 간에 유의하게 다르지 않았다. 저자는 이를 L2도 '높임 주어 + 비높임 서술어'에는 L1과 비슷한 민감도를 보인다는 뜻으로 해석한다('suggesting comparable sensitivity'). 단 이 조건의 평정 자체는 L1이 L2보다 유의하게 높았다(b = 0.96, p = .004).",
         "numbers": ["b = −0.07", "SE 0.33", "p = .84"],
         "src": "p.6 §4.5"
       },
@@ -540,7 +540,7 @@
       {
         "kind": "claim",
         "quote": "L1 Korean speakers produced a fair amount of NHsubj-Hverb sentences",
-        "paraphrase_ko": "L1 화자는 실제 대화에서 NHsubj-Hverb를 꽤 산출하면서도 판단 과제에서는 수용 불가로 평정했다는 산출-지각 괴리. 단 산출된 것은 친족어 주어, 평정된 것은 고유명 주어여서 같은 문장 유형이 아니다.",
+        "paraphrase_ko": "L1 화자는 실제 대화에서 NHsubj-Hverb를 꽤 산출하면서도 판단 과제에서는 수용 불가로 평정했다는 산출-지각 괴리. 단 산출된 NHsubj-Hverb는 다수가 비높임 친족어 주어이고(전부는 아님 — 예문 (7)의 주어는 '사람들'), 평정된 것은 원문 예시 기준으로 고유명(영희) 주어여서 같은 문장 유형이 아니다.",
         "numbers": [],
         "src": "p.8 §5"
       },
@@ -1155,9 +1155,9 @@
     {
       "id": "P05-H2",
       "hook_ko": "'지시체의 존대 가능성(어머니·엄마 대 영희) × 주어 어휘의 높임 형태'를 교차한 2×2에서 -시- 문장의 수용성을 재어, 표면 공기 학습과 허가 조건 학습을 가른다.",
-      "basis_ko": "말뭉치 NHsubj-Hverb(24.71 %)의 다수는 엄마·아빠·삼촌·이모 주어이고 저자는 '엄마가 고기를 안 좋아하시거든'을 'pragmatically appropriate'로 본다. 그런데 Study 2의 NHsubj-Hverb는 '영희는 … 기다리셨다'뿐이어서 같은 라벨 아래 다른 현상이 묶였다. 표면 공기(-님/-께서 ↔ -시-)를 배운 모델은 '엄마가 …하시-'를 깎고 '영희+시'와 비슷하게 볼 것이고, 허가 조건을 배운 모델은 전자를 수용하고 후자만 거부할 것이다. 친족어 주어 문장은 인간에게도 평정시킨 적이 없다.",
+      "basis_ko": "말뭉치 NHsubj-Hverb(24.71 %)의 다수는 엄마·아빠·삼촌·이모 주어이고 저자는 '엄마가 고기를 안 좋아하시거든'을 'pragmatically appropriate'로 본다. 그런데 원문에 실린 Study 2의 NHsubj-Hverb 예시는 '영희는 … 기다리셨다' 하나이고, 저자도 판단 과제의 NHsubj-Hverb를 '주어를 높이면 안 되는' 유형으로 해석하므로(p.8) 같은 라벨 아래 다른 현상이 묶였다. 표면 공기(-님/-께서 ↔ -시-)를 배운 모델은 '엄마가 …하시-'를 깎고 '영희+시'와 비슷하게 볼 것이고, 허가 조건을 배운 모델은 전자를 수용하고 후자만 거부할 것이다. PDF에 실린 자극과 저자 서술로 보아 친족어 주어 문장은 판단 과제에 들어가지 않았다(40세트 전체는 Appendix D에 있어 미확인).",
       "kind": "unresolved_confound",
-      "src": "p.7 §5; p.8 §6"
+      "src": "p.7 §5; p.5 §4.2; p.8 §6"
     },
     {
       "id": "P05-H3",
@@ -1266,8 +1266,20 @@
     ]
   },
   "verification": {
-    "status": "draft",
-    "by": null,
-    "notes": []
+    "status": "corrected",
+    "by": "P1-11 Opus 검증",
+    "notes": [
+      "layers.word[1].note: 'Study 1은 주어 명사구에 표지 없음, Study 2는 높일 수 없는 지시체의 고유명' → 'Study 1은 형태 기준(NH = 높임 표지 부재, Table 2 No honorifics 359건과 동일), Study 2는 지시체 기준(저자가 p.8에서 판단 과제 NHsubj-Hverb를 the subject should not be honorified 유형으로 해석)'으로 보충, src에 p.4 §3.3·p.8 §6 추가 (근거 p.4 §3.3, Table 1 Note 1; p.5 Table 2; p.8 §6)",
+      "successor_hooks[1] (P05-H2).basis_ko: 'Study 2의 NHsubj-Hverb는 영희는 … 기다리셨다뿐' / '친족어 주어 문장은 인간에게도 평정시킨 적이 없다'(단정) → '원문에 실린 예시는 하나이고 저자가 판단 과제 NHsubj-Hverb를 높이면 안 되는 주어 유형으로 해석' / 'PDF 자극과 저자 서술로 보아 판단 과제에 들어가지 않았다(40세트 전체는 Appendix D라 미확인)', src에 p.5 §4.2 추가 (근거 p.5 §4.2 예문 (8)-(11) 한 세트만 제시; p.8 §6)",
+      "layers.sentence[20].paraphrase_ko: '두 집단이 다르지 않았다. L2도 … L1만큼 민감하다'(단정) → '유의하게 다르지 않았다. 저자는 비슷한 민감도로 해석(suggesting comparable sensitivity). 단 이 조건 평정 자체는 L1 > L2(b = 0.96, p = .004)' (근거 p.6 §4.5)",
+      "layers.sentence[25].paraphrase_ko: '산출된 것은 친족어 주어, 평정된 것은 고유명 주어' → '산출된 NHsubj-Hverb는 다수가 친족어 주어(전부는 아님, 예문 (7) 사람들), 평정된 것은 원문 예시 기준 고유명(영희)' (근거 p.5 예문 (7); p.7 §5 'a majority instances')",
+      "citation.apa·venue: 'Applied Corpus Linguistics, 6, 100171' → '6(1), 100171'; bib_notes에 Crossref 확인 사실 추가 (근거: 원문 p.1에는 호 미표기, Crossref issue = 1, published-print 2026-04; doi.org → linkinghub.elsevier.com PII S266679912500053X, Crossref 제목·저자·권·논문번호 일치)",
+      "w5h1.who.items[0].text: 'CRediT에 따르면 Software·Funding acquisition은 Kim 담당' → 'Software·Resources·Funding acquisition은 Kim만 담당' (근거 p.9 CRediT)",
+      "w5h1.why.items[1].text: '경어 같은 다른 화용 자원은 다뤄지지 않았다' / '다양한 실현형에 주목하지 않았다'(부재로 단정) → '근거가 비교적 적고 화행 추론 밖의 폭넓은 화용 자원 연구가 더 필요' / '제한적인 관심만 기울였다(limited attention has been paid)' (근거 p.3 §2.2 'relatively limited evidence', 'further investigation is needed'; p.3 §2.3)",
+      "layers.sentence[6].paraphrase_ko: '어휘 전용 Hsubj-NHverb는 애초에 표본에 들어오지 않는다'(부재로 단정) → '두 표지가 모두 없는 발화는 빠지고, 어휘 전용 Hsubj-NHverb는 과소 대표된다(under-represented)' — 저자 서술 및 카드 key_numbers[9]의 추론과 일치시킴 (근거 p.8 §5)",
+      "w5h1.what.items[6].text: '이 불일치에 대한 민감도는 두 집단이 비슷하다'(비유의 상호작용을 동등성으로 단정) → '저자는 비슷하다고 해석한다(베이지안 서열 모형에서도 이 항만 신용구간이 0 포함)' (근거 p.6 §4.5, Table 4 Note)",
+      "확인 결과 정정 불필요: Table 1 두 행의 빈도·비율 8칸과 분모 1453·합계 2906, 불일치 407 = 48 + 359 (28.01 %), 24.71 % = 359/1453 = 'Table 2 No honorifics(주어 위치 높임 표지 없음)' = 'NHsubj-Hverb(-(으)시- 있음)'의 동일 359건, 친족어 주어는 'a majority'로만 서술되고 비율 수치 없음(Song et al. 2019의 70 %는 인용 수치), Table 2 여덟 칸(합 1453, 말뭉치 Hsubj 1094 = 1046 + 48), Table 3 L1·L2 평균·SE·95 % CI 24칸(PDF 확대 판독), Table 4 계수·SE·z·p·임의효과 SD 전부, 재계산 4.66·1.23·2.18(5.01 − 2.83)·2.17(−0.90 + 3.07)·17.08 %(48/281)·19.34 %(281/1453), Study 2 설계(40세트·4목록 라틴 방격·채움 20·7점·L1 34명(46명 중 12명 제외)·L2 16명·Gorilla·glmmTMB 모형식), ChatGPT 프롬프트 한국어 4문장·영어 번역, 참고문헌에 P01–P04·P06·P09·P10 부재(p.9–10 참고문헌 전수 대조; Shin, G.-H. et al. 2025는 Languages 10(8) 180으로 P04와 다른 논문이며 Crossref상 Gyu-Ho Shin)",
+      "대조 범위: key_numbers 36건, sentence 21건(claim 8·hypothesis 2·result 11), design, hooks 10건, citation, w5h1 사실 항목(who 6·when 5·where 5)"
+    ]
   }
 }
