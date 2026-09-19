@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "note": "홈 화면 6하원칙 × 5영역 매트릭스. 섹션 id는 docs/03_산출물-설계.md §2.3",
+    "rows": [
+      "누가",
+      "언제",
+      "어디서",
+      "무엇을",
+      "어떻게",
+      "왜"
+    ],
+    "cols": [
+      "연구 설계",
+      "실험 전략",
+      "평가 방법",
+      "모델 추천",
+      "언어학적 함의"
+    ]
+  },
+  "cells": [
+    {
+      "row": "누가",
+      "col": "연구 설계",
+      "text_ko": "선행 연구 10편(핵심 계승 5·인접 3·하위 데이터 2)을 잇는다",
+      "tab": "who",
+      "anchor": "who-prior"
+    },
+    {
+      "row": "누가",
+      "col": "실험 전략",
+      "text_ko": "한국어 모어 화자 128명(잠정) + 상용 모델 6개",
+      "tab": "who",
+      "anchor": "who-humans"
+    },
+    {
+      "row": "누가",
+      "col": "평가 방법",
+      "text_ko": "인간과 모델에 문자 그대로 같은 과제",
+      "tab": "how",
+      "anchor": "how-measures"
+    },
+    {
+      "row": "누가",
+      "col": "모델 추천",
+      "text_ko": "글로벌 3·한국어 특화 2·공개 가중치 1",
+      "tab": "who",
+      "anchor": "who-models"
+    },
+    {
+      "row": "누가",
+      "col": "언어학적 함의",
+      "text_ko": "국어학·심리언어학 독자(논문 2)와 계산언어학 독자(논문 1)",
+      "tab": "where",
+      "anchor": "where-publication"
+    },
+    {
+      "row": "언제",
+      "col": "연구 설계",
+      "text_ko": "2019–2026년 모델 세대까지 검증되지 않은 공백",
+      "tab": "when",
+      "anchor": "when-prior"
+    },
+    {
+      "row": "언제",
+      "col": "실험 전략",
+      "text_ko": "E4 먼저 → 판정어 확정 → 사전등록 → E1–E3",
+      "tab": "when",
+      "anchor": "when-order"
+    },
+    {
+      "row": "언제",
+      "col": "평가 방법",
+      "text_ko": "예비 조사 12명 후 검정력 시뮬레이션으로 인원 확정",
+      "tab": "when",
+      "anchor": "when-roadmap"
+    },
+    {
+      "row": "언제",
+      "col": "모델 추천",
+      "text_ko": "모든 모델을 같은 주에 몰아 실행해 버전 고정",
+      "tab": "when",
+      "anchor": "when-versioning"
+    },
+    {
+      "row": "언제",
+      "col": "언어학적 함의",
+      "text_ko": "W12–W16 원고 2편",
+      "tab": "when",
+      "anchor": "when-roadmap"
+    },
+    {
+      "row": "어디서",
+      "col": "연구 설계",
+      "text_ko": "공백 G1–G11 가운데 G1·G2가 최우선",
+      "tab": "why",
+      "anchor": "why-gaps"
+    },
+    {
+      "row": "어디서",
+      "col": "실험 전략",
+      "text_ko": "앞 맥락 단락에서 관계를 바꾸고 목표 문장은 고정",
+      "tab": "what",
+      "anchor": "what-experiments"
+    },
+    {
+      "row": "어디서",
+      "col": "평가 방법",
+      "text_ko": "PCIbex(인간)·제공사 API(모델)",
+      "tab": "where",
+      "anchor": "where-platform"
+    },
+    {
+      "row": "어디서",
+      "col": "모델 추천",
+      "text_ko": "제공사 API 직접 호출, surprisal 확장은 Together",
+      "tab": "where",
+      "anchor": "where-api"
+    },
+    {
+      "row": "어디서",
+      "col": "언어학적 함의",
+      "text_ko": "SCiL·CoNLL(논문 1), 국내 국어학 학술지(논문 2)",
+      "tab": "where",
+      "anchor": "where-publication"
+    },
+    {
+      "row": "무엇을",
+      "col": "연구 설계",
+      "text_ko": "표면 공기 가설 대 허가 조건 가설",
+      "tab": "what",
+      "anchor": "what-hypotheses"
+    },
+    {
+      "row": "무엇을",
+      "col": "실험 전략",
+      "text_ko": "E1 지위·E2 소속·E3 청자 × -시-, E4 판정어 통제",
+      "tab": "what",
+      "anchor": "what-experiments"
+    },
+    {
+      "row": "무엇을",
+      "col": "평가 방법",
+      "text_ko": "7점 수용성·7점 공손성·4지선다 이해 문항",
+      "tab": "how",
+      "anchor": "how-measures"
+    },
+    {
+      "row": "무엇을",
+      "col": "모델 추천",
+      "text_ko": "핵심 6개 + 선택 2개, 제외 6개와 이유",
+      "tab": "who",
+      "anchor": "who-models"
+    },
+    {
+      "row": "무엇을",
+      "col": "언어학적 함의",
+      "text_ko": "함의 L1–L5: 결과별로 무엇을 지지하는가",
+      "tab": "why",
+      "anchor": "why-implications"
+    },
+    {
+      "row": "어떻게",
+      "col": "연구 설계",
+      "text_ko": "가설 검정을 2×2 상호작용항에 사전 지정",
+      "tab": "how",
+      "anchor": "how-analysis"
+    },
+    {
+      "row": "어떻게",
+      "col": "실험 전략",
+      "text_ko": "라틴 방격 4목록·단독 제시·순서 무선화",
+      "tab": "how",
+      "anchor": "how-controls"
+    },
+    {
+      "row": "어떻게",
+      "col": "평가 방법",
+      "text_ko": "누적 링크 혼합 모형, E3은 동등성 검정(TOST)",
+      "tab": "how",
+      "anchor": "how-analysis"
+    },
+    {
+      "row": "어떻게",
+      "col": "모델 추천",
+      "text_ko": "기본 샘플링으로 문항×조건당 10회 반복 표집",
+      "tab": "how",
+      "anchor": "how-prompt"
+    },
+    {
+      "row": "어떻게",
+      "col": "언어학적 함의",
+      "text_ko": "결과를 보기 전에 조건문으로 해석을 고정",
+      "tab": "why",
+      "anchor": "why-implications"
+    },
+    {
+      "row": "왜",
+      "col": "연구 설계",
+      "text_ko": "P02가 인정한 어휘 교란(각주 3)을 맥락 조작으로 없앤다",
+      "tab": "why",
+      "anchor": "why-problem"
+    },
+    {
+      "row": "왜",
+      "col": "실험 전략",
+      "text_ko": "허가자가 멀어질수록 모델이 어디서 놓치는지 본다",
+      "tab": "what",
+      "anchor": "what-experiments"
+    },
+    {
+      "row": "왜",
+      "col": "평가 방법",
+      "text_ko": "같은 문장이 '수용'·'중간'·'오류'로 갈리는 이진 정답의 한계(C2)",
+      "tab": "why",
+      "anchor": "why-conflicts"
+    },
+    {
+      "row": "왜",
+      "col": "모델 추천",
+      "text_ko": "프런티어 모델 대부분 temperature 고정 불가",
+      "tab": "who",
+      "anchor": "who-rationale"
+    },
+    {
+      "row": "왜",
+      "col": "언어학적 함의",
+      "text_ko": "경어 허가의 국소성 — 주어·소유주·청자",
+      "tab": "why",
+      "anchor": "why-implications"
+    }
+  ]
+}
