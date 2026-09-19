@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="한국어 경어법 × LLM 후속 연구 설계 — 6하원칙 대시보드">
+<title>경어법 LLM 연구 설계</title>
+<script>{{HEAD_JS}}</script>
+<style>{{CSS}}</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site-head">
+  <div class="wrap site-head-inner">
+    <div class="brand">
+      <p class="brand-kicker">한국어 경어법 × LLM 후속 연구 설계</p>
+      <p class="brand-title">6하원칙 연구 설계 대시보드</p>
+    </div>
+    <div class="theme-switch" role="group" aria-label="화면 테마">
+      <button type="button" data-theme-set="light" aria-pressed="false">라이트</button>
+      <button type="button" data-theme-set="dark" aria-pressed="false">다크</button>
+      <button type="button" data-theme-set="system" aria-pressed="true">시스템</button>
+    </div>
+  </div>
+</header>
+<nav class="tabbar" aria-label="탭">
+  <div class="wrap"><div class="tabs" role="tablist" aria-label="대시보드 탭">
+{{TABS}}
+  </div></div>
+</nav>
+<main id="main" class="wrap" tabindex="-1">
+{{PANELS}}
+</main>
+<footer class="site-foot">
+  <div class="wrap">빌드 {{BUILT_AT}} · <code>content/</code>와 <code>인수인계서.md</code>에서 자동 생성 · 내용을 고치려면 원천 파일을 고친 뒤 <code>python3 build/build_dashboard.py</code>를 다시 실행한다.</div>
+</footer>
+{{DATA}}
+<script>{{JS}}</script>
+</body>
+</html>
